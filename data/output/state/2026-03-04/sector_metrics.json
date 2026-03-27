@@ -1,0 +1,812 @@
+{
+  "能源金属": {
+    "label": "能源金属",
+    "score": 82.06,
+    "pct_change": 0.039599999999999996,
+    "breadth": 1.0,
+    "net_inflow": 17.17,
+    "leader": "融捷股份",
+    "leader_pct_change": 0.1
+  },
+  "化学制药": {
+    "label": "化学制药",
+    "score": 79.89,
+    "pct_change": 0.0308,
+    "breadth": 0.9871794871794872,
+    "net_inflow": 39.81,
+    "leader": "华纳药厂",
+    "leader_pct_change": 0.1252
+  },
+  "农化制品": {
+    "label": "农化制品",
+    "score": 78.26,
+    "pct_change": 0.030299999999999997,
+    "breadth": 1.0,
+    "net_inflow": 18.43,
+    "leader": "赤天化",
+    "leader_pct_change": 0.1005
+  },
+  "互联网电商": {
+    "label": "互联网电商",
+    "score": 75.09,
+    "pct_change": 0.0292,
+    "breadth": 0.9473684210526315,
+    "net_inflow": 3.63,
+    "leader": "新迅达",
+    "leader_pct_change": 0.12689999999999999
+  },
+  "医疗服务": {
+    "label": "医疗服务",
+    "score": 75.93,
+    "pct_change": 0.0277,
+    "breadth": 0.9811320754716981,
+    "net_inflow": 9.91,
+    "leader": "益诺思",
+    "leader_pct_change": 0.1568
+  },
+  "小金属": {
+    "label": "小金属",
+    "score": 74.35,
+    "pct_change": 0.024700000000000003,
+    "breadth": 0.9285714285714286,
+    "net_inflow": 23.66,
+    "leader": "云南锗业",
+    "leader_pct_change": 0.1
+  },
+  "化学原料": {
+    "label": "化学原料",
+    "score": 71.65,
+    "pct_change": 0.0227,
+    "breadth": 0.9122807017543859,
+    "net_inflow": 6.85,
+    "leader": "山东海化",
+    "leader_pct_change": 0.1007
+  },
+  "生物制品": {
+    "label": "生物制品",
+    "score": 72.83,
+    "pct_change": 0.0219,
+    "breadth": 0.9636363636363636,
+    "net_inflow": 7.75,
+    "leader": "康弘药业",
+    "leader_pct_change": 0.0998
+  },
+  "金属新材料": {
+    "label": "金属新材料",
+    "score": 68.68,
+    "pct_change": 0.0187,
+    "breadth": 0.875,
+    "net_inflow": 3.94,
+    "leader": "深圳新星",
+    "leader_pct_change": 0.1002
+  },
+  "医疗器械": {
+    "label": "医疗器械",
+    "score": 71.69,
+    "pct_change": 0.0187,
+    "breadth": 0.9637681159420289,
+    "net_inflow": 10.15,
+    "leader": "普昂医疗",
+    "leader_pct_change": 1.5147
+  },
+  "农产品加工": {
+    "label": "农产品加工",
+    "score": 68.81,
+    "pct_change": 0.0168,
+    "breadth": 0.9069767441860465,
+    "net_inflow": 4.34,
+    "leader": "粤海饲料",
+    "leader_pct_change": 0.10039999999999999
+  },
+  "电子化学品": {
+    "label": "电子化学品",
+    "score": 67.23,
+    "pct_change": 0.0165,
+    "breadth": 0.8292682926829268,
+    "net_inflow": 12.99,
+    "leader": "鼎龙股份",
+    "leader_pct_change": 0.1607
+  },
+  "美容护理": {
+    "label": "美容护理",
+    "score": 68.16,
+    "pct_change": 0.0159,
+    "breadth": 0.9032258064516129,
+    "net_inflow": 2.27,
+    "leader": "倍加洁",
+    "leader_pct_change": 0.0828
+  },
+  "中药": {
+    "label": "中药",
+    "score": 67.65,
+    "pct_change": 0.0155,
+    "breadth": 0.8823529411764706,
+    "net_inflow": 5.21,
+    "leader": "万邦德",
+    "leader_pct_change": 0.1001
+  },
+  "电池": {
+    "label": "电池",
+    "score": 66.98,
+    "pct_change": 0.0154,
+    "breadth": 0.8155339805825242,
+    "net_inflow": 20.13,
+    "leader": "海科新源",
+    "leader_pct_change": 0.1191
+  },
+  "化学制品": {
+    "label": "化学制品",
+    "score": 68.13,
+    "pct_change": 0.015300000000000001,
+    "breadth": 0.8857142857142857,
+    "net_inflow": 10.88,
+    "leader": "科拓生物",
+    "leader_pct_change": 0.1999
+  },
+  "贵金属": {
+    "label": "贵金属",
+    "score": 68.84,
+    "pct_change": 0.0152,
+    "breadth": 0.9166666666666666,
+    "net_inflow": 9.43,
+    "leader": "赤峰黄金",
+    "leader_pct_change": 0.0504
+  },
+  "食品加工制造": {
+    "label": "食品加工制造",
+    "score": 69.24,
+    "pct_change": 0.0141,
+    "breadth": 0.9538461538461539,
+    "net_inflow": 7.35,
+    "leader": "海天味业",
+    "leader_pct_change": 0.0747
+  },
+  "橡胶制品": {
+    "label": "橡胶制品",
+    "score": 63.83,
+    "pct_change": 0.0125,
+    "breadth": 0.8,
+    "net_inflow": 2.12,
+    "leader": "科创新源",
+    "leader_pct_change": 0.0528
+  },
+  "饮料制造": {
+    "label": "饮料制造",
+    "score": 66.94,
+    "pct_change": 0.0123,
+    "breadth": 0.9111111111111111,
+    "net_inflow": 3.14,
+    "leader": "均瑶健康",
+    "leader_pct_change": 0.0998
+  },
+  "种植业与林业": {
+    "label": "种植业与林业",
+    "score": 66.4,
+    "pct_change": 0.012199999999999999,
+    "breadth": 0.896551724137931,
+    "net_inflow": 2.04,
+    "leader": "诺普信",
+    "leader_pct_change": 0.039599999999999996
+  },
+  "厨卫电器": {
+    "label": "厨卫电器",
+    "score": 56.72,
+    "pct_change": 0.012199999999999999,
+    "breadth": 0.5555555555555556,
+    "net_inflow": 0.48,
+    "leader": "亿田智能",
+    "leader_pct_change": 0.0487
+  },
+  "工业金属": {
+    "label": "工业金属",
+    "score": 66.48,
+    "pct_change": 0.011899999999999999,
+    "breadth": 0.8727272727272727,
+    "net_inflow": 12.5,
+    "leader": "万顺新材",
+    "leader_pct_change": 0.0768
+  },
+  "养殖业": {
+    "label": "养殖业",
+    "score": 67.6,
+    "pct_change": 0.011200000000000002,
+    "breadth": 0.9473684210526315,
+    "net_inflow": 4.47,
+    "leader": "申联生物",
+    "leader_pct_change": 0.0302
+  },
+  "白酒": {
+    "label": "白酒",
+    "score": 69.42,
+    "pct_change": 0.0111,
+    "breadth": 1.0,
+    "net_inflow": 9.09,
+    "leader": "*ST岩石",
+    "leader_pct_change": 0.0301
+  },
+  "纺织制造": {
+    "label": "纺织制造",
+    "score": 60.2,
+    "pct_change": 0.0104,
+    "breadth": 0.7096774193548387,
+    "net_inflow": -0.49,
+    "leader": "华孚时尚",
+    "leader_pct_change": 0.09949999999999999
+  },
+  "医药商业": {
+    "label": "医药商业",
+    "score": 64.64,
+    "pct_change": 0.0098,
+    "breadth": 0.8709677419354839,
+    "net_inflow": 1.59,
+    "leader": "鹭燕医药",
+    "leader_pct_change": 0.0202
+  },
+  "化学纤维": {
+    "label": "化学纤维",
+    "score": 62.3,
+    "pct_change": 0.0097,
+    "breadth": 0.7857142857142857,
+    "net_inflow": 2.77,
+    "leader": "双欣材料",
+    "leader_pct_change": 0.041100000000000005
+  },
+  "影视院线": {
+    "label": "影视院线",
+    "score": 66.89,
+    "pct_change": 0.0097,
+    "breadth": 0.95,
+    "net_inflow": 2.57,
+    "leader": "华智数媒",
+    "leader_pct_change": 0.0189
+  },
+  "游戏": {
+    "label": "游戏",
+    "score": 65.59,
+    "pct_change": 0.0086,
+    "breadth": 0.9166666666666666,
+    "net_inflow": 3.76,
+    "leader": "凯撒文化",
+    "leader_pct_change": 0.03
+  },
+  "钢铁": {
+    "label": "钢铁",
+    "score": 63.0,
+    "pct_change": 0.0083,
+    "breadth": 0.8205128205128205,
+    "net_inflow": 6.45,
+    "leader": "大中矿业",
+    "leader_pct_change": 0.0652
+  },
+  "软件开发": {
+    "label": "软件开发",
+    "score": 63.21,
+    "pct_change": 0.0079,
+    "breadth": 0.8270676691729323,
+    "net_inflow": 8.78,
+    "leader": "科创信息",
+    "leader_pct_change": 0.08070000000000001
+  },
+  "文化传媒": {
+    "label": "文化传媒",
+    "score": 61.18,
+    "pct_change": 0.0079,
+    "breadth": 0.7654320987654321,
+    "net_inflow": 5.12,
+    "leader": "天地在线",
+    "leader_pct_change": 0.1
+  },
+  "塑料制品": {
+    "label": "塑料制品",
+    "score": 61.01,
+    "pct_change": 0.0077,
+    "breadth": 0.7662337662337663,
+    "net_inflow": 3.88,
+    "leader": "大东南",
+    "leader_pct_change": 0.1
+  },
+  "电机": {
+    "label": "电机",
+    "score": 59.91,
+    "pct_change": 0.0074,
+    "breadth": 0.7391304347826086,
+    "net_inflow": 1.22,
+    "leader": "江特电机",
+    "leader_pct_change": 0.1005
+  },
+  "轨交设备": {
+    "label": "轨交设备",
+    "score": 60.13,
+    "pct_change": 0.0069,
+    "breadth": 0.7586206896551724,
+    "net_inflow": -0.13,
+    "leader": "科安达",
+    "leader_pct_change": 0.0571
+  },
+  "贸易": {
+    "label": "贸易",
+    "score": 61.28,
+    "pct_change": 0.0069,
+    "breadth": 0.8,
+    "net_inflow": -0.21,
+    "leader": "江苏国泰",
+    "leader_pct_change": 0.0207
+  },
+  "零售": {
+    "label": "零售",
+    "score": 61.99,
+    "pct_change": 0.0067,
+    "breadth": 0.8115942028985508,
+    "net_inflow": 5.39,
+    "leader": "上海九百",
+    "leader_pct_change": 0.051
+  },
+  "机场航运": {
+    "label": "机场航运",
+    "score": 59.44,
+    "pct_change": 0.0066,
+    "breadth": 0.7272727272727273,
+    "net_inflow": 3.65,
+    "leader": "中国国航",
+    "leader_pct_change": 0.022000000000000002
+  },
+  "半导体": {
+    "label": "半导体",
+    "score": 58.17,
+    "pct_change": 0.006500000000000001,
+    "breadth": 0.6,
+    "net_inflow": 31.7,
+    "leader": "杰华特",
+    "leader_pct_change": 0.10550000000000001
+  },
+  "自动化设备": {
+    "label": "自动化设备",
+    "score": 56.32,
+    "pct_change": 0.006500000000000001,
+    "breadth": 0.5888888888888889,
+    "net_inflow": 13.22,
+    "leader": "田中精机",
+    "leader_pct_change": 0.1805
+  },
+  "家居用品": {
+    "label": "家居用品",
+    "score": 59.8,
+    "pct_change": 0.0062,
+    "breadth": 0.75,
+    "net_inflow": 2.39,
+    "leader": "联翔股份",
+    "leader_pct_change": 0.0722
+  },
+  "环境治理": {
+    "label": "环境治理",
+    "score": 56.95,
+    "pct_change": 0.0059,
+    "breadth": 0.6415094339622641,
+    "net_inflow": 6.1,
+    "leader": "祥龙电业",
+    "leader_pct_change": 0.1003
+  },
+  "多元金融": {
+    "label": "多元金融",
+    "score": 60.95,
+    "pct_change": 0.005600000000000001,
+    "breadth": 0.7916666666666666,
+    "net_inflow": 5.15,
+    "leader": "中油资本",
+    "leader_pct_change": 0.0371
+  },
+  "非金属材料": {
+    "label": "非金属材料",
+    "score": 57.8,
+    "pct_change": 0.005600000000000001,
+    "breadth": 0.6923076923076923,
+    "net_inflow": 0.74,
+    "leader": "联瑞新材",
+    "leader_pct_change": 0.03
+  },
+  "综合": {
+    "label": "综合",
+    "score": 55.85,
+    "pct_change": 0.0055000000000000005,
+    "breadth": 0.625,
+    "net_inflow": 0.46,
+    "leader": "群兴玩具",
+    "leader_pct_change": 0.0252
+  },
+  "专用设备": {
+    "label": "专用设备",
+    "score": 57.77,
+    "pct_change": 0.0052,
+    "breadth": 0.6907216494845361,
+    "net_inflow": 2.95,
+    "leader": "乐惠国际",
+    "leader_pct_change": 0.1002
+  },
+  "教育": {
+    "label": "教育",
+    "score": 58.75,
+    "pct_change": 0.0052,
+    "breadth": 0.7333333333333333,
+    "net_inflow": 0.35,
+    "leader": "ST开元",
+    "leader_pct_change": 0.019
+  },
+  "环保设备": {
+    "label": "环保设备",
+    "score": 59.88,
+    "pct_change": 0.0049,
+    "breadth": 0.7777777777777778,
+    "net_inflow": 0.59,
+    "leader": "法尔胜",
+    "leader_pct_change": 0.10039999999999999
+  },
+  "造纸": {
+    "label": "造纸",
+    "score": 54.35,
+    "pct_change": 0.0046,
+    "breadth": 0.5833333333333334,
+    "net_inflow": 0.96,
+    "leader": "ST晨鸣",
+    "leader_pct_change": 0.033
+  },
+  "包装印刷": {
+    "label": "包装印刷",
+    "score": 58.08,
+    "pct_change": 0.0045000000000000005,
+    "breadth": 0.7111111111111111,
+    "net_inflow": 3.4,
+    "leader": "*ST集友",
+    "leader_pct_change": 0.050499999999999996
+  },
+  "光学光电子": {
+    "label": "光学光电子",
+    "score": 55.88,
+    "pct_change": 0.0045000000000000005,
+    "breadth": 0.6190476190476191,
+    "net_inflow": 7.91,
+    "leader": "立达信",
+    "leader_pct_change": 0.0603
+  },
+  "服装家纺": {
+    "label": "服装家纺",
+    "score": 58.83,
+    "pct_change": 0.0044,
+    "breadth": 0.7432432432432432,
+    "net_inflow": 2.08,
+    "leader": "金一文化",
+    "leader_pct_change": 0.053200000000000004
+  },
+  "通信服务": {
+    "label": "通信服务",
+    "score": 55.25,
+    "pct_change": 0.0043,
+    "breadth": 0.6136363636363636,
+    "net_inflow": 3.14,
+    "leader": "中富通",
+    "leader_pct_change": 0.048600000000000004
+  },
+  "消费电子": {
+    "label": "消费电子",
+    "score": 53.75,
+    "pct_change": 0.0043,
+    "breadth": 0.574468085106383,
+    "net_inflow": -1.66,
+    "leader": "杰美特",
+    "leader_pct_change": 0.0684
+  },
+  "汽车服务及其他": {
+    "label": "汽车服务及其他",
+    "score": 57.57,
+    "pct_change": 0.0042,
+    "breadth": 0.7083333333333334,
+    "net_inflow": -0.35,
+    "leader": "上海物贸",
+    "leader_pct_change": 0.0191
+  },
+  "通用设备": {
+    "label": "通用设备",
+    "score": 57.42,
+    "pct_change": 0.0042,
+    "breadth": 0.6639004149377593,
+    "net_inflow": 12.86,
+    "leader": "中南文化",
+    "leader_pct_change": 0.099
+  },
+  "IT服务": {
+    "label": "IT服务",
+    "score": 57.74,
+    "pct_change": 0.0042,
+    "breadth": 0.7016129032258065,
+    "net_inflow": 3.96,
+    "leader": "运达科技",
+    "leader_pct_change": 0.0722
+  },
+  "建筑材料": {
+    "label": "建筑材料",
+    "score": 56.78,
+    "pct_change": 0.0040999999999999995,
+    "breadth": 0.6764705882352942,
+    "net_inflow": 1.36,
+    "leader": "扬子新材",
+    "leader_pct_change": 0.0553
+  },
+  "电网设备": {
+    "label": "电网设备",
+    "score": 55.33,
+    "pct_change": 0.0038,
+    "breadth": 0.625,
+    "net_inflow": 2.76,
+    "leader": "新能泰山",
+    "leader_pct_change": 0.0998
+  },
+  "石油加工贸易": {
+    "label": "石油加工贸易",
+    "score": 54.07,
+    "pct_change": 0.0036,
+    "breadth": 0.5925925925925926,
+    "net_inflow": -0.47,
+    "leader": "万邦达",
+    "leader_pct_change": 0.036000000000000004
+  },
+  "光伏设备": {
+    "label": "光伏设备",
+    "score": 52.57,
+    "pct_change": 0.0036,
+    "breadth": 0.5657894736842105,
+    "net_inflow": -9.36,
+    "leader": "琏升科技",
+    "leader_pct_change": 0.0825
+  },
+  "证券": {
+    "label": "证券",
+    "score": 63.02,
+    "pct_change": 0.0036,
+    "breadth": 0.8979591836734694,
+    "net_inflow": 4.43,
+    "leader": "中国银河",
+    "leader_pct_change": 0.0197
+  },
+  "军工装备": {
+    "label": "军工装备",
+    "score": 53.49,
+    "pct_change": 0.0025,
+    "breadth": 0.5802469135802469,
+    "net_inflow": 2.35,
+    "leader": "建设工业",
+    "leader_pct_change": 0.1002
+  },
+  "计算机设备": {
+    "label": "计算机设备",
+    "score": 53.32,
+    "pct_change": 0.0024,
+    "breadth": 0.5802469135802469,
+    "net_inflow": 0.76,
+    "leader": "雷柏科技",
+    "leader_pct_change": 0.0487
+  },
+  "汽车零部件": {
+    "label": "汽车零部件",
+    "score": 54.4,
+    "pct_change": 0.0023,
+    "breadth": 0.5889328063241107,
+    "net_inflow": 11.3,
+    "leader": "新朋股份",
+    "leader_pct_change": 0.1
+  },
+  "汽车整车": {
+    "label": "汽车整车",
+    "score": 51.71,
+    "pct_change": 0.0023,
+    "breadth": 0.5238095238095238,
+    "net_inflow": 0.96,
+    "leader": "安凯客车",
+    "leader_pct_change": 0.0288
+  },
+  "房地产": {
+    "label": "房地产",
+    "score": 52.12,
+    "pct_change": 0.0022,
+    "breadth": 0.5352112676056338,
+    "net_inflow": 2.48,
+    "leader": "西藏城投",
+    "leader_pct_change": 0.0696
+  },
+  "工程机械": {
+    "label": "工程机械",
+    "score": 52.73,
+    "pct_change": 0.0017000000000000001,
+    "breadth": 0.5714285714285714,
+    "net_inflow": 0.17,
+    "leader": "华东重机",
+    "leader_pct_change": 0.0279
+  },
+  "其他社会服务": {
+    "label": "其他社会服务",
+    "score": 54.61,
+    "pct_change": 0.0012,
+    "breadth": 0.6470588235294118,
+    "net_inflow": -0.13,
+    "leader": "中钢天源",
+    "leader_pct_change": 0.0197
+  },
+  "旅游及酒店": {
+    "label": "旅游及酒店",
+    "score": 52.18,
+    "pct_change": 0.0008,
+    "breadth": 0.5625,
+    "net_inflow": 1.07,
+    "leader": "祥源文旅",
+    "leader_pct_change": 0.0203
+  },
+  "军工电子": {
+    "label": "军工电子",
+    "score": 51.74,
+    "pct_change": 0.0006,
+    "breadth": 0.55,
+    "net_inflow": 1.1,
+    "leader": "银河电子",
+    "leader_pct_change": 0.0403
+  },
+  "建筑装饰": {
+    "label": "建筑装饰",
+    "score": 52.16,
+    "pct_change": 0.0002,
+    "breadth": 0.5886524822695035,
+    "net_inflow": -4.82,
+    "leader": "ST瑞和",
+    "leader_pct_change": 0.0495
+  },
+  "白色家电": {
+    "label": "白色家电",
+    "score": 50.7,
+    "pct_change": 0.0001,
+    "breadth": 0.525,
+    "net_inflow": -0.52,
+    "leader": "和而泰",
+    "leader_pct_change": 0.0375
+  },
+  "物流": {
+    "label": "物流",
+    "score": 50.83,
+    "pct_change": 0.0,
+    "breadth": 0.5319148936170213,
+    "net_inflow": -0.76,
+    "leader": "圆通速递",
+    "leader_pct_change": 0.0405
+  },
+  "黑色家电": {
+    "label": "黑色家电",
+    "score": 49.91,
+    "pct_change": -0.0002,
+    "breadth": 0.5,
+    "net_inflow": -0.04,
+    "leader": "极米科技",
+    "leader_pct_change": 0.0212
+  },
+  "其他电源设备": {
+    "label": "其他电源设备",
+    "score": 48.56,
+    "pct_change": -0.0003,
+    "breadth": 0.45454545454545453,
+    "net_inflow": -0.46,
+    "leader": "华自科技",
+    "leader_pct_change": 0.030699999999999998
+  },
+  "燃气": {
+    "label": "燃气",
+    "score": 50.95,
+    "pct_change": -0.0004,
+    "breadth": 0.5416666666666666,
+    "net_inflow": -0.63,
+    "leader": "国新能源",
+    "leader_pct_change": 0.0331
+  },
+  "通信设备": {
+    "label": "通信设备",
+    "score": 51.27,
+    "pct_change": -0.0016,
+    "breadth": 0.5294117647058824,
+    "net_inflow": 13.44,
+    "leader": "*ST天喻",
+    "leader_pct_change": 0.060899999999999996
+  },
+  "小家电": {
+    "label": "小家电",
+    "score": 47.84,
+    "pct_change": -0.0024,
+    "breadth": 0.4583333333333333,
+    "net_inflow": 0.15,
+    "leader": "开能健康",
+    "leader_pct_change": 0.0268
+  },
+  "风电设备": {
+    "label": "风电设备",
+    "score": 49.38,
+    "pct_change": -0.0024,
+    "breadth": 0.5161290322580645,
+    "net_inflow": -0.82,
+    "leader": "锡华科技",
+    "leader_pct_change": 0.1
+  },
+  "元件": {
+    "label": "元件",
+    "score": 44.83,
+    "pct_change": -0.0033,
+    "breadth": 0.3559322033898305,
+    "net_inflow": 3.01,
+    "leader": "*ST东晶",
+    "leader_pct_change": 0.0496
+  },
+  "其他电子": {
+    "label": "其他电子",
+    "score": 47.59,
+    "pct_change": -0.0048,
+    "breadth": 0.48484848484848486,
+    "net_inflow": 0.39,
+    "leader": "富信科技",
+    "leader_pct_change": 0.022000000000000002
+  },
+  "港口航运": {
+    "label": "港口航运",
+    "score": 38.93,
+    "pct_change": -0.0073,
+    "breadth": 0.21875,
+    "net_inflow": -1.55,
+    "leader": "招商轮船",
+    "leader_pct_change": 0.012
+  },
+  "电力": {
+    "label": "电力",
+    "score": 38.86,
+    "pct_change": -0.0076,
+    "breadth": 0.3137254901960784,
+    "net_inflow": -32.77,
+    "leader": "东方新能",
+    "leader_pct_change": 0.1003
+  },
+  "银行": {
+    "label": "银行",
+    "score": 34.21,
+    "pct_change": -0.0085,
+    "breadth": 0.07317073170731707,
+    "net_inflow": -3.27,
+    "leader": "平安银行",
+    "leader_pct_change": 0.0055000000000000005
+  },
+  "公路铁路运输": {
+    "label": "公路铁路运输",
+    "score": 36.75,
+    "pct_change": -0.0087,
+    "breadth": 0.16666666666666666,
+    "net_inflow": -3.16,
+    "leader": "海汽集团",
+    "leader_pct_change": 0.013500000000000002
+  },
+  "煤炭开采加工": {
+    "label": "煤炭开采加工",
+    "score": 36.9,
+    "pct_change": -0.0113,
+    "breadth": 0.21212121212121213,
+    "net_inflow": -3.55,
+    "leader": "山西焦化",
+    "leader_pct_change": 0.0151
+  },
+  "保险": {
+    "label": "保险",
+    "score": 41.87,
+    "pct_change": -0.0123,
+    "breadth": 0.4,
+    "net_inflow": -1.97,
+    "leader": "中国太保",
+    "leader_pct_change": 0.0108
+  },
+  "油气开采及服务": {
+    "label": "油气开采及服务",
+    "score": 34.37,
+    "pct_change": -0.0128,
+    "breadth": 0.15789473684210525,
+    "net_inflow": -8.16,
+    "leader": "蓝焰控股",
+    "leader_pct_change": 0.023799999999999998
+  }
+}

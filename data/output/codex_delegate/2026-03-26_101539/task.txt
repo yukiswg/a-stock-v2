@@ -1,0 +1,1 @@
+Audit README.md and STARTUP_README.md for consistency. Only edit files if you find a concrete inconsistency. Keep changes minimal. Return pass only if the docs are aligned.

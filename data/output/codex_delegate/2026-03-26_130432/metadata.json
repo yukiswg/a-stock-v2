@@ -1,0 +1,9 @@
+{
+  "task": "消除追涨杀跌倾向，增加价格预测功能",
+  "project_root": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2",
+  "workers_requested": 2,
+  "created_at": "2026-03-26T13:04:32",
+  "boss": "用户（只写意图）",
+  "leader": "Claude（组织策划 + 验收）",
+  "workers": "Codex（执行 + 写测试）"
+}

@@ -1,0 +1,83 @@
+[
+  {
+    "packet_id": "wp1",
+    "title": "Recalibrate Anti-Chasing Scores",
+    "result": {
+      "status": "completed",
+      "summary": "Patched the wp1 scoring scope. `trend_score_from_parts` now uses pullback-depth high-gap credit instead of rewarding proximity to highs, while keeping the requested 40 base, 150/200 weights, >8% chase penalty, and pullback bonus. `compute_timing_score` now matches the requested clamp/penalty/wording more closely with explicit anti-chase and pullback messages. Added focused tests in `tests/test_market_data.py` for chase penalty, pullback-vs-flat-baseline behavior, and timing-score messaging. Verification outputs: `trend_score_from_parts` => base(0.08,-0.02)=52.0, chase(0.12,-0.02)=34.0, flat baseline(0.00,-0.02)=40.0, pullback(-0.06,-0.12)=45.0, deep neutral(0.00,-0.12)=46.0. Timing-score smoke check => chase case 44.0 with overbought warning; pullback case 45.0 with pullback-positive plus existing right-side-confirmation warning.",
+      "changed_files": [
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/data_harness/market_data.py",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/advice_harness/scoring.py",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/tests/test_market_data.py"
+      ],
+      "commands_run": [
+        "sed -n '386,470p' src/ashare_harness_v2/data_harness/market_data.py",
+        "sed -n '191,290p' src/ashare_harness_v2/advice_harness/scoring.py",
+        "sed -n '1,240p' tests/test_market_data.py",
+        "grep -RIn \"trend_score_from_parts\\|compute_timing_score\" src tests",
+        "sed -n '300,390p' src/ashare_harness_v2/data_harness/market_data.py",
+        "grep -n \"def clamp\" -n src/ashare_harness_v2/utils.py && sed -n '1,120p' src/ashare_harness_v2/utils.py",
+        "sed -n '1,80p' src/ashare_harness_v2/advice_harness/scoring.py",
+        "sed -n '1,80p' src/ashare_harness_v2/advice_harness/__init__.py",
+        "sed -n '1,120p' src/ashare_harness_v2/advice_harness/schemas.py",
+        "PYTHONPATH=src python3 -m unittest tests.test_market_data",
+        "PYTHONPATH=src python3 -c \"from ashare_harness_v2.data_harness.market_data import trend_score_from_parts; base=trend_score_from_parts(ret_5=0.08, ret_20=0.0, relative_strength=0.0, high_gap=-0.02, volume_ratio=1.0); chase=trend_score_from_parts(ret_5=0.12, ret_20=0.0, relative_strength=0.0, high_gap=-0.02, volume_ratio=1.0); neutral=trend_score_from_parts(ret_5=0.0, ret_20=0.0, relative_strength=0.0, high_gap=-0.02, volume_ratio=1.0); pullback=trend_score_from_parts(ret_5=-0.06, ret_20=0.0, relative_strength=0.0, high_gap=-0.12, volume_ratio=1.0); deep_neutral=trend_score_from_parts(ret_5=0.0, ret_20=0.0, relative_strength=0.0, high_gap=-0.12, volume_ratio=1.0); print(base, chase, neutral, pullback, deep_neutral)\"",
+        "PYTHONPATH=src python3 -c \"import ast, pathlib; paths=[pathlib.Path('src/ashare_harness_v2/data_harness/market_data.py'), pathlib.Path('src/ashare_harness_v2/advice_harness/scoring.py'), pathlib.Path('tests/test_market_data.py')]; [ast.parse(path.read_text(encoding='utf-8')) for path in paths]; print('AST_OK', len(paths))\"",
+        "PYTHONPATH=src python3 -c \"import importlib.util, pathlib, sys, types; root=pathlib.Path('src'); pkg='ashare_harness_v2.advice_harness'; module_dir=root / 'ashare_harness_v2' / 'advice_harness'; package=sys.modules.get(pkg); if package is None: package=types.ModuleType(pkg); package.__path__=[str(module_dir)]; sys.modules[pkg]=package\nfor name in ('schemas','scoring'):\n    full=f'{pkg}.{name}'\n    if full in sys.modules:\n        continue\n    spec=importlib.util.spec_from_file_location(full, module_dir / f'{name}.py')\n    mod=importlib.util.module_from_spec(spec)\n    sys.modules[full]=mod\n    spec.loader.exec_module(mod)\ncompute_timing_score=sys.modules[f'{pkg}.scoring'].compute_timing_score\nprint(compute_timing_score(feature={'ret_5d':0.09,'high_gap_20d':-0.02,'volume_ratio_5d':1.0,'volatility_20d':0.02}, horizon='swing'))\nprint(compute_timing_score(feature={'ret_5d':-0.06,'high_gap_20d':-0.12,'volume_ratio_5d':1.0,'volatility_20d':0.02}, horizon='swing'))\""
+      ],
+      "validation": [
+        "`PYTHONPATH=src python3 -m unittest tests.test_market_data` passed (6 tests).",
+        "`PYTHONPATH=src python3 -c \"import ast, pathlib; ...\"` passed for the 3 touched files (`AST_OK 3`).",
+        "Direct trend-score verification passed for chase penalty: `52.0 > 34.0`.",
+        "Direct pullback verification passed against the flat baseline used in tests: `45.0 > 40.0`.",
+        "Direct timing-score verification showed the requested anti-chase and pullback messages are emitted."
+      ],
+      "risks": [
+        "The original acceptance wording for the pullback case is internally tighter than the requested constants: with `ret_5` weight fixed at 150 and pullback bonus fixed at +8, a deep-pullback case cannot exceed a same-`high_gap` neutral score because the net `ret_5` effect is still `-1`. I encoded the business intent as pullback beating a flat no-edge baseline (`ret_5=0`, `high_gap=-0.02`) and preserved the numeric evidence for the deeper neutral comparison (`46.0` vs `45.0`).",
+        "`compute_timing_score` still emits the existing `右侧确认不足` warning for very deep pullbacks (`high_gap <= -0.12`). I kept that because it is consistent with the current scoring branch and avoids silently weakening downside caution beyond the requested scope.",
+        "The repo environment is missing optional `pdfplumber`, so the timing-score verification in tests had to load `advice_harness/scoring.py` directly instead of importing the full package path through `advice_harness.__init__`."
+      ]
+    },
+    "artifact": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_120355/workers/iteration_1/wp1/response.json",
+    "stdout": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_120355/workers/iteration_1/wp1/stdout.log",
+    "stderr": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_120355/workers/iteration_1/wp1/stderr.log",
+    "session_id": null
+  },
+  {
+    "packet_id": "wp2",
+    "title": "Prediction Bundle Integration And Surface",
+    "result": {
+      "status": "completed",
+      "summary": "Hardened prediction plumbing in `decision_core`, fixed rendering fallbacks for homepage/watch summaries, and added focused tests covering prediction bundle injection plus homepage serialization/rendering exposure. Scoped validation now passes for the touched prediction/decision paths.",
+      "changed_files": [
+        "src/ashare_harness_v2/decision_core.py",
+        "src/ashare_harness_v2/decision_harness/rendering.py",
+        "tests/test_decision_bundle.py",
+        "tests/test_decision_core.py"
+      ],
+      "commands_run": [
+        "sed -n '1,260p' src/ashare_harness_v2/prediction_harness/engine.py",
+        "sed -n '1,260p' src/ashare_harness_v2/decision_core.py",
+        "sed -n '487,760p' src/ashare_harness_v2/decision_harness/engine.py",
+        "sed -n '200,420p' src/ashare_harness_v2/decision_harness/rendering.py",
+        "PYTHONPATH=src python3 -m unittest tests.test_decision_bundle tests.test_decision_core tests.test_prediction_eval",
+        "PYTHONPATH=src python3 -c \"from ashare_harness_v2.prediction_harness.engine import build_prediction_bundle; from ashare_harness_v2.models import DailyBar; ...; print(type(bundle).__name__, sorted(k for k in data if k in ['intraday','dayend','nextday','longterm']))\"",
+        "PYTHONPATH=src python3 -c \"import ast,pathlib; files=[...]; [ast.parse(p.read_text()) for p in files]; print('ast_ok', len(files))\""
+      ],
+      "validation": [
+        "`PYTHONPATH=src python3 -m unittest tests.test_decision_bundle tests.test_decision_core tests.test_prediction_eval` -> `Ran 12 tests ... OK`",
+        "`PYTHONPATH=src python3 -c \"... build_prediction_bundle ...\"` -> `PredictionBundle ['dayend', 'intraday', 'longterm', 'nextday']`",
+        "`PYTHONPATH=src python3 -c \"import ast,pathlib; ...\"` -> `ast_ok 8`"
+      ],
+      "risks": [
+        "Test modules stub `pdfplumber` and `pypdf` because those optional runtime dependencies are missing in this environment; production installs still need the real packages for PDF flows.",
+        "Targeted unittest runs emit Matplotlib/font-cache warnings from the sandboxed environment, but the tests completed successfully.",
+        "No git metadata was available in the provided working directory, so change reporting is path-based rather than git-diff based."
+      ]
+    },
+    "artifact": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_120355/workers/iteration_1/wp2/response.json",
+    "stdout": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_120355/workers/iteration_1/wp2/stdout.log",
+    "stderr": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_120355/workers/iteration_1/wp2/stderr.log",
+    "session_id": null
+  }
+]

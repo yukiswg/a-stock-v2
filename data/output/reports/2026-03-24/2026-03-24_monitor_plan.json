@@ -1,0 +1,361 @@
+[
+  {
+    "object_type": "monitor",
+    "object_id": "000300",
+    "object_name": "沪深300",
+    "at": "2026-03-24",
+    "action": "monitor_index",
+    "score": 4.65,
+    "probability": 0.3635,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 沪深300。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "000001",
+    "object_name": "上证指数",
+    "at": "2026-03-24",
+    "action": "monitor_index",
+    "score": 0.0,
+    "probability": 0.3635,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 上证指数。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "399006",
+    "object_name": "创业板指",
+    "at": "2026-03-24",
+    "action": "monitor_index",
+    "score": 37.25,
+    "probability": 0.3635,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 创业板指。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "513310",
+    "object_name": "中韩芯片",
+    "at": "2026-03-24",
+    "action": "monitor_holding",
+    "score": 0.0,
+    "probability": 0.625,
+    "reason": [
+      "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+      "中韩芯片 已经进入弱趋势防守阶段，先处理风险，再谈加仓。"
+    ],
+    "risk": [
+      "若重新站回 4.13 且成交恢复，可转回观察。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "holding",
+      "parent_action": "cut_on_breakdown",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "601699",
+    "object_name": "潞安环能",
+    "at": "2026-03-24",
+    "action": "monitor_holding",
+    "score": 60.17,
+    "probability": 0.7909,
+    "reason": [
+      "持仓动作 `hold_no_add`，盘中需要验证是否符合预期。",
+      "潞安环能 还没有差到必须卖，但仓位条件已经不支持继续加。"
+    ],
+    "risk": [
+      "若跌破 14.28，转为破位减仓。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "cninfo",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "holding",
+      "parent_action": "hold_no_add",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "588000",
+    "object_name": "科创50",
+    "at": "2026-03-24",
+    "action": "monitor_holding",
+    "score": 6.01,
+    "probability": 0.24,
+    "reason": [
+      "持仓动作 `hold_no_add`，盘中需要验证是否符合预期。",
+      "科创50 还没有差到必须卖，但仓位条件已经不支持继续加。"
+    ],
+    "risk": [
+      "若跌破 1.33，转为破位减仓。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "holding",
+      "parent_action": "hold_no_add",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "300335",
+    "object_name": "迪森股份",
+    "at": "2026-03-24",
+    "action": "monitor_watch",
+    "score": 68.3,
+    "probability": 0.7665,
+    "reason": [
+      "观察动作 `wait_for_breakout`，盘中只在出现确认信号时提醒。",
+      "迪森股份 接近关键位，但还没给出值得执行的确认。"
+    ],
+    "risk": [
+      "若回落跌破 7.00，取消突破预案。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_for_breakout",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "688796",
+    "object_name": "百奥赛图",
+    "at": "2026-03-24",
+    "action": "monitor_watch",
+    "score": 62.57,
+    "probability": 0.6728,
+    "reason": [
+      "观察动作 `wait_for_breakout`，盘中只在出现确认信号时提醒。",
+      "百奥赛图 接近关键位，但还没给出值得执行的确认。"
+    ],
+    "risk": [
+      "若回落跌破 74.40，取消突破预案。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_for_breakout",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "300750",
+    "object_name": "宁德时代",
+    "at": "2026-03-24",
+    "action": "monitor_watch",
+    "score": 59.76,
+    "probability": 0.7238,
+    "reason": [
+      "观察动作 `wait_for_breakout`，盘中只在出现确认信号时提醒。",
+      "宁德时代 接近关键位，但还没给出值得执行的确认。"
+    ],
+    "risk": [
+      "若回落跌破 376.30，取消突破预案。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_for_breakout",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "300983",
+    "object_name": "尤安设计",
+    "at": "2026-03-24",
+    "action": "monitor_watch",
+    "score": 57.41,
+    "probability": 0.687,
+    "reason": [
+      "观察动作 `wait_for_pullback`，盘中只在出现确认信号时提醒。",
+      "尤安设计 方向还在，但更优赔率不在当前位置。"
+    ],
+    "risk": [
+      "若直接跌破 27.28，取消计划。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_for_pullback",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  }
+]

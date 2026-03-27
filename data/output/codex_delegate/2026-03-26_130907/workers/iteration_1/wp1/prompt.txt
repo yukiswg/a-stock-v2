@@ -1,0 +1,62 @@
+你是这个交付循环的 Worker（执行者），负责完成分配给你的任务包。
+
+Project root: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+Run directory: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_130907
+Iteration: 1
+
+## Leader 制定的大目标
+{
+  "outcome": "生成的日报/首页报告会输出唯一一支“明日最佳标的”，并附带基于历史样本的次日回测证据。",
+  "done_means": [
+    "`combine_nextday_edge(selection_score=70.0, nextday_return=0.012, win_rate=0.58, trade_count=40)` 的返回值大于 `combine_nextday_edge(selection_score=70.0, nextday_return=0.012, win_rate=0.52, trade_count=40)`。",
+    "`combine_nextday_edge(selection_score=70.0, nextday_return=0.012, win_rate=0.58, trade_count=40)` 的返回值大于 `combine_nextday_edge(selection_score=70.0, nextday_return=0.012, win_rate=0.58, trade_count=8)`。",
+    "`select_nextday_best_pick(config, as_of=\"2026-03-26\", holdings_file=...)` 返回非空 dict，且其 `code` 等于 `rank_nextday_candidates(config, as_of=\"2026-03-26\", limit=5, holdings_file=...)[0][\"code\"]`。",
+    "上述 `select_nextday_best_pick(...)` 返回结果满足：`code` 不在当前持仓代码集合内，且不属于 `{\"000300\",\"510300\",\"000001\",\"399006\"}`；`backtest.trade_count >= 20`；`backtest.sample_end < \"2026-03-26\"`；并且 `backtest.trades` 中每条记录都满足 `row[\"as_of\"] < \"2026-03-26\"` 且 `row[\"code\"] == result[\"code\"]`。",
+    "`build_decision_bundle(..., as_of=\"2026-03-26\", config=config, supplemental=..., sector_map=..., sector_metrics=...)` 返回的 `bundle.homepage_overview` 包含 `tomorrow_best_pick` 字段，且该字段至少包含非空的 `code`、`name`、`tomorrow_score`、`backtest`。",
+    "`write_daily_outputs(...)` 写出的 `daily_report` 与 `homepage_overview` 文件都包含标题 `## 明日最佳标的`；各自该 section 内都包含且仅包含一条 `name(code)` 股票标识，并同时出现 `历史胜率`、`平均次日收益`、`样本数` 三个标签。"
+  ],
+  "risks": [
+    "验收必须只依赖本地缓存的 `data/cache/daily_bars` 和已落盘的 `data/output/state/2026-03-26/*`，不要在测试里触发实时新闻、公告抓取、AkShare 补数或实时行情。",
+    "必须避免未来函数：回测样本结束日期必须严格早于 `as_of`，不能把 `2026-03-26` 之后的 bar 用进任何打分或样本统计。",
+    "当前 `run_premarket` 里写日报发生在 `discover_top_ideas` 之前；如果需要 runtime 接线，必须在 `write_daily_outputs(...)` 之前把 `tomorrow_best_pick` 放进 bundle/homepage payload。"
+  ]
+}
+
+## Leader 分配给你的包
+{
+  "packet_id": "wp1",
+  "title": "明日最佳标的选择与报告落地",
+  "objective": "基于现有缓存日线和已保存状态，为盘前报告选出唯一一支“明日最佳标的”，给出可复核的历史次日回测证据，并把这支股票稳定写入日报与首页输出。",
+  "scope": [
+    "src/ashare_harness_v2/evaluation_harness/*.py",
+    "src/ashare_harness_v2/decision_harness/*.py",
+    "src/ashare_harness_v2/runtime_harness/orchestrator.py",
+    "tests/test_tomorrow_best_pick_report.py"
+  ],
+  "test_file": "tests/test_tomorrow_best_pick_report.py"
+}
+
+## 你要做的事（按顺序执行）
+
+### 第一步：执行 objective
+- 严格在 scope 范围内改文件
+- 不要动其他 Worker 负责的文件
+- 不要做 scope 以外的改动
+
+### 第二步：运行 acceptance test
+- test_file: tests/test_tomorrow_best_pick_report.py
+- 运行命令（选合适的）：
+    PYTHONPATH=src python3 -m pytest tests/test_tomorrow_best_pick_report.py -v
+    PYTHONPATH=src python3 -m unittest discover -s tests -v
+- 把每条测试的 passed/output 填入 test_results
+
+### 第三步：返回原始结果
+- status: completed（全部通过）/ blocked（有障碍）/ failed（执行失败）
+- 不要写主观总结，只列 changed_files + test_results + evidence
+- 返回纯 JSON，符合 schema
+
+## 约束
+- 不要加 markdown fence
+- 只动 scope 里的文件
+- test_results 里每个条目：{"name": "...", "passed": bool, "output": "..."}
+- output 截取测试运行输出最后 500 字符即可

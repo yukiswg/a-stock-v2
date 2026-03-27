@@ -1,0 +1,361 @@
+[
+  {
+    "object_type": "monitor",
+    "object_id": "000300",
+    "object_name": "沪深300",
+    "at": "2026-03-26",
+    "action": "monitor_index",
+    "score": 25.0,
+    "probability": 0.2104,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 沪深300。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "000001",
+    "object_name": "上证指数",
+    "at": "2026-03-26",
+    "action": "monitor_index",
+    "score": 19.95,
+    "probability": 0.2104,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 上证指数。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "399006",
+    "object_name": "创业板指",
+    "at": "2026-03-26",
+    "action": "monitor_index",
+    "score": 36.93,
+    "probability": 0.2104,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 创业板指。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "601699",
+    "object_name": "潞安环能",
+    "at": "2026-03-26",
+    "action": "monitor_holding",
+    "score": 13.49,
+    "probability": 0.5407,
+    "reason": [
+      "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+      "潞安环能 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。"
+    ],
+    "risk": [
+      "若 13.87 一带止跌并重新收回 14.55，先降级为观察，不急着继续减仓。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "cninfo",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "holding",
+      "parent_action": "cut_on_breakdown",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "588000",
+    "object_name": "科创50",
+    "at": "2026-03-26",
+    "action": "monitor_holding",
+    "score": 0.0,
+    "probability": 0.625,
+    "reason": [
+      "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+      "科创50 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。"
+    ],
+    "risk": [
+      "若重新站回 1.41 且成交恢复，可转回观察。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "holding",
+      "parent_action": "cut_on_breakdown",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "513310",
+    "object_name": "中韩芯片",
+    "at": "2026-03-26",
+    "action": "monitor_holding",
+    "score": 3.89,
+    "probability": 0.46,
+    "reason": [
+      "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+      "中韩芯片 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。"
+    ],
+    "risk": [
+      "若重新站回 3.97 且成交恢复，可转回观察。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "holding",
+      "parent_action": "cut_on_breakdown",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "600125",
+    "object_name": "铁龙物流",
+    "at": "2026-03-26",
+    "action": "monitor_watch",
+    "score": 50.75,
+    "probability": 0.3625,
+    "reason": [
+      "观察动作 `watch_market_turn`，盘中只在出现确认信号时提醒。",
+      "铁龙物流 自身质量不差，但当前更大的约束来自市场而不是个股。"
+    ],
+    "risk": [
+      "若相对强弱转负或跌破 6.18，降出重点观察名单。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "watch_market_turn",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "002192",
+    "object_name": "融捷股份",
+    "at": "2026-03-26",
+    "action": "monitor_watch",
+    "score": 24.11,
+    "probability": 0.1722,
+    "reason": [
+      "观察动作 `wait_for_breakout`，盘中只在出现确认信号时提醒。",
+      "融捷股份 接近关键位，但还没给出值得执行的确认。"
+    ],
+    "risk": [
+      "若回落跌破 52.32，取消突破预案。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_for_breakout",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "002807",
+    "object_name": "江阴银行",
+    "at": "2026-03-26",
+    "action": "monitor_watch",
+    "score": 30.34,
+    "probability": 0.2167,
+    "reason": [
+      "观察动作 `wait_for_breakout`，盘中只在出现确认信号时提醒。",
+      "江阴银行 接近关键位，但还没给出值得执行的确认。"
+    ],
+    "risk": [
+      "若回落跌破 4.33，取消突破预案。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_for_breakout",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "600036",
+    "object_name": "招商银行",
+    "at": "2026-03-26",
+    "action": "monitor_watch",
+    "score": 23.5,
+    "probability": 0.1679,
+    "reason": [
+      "观察动作 `wait_for_breakout`，盘中只在出现确认信号时提醒。",
+      "招商银行 接近关键位，但还没给出值得执行的确认。"
+    ],
+    "risk": [
+      "若回落跌破 38.68，取消突破预案。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_for_breakout",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  }
+]

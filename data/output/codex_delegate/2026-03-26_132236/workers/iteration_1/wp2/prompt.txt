@@ -1,0 +1,59 @@
+你是这个交付循环的 Worker（执行者），负责完成分配给你的任务包。
+
+Project root: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+Run directory: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_132236
+Iteration: 1
+
+## Leader 制定的大目标
+{
+  "outcome": "用户可以直接生成一份含唯一“明日最优标的”、同口径历史回测摘要和可落盘报告文件的结果。",
+  "done_means": [
+    "`build_tomorrow_best_pick(load_config(ROOT / \"config/default.toml\"), as_of=\"2026-03-26\")` 返回的 `pick.code` 等于用同一 `strategy_style` 调用 `discover_top_ideas(..., limit=1)` 得到的 `ideas[0].code`，且 `pick.name` 非空。",
+    "同一 payload 的 `backtest.trade_count >= 20`，`0.0 <= backtest.win_rate <= 1.0`，且 `backtest.trades[:10]` 的每条都包含 `as_of`、`code`、`name`、`selection_score`、`next_day_return`。",
+    "执行 `PYTHONPATH=src python3 -m ashare_harness_v2.cli best-stock-report --as-of 2026-03-26` 的退出码为 0，输出可解析为 JSON，且包含 `pick`、`backtest`、`artifacts.markdown`、`artifacts.json`。",
+    "命令返回的 JSON 报告文件中存在单个 `pick` 对象且不存在 `picks` 数组；Markdown 报告包含 `pick.name(pick.code)`、`历史回测` 和 `胜率`。"
+  ],
+  "risks": [
+    "`2026-03-26` 的市场状态当前偏弱，系统可能给出“相对最优但仍需等待触发”的股票，不能为了满足任务把结论硬改成 `buy`。",
+    "历史回测必须与“明日最优标的”的排序口径一致，不能继续沿用只按 `trend_score` 选股的老回测，否则报告里的胜率证据会失真。",
+    "验收测试应只依赖仓库内已有缓存与本地数据，不要引入实时补数、新闻抓取或网络请求，否则结果不稳定。"
+  ]
+}
+
+## Leader 分配给你的包
+{
+  "packet_id": "wp2",
+  "title": "报告落盘与命令入口",
+  "objective": "把“明日最优标的”结构化结果输出成标准 markdown/json 报告，并提供稳定的命令行入口，让用户能直接生成报告文件并看到唯一 pick 与历史回测摘要。",
+  "scope": [
+    "src/ashare_harness_v2/skill_harness/__init__.py",
+    "src/ashare_harness_v2/skill_harness/trading_reports.py",
+    "src/ashare_harness_v2/cli.py"
+  ],
+  "test_file": "tests/test_best_stock_report.py"
+}
+
+## 你要做的事（按顺序执行）
+
+### 第一步：执行 objective
+- 严格在 scope 范围内改文件
+- 不要动其他 Worker 负责的文件
+- 不要做 scope 以外的改动
+
+### 第二步：运行 acceptance test
+- test_file: tests/test_best_stock_report.py
+- 运行命令（选合适的）：
+    PYTHONPATH=src python3 -m pytest tests/test_best_stock_report.py -v
+    PYTHONPATH=src python3 -m unittest discover -s tests -v
+- 把每条测试的 passed/output 填入 test_results
+
+### 第三步：返回原始结果
+- status: completed（全部通过）/ blocked（有障碍）/ failed（执行失败）
+- 不要写主观总结，只列 changed_files + test_results + evidence
+- 返回纯 JSON，符合 schema
+
+## 约束
+- 不要加 markdown fence
+- 只动 scope 里的文件
+- test_results 里每个条目：{"name": "...", "passed": bool, "output": "..."}
+- output 截取测试运行输出最后 500 字符即可

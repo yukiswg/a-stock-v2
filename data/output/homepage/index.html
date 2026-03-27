@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="refresh" content="20" />
+  <title>A-share Homepage Overview</title>
+  <style>
+    :root {
+      --bg: #f4efe4;
+      --card: #fffaf2;
+      --ink: #22201c;
+      --muted: #6a6358;
+      --line: #d8cdb9;
+      --accent: #9e3d1b;
+    }
+    body {
+      margin: 0;
+      font-family: Georgia, "Songti SC", serif;
+      color: var(--ink);
+      background: radial-gradient(circle at top left, #fff4d6, var(--bg));
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+    }
+    .card {
+      background: rgba(255, 250, 242, 0.95);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(114, 78, 21, 0.08);
+    }
+    h1, h2 { margin: 0 0 12px 0; }
+    h1 { font-size: 32px; }
+    h2 { font-size: 20px; color: var(--accent); }
+    p { margin: 0; line-height: 1.6; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 8px 6px; border-top: 1px solid var(--line); font-size: 14px; }
+    th { color: var(--muted); border-top: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h1>2026-03-27 今日总览</h1>
+      <p><strong>盘中偏弱</strong></p>
+      <p>盘中暂未推翻盘前结论。指数均值 +0.20% 重点标的均值 +1.54%。先按原计划执行。</p>
+    </section>
+    <section class="card">
+      <h2>最该优先处理的 3 件事</h2>
+      <table><thead><tr><th>headline</th><th>display_action_label</th><th>current_status</th><th>display_trigger</th><th>display_invalidation</th></tr></thead><tbody><tr><td>先处理 潞安环能 的破位减仓</td><td>破位减仓</td><td></td><td>只有跌破 13.95，才执行减一点。</td><td>如果重新回到 14.92 上方，就先别继续减。</td></tr><tr><td>先处理 中韩芯片 的破位减仓</td><td>破位减仓</td><td></td><td>只有跌破 3.663，才执行减一点。</td><td>如果重新回到 3.973 上方，就先别继续减。</td></tr><tr><td>先处理 科创50 的破位减仓</td><td>破位减仓</td><td></td><td>只有跌破 1.329，才执行减一点。</td><td>如果重新回到 1.385 上方，就先别继续减。</td></tr></tbody></table>
+    </section>
+    <section class="card">
+      <h2>当前最新价格</h2>
+      <p>盘前已拉取实时行情：10 条实时，0 条沿用最近收盘价；各标的以各自行情时间戳为准。</p>
+      <table><thead><tr><th>name</th><th>code</th><th>last_price</th><th>ret_day</th><th>timestamp</th><th>freshness</th></tr></thead><tbody><tr><td>潞安环能</td><td>601699</td><td>14.05</td><td>-1.47%</td><td>2026-03-27T11:07:32</td><td>3s</td></tr><tr><td>中韩半导体ETF华泰柏瑞</td><td>513310</td><td>3.728</td><td>-0.29%</td><td>2026-03-27T11:07:33</td><td>2s</td></tr><tr><td>科创50ETF华夏</td><td>588000</td><td>1.361</td><td>+0.29%</td><td>2026-03-27T11:07:33</td><td>2s</td></tr><tr><td>宁德时代</td><td>300750</td><td>411.06</td><td>+2.13%</td><td>2026-03-27T11:07:33</td><td>2s</td></tr><tr><td>赤天化</td><td>600227</td><td>4.27</td><td>+10.05%</td><td>2026-03-27T11:07:32</td><td>3s</td></tr><tr><td>招商银行</td><td>600036</td><td>39.26</td><td>-0.76%</td><td>2026-03-27T11:07:31</td><td>4s</td></tr><tr><td>五 粮 液</td><td>000858</td><td>102.1</td><td>+0.81%</td><td>2026-03-27T11:07:33</td><td>2s</td></tr><tr><td>沪深300</td><td>000300</td><td>4485.09</td><td>+0.17%</td><td>2026-03-27T11:07:33</td><td>2s</td></tr><tr><td>上证指数</td><td>000001</td><td>3891.74</td><td>+0.07%</td><td>2026-03-27T11:07:33</td><td>2s</td></tr><tr><td>创业板指</td><td>399006</td><td>3284.36</td><td>+0.36%</td><td>2026-03-27T11:07:33</td><td>2s</td></tr></tbody></table>
+    </section>
+    <section class="card">
+      <h2>持仓风险项</h2>
+      <table><thead><tr><th>name</th><th>code</th><th>display_action_label</th><th>display_reason</th><th>display_trigger</th><th>display_invalidation</th></tr></thead><tbody><tr><td>潞安环能</td><td>601699</td><td>破位减仓</td><td>潞安环能 现在先别加仓。 重点盯住 13.95 这条防线，跌破再减一点。 只有重新回到 14.92 上方，才先改回观察。</td><td>只有跌破 13.95，才执行减一点。</td><td>如果重新回到 14.92 上方，就先别继续减。</td></tr><tr><td>中韩芯片</td><td>513310</td><td>破位减仓</td><td>中韩芯片 现在先别加仓。 重点盯住 3.663 这条防线，跌破再减一点。 只有重新回到 3.973 上方，才先改回观察。</td><td>只有跌破 3.663，才执行减一点。</td><td>如果重新回到 3.973 上方，就先别继续减。</td></tr><tr><td>科创50</td><td>588000</td><td>破位减仓</td><td>科创50 现在先别加仓。 重点盯住 1.329 这条防线，跌破再减一点。 只有重新回到 1.385 上方，才先改回观察。</td><td>只有跌破 1.329，才执行减一点。</td><td>如果重新回到 1.385 上方，就先别继续减。</td></tr></tbody></table>
+    </section>
+    <section class="card">
+      <h2>观察机会项</h2>
+      <table><thead><tr><th>name</th><th>code</th><th>display_action_label</th><th>current_status</th><th>display_trigger</th><th>display_reason</th></tr></thead><tbody><tr><td>宁德时代</td><td>300750</td><td>等放量突破</td><td></td><td>只在站上 413 且量能放大时再考虑。</td><td>宁德时代 现在先观察。 只有站上关键价 413 且量能放大，才考虑买。</td></tr><tr><td>赤天化</td><td>600227</td><td>等回踩</td><td></td><td>只在 4.004 一带稳住时再考虑。</td><td>赤天化 现在先观察，不追高。 只有回踩到 4.004 一带稳住了再考虑。</td></tr><tr><td>招商银行</td><td>600036</td><td>替代标的</td><td></td><td>若同梯队必须选一只，先等 宁德时代 满足“等放量突破”条件。</td><td>招商银行 不是当前最优先的选择，先看更强的替代标的。</td></tr><tr><td>五粮液</td><td>000858</td><td>替代标的</td><td></td><td>若同梯队必须选一只，先等 宁德时代 满足“等放量突破”条件。</td><td>五粮液 不是当前最优先的选择，先看更强的替代标的。</td></tr></tbody></table>
+    </section>
+    <section class="card">
+      <h2>动态优先级说明（板块 -> 龙头）</h2>
+      <table><thead><tr><th>rank</th><th>sector</th><th>score</th><th>pct_change</th><th>leader</th><th>leader_pct_change</th></tr></thead><tbody><tr><td>1</td><td>能源金属</td><td>83.91</td><td>0.051399999999999994</td><td>盛新锂能</td><td>0.1</td></tr><tr><td>2</td><td>化学制药</td><td>80.41</td><td>0.0319</td><td>华纳药厂</td><td>0.12560000000000002</td></tr><tr><td>3</td><td>农化制品</td><td>79.04</td><td>0.0315</td><td>赤天化</td><td>0.1005</td></tr><tr><td>4</td><td>小金属</td><td>78.4</td><td>0.030899999999999997</td><td>云南锗业</td><td>0.1</td></tr><tr><td>5</td><td>医疗服务</td><td>76.1</td><td>0.0281</td><td>益诺思</td><td>0.14859999999999998</td></tr></tbody></table>
+    </section>
+    <section class="card">
+      <h2>最新告警</h2>
+      <p>暂无。</p>
+    </section>
+    <section class="card">
+      <h2>全部持仓动作</h2>
+      <table><thead><tr><th>name</th><th>code</th><th>display_action_label</th><th>priority_score</th><th>display_reason</th></tr></thead><tbody><tr><td>潞安环能</td><td>601699</td><td>破位减仓</td><td>97.0</td><td>潞安环能 现在先别加仓。 重点盯住 13.95 这条防线，跌破再减一点。 只有重新回到 14.92 上方，才先改回观察。</td></tr><tr><td>中韩芯片</td><td>513310</td><td>破位减仓</td><td>94.0</td><td>中韩芯片 现在先别加仓。 重点盯住 3.663 这条防线，跌破再减一点。 只有重新回到 3.973 上方，才先改回观察。</td></tr><tr><td>科创50</td><td>588000</td><td>破位减仓</td><td>94.0</td><td>科创50 现在先别加仓。 重点盯住 1.329 这条防线，跌破再减一点。 只有重新回到 1.385 上方，才先改回观察。</td></tr></tbody></table>
+    </section>
+  </main>
+</body>
+</html>

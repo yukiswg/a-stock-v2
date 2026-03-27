@@ -1,0 +1,286 @@
+[
+  {
+    "object_type": "monitor",
+    "object_id": "000300",
+    "object_name": "沪深300",
+    "at": "2026-03-19",
+    "action": "monitor_index",
+    "score": 29.47,
+    "probability": 0.354,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 沪深300。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "000001",
+    "object_name": "上证指数",
+    "at": "2026-03-19",
+    "action": "monitor_index",
+    "score": 23.14,
+    "probability": 0.354,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 上证指数。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "399006",
+    "object_name": "创业板指",
+    "at": "2026-03-19",
+    "action": "monitor_index",
+    "score": 59.84,
+    "probability": 0.354,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 创业板指。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "513310",
+    "object_name": "中韩芯片",
+    "at": "2026-03-19",
+    "action": "monitor_holding",
+    "score": 100.0,
+    "probability": 0.8708,
+    "reason": [
+      "持仓动作 `hold`，盘中需要验证是否符合预期。",
+      "趋势分 100.0，20日相对强弱 +21.03%。"
+    ],
+    "risk": [
+      "保持原仓位，等待更明确的盘中确认。"
+    ],
+    "sources": [
+      "holdings_snapshot",
+      "daily_bars",
+      "announcements"
+    ],
+    "metadata": {
+      "category": "holding",
+      "parent_action": "hold",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "601699",
+    "object_name": "潞安环能",
+    "at": "2026-03-19",
+    "action": "monitor_holding",
+    "score": 49.33,
+    "probability": 0.4654,
+    "reason": [
+      "持仓动作 `hold`，盘中需要验证是否符合预期。",
+      "趋势分 49.3，20日相对强弱 +6.44%。"
+    ],
+    "risk": [
+      "保持原仓位，等待更明确的盘中确认。"
+    ],
+    "sources": [
+      "holdings_snapshot",
+      "daily_bars",
+      "announcements"
+    ],
+    "metadata": {
+      "category": "holding",
+      "parent_action": "hold",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "588000",
+    "object_name": "科创50",
+    "at": "2026-03-19",
+    "action": "monitor_holding",
+    "score": 0.0,
+    "probability": 0.0708,
+    "reason": [
+      "持仓动作 `trim`，盘中需要验证是否符合预期。",
+      "趋势分 0.0，20日相对强弱 -5.19%。"
+    ],
+    "risk": [
+      "趋势弱于基准或回撤过深，应先减风险。"
+    ],
+    "sources": [
+      "holdings_snapshot",
+      "daily_bars",
+      "announcements"
+    ],
+    "metadata": {
+      "category": "holding",
+      "parent_action": "trim",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "300750",
+    "object_name": "宁德时代",
+    "at": "2026-03-19",
+    "action": "monitor_watch",
+    "score": 100.0,
+    "probability": 0.95,
+    "reason": [
+      "观察动作 `wait_breakout_confirmation`，盘中只在出现确认信号时提醒。",
+      "20日收益 +8.83%，相对强弱 +11.60%。"
+    ],
+    "risk": [
+      "只有在放量确认时才考虑出手。"
+    ],
+    "sources": [
+      "candidate_universe",
+      "daily_bars"
+    ],
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_breakout_confirmation",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "600036",
+    "object_name": "招商银行",
+    "at": "2026-03-19",
+    "action": "monitor_watch",
+    "score": 66.32,
+    "probability": 0.6632,
+    "reason": [
+      "观察动作 `wait_breakout_confirmation`，盘中只在出现确认信号时提醒。",
+      "20日收益 +0.94%，相对强弱 +3.71%。"
+    ],
+    "risk": [
+      "只有在放量确认时才考虑出手。"
+    ],
+    "sources": [
+      "candidate_universe",
+      "daily_bars"
+    ],
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_breakout_confirmation",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "000858",
+    "object_name": "五粮液",
+    "at": "2026-03-19",
+    "action": "monitor_watch",
+    "score": 37.12,
+    "probability": 0.3712,
+    "reason": [
+      "观察动作 `wait_breakout_confirmation`，盘中只在出现确认信号时提醒。",
+      "20日收益 -3.31%，相对强弱 -0.54%。"
+    ],
+    "risk": [
+      "只有在放量确认时才考虑出手。"
+    ],
+    "sources": [
+      "candidate_universe",
+      "daily_bars"
+    ],
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_breakout_confirmation",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "000333",
+    "object_name": "美的集团",
+    "at": "2026-03-19",
+    "action": "monitor_watch",
+    "score": 21.77,
+    "probability": 0.2177,
+    "reason": [
+      "观察动作 `wait_breakout_confirmation`，盘中只在出现确认信号时提醒。",
+      "20日收益 -4.63%，相对强弱 -1.86%。"
+    ],
+    "risk": [
+      "只有在放量确认时才考虑出手。"
+    ],
+    "sources": [
+      "candidate_universe",
+      "daily_bars"
+    ],
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_breakout_confirmation",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  }
+]

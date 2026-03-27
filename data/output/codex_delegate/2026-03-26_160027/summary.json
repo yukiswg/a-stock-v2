@@ -1,0 +1,23 @@
+{
+  "run_dir": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_160027",
+  "status": "all_pass",
+  "decision": {
+    "status": "all_pass",
+    "pass": true,
+    "reason": "所有 Worker 全部 test passed",
+    "done_means": [
+      "可以通过 `from ashare_harness_v2._delegate_smoke import smoke_message` 成功导入该函数。",
+      "`smoke_message()` 的返回值严格等于 `hello from codex delegation`。",
+      "在项目根目录运行 `python tests/test_delegate_smoke.py` 时，进程退出码为 0 且测试全部通过。"
+    ],
+    "leader_retry_task": null
+  },
+  "plan_path": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_160027/plan.json",
+  "worker_results_path": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_160027/worker_results.json",
+  "decision_path": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_160027/decision.json",
+  "worker_status_counts": {
+    "completed": 1,
+    "blocked": 0,
+    "failed": 0
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "601699": {
+    "industry_name": "煤炭开采和洗选业",
+    "industry_pe": 13.24,
+    "industry_pe_median": 13.37,
+    "industry_level": 2.0,
+    "industry_company_count": 25.0
+  },
+  "600089": {
+    "industry_name": "电气机械和器材制造业",
+    "industry_pe": 28.61,
+    "industry_pe_median": 51.1,
+    "industry_level": 2.0,
+    "industry_company_count": 352.0
+  },
+  "300750": {
+    "industry_name": "电气机械和器材制造业",
+    "industry_pe": 28.61,
+    "industry_pe_median": 51.1,
+    "industry_level": 2.0,
+    "industry_company_count": 352.0
+  },
+  "600036": {
+    "industry_name": "货币金融服务",
+    "industry_pe": 6.84,
+    "industry_pe_median": 6.53,
+    "industry_level": 2.0,
+    "industry_company_count": 45.0
+  },
+  "601127": {
+    "industry_name": "汽车制造业",
+    "industry_pe": 30.27,
+    "industry_pe_median": 50.03,
+    "industry_level": 2.0,
+    "industry_company_count": 213.0
+  },
+  "000333": {
+    "industry_name": "电气机械和器材制造业",
+    "industry_pe": 28.61,
+    "industry_pe_median": 51.1,
+    "industry_level": 2.0,
+    "industry_company_count": 352.0
+  },
+  "000858": {
+    "industry_name": "酒、饮料和精制茶制造业",
+    "industry_pe": 18.27,
+    "industry_pe_median": 26.84,
+    "industry_level": 2.0,
+    "industry_company_count": 49.0
+  },
+  "688799": {
+    "industry_name": "医药制造业",
+    "industry_pe": 28.71,
+    "industry_pe_median": 32.98,
+    "industry_level": 2.0,
+    "industry_company_count": 327.0
+  },
+  "600227": {
+    "industry_name": "化学原料和化学制品制造业",
+    "industry_pe": 36.46,
+    "industry_pe_median": 51.25,
+    "industry_level": 2.0,
+    "industry_company_count": 368.0
+  },
+  "688710": {
+    "industry_name": "研究和试验发展",
+    "industry_pe": 41.2,
+    "industry_pe_median": 61.38,
+    "industry_level": 2.0,
+    "industry_company_count": 31.0
+  },
+  "002756": {
+    "industry_name": "有色金属冶炼和压延加工业",
+    "industry_pe": 37.42,
+    "industry_pe_median": 66.98,
+    "industry_level": 2.0,
+    "industry_company_count": 88.0
+  },
+  "300518": {
+    "industry_name": "互联网和相关服务",
+    "industry_pe": 49.54,
+    "industry_pe_median": 96.91,
+    "industry_level": 2.0,
+    "industry_company_count": 60.0
+  }
+}

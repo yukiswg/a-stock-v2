@@ -1,0 +1,159 @@
+{
+  "300750": {
+    "northbound_hold_marketcap_change_1d": 1609608702.78,
+    "northbound_add_marketcap_1d": 27344.67,
+    "northbound_hold_marketcap_change_5d": 3854487763.68,
+    "northbound_net_flow_5d": 3854487763.68,
+    "northbound_proxy_basis": "hold_marketcap_change",
+    "northbound_add_marketcap_5d": 11678.16,
+    "northbound_hold_marketcap_change_10d": 5104276037.26,
+    "northbound_add_marketcap_10d": -53120.88,
+    "northbound_hold_ratio": 0.10880000000000001,
+    "northbound_free_float_ratio": 0.1229,
+    "industry_name": "电池",
+    "concept_names": [
+      "HS300_",
+      "MSCI中国",
+      "储能",
+      "创业成份",
+      "创业板综",
+      "华为概念",
+      "固态电池",
+      "宁组合",
+      "富时罗素",
+      "小米汽车",
+      "新能源车",
+      "深成500",
+      "深股通",
+      "深证100R",
+      "特斯拉",
+      "独角兽",
+      "百元股",
+      "茅指数",
+      "融资融券",
+      "钠离子电池",
+      "锂电池",
+      "锂矿概念",
+      "高送转",
+      "麒麟电池"
+    ],
+    "provider": "capitalfarmer_adapter"
+  },
+  "605169": {
+    "latest_date": "2026-03-23",
+    "main_net_flow_1d": -7481179.0,
+    "main_net_ratio_1d": -0.0418,
+    "main_net_flow_5d": 26890731.0,
+    "main_net_ratio_5d": -0.011799999999999998,
+    "close_price": 13.79,
+    "pct_change_1d": -0.0363
+  },
+  "600617": {
+    "latest_date": "2026-03-23",
+    "main_net_flow_1d": -110952962.0,
+    "main_net_ratio_1d": -0.0833,
+    "main_net_flow_5d": 140720794.0,
+    "main_net_ratio_5d": 0.0516,
+    "close_price": 4.11,
+    "pct_change_1d": 0.0301
+  },
+  "002565": {
+    "latest_date": "2026-03-23",
+    "main_net_flow_1d": 1154585120.0,
+    "main_net_ratio_1d": 0.245,
+    "main_net_flow_5d": 2126777091.0,
+    "main_net_ratio_5d": 0.1646,
+    "close_price": 16.98,
+    "pct_change_1d": 0.09970000000000001
+  },
+  "002594": {
+    "latest_date": "2026-03-23",
+    "main_net_flow_1d": 1358789376.0,
+    "main_net_ratio_1d": 0.0705,
+    "main_net_flow_5d": 551142224.0,
+    "main_net_ratio_5d": -0.007640000000000003,
+    "close_price": 107.63,
+    "pct_change_1d": 0.0446
+  },
+  "601699": {
+    "latest_date": "2026-03-23",
+    "main_net_flow_1d": 4915860.0,
+    "main_net_ratio_1d": 0.0051,
+    "main_net_flow_5d": 47963679.0,
+    "main_net_ratio_5d": 0.014300000000000002,
+    "close_price": 14.92,
+    "pct_change_1d": 0.0191
+  },
+  "300483": {
+    "latest_date": "2026-03-23",
+    "main_net_flow_1d": -21396880.0,
+    "main_net_ratio_1d": -0.0123,
+    "main_net_flow_5d": -1496927.0,
+    "main_net_ratio_5d": -0.01096,
+    "close_price": 23.93,
+    "pct_change_1d": 0.030600000000000002
+  },
+  "601985": {
+    "latest_date": "2026-03-23",
+    "main_net_flow_1d": 377297824.0,
+    "main_net_ratio_1d": 0.0928,
+    "main_net_flow_5d": -146119794.0,
+    "main_net_ratio_5d": -0.0493,
+    "close_price": 9.04,
+    "pct_change_1d": 0.0203
+  },
+  "601857": {
+    "latest_date": "2026-03-23",
+    "main_net_flow_1d": 249551904.0,
+    "main_net_ratio_1d": 0.0487,
+    "main_net_flow_5d": 1322815872.0,
+    "main_net_ratio_5d": 0.047420000000000004,
+    "close_price": 12.34,
+    "pct_change_1d": 0.008199999999999999
+  },
+  "603026": {
+    "latest_date": "2026-03-23",
+    "main_net_flow_1d": 23287296.0,
+    "main_net_ratio_1d": 0.01,
+    "main_net_flow_5d": 125331036.0,
+    "main_net_ratio_5d": -0.006719999999999999,
+    "close_price": 75.56,
+    "pct_change_1d": 0.002
+  },
+  "000938": {
+    "latest_date": "2026-03-23",
+    "main_net_flow_1d": -14380144.0,
+    "main_net_ratio_1d": -0.0055000000000000005,
+    "main_net_flow_5d": 284670200.0,
+    "main_net_ratio_5d": -0.012520000000000007,
+    "close_price": 25.4,
+    "pct_change_1d": -0.0298
+  },
+  "300207": {
+    "latest_date": "2026-03-23",
+    "main_net_flow_1d": 196091664.0,
+    "main_net_ratio_1d": 0.051,
+    "main_net_flow_5d": 237803683.0,
+    "main_net_ratio_5d": -0.00048000000000000126,
+    "close_price": 28.0,
+    "pct_change_1d": 0.0219
+  },
+  "300191": {
+    "latest_date": "2026-03-23",
+    "main_net_flow_1d": 24809943.0,
+    "main_net_ratio_1d": 0.024,
+    "main_net_flow_5d": -31504488.0,
+    "main_net_ratio_5d": -0.02772,
+    "close_price": 37.79,
+    "pct_change_1d": -0.0255
+  },
+  "600256": {
+    "latest_date": "2026-03-23",
+    "main_net_flow_1d": 12607344.0,
+    "main_net_ratio_1d": 0.0046,
+    "main_net_flow_5d": -107534480.0,
+    "main_net_ratio_5d": -0.02176,
+    "close_price": 7.09,
+    "pct_change_1d": -0.0042
+  }
+}

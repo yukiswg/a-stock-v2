@@ -1,0 +1,540 @@
+{
+  "as_of": "2026-03-27",
+  "idea_count": 17,
+  "ideas": [
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 51.02,
+      "coverage_score": 85.0,
+      "market_score": 33.09,
+      "summary": "宁德时代 当前策略为“等放量突破”。 综合分 51.0，市场分 33.1，覆盖度 85.0。",
+      "thesis": "宁德时代 的主逻辑是 20日收益 +18.77%，趋势延续性较强；相对强弱 +23.63%，强于基准，但 量比 0.32x，量能严重不足，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "20日收益 +18.77%，趋势延续性较强。",
+        "相对强弱 +23.63%，强于基准。",
+        "营收同比 +17.04%。"
+      ],
+      "risks": [
+        "量比 0.32x，量能严重不足。",
+        "市场环境偏空，新开仓需要明显折价。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 413.00，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 396.99，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 62.62,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "宁德时代 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 413.0,
+          "support_price": 396.99,
+          "pullback_price": 401.096,
+          "retest_price": 406.19,
+          "stop_price": 385.08,
+          "entry_reward_risk": 0.32,
+          "entry_upside_pct": 1.68,
+          "entry_downside_pct": 5.2,
+          "box_position_pct": 57.46
+        },
+        "trigger_conditions": [
+          "只有放量突破 413.00，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 396.99，取消突破预案。"
+        ],
+        "blockers": [
+          "市场分 33.1 低于 40，当前不支持主动进攻。",
+          "临近关键位但量比只有 0.32x，容易演变成追价。",
+          "当前位置赔率只有 0.32，还不够支持积极出手。"
+        ],
+        "execution_brief": [
+          "现在不提前开仓，只等确认信号。",
+          "只有放量突破 413.00，才升级为试仓。",
+          "若回落跌破 396.99，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 支撑区，重点看价格相对 413.00 / 396.99 的反应。",
+          "20日收益 +18.77%，趋势延续性较强。",
+          "量比 0.32x，量能严重不足。"
+        ]
+      },
+      "metadata": {
+        "sector": "电池",
+        "sector_proxy": false,
+        "strategy_label": "综合决策",
+        "style_fit_score": 0.0,
+        "selection_score": 62.62,
+        "strategy_style": "general",
+        "factor_analysis": {
+          "provider": "jqfactor_analyzer_adapted",
+          "style_box": "质量 / 动量",
+          "dominant_factor": "质量",
+          "factor_summary": "正向贡献主要来自 质量(+3.3)、动量(+2.9)、相对排名(+0.3)。 拖累主要来自 估值(-3.3)、风险(-3.1)、资金(-0.1)。",
+          "factor_focus": [
+            "ROE 24.9%，ROIC 15.3%，毛利率 26.3%",
+            "PE 25.2x，PB 5.5x",
+            "20日波动率 2.1%，市场分 33.1"
+          ],
+          "attribution": {
+            "style": 3.21,
+            "industry": 0.02,
+            "capital": -0.09,
+            "risk": -3.14,
+            "specific": 0.0,
+            "headline": "风格 +3.2 | 行业 +0.0 | 资金 -0.1 | 风险 -3.1"
+          },
+          "selection_overlay": {
+            "rps_proxy_20d": 91.67,
+            "trend_template_score": 80.0,
+            "capital_conviction": 0.15,
+            "factor_total_contribution": 0.0
+          },
+          "factors": [
+            {
+              "name": "质量",
+              "exposure": 0.839,
+              "contribution": 3.33,
+              "signal": "positive",
+              "reason": "ROE 24.9%，ROIC 15.3%，毛利率 26.3%"
+            },
+            {
+              "name": "估值",
+              "exposure": 0.218,
+              "contribution": -3.32,
+              "signal": "negative",
+              "reason": "PE 25.2x，PB 5.5x"
+            },
+            {
+              "name": "动量",
+              "exposure": 0.792,
+              "contribution": 2.86,
+              "signal": "positive",
+              "reason": "20日收益 +18.8%，相对强弱 +23.6%，5日收益 -1.6%"
+            },
+            {
+              "name": "资金",
+              "exposure": 0.415,
+              "contribution": -0.09,
+              "signal": "neutral",
+              "reason": "北向净流 +3854487763.68，外部信号 neutral +0.15"
+            },
+            {
+              "name": "相对排名",
+              "exposure": 0.551,
+              "contribution": 0.34,
+              "signal": "neutral",
+              "reason": "20日 RPS 代理 91.7"
+            },
+            {
+              "name": "行业",
+              "exposure": 0.456,
+              "contribution": 0.02,
+              "signal": "neutral",
+              "reason": "电池 强度 75.1"
+            },
+            {
+              "name": "风险",
+              "exposure": 0.649,
+              "contribution": -3.14,
+              "signal": "negative",
+              "reason": "20日波动率 2.1%，市场分 33.1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "code": "000617",
+      "name": "中油资本",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 54.0,
+      "coverage_score": 85.0,
+      "market_score": 33.09,
+      "summary": "中油资本 当前策略为“等放量突破”。 综合分 54.0，市场分 33.1，覆盖度 85.0。",
+      "thesis": "中油资本 的主逻辑是 20日收益 +17.49%，趋势延续性较强；相对强弱 +22.36%，强于基准，但 营收同比 -12.22%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "20日收益 +17.49%，趋势延续性较强。",
+        "相对强弱 +22.36%，强于基准。",
+        "毛利率 25.3%。"
+      ],
+      "risks": [
+        "营收同比 -12.22%。",
+        "ROE 3.9%。",
+        "经营现金流同比 -145.28%。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 10.83，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 9.74，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 59.39,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "中油资本 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 10.83,
+          "support_price": 9.74,
+          "pullback_price": 10.55,
+          "retest_price": 10.83,
+          "stop_price": 9.448,
+          "entry_reward_risk": 0.12,
+          "entry_upside_pct": 1.4,
+          "entry_downside_pct": 11.54,
+          "box_position_pct": 86.24
+        },
+        "trigger_conditions": [
+          "只有放量突破 10.83，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 9.74，取消突破预案。"
+        ],
+        "blockers": [
+          "市场分 33.1 低于 40，当前不支持主动进攻。",
+          "临近关键位但量比只有 0.53x，容易演变成追价。",
+          "当前位置赔率只有 0.12，还不够支持积极出手。"
+        ],
+        "execution_brief": [
+          "现在不提前开仓，只等确认信号。",
+          "只有放量突破 10.83，才升级为试仓。",
+          "若回落跌破 9.74，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 阻力/突破前沿，重点看价格相对 10.83 / 9.74 的反应。",
+          "20日收益 +17.49%，趋势延续性较强。",
+          "营收同比 -12.22%。"
+        ]
+      },
+      "metadata": {
+        "sector": "金融控股",
+        "sector_proxy": false,
+        "strategy_label": "综合决策",
+        "style_fit_score": 0.0,
+        "selection_score": 59.39,
+        "strategy_style": "general",
+        "factor_analysis": {
+          "provider": "jqfactor_analyzer_adapted",
+          "style_box": "动量 / 风险",
+          "dominant_factor": "动量",
+          "factor_summary": "正向贡献主要来自 动量(+4.4)、相对排名(+1.1)、行业(+1.0)。 拖累主要来自 风险(-3.1)、质量(-2.4)、估值(-1.6)。",
+          "factor_focus": [
+            "20日收益 +17.5%，相对强弱 +22.4%，5日收益 +7.7%",
+            "20日波动率 4.6%，市场分 33.1",
+            "ROE 3.9%，ROIC 0.8%，毛利率 25.3%"
+          ],
+          "attribution": {
+            "style": 1.56,
+            "industry": 0.96,
+            "capital": 0.62,
+            "risk": -3.15,
+            "specific": 0.0,
+            "headline": "风格 +1.6 | 行业 +1.0 | 资金 +0.6 | 风险 -3.1"
+          },
+          "selection_overlay": {
+            "rps_proxy_20d": 87.5,
+            "trend_template_score": 80.0,
+            "capital_conviction": 0.031,
+            "factor_total_contribution": -0.01
+          },
+          "factors": [
+            {
+              "name": "质量",
+              "exposure": 0.306,
+              "contribution": -2.38,
+              "signal": "negative",
+              "reason": "ROE 3.9%，ROIC 0.8%，毛利率 25.3%"
+            },
+            {
+              "name": "估值",
+              "exposure": 0.275,
+              "contribution": -1.6,
+              "signal": "negative",
+              "reason": "PE 33.4x，PB 1.3x"
+            },
+            {
+              "name": "动量",
+              "exposure": 0.868,
+              "contribution": 4.43,
+              "signal": "positive",
+              "reason": "20日收益 +17.5%，相对强弱 +22.4%，5日收益 +7.7%"
+            },
+            {
+              "name": "资金",
+              "exposure": 0.416,
+              "contribution": 0.62,
+              "signal": "positive",
+              "reason": "北向净流 +62662138.72，外部信号 neutral +0.03"
+            },
+            {
+              "name": "相对排名",
+              "exposure": 0.554,
+              "contribution": 1.11,
+              "signal": "positive",
+              "reason": "20日 RPS 代理 87.5"
+            },
+            {
+              "name": "行业",
+              "exposure": 0.495,
+              "contribution": 0.96,
+              "signal": "positive",
+              "reason": "金融控股 强度 100.0"
+            },
+            {
+              "name": "风险",
+              "exposure": 0.684,
+              "contribution": -3.15,
+              "signal": "negative",
+              "reason": "20日波动率 4.6%，市场分 33.1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "code": "600227",
+      "name": "赤天化",
+      "decision": "watch",
+      "trade_action": "等回踩",
+      "total_score": 43.6,
+      "coverage_score": 80.0,
+      "market_score": 33.09,
+      "summary": "赤天化 当前策略为“等回踩”。 综合分 43.6，市场分 33.1，覆盖度 80.0。",
+      "thesis": "赤天化 的主逻辑是 20日收益 +48.26%，趋势延续性较强；相对强弱 +53.13%，强于基准，但 营收同比 -7.96%，所以当前策略是“等回踩”。",
+      "catalysts": [
+        "20日收益 +48.26%，趋势延续性较强。",
+        "相对强弱 +53.13%，强于基准。",
+        "近5日北向资金净流入。"
+      ],
+      "risks": [
+        "营收同比 -7.96%。",
+        "利润同比 -340.46%。",
+        "ROE -6.2%。"
+      ],
+      "trigger_conditions": [
+        "回踩 4.00 一带且量能不失真时，再考虑出手。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若直接跌破 3.87，取消计划。"
+      ],
+      "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+      "priority_score": 59.06,
+      "action_plan": {
+        "action": "wait_for_pullback",
+        "label": "等回踩",
+        "rationale": "赤天化 方向还在，但更优赔率不在当前位置。",
+        "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+        "urgency": "medium",
+        "urgency_score": 60.0,
+        "levels": {
+          "breakout_price": 5.29,
+          "support_price": 3.87,
+          "pullback_price": 4.004,
+          "retest_price": 4.27,
+          "stop_price": 3.754,
+          "entry_reward_risk": 1.98,
+          "entry_upside_pct": 23.89,
+          "entry_downside_pct": 12.08,
+          "box_position_pct": 28.17
+        },
+        "trigger_conditions": [
+          "回踩 4.00 一带且量能不失真时，再考虑出手。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若直接跌破 3.87，取消计划。"
+        ],
+        "blockers": [
+          "市场分 33.1 低于 40，当前不支持主动进攻。",
+          "当前位置赔率只有 1.98，还不够支持积极出手。"
+        ],
+        "execution_brief": [
+          "现在不提前开仓，只等确认信号。",
+          "回踩 4.00 一带且量能不失真时，再考虑出手。",
+          "若直接跌破 3.87，取消计划。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 箱体下沿，重点看价格相对 5.29 / 3.87 的反应。",
+          "20日收益 +48.26%，趋势延续性较强。",
+          "营收同比 -7.96%。"
+        ]
+      },
+      "metadata": {
+        "sector": "氮肥",
+        "sector_proxy": false,
+        "strategy_label": "综合决策",
+        "style_fit_score": 0.0,
+        "selection_score": 59.06,
+        "strategy_style": "general",
+        "factor_analysis": {
+          "provider": "jqfactor_analyzer_adapted",
+          "style_box": "动量 / 风险",
+          "dominant_factor": "动量",
+          "factor_summary": "正向贡献主要来自 动量(+4.4)、相对排名(+1.1)、行业(+0.7)。 拖累主要来自 质量(-3.7)、风险(-2.3)、估值(-0.6)。",
+          "factor_focus": [
+            "20日收益 +48.3%，相对强弱 +53.1%，5日收益 +0.2%",
+            "ROE -6.2%，ROIC -3.2%，毛利率 8.9%",
+            "20日波动率 7.1%，距20日高点 -19.3%，市场分 33.1"
+          ],
+          "attribution": {
+            "style": 1.15,
+            "industry": 0.67,
+            "capital": 0.45,
+            "risk": -2.28,
+            "specific": 0.0,
+            "headline": "风格 +1.2 | 行业 +0.7 | 资金 +0.5 | 风险 -2.3"
+          },
+          "selection_overlay": {
+            "rps_proxy_20d": 100.0,
+            "trend_template_score": 72.0,
+            "capital_conviction": 0.005,
+            "factor_total_contribution": -0.01
+          },
+          "factors": [
+            {
+              "name": "质量",
+              "exposure": 0.155,
+              "contribution": -3.73,
+              "signal": "negative",
+              "reason": "ROE -6.2%，ROIC -3.2%，毛利率 8.9%"
+            },
+            {
+              "name": "估值",
+              "exposure": 0.267,
+              "contribution": -0.55,
+              "signal": "neutral",
+              "reason": "PB 3.0x"
+            },
+            {
+              "name": "动量",
+              "exposure": 0.882,
+              "contribution": 4.37,
+              "signal": "positive",
+              "reason": "20日收益 +48.3%，相对强弱 +53.1%，5日收益 +0.2%"
+            },
+            {
+              "name": "资金",
+              "exposure": 0.405,
+              "contribution": 0.45,
+              "signal": "neutral",
+              "reason": "北向净流 +10717240.56，外部信号 neutral +0.01"
+            },
+            {
+              "name": "相对排名",
+              "exposure": 0.639,
+              "contribution": 1.06,
+              "signal": "positive",
+              "reason": "20日 RPS 代理 100.0"
+            },
+            {
+              "name": "行业",
+              "exposure": 0.483,
+              "contribution": 0.67,
+              "signal": "positive",
+              "reason": "氮肥 强度 100.0"
+            },
+            {
+              "name": "风险",
+              "exposure": 0.751,
+              "contribution": -2.28,
+              "signal": "negative",
+              "reason": "20日波动率 7.1%，距20日高点 -19.3%，市场分 33.1"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "market_view": {
+    "object_type": "market",
+    "object_id": "000300",
+    "object_name": "偏空市场",
+    "at": "2026-03-27",
+    "action": "risk_off",
+    "score": 33.09,
+    "probability": 0.3309,
+    "reason": [
+      "沪深300 5日收益 -1.88%，20日收益 -4.87%。",
+      "候选池平均趋势分 36.1。",
+      "强势候选 2 个，明显走弱对象 7 个。",
+      "新闻偏移 +0.00，公告偏移 +0.00。"
+    ],
+    "risk": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "sources": [
+      "benchmark_daily_bars",
+      "official_news",
+      "cninfo_announcements"
+    ],
+    "thesis": "防守期下，当前更适合执行“新开仓从严控制”而不是平均分配火力。",
+    "counterpoints": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "trigger_conditions": [
+      "新开仓从严控制",
+      "优先处理弱持仓和破位风险"
+    ],
+    "invalidation_conditions": [
+      "若指数与广度快速修复，需上调风险预算。",
+      "若强势股同步失去相对强度，继续收缩进攻动作。"
+    ],
+    "priority_score": 96.55,
+    "metadata": {
+      "label": "偏空",
+      "regime": "防守期",
+      "policy": [
+        "新开仓从严控制",
+        "优先处理弱持仓和破位风险",
+        "只保留少量观察名单"
+      ],
+      "benchmark_code": "000300",
+      "benchmark_ret_5d": -0.018760592246147456,
+      "benchmark_ret_20d": -0.04867905703034603,
+      "breadth_score": 36.080714285714286,
+      "leadership_count": 2,
+      "breakdown_count": 7
+    }
+  },
+  "artifacts": {
+    "workbook": "data/output/spreadsheet/2026-03-27/2026-03-27_portfolio_candidates.xlsx"
+  }
+}

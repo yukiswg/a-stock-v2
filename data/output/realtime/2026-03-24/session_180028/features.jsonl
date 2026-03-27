@@ -1,0 +1,10 @@
+{"code": "000001", "name": "上证指数", "timestamp": "2026-03-24T18:00:28", "last_price": 3910.681, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 0.0}
+{"code": "000300", "name": "沪深300", "timestamp": "2026-03-24T18:00:28", "last_price": 4510.154, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 0.0}
+{"code": "000333", "name": "美的集团", "timestamp": "2026-03-24T18:00:28", "last_price": 73.681, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 0.0}
+{"code": "300750", "name": "宁德时代", "timestamp": "2026-03-24T18:00:28", "last_price": 402.367, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 0.0}
+{"code": "399006", "name": "创业板指", "timestamp": "2026-03-24T18:00:28", "last_price": 3142.15, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 0.0}
+{"code": "513310", "name": "中韩芯片", "timestamp": "2026-03-24T18:00:28", "last_price": 3.719, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 0.0}
+{"code": "588000", "name": "科创50", "timestamp": "2026-03-24T18:00:28", "last_price": 1.36, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 0.0}
+{"code": "600036", "name": "招商银行", "timestamp": "2026-03-24T18:00:28", "last_price": 39.522, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 0.0}
+{"code": "601127", "name": "赛力斯", "timestamp": "2026-03-24T18:00:28", "last_price": 101.844, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 0.0}
+{"code": "601699", "name": "潞安环能", "timestamp": "2026-03-24T18:00:28", "last_price": 14.662, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 0.0}

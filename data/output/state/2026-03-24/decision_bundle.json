@@ -1,0 +1,1436 @@
+{
+  "as_of": "2026-03-24",
+  "market_view": {
+    "object_type": "market",
+    "object_id": "000300",
+    "object_name": "偏空市场",
+    "at": "2026-03-24",
+    "action": "risk_off",
+    "score": 36.35,
+    "probability": 0.3635,
+    "reason": [
+      "沪深300 5日收益 -5.35%，20日收益 -5.12%。",
+      "候选池平均趋势分 50.4。",
+      "强势候选 6 个，明显走弱对象 7 个。",
+      "新闻偏移 +0.00，公告偏移 +0.00。"
+    ],
+    "risk": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "sources": [
+      "benchmark_daily_bars",
+      "official_news",
+      "cninfo_announcements"
+    ],
+    "thesis": "防守期下，当前更适合执行“新开仓从严控制”而不是平均分配火力。",
+    "counterpoints": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "trigger_conditions": [
+      "新开仓从严控制",
+      "优先处理弱持仓和破位风险"
+    ],
+    "invalidation_conditions": [
+      "若指数与广度快速修复，需上调风险预算。",
+      "若强势股同步失去相对强度，继续收缩进攻动作。"
+    ],
+    "priority_score": 98.17,
+    "metadata": {
+      "label": "偏空",
+      "regime": "防守期",
+      "policy": [
+        "新开仓从严控制",
+        "优先处理弱持仓和破位风险",
+        "只保留少量观察名单"
+      ],
+      "benchmark_code": "000300",
+      "benchmark_ret_5d": -0.053485345366430126,
+      "benchmark_ret_20d": -0.05122081533598977,
+      "breadth_score": 50.404999999999994,
+      "leadership_count": 6,
+      "breakdown_count": 7
+    }
+  },
+  "holdings_actions": [
+    {
+      "object_type": "holding",
+      "object_id": "513310",
+      "object_name": "中韩芯片",
+      "at": "2026-03-24",
+      "action": "cut_on_breakdown",
+      "score": 0.0,
+      "probability": 0.625,
+      "reason": [
+        "中韩芯片 已经进入弱趋势防守阶段，先处理风险，再谈加仓。",
+        "相对强弱 +8.98%，强于基准。"
+      ],
+      "risk": [
+        "若重新站回 4.13 且成交恢复，可转回观察。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "sector_context"
+      ],
+      "thesis": "中韩芯片 的主逻辑是 相对强弱 +8.98%，强于基准，但 5日收益 -8.84%，短期仍在走弱，所以当前策略是“破位减仓”。",
+      "counterpoints": [
+        "5日收益 -8.84%，短期仍在走弱。",
+        "距20日高点 -13.40%，位置仍偏弱。",
+        "量比 0.78x，量能不足。"
+      ],
+      "trigger_conditions": [
+        "若跌破 3.74 且相对强弱继续走弱，立即执行减仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若重新站回 4.13 且成交恢复，可转回观察。"
+      ],
+      "priority_score": 97.0,
+      "metadata": {
+        "sector": "半导体ETF",
+        "market_value": 1500.0,
+        "decision": "trim",
+        "action_plan": {
+          "action": "cut_on_breakdown",
+          "label": "破位减仓",
+          "rationale": "中韩芯片 已经进入弱趋势防守阶段，先处理风险，再谈加仓。",
+          "position_guidance": "先减 1/3 到 1/2，保留观察仓。",
+          "urgency": "high",
+          "urgency_score": 97.0,
+          "levels": {
+            "breakout_price": 4.321,
+            "support_price": 3.742,
+            "pullback_price": 3.973,
+            "retest_price": 4.131
+          },
+          "trigger_conditions": [
+            "若跌破 3.74 且相对强弱继续走弱，立即执行减仓。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若重新站回 4.13 且成交恢复，可转回观察。"
+          ],
+          "do_not": [
+            "不要在没有触发条件前提前追单。",
+            "不要把单票仓位一次性打满。",
+            "不要忽略市场状态对个股执行的影响。"
+          ],
+          "monitoring_focus": [
+            "观察价格相对 4.32 / 3.74 的反应。",
+            "相对强弱 +8.98%，强于基准。",
+            "5日收益 -8.84%，短期仍在走弱。"
+          ]
+        },
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。"
+      }
+    },
+    {
+      "object_type": "holding",
+      "object_id": "601699",
+      "object_name": "潞安环能",
+      "at": "2026-03-24",
+      "action": "hold_no_add",
+      "score": 60.17,
+      "probability": 0.7909,
+      "reason": [
+        "潞安环能 还没有差到必须卖，但仓位条件已经不支持继续加。",
+        "相对强弱 +12.27%，强于基准。"
+      ],
+      "risk": [
+        "若跌破 14.28，转为破位减仓。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "cninfo",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.capital_flow",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "潞安环能 的主逻辑是 相对强弱 +12.27%，强于基准；毛利率 34.1%，但 营收同比 -20.82%，所以当前策略是“继续持有，不再加仓”。",
+      "counterpoints": [
+        "营收同比 -20.82%。",
+        "利润同比 -44.45%。",
+        "ROE 3.3%。"
+      ],
+      "trigger_conditions": [
+        "先等指数和市场广度修复，再看个股确认。",
+        "单票仓位已经不低，后续只在趋势确认后再考虑微调。"
+      ],
+      "invalidation_conditions": [
+        "若跌破 14.28，转为破位减仓。"
+      ],
+      "priority_score": 61.0,
+      "metadata": {
+        "sector": "能源金属",
+        "market_value": 3500.0,
+        "decision": "hold",
+        "action_plan": {
+          "action": "hold_no_add",
+          "label": "继续持有，不再加仓",
+          "rationale": "潞安环能 还没有差到必须卖，但仓位条件已经不支持继续加。",
+          "position_guidance": "保持当前仓位，等风险敞口下降后再评估。",
+          "urgency": "medium",
+          "urgency_score": 61.0,
+          "levels": {
+            "breakout_price": 15.4,
+            "support_price": 14.28,
+            "pullback_price": 14.556,
+            "retest_price": 14.84
+          },
+          "trigger_conditions": [
+            "先等指数和市场广度修复，再看个股确认。",
+            "单票仓位已经不低，后续只在趋势确认后再考虑微调。"
+          ],
+          "invalidation_conditions": [
+            "若跌破 14.28，转为破位减仓。"
+          ],
+          "do_not": [
+            "不要在没有触发条件前提前追单。",
+            "不要把单票仓位一次性打满。",
+            "不要忽略市场状态对个股执行的影响。"
+          ],
+          "monitoring_focus": [
+            "观察价格相对 15.40 / 14.28 的反应。",
+            "相对强弱 +12.27%，强于基准。",
+            "营收同比 -20.82%。"
+          ]
+        },
+        "position_guidance": "保持当前仓位，等风险敞口下降后再评估。"
+      }
+    },
+    {
+      "object_type": "holding",
+      "object_id": "588000",
+      "object_name": "科创50",
+      "at": "2026-03-24",
+      "action": "hold_no_add",
+      "score": 6.01,
+      "probability": 0.24,
+      "reason": [
+        "科创50 还没有差到必须卖，但仓位条件已经不支持继续加。",
+        "量比 1.34x，量能有确认。"
+      ],
+      "risk": [
+        "若跌破 1.33，转为破位减仓。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "sector_context"
+      ],
+      "thesis": "科创50 的主逻辑是 量比 1.34x，量能有确认，但 20日收益 -13.82%，中期趋势仍弱，所以当前策略是“继续持有，不再加仓”。",
+      "counterpoints": [
+        "20日收益 -13.82%，中期趋势仍弱。",
+        "相对强弱 -8.70%，弱于基准。",
+        "5日收益 -8.50%，短期仍在走弱。"
+      ],
+      "trigger_conditions": [
+        "先等指数和市场广度修复，再看个股确认。",
+        "先观察是否回到20日高点附近，再评估右侧买点。"
+      ],
+      "invalidation_conditions": [
+        "若跌破 1.33，转为破位减仓。"
+      ],
+      "priority_score": 61.0,
+      "metadata": {
+        "sector": "宽基ETF",
+        "market_value": 5000.0,
+        "decision": "hold",
+        "action_plan": {
+          "action": "hold_no_add",
+          "label": "继续持有，不再加仓",
+          "rationale": "科创50 还没有差到必须卖，但仓位条件已经不支持继续加。",
+          "position_guidance": "保持当前仓位，等风险敞口下降后再评估。",
+          "urgency": "medium",
+          "urgency_score": 61.0,
+          "levels": {
+            "breakout_price": 1.566,
+            "support_price": 1.334,
+            "pullback_price": 1.401,
+            "retest_price": 1.445
+          },
+          "trigger_conditions": [
+            "先等指数和市场广度修复，再看个股确认。",
+            "先观察是否回到20日高点附近，再评估右侧买点。"
+          ],
+          "invalidation_conditions": [
+            "若跌破 1.33，转为破位减仓。"
+          ],
+          "do_not": [
+            "不要在没有触发条件前提前追单。",
+            "不要把单票仓位一次性打满。",
+            "不要忽略市场状态对个股执行的影响。"
+          ],
+          "monitoring_focus": [
+            "观察价格相对 1.57 / 1.33 的反应。",
+            "量比 1.34x，量能有确认。",
+            "20日收益 -13.82%，中期趋势仍弱。"
+          ]
+        },
+        "position_guidance": "保持当前仓位，等风险敞口下降后再评估。"
+      }
+    }
+  ],
+  "watchlist": [
+    {
+      "object_type": "watch",
+      "object_id": "300335",
+      "object_name": "迪森股份",
+      "at": "2026-03-24",
+      "action": "wait_for_breakout",
+      "score": 68.3,
+      "probability": 0.7665,
+      "reason": [
+        "迪森股份 接近关键位，但还没给出值得执行的确认。",
+        "20日收益 +32.91%，趋势延续性较强。"
+      ],
+      "risk": [
+        "若回落跌破 7.00，取消突破预案。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.capital_flow",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "迪森股份 的主逻辑是 20日收益 +32.91%，趋势延续性较强；相对强弱 +38.03%，强于基准，但 ROE 3.5%，所以当前策略是“等放量突破”。",
+      "counterpoints": [
+        "ROE 3.5%。",
+        "PE 约为行业的 2.89x。",
+        "20日波动率 5.72% 偏高。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 8.40，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 7.00，取消突破预案。"
+      ],
+      "priority_score": 62.0,
+      "metadata": {
+        "category": "watch",
+        "decision": "watch",
+        "sector": "电力",
+        "action_plan": {
+          "action": "wait_for_breakout",
+          "label": "等放量突破",
+          "rationale": "迪森股份 接近关键位，但还没给出值得执行的确认。",
+          "position_guidance": "先观察，不提前追价。",
+          "urgency": "medium",
+          "urgency_score": 62.0,
+          "levels": {
+            "breakout_price": 8.4,
+            "support_price": 7.0,
+            "pullback_price": 7.492,
+            "retest_price": 8.4
+          },
+          "trigger_conditions": [
+            "只有放量突破 8.40，才升级为试仓。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若回落跌破 7.00，取消突破预案。"
+          ],
+          "do_not": [
+            "不要在没有触发条件前提前追单。",
+            "不要把单票仓位一次性打满。",
+            "不要忽略市场状态对个股执行的影响。"
+          ],
+          "monitoring_focus": [
+            "观察价格相对 8.40 / 7.00 的反应。",
+            "20日收益 +32.91%，趋势延续性较强。",
+            "ROE 3.5%。"
+          ]
+        },
+        "position_guidance": "先观察，不提前追价。"
+      }
+    },
+    {
+      "object_type": "watch",
+      "object_id": "688796",
+      "object_name": "百奥赛图",
+      "at": "2026-03-24",
+      "action": "wait_for_breakout",
+      "score": 62.57,
+      "probability": 0.6728,
+      "reason": [
+        "百奥赛图 接近关键位，但还没给出值得执行的确认。",
+        "20日收益 +15.54%，趋势延续性较强。"
+      ],
+      "risk": [
+        "若回落跌破 74.40，取消突破预案。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.capital_flow",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "百奥赛图 的主逻辑是 20日收益 +15.54%，趋势延续性较强；相对强弱 +20.67%，强于基准，但 PE 约为行业的 7.37x，所以当前策略是“等放量突破”。",
+      "counterpoints": [
+        "PE 约为行业的 7.37x。",
+        "近5日主力资金净流出。",
+        "20日波动率 5.17% 偏高。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 83.11，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 74.40，取消突破预案。"
+      ],
+      "priority_score": 62.0,
+      "metadata": {
+        "category": "watch",
+        "decision": "watch",
+        "sector": "科创板",
+        "action_plan": {
+          "action": "wait_for_breakout",
+          "label": "等放量突破",
+          "rationale": "百奥赛图 接近关键位，但还没给出值得执行的确认。",
+          "position_guidance": "先观察，不提前追价。",
+          "urgency": "medium",
+          "urgency_score": 62.0,
+          "levels": {
+            "breakout_price": 83.11,
+            "support_price": 74.4,
+            "pullback_price": 78.728,
+            "retest_price": 83.11
+          },
+          "trigger_conditions": [
+            "只有放量突破 83.11，才升级为试仓。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若回落跌破 74.40，取消突破预案。"
+          ],
+          "do_not": [
+            "不要在没有触发条件前提前追单。",
+            "不要把单票仓位一次性打满。",
+            "不要忽略市场状态对个股执行的影响。"
+          ],
+          "monitoring_focus": [
+            "观察价格相对 83.11 / 74.40 的反应。",
+            "20日收益 +15.54%，趋势延续性较强。",
+            "PE 约为行业的 7.37x。"
+          ]
+        },
+        "position_guidance": "先观察，不提前追价。"
+      }
+    },
+    {
+      "object_type": "watch",
+      "object_id": "300750",
+      "object_name": "宁德时代",
+      "at": "2026-03-24",
+      "action": "wait_for_breakout",
+      "score": 59.76,
+      "probability": 0.7238,
+      "reason": [
+        "宁德时代 接近关键位，但还没给出值得执行的确认。",
+        "20日收益 +12.00%，趋势延续性较强。"
+      ],
+      "risk": [
+        "若回落跌破 376.30，取消突破预案。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.capital_flow",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "宁德时代 的主逻辑是 20日收益 +12.00%，趋势延续性较强；相对强弱 +17.12%，强于基准，但 近5日主力资金净流出，所以当前策略是“等放量突破”。",
+      "counterpoints": [
+        "近5日主力资金净流出。",
+        "主力净占比 -2.45%。",
+        "量比 0.72x，量能不足。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 413.00，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 376.30，取消突破预案。"
+      ],
+      "priority_score": 62.0,
+      "metadata": {
+        "category": "watch",
+        "decision": "watch",
+        "sector": "电池",
+        "action_plan": {
+          "action": "wait_for_breakout",
+          "label": "等放量突破",
+          "rationale": "宁德时代 接近关键位，但还没给出值得执行的确认。",
+          "position_guidance": "先观察，不提前追价。",
+          "urgency": "medium",
+          "urgency_score": 62.0,
+          "levels": {
+            "breakout_price": 413.0,
+            "support_price": 376.3,
+            "pullback_price": 405.94,
+            "retest_price": 413.0
+          },
+          "trigger_conditions": [
+            "只有放量突破 413.00，才升级为试仓。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若回落跌破 376.30，取消突破预案。"
+          ],
+          "do_not": [
+            "不要在没有触发条件前提前追单。",
+            "不要把单票仓位一次性打满。",
+            "不要忽略市场状态对个股执行的影响。"
+          ],
+          "monitoring_focus": [
+            "观察价格相对 413.00 / 376.30 的反应。",
+            "20日收益 +12.00%，趋势延续性较强。",
+            "近5日主力资金净流出。"
+          ]
+        },
+        "position_guidance": "先观察，不提前追价。"
+      }
+    },
+    {
+      "object_type": "watch",
+      "object_id": "300983",
+      "object_name": "尤安设计",
+      "at": "2026-03-24",
+      "action": "wait_for_pullback",
+      "score": 57.41,
+      "probability": 0.687,
+      "reason": [
+        "尤安设计 方向还在，但更优赔率不在当前位置。",
+        "20日收益 +9.10%，趋势延续性较强。"
+      ],
+      "risk": [
+        "若直接跌破 27.28，取消计划。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.capital_flow",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "尤安设计 的主逻辑是 20日收益 +9.10%，趋势延续性较强；相对强弱 +14.22%，强于基准，但 营收同比 -24.44%，所以当前策略是“等回踩”。",
+      "counterpoints": [
+        "营收同比 -24.44%。",
+        "ROE -0.6%。",
+        "近5日主力资金净流出。"
+      ],
+      "trigger_conditions": [
+        "回踩 29.82 一带且量能不失真时，再考虑出手。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若直接跌破 27.28，取消计划。"
+      ],
+      "priority_score": 60.0,
+      "metadata": {
+        "category": "watch",
+        "decision": "watch",
+        "sector": "建筑装饰",
+        "action_plan": {
+          "action": "wait_for_pullback",
+          "label": "等回踩",
+          "rationale": "尤安设计 方向还在，但更优赔率不在当前位置。",
+          "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+          "urgency": "medium",
+          "urgency_score": 60.0,
+          "levels": {
+            "breakout_price": 32.3,
+            "support_price": 27.28,
+            "pullback_price": 29.816,
+            "retest_price": 31.37
+          },
+          "trigger_conditions": [
+            "回踩 29.82 一带且量能不失真时，再考虑出手。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若直接跌破 27.28，取消计划。"
+          ],
+          "do_not": [
+            "不要在没有触发条件前提前追单。",
+            "不要把单票仓位一次性打满。",
+            "不要忽略市场状态对个股执行的影响。"
+          ],
+          "monitoring_focus": [
+            "观察价格相对 32.30 / 27.28 的反应。",
+            "20日收益 +9.10%，趋势延续性较强。",
+            "营收同比 -24.44%。"
+          ]
+        },
+        "position_guidance": "等待更舒服的回踩位，再决定是否试仓。"
+      }
+    }
+  ],
+  "monitor_plan": [
+    {
+      "object_type": "monitor",
+      "object_id": "000300",
+      "object_name": "沪深300",
+      "at": "2026-03-24",
+      "action": "monitor_index",
+      "score": 4.65,
+      "probability": 0.3635,
+      "reason": [
+        "作为风格和系统性风险锚点，跟踪 沪深300。"
+      ],
+      "risk": [
+        "指数转弱会降低个股告警价值。"
+      ],
+      "sources": [
+        "daily_bars"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "benchmark",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.015,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.01
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "000001",
+      "object_name": "上证指数",
+      "at": "2026-03-24",
+      "action": "monitor_index",
+      "score": 0.0,
+      "probability": 0.3635,
+      "reason": [
+        "作为风格和系统性风险锚点，跟踪 上证指数。"
+      ],
+      "risk": [
+        "指数转弱会降低个股告警价值。"
+      ],
+      "sources": [
+        "daily_bars"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "benchmark",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.015,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.01
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "399006",
+      "object_name": "创业板指",
+      "at": "2026-03-24",
+      "action": "monitor_index",
+      "score": 37.25,
+      "probability": 0.3635,
+      "reason": [
+        "作为风格和系统性风险锚点，跟踪 创业板指。"
+      ],
+      "risk": [
+        "指数转弱会降低个股告警价值。"
+      ],
+      "sources": [
+        "daily_bars"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "benchmark",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.015,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.01
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "513310",
+      "object_name": "中韩芯片",
+      "at": "2026-03-24",
+      "action": "monitor_holding",
+      "score": 0.0,
+      "probability": 0.625,
+      "reason": [
+        "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+        "中韩芯片 已经进入弱趋势防守阶段，先处理风险，再谈加仓。"
+      ],
+      "risk": [
+        "若重新站回 4.13 且成交恢复，可转回观察。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "sector_context"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "holding",
+        "parent_action": "cut_on_breakdown",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.02,
+          "price_drop_threshold_5m": -0.02,
+          "relative_strength_threshold_5m": 0.012
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "601699",
+      "object_name": "潞安环能",
+      "at": "2026-03-24",
+      "action": "monitor_holding",
+      "score": 60.17,
+      "probability": 0.7909,
+      "reason": [
+        "持仓动作 `hold_no_add`，盘中需要验证是否符合预期。",
+        "潞安环能 还没有差到必须卖，但仓位条件已经不支持继续加。"
+      ],
+      "risk": [
+        "若跌破 14.28，转为破位减仓。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "cninfo",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.capital_flow",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "holding",
+        "parent_action": "hold_no_add",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.02,
+          "price_drop_threshold_5m": -0.02,
+          "relative_strength_threshold_5m": 0.012
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "588000",
+      "object_name": "科创50",
+      "at": "2026-03-24",
+      "action": "monitor_holding",
+      "score": 6.01,
+      "probability": 0.24,
+      "reason": [
+        "持仓动作 `hold_no_add`，盘中需要验证是否符合预期。",
+        "科创50 还没有差到必须卖，但仓位条件已经不支持继续加。"
+      ],
+      "risk": [
+        "若跌破 1.33，转为破位减仓。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "sector_context"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "holding",
+        "parent_action": "hold_no_add",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.02,
+          "price_drop_threshold_5m": -0.02,
+          "relative_strength_threshold_5m": 0.012
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "300335",
+      "object_name": "迪森股份",
+      "at": "2026-03-24",
+      "action": "monitor_watch",
+      "score": 68.3,
+      "probability": 0.7665,
+      "reason": [
+        "观察动作 `wait_for_breakout`，盘中只在出现确认信号时提醒。",
+        "迪森股份 接近关键位，但还没给出值得执行的确认。"
+      ],
+      "risk": [
+        "若回落跌破 7.00，取消突破预案。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.capital_flow",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "watch",
+        "parent_action": "wait_for_breakout",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.018,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.014
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "688796",
+      "object_name": "百奥赛图",
+      "at": "2026-03-24",
+      "action": "monitor_watch",
+      "score": 62.57,
+      "probability": 0.6728,
+      "reason": [
+        "观察动作 `wait_for_breakout`，盘中只在出现确认信号时提醒。",
+        "百奥赛图 接近关键位，但还没给出值得执行的确认。"
+      ],
+      "risk": [
+        "若回落跌破 74.40，取消突破预案。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.capital_flow",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "watch",
+        "parent_action": "wait_for_breakout",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.018,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.014
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "300750",
+      "object_name": "宁德时代",
+      "at": "2026-03-24",
+      "action": "monitor_watch",
+      "score": 59.76,
+      "probability": 0.7238,
+      "reason": [
+        "观察动作 `wait_for_breakout`，盘中只在出现确认信号时提醒。",
+        "宁德时代 接近关键位，但还没给出值得执行的确认。"
+      ],
+      "risk": [
+        "若回落跌破 376.30，取消突破预案。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.capital_flow",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "watch",
+        "parent_action": "wait_for_breakout",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.018,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.014
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "300983",
+      "object_name": "尤安设计",
+      "at": "2026-03-24",
+      "action": "monitor_watch",
+      "score": 57.41,
+      "probability": 0.687,
+      "reason": [
+        "观察动作 `wait_for_pullback`，盘中只在出现确认信号时提醒。",
+        "尤安设计 方向还在，但更优赔率不在当前位置。"
+      ],
+      "risk": [
+        "若直接跌破 27.28，取消计划。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.capital_flow",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "watch",
+        "parent_action": "wait_for_pullback",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.018,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.014
+        }
+      }
+    }
+  ],
+  "final_action_summary": "防守期，今天先处理：先处理 中韩芯片 的破位减仓；观察 迪森股份 的等放量突破触发。",
+  "homepage_overview": {
+    "as_of": "2026-03-24",
+    "today_action": "防守期，今天先处理：先处理 中韩芯片 的破位减仓；观察 迪森股份 的等放量突破触发。",
+    "market_state": {
+      "label": "偏空",
+      "regime": "防守期",
+      "score": 36.35,
+      "probability": 0.3635,
+      "summary": "防守期下，当前更适合执行“新开仓从严控制”而不是平均分配火力。",
+      "policy": [
+        "新开仓从严控制",
+        "优先处理弱持仓和破位风险",
+        "只保留少量观察名单"
+      ]
+    },
+    "market_label": "偏空",
+    "market_probability": 0.3635,
+    "current_prices": [
+      {
+        "code": "513310",
+        "name": "中韩芯片",
+        "last_price": "3.742",
+        "ret_day": "-5.81%",
+        "timestamp": "2026-03-23 close",
+        "freshness": "eod"
+      },
+      {
+        "code": "300335",
+        "name": "迪森股份",
+        "last_price": "8.4",
+        "ret_day": "+20.00%",
+        "timestamp": "2026-03-24 close",
+        "freshness": "eod"
+      },
+      {
+        "code": "688796",
+        "name": "百奥赛图",
+        "last_price": "82.44",
+        "ret_day": "+10.81%",
+        "timestamp": "2026-03-24 close",
+        "freshness": "eod"
+      },
+      {
+        "code": "601699",
+        "name": "潞安环能",
+        "last_price": "14.84",
+        "ret_day": "+1.37%",
+        "timestamp": "2026-03-23 close",
+        "freshness": "eod"
+      },
+      {
+        "code": "588000",
+        "name": "科创50",
+        "last_price": "1.334",
+        "ret_day": "-3.89%",
+        "timestamp": "2026-03-23 close",
+        "freshness": "eod"
+      }
+    ],
+    "latest_alerts": [],
+    "priority_actions": [
+      {
+        "bucket": "holding_risk",
+        "headline": "先处理 中韩芯片 的破位减仓",
+        "code": "513310",
+        "name": "中韩芯片",
+        "action": "cut_on_breakdown",
+        "action_label": "破位减仓",
+        "priority_score": 105.0,
+        "score": 0.0,
+        "reason": "中韩芯片 已经进入弱趋势防守阶段，先处理风险，再谈加仓。",
+        "thesis": "中韩芯片 的主逻辑是 相对强弱 +8.98%，强于基准，但 5日收益 -8.84%，短期仍在走弱，所以当前策略是“破位减仓”。",
+        "trigger": "若跌破 3.74 且相对强弱继续走弱，立即执行减仓。",
+        "invalidation": "若重新站回 4.13 且成交恢复，可转回观察。",
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。",
+        "levels": {
+          "breakout_price": 4.321,
+          "support_price": 3.742,
+          "pullback_price": 3.973,
+          "retest_price": 4.131
+        }
+      },
+      {
+        "bucket": "watch_opportunity",
+        "headline": "观察 迪森股份 的等放量突破触发",
+        "code": "300335",
+        "name": "迪森股份",
+        "action": "wait_for_breakout",
+        "action_label": "等放量突破",
+        "priority_score": 62.0,
+        "score": 68.3,
+        "reason": "迪森股份 接近关键位，但还没给出值得执行的确认。",
+        "thesis": "迪森股份 的主逻辑是 20日收益 +32.91%，趋势延续性较强；相对强弱 +38.03%，强于基准，但 ROE 3.5%，所以当前策略是“等放量突破”。",
+        "trigger": "只有放量突破 8.40，才升级为试仓。",
+        "invalidation": "若回落跌破 7.00，取消突破预案。",
+        "position_guidance": "先观察，不提前追价。",
+        "levels": {
+          "breakout_price": 8.4,
+          "support_price": 7.0,
+          "pullback_price": 7.492,
+          "retest_price": 8.4
+        }
+      },
+      {
+        "bucket": "watch_opportunity",
+        "headline": "观察 百奥赛图 的等放量突破触发",
+        "code": "688796",
+        "name": "百奥赛图",
+        "action": "wait_for_breakout",
+        "action_label": "等放量突破",
+        "priority_score": 62.0,
+        "score": 62.57,
+        "reason": "百奥赛图 接近关键位，但还没给出值得执行的确认。",
+        "thesis": "百奥赛图 的主逻辑是 20日收益 +15.54%，趋势延续性较强；相对强弱 +20.67%，强于基准，但 PE 约为行业的 7.37x，所以当前策略是“等放量突破”。",
+        "trigger": "只有放量突破 83.11，才升级为试仓。",
+        "invalidation": "若回落跌破 74.40，取消突破预案。",
+        "position_guidance": "先观察，不提前追价。",
+        "levels": {
+          "breakout_price": 83.11,
+          "support_price": 74.4,
+          "pullback_price": 78.728,
+          "retest_price": 83.11
+        }
+      }
+    ],
+    "holdings_risks": [
+      {
+        "code": "513310",
+        "name": "中韩芯片",
+        "action": "cut_on_breakdown",
+        "action_label": "破位减仓",
+        "score": 0.0,
+        "priority_score": 97.0,
+        "reason": "中韩芯片 已经进入弱趋势防守阶段，先处理风险，再谈加仓。",
+        "thesis": "中韩芯片 的主逻辑是 相对强弱 +8.98%，强于基准，但 5日收益 -8.84%，短期仍在走弱，所以当前策略是“破位减仓”。",
+        "trigger": "若跌破 3.74 且相对强弱继续走弱，立即执行减仓。",
+        "invalidation": "若重新站回 4.13 且成交恢复，可转回观察。",
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。",
+        "levels": {
+          "breakout_price": 4.321,
+          "support_price": 3.742,
+          "pullback_price": 3.973,
+          "retest_price": 4.131
+        }
+      }
+    ],
+    "watch_opportunities": [
+      {
+        "code": "300335",
+        "name": "迪森股份",
+        "action": "wait_for_breakout",
+        "action_label": "等放量突破",
+        "score": 68.3,
+        "priority_score": 62.0,
+        "reason": "迪森股份 接近关键位，但还没给出值得执行的确认。",
+        "thesis": "迪森股份 的主逻辑是 20日收益 +32.91%，趋势延续性较强；相对强弱 +38.03%，强于基准，但 ROE 3.5%，所以当前策略是“等放量突破”。",
+        "trigger": "只有放量突破 8.40，才升级为试仓。",
+        "invalidation": "若回落跌破 7.00，取消突破预案。",
+        "position_guidance": "先观察，不提前追价。",
+        "levels": {
+          "breakout_price": 8.4,
+          "support_price": 7.0,
+          "pullback_price": 7.492,
+          "retest_price": 8.4
+        }
+      },
+      {
+        "code": "688796",
+        "name": "百奥赛图",
+        "action": "wait_for_breakout",
+        "action_label": "等放量突破",
+        "score": 62.57,
+        "priority_score": 62.0,
+        "reason": "百奥赛图 接近关键位，但还没给出值得执行的确认。",
+        "thesis": "百奥赛图 的主逻辑是 20日收益 +15.54%，趋势延续性较强；相对强弱 +20.67%，强于基准，但 PE 约为行业的 7.37x，所以当前策略是“等放量突破”。",
+        "trigger": "只有放量突破 83.11，才升级为试仓。",
+        "invalidation": "若回落跌破 74.40，取消突破预案。",
+        "position_guidance": "先观察，不提前追价。",
+        "levels": {
+          "breakout_price": 83.11,
+          "support_price": 74.4,
+          "pullback_price": 78.728,
+          "retest_price": 83.11
+        }
+      },
+      {
+        "code": "300750",
+        "name": "宁德时代",
+        "action": "wait_for_breakout",
+        "action_label": "等放量突破",
+        "score": 59.76,
+        "priority_score": 62.0,
+        "reason": "宁德时代 接近关键位，但还没给出值得执行的确认。",
+        "thesis": "宁德时代 的主逻辑是 20日收益 +12.00%，趋势延续性较强；相对强弱 +17.12%，强于基准，但 近5日主力资金净流出，所以当前策略是“等放量突破”。",
+        "trigger": "只有放量突破 413.00，才升级为试仓。",
+        "invalidation": "若回落跌破 376.30，取消突破预案。",
+        "position_guidance": "先观察，不提前追价。",
+        "levels": {
+          "breakout_price": 413.0,
+          "support_price": 376.3,
+          "pullback_price": 405.94,
+          "retest_price": 413.0
+        }
+      },
+      {
+        "code": "300983",
+        "name": "尤安设计",
+        "action": "wait_for_pullback",
+        "action_label": "等回踩",
+        "score": 57.41,
+        "priority_score": 60.0,
+        "reason": "尤安设计 方向还在，但更优赔率不在当前位置。",
+        "thesis": "尤安设计 的主逻辑是 20日收益 +9.10%，趋势延续性较强；相对强弱 +14.22%，强于基准，但 营收同比 -24.44%，所以当前策略是“等回踩”。",
+        "trigger": "回踩 29.82 一带且量能不失真时，再考虑出手。",
+        "invalidation": "若直接跌破 27.28，取消计划。",
+        "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+        "levels": {
+          "breakout_price": 32.3,
+          "support_price": 27.28,
+          "pullback_price": 29.816,
+          "retest_price": 31.37
+        }
+      }
+    ],
+    "holdings_actions": [
+      {
+        "code": "513310",
+        "name": "中韩芯片",
+        "action": "cut_on_breakdown",
+        "action_label": "破位减仓",
+        "score": 0.0,
+        "priority_score": 97.0,
+        "reason": "中韩芯片 已经进入弱趋势防守阶段，先处理风险，再谈加仓。",
+        "thesis": "中韩芯片 的主逻辑是 相对强弱 +8.98%，强于基准，但 5日收益 -8.84%，短期仍在走弱，所以当前策略是“破位减仓”。",
+        "trigger": "若跌破 3.74 且相对强弱继续走弱，立即执行减仓。",
+        "invalidation": "若重新站回 4.13 且成交恢复，可转回观察。",
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。",
+        "levels": {
+          "breakout_price": 4.321,
+          "support_price": 3.742,
+          "pullback_price": 3.973,
+          "retest_price": 4.131
+        }
+      },
+      {
+        "code": "601699",
+        "name": "潞安环能",
+        "action": "hold_no_add",
+        "action_label": "继续持有，不再加仓",
+        "score": 60.17,
+        "priority_score": 61.0,
+        "reason": "潞安环能 还没有差到必须卖，但仓位条件已经不支持继续加。",
+        "thesis": "潞安环能 的主逻辑是 相对强弱 +12.27%，强于基准；毛利率 34.1%，但 营收同比 -20.82%，所以当前策略是“继续持有，不再加仓”。",
+        "trigger": "先等指数和市场广度修复，再看个股确认。",
+        "invalidation": "若跌破 14.28，转为破位减仓。",
+        "position_guidance": "保持当前仓位，等风险敞口下降后再评估。",
+        "levels": {
+          "breakout_price": 15.4,
+          "support_price": 14.28,
+          "pullback_price": 14.556,
+          "retest_price": 14.84
+        }
+      },
+      {
+        "code": "588000",
+        "name": "科创50",
+        "action": "hold_no_add",
+        "action_label": "继续持有，不再加仓",
+        "score": 6.01,
+        "priority_score": 61.0,
+        "reason": "科创50 还没有差到必须卖，但仓位条件已经不支持继续加。",
+        "thesis": "科创50 的主逻辑是 量比 1.34x，量能有确认，但 20日收益 -13.82%，中期趋势仍弱，所以当前策略是“继续持有，不再加仓”。",
+        "trigger": "先等指数和市场广度修复，再看个股确认。",
+        "invalidation": "若跌破 1.33，转为破位减仓。",
+        "position_guidance": "保持当前仓位，等风险敞口下降后再评估。",
+        "levels": {
+          "breakout_price": 1.566,
+          "support_price": 1.334,
+          "pullback_price": 1.401,
+          "retest_price": 1.445
+        }
+      }
+    ],
+    "watchlist": [
+      {
+        "code": "300335",
+        "name": "迪森股份",
+        "action": "wait_for_breakout",
+        "action_label": "等放量突破",
+        "score": 68.3,
+        "priority_score": 62.0,
+        "reason": "迪森股份 接近关键位，但还没给出值得执行的确认。",
+        "thesis": "迪森股份 的主逻辑是 20日收益 +32.91%，趋势延续性较强；相对强弱 +38.03%，强于基准，但 ROE 3.5%，所以当前策略是“等放量突破”。",
+        "trigger": "只有放量突破 8.40，才升级为试仓。",
+        "invalidation": "若回落跌破 7.00，取消突破预案。",
+        "position_guidance": "先观察，不提前追价。",
+        "levels": {
+          "breakout_price": 8.4,
+          "support_price": 7.0,
+          "pullback_price": 7.492,
+          "retest_price": 8.4
+        }
+      },
+      {
+        "code": "688796",
+        "name": "百奥赛图",
+        "action": "wait_for_breakout",
+        "action_label": "等放量突破",
+        "score": 62.57,
+        "priority_score": 62.0,
+        "reason": "百奥赛图 接近关键位，但还没给出值得执行的确认。",
+        "thesis": "百奥赛图 的主逻辑是 20日收益 +15.54%，趋势延续性较强；相对强弱 +20.67%，强于基准，但 PE 约为行业的 7.37x，所以当前策略是“等放量突破”。",
+        "trigger": "只有放量突破 83.11，才升级为试仓。",
+        "invalidation": "若回落跌破 74.40，取消突破预案。",
+        "position_guidance": "先观察，不提前追价。",
+        "levels": {
+          "breakout_price": 83.11,
+          "support_price": 74.4,
+          "pullback_price": 78.728,
+          "retest_price": 83.11
+        }
+      },
+      {
+        "code": "300750",
+        "name": "宁德时代",
+        "action": "wait_for_breakout",
+        "action_label": "等放量突破",
+        "score": 59.76,
+        "priority_score": 62.0,
+        "reason": "宁德时代 接近关键位，但还没给出值得执行的确认。",
+        "thesis": "宁德时代 的主逻辑是 20日收益 +12.00%，趋势延续性较强；相对强弱 +17.12%，强于基准，但 近5日主力资金净流出，所以当前策略是“等放量突破”。",
+        "trigger": "只有放量突破 413.00，才升级为试仓。",
+        "invalidation": "若回落跌破 376.30，取消突破预案。",
+        "position_guidance": "先观察，不提前追价。",
+        "levels": {
+          "breakout_price": 413.0,
+          "support_price": 376.3,
+          "pullback_price": 405.94,
+          "retest_price": 413.0
+        }
+      },
+      {
+        "code": "300983",
+        "name": "尤安设计",
+        "action": "wait_for_pullback",
+        "action_label": "等回踩",
+        "score": 57.41,
+        "priority_score": 60.0,
+        "reason": "尤安设计 方向还在，但更优赔率不在当前位置。",
+        "thesis": "尤安设计 的主逻辑是 20日收益 +9.10%，趋势延续性较强；相对强弱 +14.22%，强于基准，但 营收同比 -24.44%，所以当前策略是“等回踩”。",
+        "trigger": "回踩 29.82 一带且量能不失真时，再考虑出手。",
+        "invalidation": "若直接跌破 27.28，取消计划。",
+        "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+        "levels": {
+          "breakout_price": 32.3,
+          "support_price": 27.28,
+          "pullback_price": 29.816,
+          "retest_price": 31.37
+        }
+      }
+    ],
+    "dynamic_universe": {
+      "selection_mode": "dynamic_sector_leaders",
+      "top_sectors": [
+        {
+          "sector": "电力",
+          "score": 86.77,
+          "pct_change": 0.0537,
+          "net_inflow": 60.35,
+          "leader": "迪森股份",
+          "leader_pct_change": 0.2,
+          "rank_score": 97.31,
+          "rank": 1
+        },
+        {
+          "sector": "医疗服务",
+          "score": 83.23,
+          "pct_change": 0.0475,
+          "net_inflow": 14.79,
+          "leader": "百奥赛图",
+          "leader_pct_change": 0.1081,
+          "rank_score": 90.62,
+          "rank": 2
+        },
+        {
+          "sector": "工业金属",
+          "score": 82.62,
+          "pct_change": 0.044500000000000005,
+          "net_inflow": 19.46,
+          "leader": "众源新材",
+          "leader_pct_change": 0.10039999999999999,
+          "rank_score": 89.82,
+          "rank": 3
+        },
+        {
+          "sector": "建筑装饰",
+          "score": 82.7,
+          "pct_change": 0.0436,
+          "net_inflow": 19.56,
+          "leader": "尤安设计",
+          "leader_pct_change": 0.1118,
+          "rank_score": 89.78,
+          "rank": 4
+        },
+        {
+          "sector": "港口航运",
+          "score": 82.72,
+          "pct_change": 0.0412,
+          "net_inflow": 16.98,
+          "leader": "招商南油",
+          "leader_pct_change": 0.1002,
+          "rank_score": 89.34,
+          "rank": 5
+        }
+      ],
+      "leaders": [
+        {
+          "code": "300335",
+          "name": "迪森股份",
+          "sector": "电力",
+          "sector_score": 86.77,
+          "sector_pct_change": 0.0537,
+          "sector_net_inflow": 60.35,
+          "leader_name_raw": "迪森股份",
+          "rank": 1,
+          "rank_score": 97.31
+        },
+        {
+          "code": "688796",
+          "name": "百奥赛图",
+          "sector": "医疗服务",
+          "sector_score": 83.23,
+          "sector_pct_change": 0.0475,
+          "sector_net_inflow": 14.79,
+          "leader_name_raw": "百奥赛图",
+          "rank": 2,
+          "rank_score": 90.62
+        },
+        {
+          "code": "603527",
+          "name": "众源新材",
+          "sector": "工业金属",
+          "sector_score": 82.62,
+          "sector_pct_change": 0.044500000000000005,
+          "sector_net_inflow": 19.46,
+          "leader_name_raw": "众源新材",
+          "rank": 3,
+          "rank_score": 89.82
+        },
+        {
+          "code": "300983",
+          "name": "尤安设计",
+          "sector": "建筑装饰",
+          "sector_score": 82.7,
+          "sector_pct_change": 0.0436,
+          "sector_net_inflow": 19.56,
+          "leader_name_raw": "尤安设计",
+          "rank": 4,
+          "rank_score": 89.78
+        },
+        {
+          "code": "601975",
+          "name": "招商南油",
+          "sector": "港口航运",
+          "sector_score": 82.72,
+          "sector_pct_change": 0.0412,
+          "sector_net_inflow": 16.98,
+          "leader_name_raw": "招商南油",
+          "rank": 5,
+          "rank_score": 89.34
+        }
+      ]
+    }
+  },
+  "llm_summary": {
+    "market_summary": "偏空环境下，优先执行既有仓位和观察名单，不扩大动作空间。",
+    "primary_focus": "先看 潞安环能 是否出现量价确认。",
+    "risk_flags": [
+      "新闻和公告只做增量信号，不替代正文核验。",
+      "盘中若指数转弱，单票告警价值需要折价。"
+    ],
+    "confidence_note": "当前为 harness 回退摘要，结构化字段仍可用于首页和复盘。",
+    "_meta": {
+      "provider": "fallback",
+      "model": "rules",
+      "validated": true,
+      "error": null
+    }
+  }
+}

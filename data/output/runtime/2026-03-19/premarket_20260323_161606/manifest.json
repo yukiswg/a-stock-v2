@@ -1,0 +1,15 @@
+{
+  "run_id": "premarket_20260323_161606",
+  "as_of": "2026-03-19",
+  "session_type": "premarket",
+  "created_at": "2026-03-23T08:16:06.262240Z",
+  "cwd": "/Users/fqyuki/Documents/kd_2026/自学内容/ashare-phase1-agents-v2",
+  "status": "completed",
+  "artifacts": {
+    "daily_report": "data/output/reports/2026-03-19/2026-03-19_daily_report.md",
+    "comprehensive_report": "data/output/reports/2026-03-19/2026-03-19_comprehensive_report.md",
+    "monitor_plan": "data/output/reports/2026-03-19/2026-03-19_monitor_plan.json",
+    "homepage": "data/output/homepage/2026-03-19_homepage_overview.md"
+  },
+  "metadata": {}
+}

@@ -1,0 +1,1 @@
+在 src/ashare_harness_v2/ 下新建 _delegate_smoke.py，定义函数 smoke_message() 返回字符串 hello from codex delegation；再在 tests/ 下新建 test_delegate_smoke.py，用可单独运行的 unittest 验证该返回值。

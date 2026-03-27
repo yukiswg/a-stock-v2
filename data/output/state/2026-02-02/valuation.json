@@ -1,0 +1,86 @@
+{
+  "601699": {
+    "industry_name": "煤炭开采和洗选业",
+    "industry_pe": 11.4,
+    "industry_pe_median": 11.2,
+    "industry_level": 2.0,
+    "industry_company_count": 25.0
+  },
+  "600089": {
+    "industry_name": "电气机械和器材制造业",
+    "industry_pe": 27.35,
+    "industry_pe_median": 49.37,
+    "industry_level": 2.0,
+    "industry_company_count": 352.0
+  },
+  "300750": {
+    "industry_name": "电气机械和器材制造业",
+    "industry_pe": 27.35,
+    "industry_pe_median": 49.37,
+    "industry_level": 2.0,
+    "industry_company_count": 352.0
+  },
+  "600036": {
+    "industry_name": "货币金融服务",
+    "industry_pe": 6.97,
+    "industry_pe_median": 6.46,
+    "industry_level": 2.0,
+    "industry_company_count": 45.0
+  },
+  "601127": {
+    "industry_name": "汽车制造业",
+    "industry_pe": 28.98,
+    "industry_pe_median": 48.72,
+    "industry_level": 2.0,
+    "industry_company_count": 212.0
+  },
+  "000333": {
+    "industry_name": "电气机械和器材制造业",
+    "industry_pe": 27.35,
+    "industry_pe_median": 49.37,
+    "industry_level": 2.0,
+    "industry_company_count": 352.0
+  },
+  "000858": {
+    "industry_name": "酒、饮料和精制茶制造业",
+    "industry_pe": 18.76,
+    "industry_pe_median": 29.66,
+    "industry_level": 2.0,
+    "industry_company_count": 49.0
+  },
+  "688799": {
+    "industry_name": "医药制造业",
+    "industry_pe": 28.6,
+    "industry_pe_median": 32.78,
+    "industry_level": 2.0,
+    "industry_company_count": 327.0
+  },
+  "688710": {
+    "industry_name": "研究和试验发展",
+    "industry_pe": 41.08,
+    "industry_pe_median": 70.23,
+    "industry_level": 2.0,
+    "industry_company_count": 31.0
+  },
+  "002428": {
+    "industry_name": "有色金属冶炼和压延加工业",
+    "industry_pe": 32.83,
+    "industry_pe_median": 54.52,
+    "industry_level": 2.0,
+    "industry_company_count": 88.0
+  },
+  "600227": {
+    "industry_name": "化学原料和化学制品制造业",
+    "industry_pe": 32.48,
+    "industry_pe_median": 46.27,
+    "industry_level": 2.0,
+    "industry_company_count": 368.0
+  },
+  "600539": {
+    "industry_name": "零售业",
+    "industry_pe": 28.72,
+    "industry_pe_median": 56.25,
+    "industry_level": 2.0,
+    "industry_company_count": 93.0
+  }
+}

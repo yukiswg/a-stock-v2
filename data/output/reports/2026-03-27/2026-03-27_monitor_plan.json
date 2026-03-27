@@ -1,0 +1,357 @@
+[
+  {
+    "object_type": "monitor",
+    "object_id": "000300",
+    "object_name": "沪深300",
+    "at": "2026-03-27",
+    "action": "monitor_index",
+    "score": 24.33,
+    "probability": 0.3309,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 沪深300。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "000001",
+    "object_name": "上证指数",
+    "at": "2026-03-27",
+    "action": "monitor_index",
+    "score": 20.71,
+    "probability": 0.3309,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 上证指数。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "399006",
+    "object_name": "创业板指",
+    "at": "2026-03-27",
+    "action": "monitor_index",
+    "score": 39.23,
+    "probability": 0.3309,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 创业板指。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "601699",
+    "object_name": "潞安环能",
+    "at": "2026-03-27",
+    "action": "monitor_holding",
+    "score": 13.66,
+    "probability": 0.5396,
+    "reason": [
+      "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+      "潞安环能 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。"
+    ],
+    "risk": [
+      "若重新站回 14.92 且成交恢复，可转回观察。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "cninfo",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "holding",
+      "parent_action": "cut_on_breakdown",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "513310",
+    "object_name": "中韩芯片",
+    "at": "2026-03-27",
+    "action": "monitor_holding",
+    "score": 5.88,
+    "probability": 0.42,
+    "reason": [
+      "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+      "中韩芯片 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。"
+    ],
+    "risk": [
+      "若重新站回 3.97 且成交恢复，可转回观察。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "holding",
+      "parent_action": "cut_on_breakdown",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "588000",
+    "object_name": "科创50",
+    "at": "2026-03-27",
+    "action": "monitor_holding",
+    "score": 5.34,
+    "probability": 0.42,
+    "reason": [
+      "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+      "科创50 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。"
+    ],
+    "risk": [
+      "若重新站回 1.39 且成交恢复，可转回观察。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "holding",
+      "parent_action": "cut_on_breakdown",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "300750",
+    "object_name": "宁德时代",
+    "at": "2026-03-27",
+    "action": "monitor_watch",
+    "score": 48.06,
+    "probability": 0.3433,
+    "reason": [
+      "观察动作 `wait_for_breakout`，盘中只在出现确认信号时提醒。",
+      "宁德时代 接近关键位，但还没给出值得执行的确认。"
+    ],
+    "risk": [
+      "若回落跌破 396.99，取消突破预案。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_for_breakout",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "600227",
+    "object_name": "赤天化",
+    "at": "2026-03-27",
+    "action": "monitor_watch",
+    "score": 38.09,
+    "probability": 0.2721,
+    "reason": [
+      "观察动作 `wait_for_pullback`，盘中只在出现确认信号时提醒。",
+      "赤天化 方向还在，但更优赔率不在当前位置。"
+    ],
+    "risk": [
+      "若直接跌破 3.87，取消计划。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_for_pullback",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "600036",
+    "object_name": "招商银行",
+    "at": "2026-03-27",
+    "action": "monitor_watch",
+    "score": 25.46,
+    "probability": 0.1819,
+    "reason": [
+      "观察动作 `switch_to_better_alternative`，盘中只在出现确认信号时提醒。",
+      "招商银行 当前不是最优资金去处，优先看 宁德时代。"
+    ],
+    "risk": [
+      "若回落跌破 38.68，取消突破预案。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "switch_to_better_alternative",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "000858",
+    "object_name": "五粮液",
+    "at": "2026-03-27",
+    "action": "monitor_watch",
+    "score": 25.38,
+    "probability": 0.1813,
+    "reason": [
+      "观察动作 `switch_to_better_alternative`，盘中只在出现确认信号时提醒。",
+      "五粮液 当前不是最优资金去处，优先看 宁德时代。"
+    ],
+    "risk": [
+      "若回落跌破 100.23，取消突破预案。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "switch_to_better_alternative",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "market_summary": "震荡环境下，优先执行既有仓位和观察名单，不扩大动作空间。",
+  "primary_focus": "先看 潞安环能 是否出现量价确认。",
+  "risk_flags": [
+    "新闻和公告只做增量信号，不替代正文核验。",
+    "盘中若指数转弱，单票告警价值需要折价。"
+  ],
+  "confidence_note": "当前为 harness 回退摘要，结构化字段仍可用于首页和复盘。",
+  "_meta": {
+    "provider": "fallback",
+    "model": "rules",
+    "validated": true,
+    "error": null
+  }
+}

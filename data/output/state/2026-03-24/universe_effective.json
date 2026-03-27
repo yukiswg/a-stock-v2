@@ -1,0 +1,92 @@
+[
+  {
+    "code": "601699",
+    "name": "潞安环能",
+    "category": "holding"
+  },
+  {
+    "code": "513310",
+    "name": "中韩芯片",
+    "category": "holding"
+  },
+  {
+    "code": "588000",
+    "name": "科创50ETF",
+    "category": "holding"
+  },
+  {
+    "code": "510300",
+    "name": "沪深300ETF",
+    "category": "benchmark"
+  },
+  {
+    "code": "000300",
+    "name": "沪深300",
+    "category": "benchmark"
+  },
+  {
+    "code": "000001",
+    "name": "上证指数",
+    "category": "benchmark"
+  },
+  {
+    "code": "399006",
+    "name": "创业板指",
+    "category": "benchmark"
+  },
+  {
+    "code": "600089",
+    "name": "特变电工",
+    "category": "watch"
+  },
+  {
+    "code": "300750",
+    "name": "宁德时代",
+    "category": "watch"
+  },
+  {
+    "code": "600036",
+    "name": "招商银行",
+    "category": "watch"
+  },
+  {
+    "code": "601127",
+    "name": "赛力斯",
+    "category": "watch"
+  },
+  {
+    "code": "000333",
+    "name": "美的集团",
+    "category": "watch"
+  },
+  {
+    "code": "000858",
+    "name": "五粮液",
+    "category": "watch"
+  },
+  {
+    "code": "300335",
+    "name": "迪森股份",
+    "category": "watch"
+  },
+  {
+    "code": "688796",
+    "name": "百奥赛图",
+    "category": "watch"
+  },
+  {
+    "code": "603527",
+    "name": "众源新材",
+    "category": "watch"
+  },
+  {
+    "code": "300983",
+    "name": "尤安设计",
+    "category": "watch"
+  },
+  {
+    "code": "601975",
+    "name": "招商南油",
+    "category": "watch"
+  }
+]

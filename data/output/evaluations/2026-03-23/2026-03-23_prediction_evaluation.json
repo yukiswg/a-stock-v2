@@ -1,0 +1,169 @@
+{
+  "market_count": 3,
+  "market_hit_rate": 0.3333,
+  "market_average_next_day_return": -0.001,
+  "watch_count": 12,
+  "watch_hit_rate": 0.3333,
+  "watch_average_next_day_return": -0.001,
+  "watch_median_next_day_return": -0.0031,
+  "basis_breakdown": {
+    "watch_score_ge_70": {
+      "hit_rate": 0.5,
+      "hits": 2,
+      "total": 4
+    },
+    "watch_score_lt_70": {
+      "hit_rate": 0.25,
+      "hits": 2,
+      "total": 8
+    }
+  },
+  "market_rows": [
+    {
+      "next_trade_date": "2026-03-13",
+      "next_day_return": -0.003929549701763846,
+      "actual_up": false,
+      "as_of": "2026-03-12",
+      "predicted_probability": 0.5217,
+      "action": "balanced"
+    },
+    {
+      "next_trade_date": "2026-03-18",
+      "next_day_return": 0.0045046404913056115,
+      "actual_up": true,
+      "as_of": "2026-03-17",
+      "predicted_probability": 0.4613,
+      "action": "balanced"
+    },
+    {
+      "next_trade_date": "2026-03-20",
+      "next_day_return": -0.0035411552937325563,
+      "actual_up": false,
+      "as_of": "2026-03-19",
+      "predicted_probability": 0.354,
+      "action": "risk_off"
+    }
+  ],
+  "watch_rows": [
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "next_trade_date": "2026-03-13",
+      "next_day_return": 0.0037926675094817064,
+      "as_of": "2026-03-12",
+      "score": 100.0,
+      "probability": 0.95,
+      "action": "prepare_entry"
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "next_trade_date": "2026-03-13",
+      "next_day_return": 0.00658227848101256,
+      "as_of": "2026-03-12",
+      "score": 62.16,
+      "probability": 0.6216,
+      "action": "wait_breakout_confirmation"
+    },
+    {
+      "code": "600089",
+      "name": "特变电工",
+      "next_trade_date": "2026-03-13",
+      "next_day_return": -0.016861219195849486,
+      "as_of": "2026-03-12",
+      "score": 41.23,
+      "probability": 0.4123,
+      "action": "wait_breakout_confirmation"
+    },
+    {
+      "code": "000333",
+      "name": "美的集团",
+      "next_trade_date": "2026-03-13",
+      "next_day_return": -0.006976744186046546,
+      "as_of": "2026-03-12",
+      "score": 38.85,
+      "probability": 0.3885,
+      "action": "wait_breakout_confirmation"
+    },
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "next_trade_date": "2026-03-18",
+      "next_day_return": -0.007358024691358045,
+      "as_of": "2026-03-17",
+      "score": 100.0,
+      "probability": 0.95,
+      "action": "wait_breakout_confirmation"
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "next_trade_date": "2026-03-18",
+      "next_day_return": -0.004985044865403632,
+      "as_of": "2026-03-17",
+      "score": 77.0,
+      "probability": 0.77,
+      "action": "wait_breakout_confirmation"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "next_trade_date": "2026-03-18",
+      "next_day_return": -0.010210897986449141,
+      "as_of": "2026-03-17",
+      "score": 58.09,
+      "probability": 0.5809,
+      "action": "wait_breakout_confirmation"
+    },
+    {
+      "code": "000333",
+      "name": "美的集团",
+      "next_trade_date": "2026-03-18",
+      "next_day_return": 0.006005221932114946,
+      "as_of": "2026-03-17",
+      "score": 34.62,
+      "probability": 0.3462,
+      "action": "wait_breakout_confirmation"
+    },
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "next_trade_date": "2026-03-20",
+      "next_day_return": 0.03121098626716612,
+      "as_of": "2026-03-19",
+      "score": 100.0,
+      "probability": 0.95,
+      "action": "wait_breakout_confirmation"
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "next_trade_date": "2026-03-20",
+      "next_day_return": -0.0005028916268544625,
+      "as_of": "2026-03-19",
+      "score": 66.32,
+      "probability": 0.6632,
+      "action": "wait_breakout_confirmation"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "next_trade_date": "2026-03-20",
+      "next_day_return": -0.0012679215839266345,
+      "as_of": "2026-03-19",
+      "score": 37.12,
+      "probability": 0.3712,
+      "action": "wait_breakout_confirmation"
+    },
+    {
+      "code": "000333",
+      "name": "美的集团",
+      "next_trade_date": "2026-03-20",
+      "next_day_return": -0.011578947368421022,
+      "as_of": "2026-03-19",
+      "score": 21.77,
+      "probability": 0.2177,
+      "action": "wait_breakout_confirmation"
+    }
+  ]
+}

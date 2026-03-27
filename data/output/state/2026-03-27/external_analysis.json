@@ -1,0 +1,279 @@
+{
+  "300750": {
+    "provider_status": {
+      "capitalfarmer": "available",
+      "qstock": "unavailable:AttributeError"
+    },
+    "provider_fields": {
+      "capitalfarmer": [
+        "concept_names",
+        "industry_name",
+        "northbound_add_marketcap_10d",
+        "northbound_add_marketcap_1d",
+        "northbound_add_marketcap_5d",
+        "northbound_free_float_ratio",
+        "northbound_hold_marketcap_change_10d",
+        "northbound_hold_marketcap_change_1d",
+        "northbound_hold_marketcap_change_5d",
+        "northbound_hold_ratio",
+        "northbound_net_flow_5d",
+        "northbound_proxy_basis",
+        "provider"
+      ]
+    },
+    "capital_flow_conviction": 0.15,
+    "capital_flow_style": "neutral",
+    "northbound_net_flow_5d": 3854487763.68,
+    "longhu_activity_90d": null
+  },
+  "600227": {
+    "provider_status": {
+      "capitalfarmer": "available"
+    },
+    "provider_fields": {
+      "capitalfarmer": [
+        "concept_names",
+        "industry_name",
+        "northbound_add_marketcap_10d",
+        "northbound_add_marketcap_1d",
+        "northbound_add_marketcap_5d",
+        "northbound_free_float_ratio",
+        "northbound_hold_marketcap_change_10d",
+        "northbound_hold_marketcap_change_1d",
+        "northbound_hold_marketcap_change_5d",
+        "northbound_hold_ratio",
+        "northbound_net_flow_5d",
+        "northbound_proxy_basis",
+        "provider"
+      ]
+    },
+    "capital_flow_conviction": 0.005,
+    "capital_flow_style": "neutral",
+    "northbound_net_flow_5d": 10717240.56,
+    "longhu_activity_90d": null
+  },
+  "000617": {
+    "provider_status": {
+      "capitalfarmer": "available"
+    },
+    "provider_fields": {
+      "capitalfarmer": [
+        "concept_names",
+        "industry_name",
+        "northbound_add_marketcap_10d",
+        "northbound_add_marketcap_1d",
+        "northbound_add_marketcap_5d",
+        "northbound_free_float_ratio",
+        "northbound_hold_marketcap_change_10d",
+        "northbound_hold_marketcap_change_1d",
+        "northbound_hold_marketcap_change_5d",
+        "northbound_hold_ratio",
+        "northbound_net_flow_5d",
+        "northbound_proxy_basis",
+        "provider"
+      ]
+    },
+    "capital_flow_conviction": 0.031,
+    "capital_flow_style": "neutral",
+    "northbound_net_flow_5d": 62662138.72,
+    "longhu_activity_90d": null
+  },
+  "600036": {
+    "provider_status": {
+      "capitalfarmer": "available"
+    },
+    "provider_fields": {
+      "capitalfarmer": [
+        "concept_names",
+        "industry_name",
+        "northbound_add_marketcap_10d",
+        "northbound_add_marketcap_1d",
+        "northbound_add_marketcap_5d",
+        "northbound_free_float_ratio",
+        "northbound_hold_marketcap_change_10d",
+        "northbound_hold_marketcap_change_1d",
+        "northbound_hold_marketcap_change_5d",
+        "northbound_hold_ratio",
+        "northbound_net_flow_5d",
+        "northbound_proxy_basis",
+        "provider"
+      ]
+    },
+    "capital_flow_conviction": 0.15,
+    "capital_flow_style": "neutral",
+    "northbound_net_flow_5d": 939217107.36,
+    "longhu_activity_90d": null
+  },
+  "000858": {
+    "provider_status": {
+      "capitalfarmer": "available"
+    },
+    "provider_fields": {
+      "capitalfarmer": [
+        "concept_names",
+        "industry_name",
+        "northbound_add_marketcap_10d",
+        "northbound_add_marketcap_1d",
+        "northbound_add_marketcap_5d",
+        "northbound_free_float_ratio",
+        "northbound_hold_marketcap_change_10d",
+        "northbound_hold_marketcap_change_1d",
+        "northbound_hold_marketcap_change_5d",
+        "northbound_hold_ratio",
+        "northbound_net_flow_5d",
+        "northbound_proxy_basis",
+        "provider"
+      ]
+    },
+    "capital_flow_conviction": 0.15,
+    "capital_flow_style": "neutral",
+    "northbound_net_flow_5d": 418986230.8,
+    "longhu_activity_90d": null
+  },
+  "688799": {
+    "capital_flow_conviction": 0.0,
+    "capital_flow_style": "neutral",
+    "provider_status": {
+      "qstock": "unavailable:AttributeError",
+      "capitalfarmer": "unavailable:ModuleNotFoundError"
+    }
+  },
+  "000333": {
+    "provider_status": {
+      "capitalfarmer": "available"
+    },
+    "provider_fields": {
+      "capitalfarmer": [
+        "concept_names",
+        "industry_name",
+        "northbound_add_marketcap_10d",
+        "northbound_add_marketcap_1d",
+        "northbound_add_marketcap_5d",
+        "northbound_free_float_ratio",
+        "northbound_hold_marketcap_change_10d",
+        "northbound_hold_marketcap_change_1d",
+        "northbound_hold_marketcap_change_5d",
+        "northbound_hold_ratio",
+        "northbound_net_flow_5d",
+        "northbound_proxy_basis",
+        "provider"
+      ]
+    },
+    "capital_flow_conviction": 0.15,
+    "capital_flow_style": "neutral",
+    "northbound_net_flow_5d": 5488600639.5,
+    "longhu_activity_90d": null
+  },
+  "688710": {
+    "capital_flow_conviction": 0.0,
+    "capital_flow_style": "neutral",
+    "provider_status": {
+      "qstock": "unavailable:AttributeError",
+      "capitalfarmer": "unavailable:ModuleNotFoundError"
+    }
+  },
+  "002428": {
+    "provider_status": {
+      "capitalfarmer": "available"
+    },
+    "provider_fields": {
+      "capitalfarmer": [
+        "concept_names",
+        "industry_name",
+        "northbound_add_marketcap_10d",
+        "northbound_add_marketcap_1d",
+        "northbound_add_marketcap_5d",
+        "northbound_free_float_ratio",
+        "northbound_hold_marketcap_change_10d",
+        "northbound_hold_marketcap_change_1d",
+        "northbound_hold_marketcap_change_5d",
+        "northbound_hold_ratio",
+        "northbound_net_flow_5d",
+        "northbound_proxy_basis",
+        "provider"
+      ]
+    },
+    "capital_flow_conviction": 0.026,
+    "capital_flow_style": "neutral",
+    "northbound_net_flow_5d": 51828297.6,
+    "longhu_activity_90d": null
+  },
+  "600089": {
+    "provider_status": {
+      "capitalfarmer": "available"
+    },
+    "provider_fields": {
+      "capitalfarmer": [
+        "concept_names",
+        "industry_name",
+        "northbound_add_marketcap_10d",
+        "northbound_add_marketcap_1d",
+        "northbound_add_marketcap_5d",
+        "northbound_free_float_ratio",
+        "northbound_hold_marketcap_change_10d",
+        "northbound_hold_marketcap_change_1d",
+        "northbound_hold_marketcap_change_5d",
+        "northbound_hold_ratio",
+        "northbound_net_flow_5d",
+        "northbound_proxy_basis",
+        "provider"
+      ]
+    },
+    "capital_flow_conviction": 0.058,
+    "capital_flow_style": "neutral",
+    "northbound_net_flow_5d": 115930193.24,
+    "longhu_activity_90d": null
+  },
+  "601127": {
+    "provider_status": {
+      "capitalfarmer": "available"
+    },
+    "provider_fields": {
+      "capitalfarmer": [
+        "concept_names",
+        "industry_name",
+        "northbound_add_marketcap_10d",
+        "northbound_add_marketcap_1d",
+        "northbound_add_marketcap_5d",
+        "northbound_free_float_ratio",
+        "northbound_hold_marketcap_change_10d",
+        "northbound_hold_marketcap_change_1d",
+        "northbound_hold_marketcap_change_5d",
+        "northbound_hold_ratio",
+        "northbound_net_flow_5d",
+        "northbound_proxy_basis",
+        "provider"
+      ]
+    },
+    "capital_flow_conviction": 0.15,
+    "capital_flow_style": "neutral",
+    "northbound_net_flow_5d": 532112583.76,
+    "longhu_activity_90d": null
+  },
+  "002240": {
+    "provider_status": {
+      "capitalfarmer": "available"
+    },
+    "provider_fields": {
+      "capitalfarmer": [
+        "concept_names",
+        "industry_name",
+        "northbound_add_marketcap_10d",
+        "northbound_add_marketcap_1d",
+        "northbound_add_marketcap_5d",
+        "northbound_free_float_ratio",
+        "northbound_hold_marketcap_change_10d",
+        "northbound_hold_marketcap_change_1d",
+        "northbound_hold_marketcap_change_5d",
+        "northbound_hold_ratio",
+        "northbound_net_flow_5d",
+        "northbound_proxy_basis",
+        "provider"
+      ]
+    },
+    "capital_flow_conviction": 0.032,
+    "capital_flow_style": "neutral",
+    "northbound_net_flow_5d": 64829721.26,
+    "longhu_activity_90d": null
+  }
+}

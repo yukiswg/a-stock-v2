@@ -1,0 +1,14 @@
+{
+  "run_id": "postclose_20260324_174936",
+  "as_of": "2026-03-24",
+  "session_type": "postclose",
+  "created_at": "2026-03-24T09:49:36.584662Z",
+  "cwd": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2",
+  "status": "completed",
+  "artifacts": {
+    "intraday_review": "data/output/realtime/2026-03-24/session_174936/2026-03-24_intraday_review.md",
+    "prediction_evaluation": "data/output/evaluations/2026-03-24/2026-03-24_prediction_evaluation.md",
+    "backtest_report": "data/output/backtests/2026-03-24/2026-03-24_backtest_report.md"
+  },
+  "metadata": {}
+}

@@ -1,0 +1,98 @@
+{
+  "as_of": "2026-03-12",
+  "today_action": "震荡环境下，先盯 宁德时代(300750) 的放量确认，再决定是否出手。",
+  "market_label": "震荡",
+  "market_probability": 0.5217,
+  "current_prices": [
+    {
+      "code": "601699",
+      "name": "潞安环能",
+      "last_price": "15.4",
+      "ret_day": "+5.99%",
+      "timestamp": "2026-03-12 close",
+      "freshness": "eod"
+    },
+    {
+      "code": "513310",
+      "name": "中韩芯片",
+      "last_price": "3.996",
+      "ret_day": "-1.02%",
+      "timestamp": "2026-03-12 close",
+      "freshness": "eod"
+    },
+    {
+      "code": "588000",
+      "name": "科创50",
+      "last_price": "1.456",
+      "ret_day": "-1.42%",
+      "timestamp": "2026-03-12 close",
+      "freshness": "eod"
+    },
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "last_price": "395.5",
+      "ret_day": "-0.33%",
+      "timestamp": "2026-03-12 close",
+      "freshness": "eod"
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "last_price": "39.5",
+      "ret_day": "+0.00%",
+      "timestamp": "2026-03-12 close",
+      "freshness": "eod"
+    }
+  ],
+  "latest_alerts": [],
+  "holdings_actions": [
+    {
+      "code": "601699",
+      "name": "潞安环能",
+      "action": "hold_add_on_strength",
+      "score": 100.0,
+      "reason": "趋势分 100.0，20日相对强弱 +10.47%。"
+    },
+    {
+      "code": "513310",
+      "name": "中韩芯片",
+      "action": "hold_add_on_strength",
+      "score": 79.2,
+      "reason": "趋势分 79.2，20日相对强弱 +10.87%。"
+    },
+    {
+      "code": "588000",
+      "name": "科创50",
+      "action": "trim",
+      "score": 8.63,
+      "reason": "趋势分 8.6，20日相对强弱 -4.66%。"
+    }
+  ],
+  "watchlist": [
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "action": "prepare_entry",
+      "score": 100.0
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "action": "wait_breakout_confirmation",
+      "score": 62.16
+    },
+    {
+      "code": "600089",
+      "name": "特变电工",
+      "action": "wait_breakout_confirmation",
+      "score": 41.23
+    },
+    {
+      "code": "000333",
+      "name": "美的集团",
+      "action": "wait_breakout_confirmation",
+      "score": 38.85
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "as_of": "2026-03-23",
+  "idea_count": 71,
+  "ideas": [
+    {
+      "code": "002565",
+      "name": "顺灏股份",
+      "decision": "watch",
+      "total_score": 57.75,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "顺灏股份 更适合先观察，不建议立刻追买。综合分 57.8，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "相对强弱 +13.01%，强于基准。",
+        "利润同比 +20.29%。",
+        "毛利率 27.0%。"
+      ],
+      "risks": [
+        "营收同比 -20.57%。",
+        "ROE 3.6%。",
+        "经营现金流同比 -33.79%。"
+      ],
+      "metadata": {
+        "sector": "包装印刷",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "601985",
+      "name": "中国核电",
+      "decision": "watch",
+      "total_score": 57.52,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "中国核电 更适合先观察，不建议立刻追买。综合分 57.5，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "相对强弱 +12.75%，强于基准。",
+        "毛利率 44.0%。",
+        "距20日高点 -0.76%，接近突破位。"
+      ],
+      "risks": [
+        "利润同比 -10.42%。",
+        "ROE 7.1%。",
+        "经营现金流同比 -15.40%。"
+      ],
+      "metadata": {
+        "sector": "电力",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "002594",
+      "name": "比亚迪",
+      "decision": "watch",
+      "total_score": 56.55,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "比亚迪 更适合先观察，不建议立刻追买。综合分 56.5，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "20日收益 +20.95%，趋势延续性较强。",
+        "相对强弱 +26.07%，强于基准。",
+        "营收同比 +12.75%。"
+      ],
+      "risks": [
+        "经营现金流同比 -76.84%。",
+        "资产负债率 71.4% 偏高。",
+        "市场环境偏空，新开仓需要明显折价。"
+      ],
+      "metadata": {
+        "sector": "汽车整车",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "603026",
+      "name": "石大胜华",
+      "decision": "watch",
+      "total_score": 55.79,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "石大胜华 更适合先观察，不建议立刻追买。综合分 55.8，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "20日收益 +16.73%，趋势延续性较强。",
+        "相对强弱 +21.85%，强于基准。",
+        "营收同比 +11.41%。"
+      ],
+      "risks": [
+        "利润同比 -652.16%。",
+        "ROE -1.5%。",
+        "市场环境偏空，新开仓需要明显折价。"
+      ],
+      "metadata": {
+        "sector": "电池",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "300207",
+      "name": "欣旺达",
+      "decision": "watch",
+      "total_score": 55.69,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "欣旺达 更适合先观察，不建议立刻追买。综合分 55.7，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "20日收益 +9.73%，趋势延续性较强。",
+        "相对强弱 +14.86%，强于基准。",
+        "营收同比 +13.73%。"
+      ],
+      "risks": [
+        "ROE 5.8%。",
+        "市场环境偏空，新开仓需要明显折价。"
+      ],
+      "metadata": {
+        "sector": "电池",
+        "sector_proxy": false
+      }
+    }
+  ],
+  "market_view": {
+    "object_type": "market",
+    "object_id": "000300",
+    "object_name": "偏空市场",
+    "at": "2026-03-23",
+    "action": "risk_off",
+    "score": 18.53,
+    "probability": 0.1853,
+    "reason": [
+      "沪深300 5日收益 -5.35%，20日收益 -5.12%。",
+      "候选池平均趋势分 34.5。",
+      "新闻偏移 +0.00，公告偏移 +0.00。"
+    ],
+    "risk": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "sources": [
+      "benchmark_daily_bars",
+      "official_news",
+      "cninfo_announcements"
+    ],
+    "metadata": {
+      "label": "偏空",
+      "benchmark_code": "000300",
+      "benchmark_ret_5d": -0.053485345366430126,
+      "benchmark_ret_20d": -0.05122081533598977,
+      "breadth_score": 34.513333333333335
+    }
+  }
+}

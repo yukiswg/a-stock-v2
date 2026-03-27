@@ -1,0 +1,13 @@
+{
+  "run_id": "intraday_20260325_164730",
+  "as_of": "2026-03-25",
+  "session_type": "intraday",
+  "created_at": "2026-03-25T08:47:30.148940Z",
+  "cwd": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2",
+  "status": "completed",
+  "artifacts": {
+    "session_dir": "data/output/realtime/2026-03-25/session_164730",
+    "homepage": "data/output/homepage/2026-03-25_homepage_overview.md"
+  },
+  "metadata": {}
+}

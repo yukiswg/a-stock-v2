@@ -1,0 +1,15 @@
+{
+  "session_id": "session_162309",
+  "as_of": "2026-03-25",
+  "monitor_plan_path": "data/output/reports/2026-03-25/2026-03-25_monitor_plan.json",
+  "source_kind": "live",
+  "quotes_path": "data/output/realtime/2026-03-25/session_162309/quotes.jsonl",
+  "features_path": "data/output/realtime/2026-03-25/session_162309/features.jsonl",
+  "alerts_path": "data/output/realtime/2026-03-25/session_162309/alerts.jsonl",
+  "alert_count": 0,
+  "iterations_executed": 2,
+  "latest_quote_timestamp": "2026-03-25T16:14:54",
+  "latest_fetched_at": "2026-03-25T16:23:09",
+  "max_freshness_seconds": 546.0,
+  "stale_quote_count": 20
+}

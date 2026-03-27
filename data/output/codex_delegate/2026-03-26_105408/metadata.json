@@ -1,0 +1,8 @@
+{
+  "task": "dry run orchestration check",
+  "project_root": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2",
+  "workers_requested": 2,
+  "created_at": "2026-03-26T10:54:08",
+  "final_decider": "claude",
+  "delegate_mode": "planner_and_workers_only"
+}

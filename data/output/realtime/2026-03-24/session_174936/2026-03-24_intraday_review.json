@@ -1,0 +1,216 @@
+{
+  "session_summary": {
+    "session_id": "session_174936",
+    "as_of": "2026-03-24",
+    "monitor_plan_path": "data/output/reports/2026-03-24/2026-03-24_monitor_plan.json",
+    "source_kind": "synthetic",
+    "quotes_path": "data/output/realtime/2026-03-24/session_174936/quotes.jsonl",
+    "features_path": "data/output/realtime/2026-03-24/session_174936/features.jsonl",
+    "alerts_path": "data/output/realtime/2026-03-24/session_174936/alerts.jsonl",
+    "alert_count": 20,
+    "iterations_executed": 6,
+    "latest_quote_timestamp": "2026-03-24T17:50:26",
+    "latest_fetched_at": "2026-03-24T17:50:26",
+    "max_freshness_seconds": 0.0,
+    "stale_quote_count": 0
+  },
+  "alert_evaluation": {
+    "session_dir": "data/output/realtime/2026-03-24/session_174936",
+    "alert_count": 20,
+    "evaluated_count": 9,
+    "useful_rate": 0.3333,
+    "average_follow_return": 0.0071,
+    "evaluations": [
+      {
+        "code": "000300",
+        "name": "沪深300",
+        "timestamp": "2026-03-24T17:49:46",
+        "event_type": "benchmark_drop",
+        "severity": "high",
+        "action_hint": "reduce_risk",
+        "entry_price": 4435.428,
+        "exit_price": 4394.519,
+        "follow_return": -0.0092,
+        "is_useful": true,
+        "why": "告警后的后续价格方向与动作提示一致。"
+      },
+      {
+        "code": "000333",
+        "name": "美的集团",
+        "timestamp": "2026-03-24T17:49:46",
+        "event_type": "drawdown_break",
+        "severity": "medium",
+        "action_hint": "review_risk",
+        "entry_price": 71.704,
+        "exit_price": 74.816,
+        "follow_return": 0.0434,
+        "is_useful": false,
+        "why": "告警后的后续价格方向没有验证这条提示。"
+      },
+      {
+        "code": "399006",
+        "name": "创业板指",
+        "timestamp": "2026-03-24T17:49:46",
+        "event_type": "relative_breakout",
+        "severity": "medium",
+        "action_hint": "watch_entry",
+        "entry_price": 3208.101,
+        "exit_price": 3275.219,
+        "follow_return": 0.0209,
+        "is_useful": true,
+        "why": "告警后的后续价格方向与动作提示一致。"
+      },
+      {
+        "code": "513310",
+        "name": "中韩芯片",
+        "timestamp": "2026-03-24T17:49:46",
+        "event_type": "relative_breakout",
+        "severity": "medium",
+        "action_hint": "watch_entry",
+        "entry_price": 3.796,
+        "exit_price": 3.697,
+        "follow_return": -0.0261,
+        "is_useful": false,
+        "why": "告警后的后续价格方向没有验证这条提示。"
+      },
+      {
+        "code": "601127",
+        "name": "赛力斯",
+        "timestamp": "2026-03-24T17:49:46",
+        "event_type": "drawdown_break",
+        "severity": "medium",
+        "action_hint": "review_risk",
+        "entry_price": 98.958,
+        "exit_price": 101.868,
+        "follow_return": 0.0294,
+        "is_useful": false,
+        "why": "告警后的后续价格方向没有验证这条提示。"
+      },
+      {
+        "code": "000001",
+        "name": "上证指数",
+        "timestamp": "2026-03-24T17:49:56",
+        "event_type": "benchmark_drop",
+        "severity": "high",
+        "action_hint": "reduce_risk",
+        "entry_price": 3830.539,
+        "exit_price": 3782.416,
+        "follow_return": -0.0126,
+        "is_useful": true,
+        "why": "告警后的后续价格方向与动作提示一致。"
+      },
+      {
+        "code": "000300",
+        "name": "沪深300",
+        "timestamp": "2026-03-24T17:49:56",
+        "event_type": "benchmark_drop",
+        "severity": "high",
+        "action_hint": "reduce_risk",
+        "entry_price": 4348.08,
+        "exit_price": 4485.61,
+        "follow_return": 0.0316,
+        "is_useful": false,
+        "why": "告警后的后续价格方向没有验证这条提示。"
+      },
+      {
+        "code": "399006",
+        "name": "创业板指",
+        "timestamp": "2026-03-24T17:49:56",
+        "event_type": "relative_breakout",
+        "severity": "medium",
+        "action_hint": "watch_entry",
+        "entry_price": 3298.985,
+        "exit_price": 3182.419,
+        "follow_return": -0.0353,
+        "is_useful": false,
+        "why": "告警后的后续价格方向没有验证这条提示。"
+      },
+      {
+        "code": "600036",
+        "name": "招商银行",
+        "timestamp": "2026-03-24T17:49:56",
+        "event_type": "drawdown_break",
+        "severity": "medium",
+        "action_hint": "review_risk",
+        "entry_price": 38.217,
+        "exit_price": 39.038,
+        "follow_return": 0.0215,
+        "is_useful": false,
+        "why": "告警后的后续价格方向没有验证这条提示。"
+      }
+    ],
+    "severity_breakdown": {
+      "high": 6,
+      "medium": 14
+    },
+    "event_breakdown": [
+      {
+        "event_type": "drawdown_break",
+        "alerts": 5,
+        "evaluated": 3,
+        "useful": 0,
+        "useful_rate": 0.0,
+        "avg_follow_return": 0.0314,
+        "status": "misleading"
+      },
+      {
+        "event_type": "relative_breakout",
+        "alerts": 9,
+        "evaluated": 3,
+        "useful": 1,
+        "useful_rate": 0.3333,
+        "avg_follow_return": -0.0135,
+        "status": "mixed"
+      },
+      {
+        "event_type": "benchmark_drop",
+        "alerts": 6,
+        "evaluated": 3,
+        "useful": 2,
+        "useful_rate": 0.6667,
+        "avg_follow_return": 0.0033,
+        "status": "effective"
+      }
+    ],
+    "action_breakdown": [
+      {
+        "action_hint": "watch_entry",
+        "alerts": 9,
+        "evaluated": 3,
+        "useful": 1,
+        "useful_rate": 0.3333
+      },
+      {
+        "action_hint": "reduce_risk",
+        "alerts": 6,
+        "evaluated": 3,
+        "useful": 2,
+        "useful_rate": 0.6667
+      },
+      {
+        "action_hint": "review_risk",
+        "alerts": 5,
+        "evaluated": 3,
+        "useful": 0,
+        "useful_rate": 0.0
+      }
+    ],
+    "diagnostics": {
+      "effective_rules": [
+        "benchmark_drop"
+      ],
+      "misleading_rules": [
+        "drawdown_break"
+      ],
+      "unvalidated_rules": [],
+      "policy_feedback": [
+        "`drawdown_break` 当天反向率偏高，建议提高触发阈值并增加市场方向过滤。",
+        "`benchmark_drop` 有效性较好，可保留为高优先级规则。"
+      ]
+    },
+    "risk_alert_count": 11,
+    "entry_alert_count": 9,
+    "sample_gap_count": 11
+  },
+  "headline": "今日盘中告警有效性一般，需结合具体规则继续分层。"
+}

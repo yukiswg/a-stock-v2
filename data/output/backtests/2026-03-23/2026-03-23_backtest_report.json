@@ -1,0 +1,2410 @@
+{
+  "trade_count": 300,
+  "win_rate": 0.4533,
+  "average_return": 0.0008,
+  "median_return": -0.0014,
+  "cumulative_return": 0.1408,
+  "max_drawdown": -0.2881,
+  "trades": [
+    {
+      "next_trade_date": "2024-12-23",
+      "next_day_return": -0.012206572769952961,
+      "as_of": "2024-12-20",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 85.98
+    },
+    {
+      "next_trade_date": "2024-12-24",
+      "next_day_return": 0.024620086594787205,
+      "as_of": "2024-12-23",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 89.44
+    },
+    {
+      "next_trade_date": "2024-12-25",
+      "next_day_return": 0.004971414367387572,
+      "as_of": "2024-12-24",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2024-12-26",
+      "next_day_return": 0.002198587407590491,
+      "as_of": "2024-12-25",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2024-12-27",
+      "next_day_return": -0.003839087394082341,
+      "as_of": "2024-12-26",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2024-12-30",
+      "next_day_return": 0.007707765573815584,
+      "as_of": "2024-12-27",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2024-12-31",
+      "next_day_return": -0.008741497527795183,
+      "as_of": "2024-12-30",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-01-02",
+      "next_day_return": 0.0014034890738374717,
+      "as_of": "2024-12-31",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 88.41
+    },
+    {
+      "next_trade_date": "2025-01-03",
+      "next_day_return": -0.008829588933581767,
+      "as_of": "2025-01-02",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 89.85
+    },
+    {
+      "next_trade_date": "2025-01-06",
+      "next_day_return": 0.010940612113221393,
+      "as_of": "2025-01-03",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 73.17
+    },
+    {
+      "next_trade_date": "2025-01-07",
+      "next_day_return": 0.0077018946660878385,
+      "as_of": "2025-01-06",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 82.05
+    },
+    {
+      "next_trade_date": "2025-01-08",
+      "next_day_return": 0.01483479433580559,
+      "as_of": "2025-01-07",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-01-09",
+      "next_day_return": 0.0026578073089700283,
+      "as_of": "2025-01-08",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-01-10",
+      "next_day_return": -0.006626905235254998,
+      "as_of": "2025-01-09",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-01-13",
+      "next_day_return": -0.020680453635757212,
+      "as_of": "2025-01-10",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-01-14",
+      "next_day_return": 0.051331089351285275,
+      "as_of": "2025-01-13",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-01-15",
+      "next_day_return": 0.0033444816053511683,
+      "as_of": "2025-01-14",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-01-16",
+      "next_day_return": 0.009301831131899752,
+      "as_of": "2025-01-15",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-01-17",
+      "next_day_return": -0.007372883587434376,
+      "as_of": "2025-01-16",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-01-20",
+      "next_day_return": 0.0013149243918475495,
+      "as_of": "2025-01-17",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-01-21",
+      "next_day_return": 0.011818778726198298,
+      "as_of": "2025-01-20",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-01-22",
+      "next_day_return": 0.014925373134328401,
+      "as_of": "2025-01-21",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-01-23",
+      "next_day_return": -0.021739130434782594,
+      "as_of": "2025-01-22",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-01-24",
+      "next_day_return": 0.0039215686274509665,
+      "as_of": "2025-01-23",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 97.24
+    },
+    {
+      "next_trade_date": "2025-01-27",
+      "next_day_return": -0.02734375,
+      "as_of": "2025-01-24",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 92.62
+    },
+    {
+      "next_trade_date": "2025-02-05",
+      "next_day_return": -0.017270239392087494,
+      "as_of": "2025-01-27",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 86.88
+    },
+    {
+      "next_trade_date": "2025-02-06",
+      "next_day_return": 0.005407305269418794,
+      "as_of": "2025-02-05",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 64.16
+    },
+    {
+      "next_trade_date": "2025-02-07",
+      "next_day_return": 0.00843486410496741,
+      "as_of": "2025-02-06",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 89.88
+    },
+    {
+      "next_trade_date": "2025-02-10",
+      "next_day_return": 0.016728624535315983,
+      "as_of": "2025-02-07",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-02-11",
+      "next_day_return": -0.012797074954296161,
+      "as_of": "2025-02-10",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-02-12",
+      "next_day_return": 0.017592592592592604,
+      "as_of": "2025-02-11",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-02-13",
+      "next_day_return": -0.023657870791628732,
+      "as_of": "2025-02-12",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-02-14",
+      "next_day_return": 0.03251905413328138,
+      "as_of": "2025-02-13",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 99.36
+    },
+    {
+      "next_trade_date": "2025-02-17",
+      "next_day_return": -0.0011734867698830476,
+      "as_of": "2025-02-14",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-02-18",
+      "next_day_return": 0.005192147350867815,
+      "as_of": "2025-02-17",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-02-19",
+      "next_day_return": 0.010481468913772884,
+      "as_of": "2025-02-18",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-02-20",
+      "next_day_return": -0.015243902439024293,
+      "as_of": "2025-02-19",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-02-21",
+      "next_day_return": 0.020214614977707157,
+      "as_of": "2025-02-20",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 99.41
+    },
+    {
+      "next_trade_date": "2025-02-24",
+      "next_day_return": -0.004796163069544335,
+      "as_of": "2025-02-21",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-02-25",
+      "next_day_return": -0.010843373493975905,
+      "as_of": "2025-02-24",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-02-26",
+      "next_day_return": 0.006699147381242554,
+      "as_of": "2025-02-25",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-02-27",
+      "next_day_return": -0.0008431703204045959,
+      "as_of": "2025-02-26",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-02-28",
+      "next_day_return": -0.043881856540084474,
+      "as_of": "2025-02-27",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-03",
+      "next_day_return": 0.0,
+      "as_of": "2025-02-28",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 86.92
+    },
+    {
+      "next_trade_date": "2025-03-04",
+      "next_day_return": -0.03929251091458652,
+      "as_of": "2025-03-03",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 82.44
+    },
+    {
+      "next_trade_date": "2025-03-05",
+      "next_day_return": 0.0026338893766459925,
+      "as_of": "2025-03-04",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 96.01
+    },
+    {
+      "next_trade_date": "2025-03-06",
+      "next_day_return": 0.001755397848383744,
+      "as_of": "2025-03-05",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-07",
+      "next_day_return": -0.0024702447788008675,
+      "as_of": "2025-03-06",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-10",
+      "next_day_return": -0.003427592116538092,
+      "as_of": "2025-03-07",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-11",
+      "next_day_return": -0.004299226139295009,
+      "as_of": "2025-03-10",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 98.15
+    },
+    {
+      "next_trade_date": "2025-03-12",
+      "next_day_return": 0.0007407956144900307,
+      "as_of": "2025-03-11",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-13",
+      "next_day_return": -0.004558924093913785,
+      "as_of": "2025-03-12",
+      "code": "000858",
+      "name": "五粮液",
+      "trend_score": 89.65
+    },
+    {
+      "next_trade_date": "2025-03-14",
+      "next_day_return": -0.006477732793522262,
+      "as_of": "2025-03-13",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-17",
+      "next_day_return": -0.002847177735070039,
+      "as_of": "2025-03-14",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-18",
+      "next_day_return": 0.0023794227520403943,
+      "as_of": "2025-03-17",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-19",
+      "next_day_return": 0.02088921594226978,
+      "as_of": "2025-03-18",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-20",
+      "next_day_return": -0.018136582416815927,
+      "as_of": "2025-03-19",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-21",
+      "next_day_return": -0.012788026618040571,
+      "as_of": "2025-03-20",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-24",
+      "next_day_return": 0.010938003954508835,
+      "as_of": "2025-03-21",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-25",
+      "next_day_return": 0.011097085627887138,
+      "as_of": "2025-03-24",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-26",
+      "next_day_return": -0.0009603380389898719,
+      "as_of": "2025-03-25",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-27",
+      "next_day_return": -0.003982367723596059,
+      "as_of": "2025-03-26",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-03-28",
+      "next_day_return": 0.005101267044436142,
+      "as_of": "2025-03-27",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 91.27
+    },
+    {
+      "next_trade_date": "2025-03-31",
+      "next_day_return": 0.022359089724421022,
+      "as_of": "2025-03-28",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 88.74
+    },
+    {
+      "next_trade_date": "2025-04-01",
+      "next_day_return": -0.041727603279172465,
+      "as_of": "2025-03-31",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-04-02",
+      "next_day_return": -0.004095069857074085,
+      "as_of": "2025-04-01",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 68.34
+    },
+    {
+      "next_trade_date": "2025-04-03",
+      "next_day_return": -0.036115625564306586,
+      "as_of": "2025-04-02",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 71.07
+    },
+    {
+      "next_trade_date": "2025-04-07",
+      "next_day_return": -0.09443507588532873,
+      "as_of": "2025-04-03",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 51.74
+    },
+    {
+      "next_trade_date": "2025-04-08",
+      "next_day_return": 0.03288359373063554,
+      "as_of": "2025-04-07",
+      "code": "000858",
+      "name": "五粮液",
+      "trend_score": 16.77
+    },
+    {
+      "next_trade_date": "2025-04-09",
+      "next_day_return": 0.011918760448913268,
+      "as_of": "2025-04-08",
+      "code": "000858",
+      "name": "五粮液",
+      "trend_score": 53.61
+    },
+    {
+      "next_trade_date": "2025-04-10",
+      "next_day_return": 0.007114455783657325,
+      "as_of": "2025-04-09",
+      "code": "000858",
+      "name": "五粮液",
+      "trend_score": 51.02
+    },
+    {
+      "next_trade_date": "2025-04-11",
+      "next_day_return": -0.012166118537240145,
+      "as_of": "2025-04-10",
+      "code": "000858",
+      "name": "五粮液",
+      "trend_score": 63.23
+    },
+    {
+      "next_trade_date": "2025-04-14",
+      "next_day_return": 0.061373560936879734,
+      "as_of": "2025-04-11",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 70.17
+    },
+    {
+      "next_trade_date": "2025-04-15",
+      "next_day_return": -0.00418910831837227,
+      "as_of": "2025-04-14",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-04-16",
+      "next_day_return": 0.012019230769230616,
+      "as_of": "2025-04-15",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-04-17",
+      "next_day_return": -0.038895486935867085,
+      "as_of": "2025-04-16",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-04-18",
+      "next_day_return": -0.0011584800741425427,
+      "as_of": "2025-04-17",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 93.87
+    },
+    {
+      "next_trade_date": "2025-04-21",
+      "next_day_return": -7.73215804532601e-05,
+      "as_of": "2025-04-18",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 78.73
+    },
+    {
+      "next_trade_date": "2025-04-22",
+      "next_day_return": -0.006186204763377501,
+      "as_of": "2025-04-21",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 59.94
+    },
+    {
+      "next_trade_date": "2025-04-23",
+      "next_day_return": -0.003190164954870789,
+      "as_of": "2025-04-22",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 55.52
+    },
+    {
+      "next_trade_date": "2025-04-24",
+      "next_day_return": -0.0041370697057218075,
+      "as_of": "2025-04-23",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 58.4
+    },
+    {
+      "next_trade_date": "2025-04-25",
+      "next_day_return": 0.0010189684903589846,
+      "as_of": "2025-04-24",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 68.14
+    },
+    {
+      "next_trade_date": "2025-04-28",
+      "next_day_return": -0.013624618275780986,
+      "as_of": "2025-04-25",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 54.62
+    },
+    {
+      "next_trade_date": "2025-04-29",
+      "next_day_return": -0.010391437455536612,
+      "as_of": "2025-04-28",
+      "code": "000858",
+      "name": "五粮液",
+      "trend_score": 56.09
+    },
+    {
+      "next_trade_date": "2025-04-30",
+      "next_day_return": 0.0027173913043478937,
+      "as_of": "2025-04-29",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 60.73
+    },
+    {
+      "next_trade_date": "2025-05-06",
+      "next_day_return": -0.0019379844961240345,
+      "as_of": "2025-04-30",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 81.53
+    },
+    {
+      "next_trade_date": "2025-05-07",
+      "next_day_return": 0.00198281559814939,
+      "as_of": "2025-05-06",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 79.5
+    },
+    {
+      "next_trade_date": "2025-05-08",
+      "next_day_return": -0.0032981530343009213,
+      "as_of": "2025-05-07",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 85.06
+    },
+    {
+      "next_trade_date": "2025-05-09",
+      "next_day_return": -0.014559894109860916,
+      "as_of": "2025-05-08",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-12",
+      "next_day_return": 0.03530553645812273,
+      "as_of": "2025-05-09",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-13",
+      "next_day_return": -0.0039551746868820015,
+      "as_of": "2025-05-12",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-14",
+      "next_day_return": 0.01485820692865758,
+      "as_of": "2025-05-13",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-15",
+      "next_day_return": -0.009250764525993938,
+      "as_of": "2025-05-14",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-16",
+      "next_day_return": -0.003163824369164292,
+      "as_of": "2025-05-15",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-19",
+      "next_day_return": 0.002477163647623515,
+      "as_of": "2025-05-16",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-20",
+      "next_day_return": 0.01158301158301156,
+      "as_of": "2025-05-19",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-21",
+      "next_day_return": 0.04229007633587778,
+      "as_of": "2025-05-20",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-22",
+      "next_day_return": -0.013585762413944602,
+      "as_of": "2025-05-21",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-23",
+      "next_day_return": -0.012547796710843828,
+      "as_of": "2025-05-22",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-26",
+      "next_day_return": -0.04169329674047895,
+      "as_of": "2025-05-23",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-27",
+      "next_day_return": -0.010689432527440812,
+      "as_of": "2025-05-26",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-28",
+      "next_day_return": -0.030166787527193595,
+      "as_of": "2025-05-27",
+      "code": "601127",
+      "name": "赛力斯",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-29",
+      "next_day_return": -0.004512216161696614,
+      "as_of": "2025-05-28",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-05-30",
+      "next_day_return": 0.0010665102451639097,
+      "as_of": "2025-05-29",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 86.29
+    },
+    {
+      "next_trade_date": "2025-06-03",
+      "next_day_return": -0.04194910175653532,
+      "as_of": "2025-05-30",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 83.15
+    },
+    {
+      "next_trade_date": "2025-06-04",
+      "next_day_return": 0.002197426569328753,
+      "as_of": "2025-06-03",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 90.37
+    },
+    {
+      "next_trade_date": "2025-06-05",
+      "next_day_return": 0.0075523180744025975,
+      "as_of": "2025-06-04",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 83.29
+    },
+    {
+      "next_trade_date": "2025-06-06",
+      "next_day_return": 0.004430379746835467,
+      "as_of": "2025-06-05",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-06-09",
+      "next_day_return": 0.00504095778197855,
+      "as_of": "2025-06-06",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-06-10",
+      "next_day_return": -0.018181818181818077,
+      "as_of": "2025-06-09",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-06-11",
+      "next_day_return": 0.015325670498084198,
+      "as_of": "2025-06-10",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 85.64
+    },
+    {
+      "next_trade_date": "2025-06-12",
+      "next_day_return": -0.0012578616352201255,
+      "as_of": "2025-06-11",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 94.57
+    },
+    {
+      "next_trade_date": "2025-06-13",
+      "next_day_return": -0.013853904282115859,
+      "as_of": "2025-06-12",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 71.98
+    },
+    {
+      "next_trade_date": "2025-06-16",
+      "next_day_return": 0.014229136528564945,
+      "as_of": "2025-06-13",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 65.72
+    },
+    {
+      "next_trade_date": "2025-06-17",
+      "next_day_return": 0.004676502911122871,
+      "as_of": "2025-06-16",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 84.3
+    },
+    {
+      "next_trade_date": "2025-06-18",
+      "next_day_return": -0.003025577768985377,
+      "as_of": "2025-06-17",
+      "code": "600036",
+      "name": "招商银行",
+      "trend_score": 94.52
+    },
+    {
+      "next_trade_date": "2025-06-19",
+      "next_day_return": -0.00439974858579506,
+      "as_of": "2025-06-18",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 83.91
+    },
+    {
+      "next_trade_date": "2025-06-20",
+      "next_day_return": 0.008838383838383868,
+      "as_of": "2025-06-19",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 87.7
+    },
+    {
+      "next_trade_date": "2025-06-23",
+      "next_day_return": -0.006883604505632079,
+      "as_of": "2025-06-20",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-06-24",
+      "next_day_return": 0.03591682419659725,
+      "as_of": "2025-06-23",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 91.07
+    },
+    {
+      "next_trade_date": "2025-06-25",
+      "next_day_return": 0.018248175182481674,
+      "as_of": "2025-06-24",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-06-26",
+      "next_day_return": -0.0005973715651134137,
+      "as_of": "2025-06-25",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-06-27",
+      "next_day_return": -0.004184100418410108,
+      "as_of": "2025-06-26",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-06-30",
+      "next_day_return": 0.010204081632653184,
+      "as_of": "2025-06-27",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-01",
+      "next_day_return": -0.011883541295306,
+      "as_of": "2025-06-30",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-02",
+      "next_day_return": -0.016235718580878022,
+      "as_of": "2025-07-01",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 97.56
+    },
+    {
+      "next_trade_date": "2025-07-03",
+      "next_day_return": -0.013289036544850363,
+      "as_of": "2025-07-02",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-04",
+      "next_day_return": 0.012271111281012326,
+      "as_of": "2025-07-03",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 96.34
+    },
+    {
+      "next_trade_date": "2025-07-07",
+      "next_day_return": -0.01854229607250768,
+      "as_of": "2025-07-04",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-08",
+      "next_day_return": 0.009311631844241886,
+      "as_of": "2025-07-07",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 92.4
+    },
+    {
+      "next_trade_date": "2025-07-09",
+      "next_day_return": -0.011336032388663875,
+      "as_of": "2025-07-08",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-10",
+      "next_day_return": 0.004447739065974732,
+      "as_of": "2025-07-09",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-11",
+      "next_day_return": -0.0018450184501844769,
+      "as_of": "2025-07-10",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-14",
+      "next_day_return": -0.011090573012939031,
+      "as_of": "2025-07-11",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-15",
+      "next_day_return": -0.0034262888277913905,
+      "as_of": "2025-07-14",
+      "code": "000858",
+      "name": "五粮液",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-16",
+      "next_day_return": 0.0023479493178368838,
+      "as_of": "2025-07-15",
+      "code": "000858",
+      "name": "五粮液",
+      "trend_score": 92.85
+    },
+    {
+      "next_trade_date": "2025-07-17",
+      "next_day_return": 0.004517580919076725,
+      "as_of": "2025-07-16",
+      "code": "000858",
+      "name": "五粮液",
+      "trend_score": 89.64
+    },
+    {
+      "next_trade_date": "2025-07-18",
+      "next_day_return": 0.009402613410175453,
+      "as_of": "2025-07-17",
+      "code": "000858",
+      "name": "五粮液",
+      "trend_score": 90.93
+    },
+    {
+      "next_trade_date": "2025-07-21",
+      "next_day_return": 0.031310140636565675,
+      "as_of": "2025-07-18",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-22",
+      "next_day_return": 0.10043668122270755,
+      "as_of": "2025-07-21",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-23",
+      "next_day_return": 0.04841269841269846,
+      "as_of": "2025-07-22",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-24",
+      "next_day_return": 0.07342922028766075,
+      "as_of": "2025-07-23",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-25",
+      "next_day_return": 0.007757404795486478,
+      "as_of": "2025-07-24",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-28",
+      "next_day_return": -0.023792862141357562,
+      "as_of": "2025-07-25",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-29",
+      "next_day_return": 0.053763440860215006,
+      "as_of": "2025-07-28",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-30",
+      "next_day_return": -0.01904761904761898,
+      "as_of": "2025-07-29",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-07-31",
+      "next_day_return": -0.04854368932038833,
+      "as_of": "2025-07-30",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-01",
+      "next_day_return": -0.005830903790087438,
+      "as_of": "2025-07-31",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-04",
+      "next_day_return": 0.007331378299120228,
+      "as_of": "2025-08-01",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-05",
+      "next_day_return": 0.037117903930131035,
+      "as_of": "2025-08-04",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-06",
+      "next_day_return": 0.00280701754385948,
+      "as_of": "2025-08-05",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-07",
+      "next_day_return": -0.0020993701889432392,
+      "as_of": "2025-08-06",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-08",
+      "next_day_return": -0.004207573632538653,
+      "as_of": "2025-08-07",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-11",
+      "next_day_return": -0.004929577464788615,
+      "as_of": "2025-08-08",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-12",
+      "next_day_return": 0.033262561924982226,
+      "as_of": "2025-08-11",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-13",
+      "next_day_return": -0.044520547945205546,
+      "as_of": "2025-08-12",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-14",
+      "next_day_return": -0.024372759856630788,
+      "as_of": "2025-08-13",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-15",
+      "next_day_return": 0.020573108008817176,
+      "as_of": "2025-08-14",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-18",
+      "next_day_return": -0.01367890568754504,
+      "as_of": "2025-08-15",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-19",
+      "next_day_return": -0.01678832116788309,
+      "as_of": "2025-08-18",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-20",
+      "next_day_return": 0.032478632478632585,
+      "as_of": "2025-08-19",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-21",
+      "next_day_return": 0.0,
+      "as_of": "2025-08-20",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-22",
+      "next_day_return": 0.0951986754966887,
+      "as_of": "2025-08-21",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-25",
+      "next_day_return": 0.025709694697375385,
+      "as_of": "2025-08-22",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-26",
+      "next_day_return": -0.011488250652741505,
+      "as_of": "2025-08-25",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-27",
+      "next_day_return": 0.0,
+      "as_of": "2025-08-26",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-28",
+      "next_day_return": 0.05229793977813002,
+      "as_of": "2025-08-27",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-08-29",
+      "next_day_return": -0.01957831325301196,
+      "as_of": "2025-08-28",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-01",
+      "next_day_return": -0.004608294930875667,
+      "as_of": "2025-08-29",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-02",
+      "next_day_return": -0.007716049382715973,
+      "as_of": "2025-09-01",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-03",
+      "next_day_return": -0.0119232763089685,
+      "as_of": "2025-09-02",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-04",
+      "next_day_return": -0.06080586080586081,
+      "as_of": "2025-09-03",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-05",
+      "next_day_return": 0.06933526296747039,
+      "as_of": "2025-09-04",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-08",
+      "next_day_return": 0.0013271400132712774,
+      "as_of": "2025-09-05",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-09",
+      "next_day_return": -0.016504287426622022,
+      "as_of": "2025-09-08",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-10",
+      "next_day_return": -0.012374999999999914,
+      "as_of": "2025-09-09",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-11",
+      "next_day_return": 0.020598658397671166,
+      "as_of": "2025-09-10",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-12",
+      "next_day_return": 0.025272547076313323,
+      "as_of": "2025-09-11",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-15",
+      "next_day_return": 0.011116481391976851,
+      "as_of": "2025-09-12",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-16",
+      "next_day_return": 0.027724665391969383,
+      "as_of": "2025-09-15",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-17",
+      "next_day_return": -0.009302325581395321,
+      "as_of": "2025-09-16",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-18",
+      "next_day_return": -0.029391660970608413,
+      "as_of": "2025-09-17",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-19",
+      "next_day_return": 0.05633802816901423,
+      "as_of": "2025-09-18",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-22",
+      "next_day_return": -0.0040000000000000036,
+      "as_of": "2025-09-19",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-23",
+      "next_day_return": 0.0026773761713521083,
+      "as_of": "2025-09-22",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-24",
+      "next_day_return": -0.010680907877169576,
+      "as_of": "2025-09-23",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-25",
+      "next_day_return": -0.018893387314440013,
+      "as_of": "2025-09-24",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-26",
+      "next_day_return": -0.028885832187070193,
+      "as_of": "2025-09-25",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-29",
+      "next_day_return": 0.019205002233139812,
+      "as_of": "2025-09-26",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-09-30",
+      "next_day_return": 0.007011393514460895,
+      "as_of": "2025-09-29",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-09",
+      "next_day_return": 0.07136640557006091,
+      "as_of": "2025-09-30",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-10",
+      "next_day_return": -0.03330625507717311,
+      "as_of": "2025-10-09",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-13",
+      "next_day_return": -0.01420838971583216,
+      "as_of": "2025-10-10",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-14",
+      "next_day_return": 0.05696636925188736,
+      "as_of": "2025-10-13",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-15",
+      "next_day_return": 0.0,
+      "as_of": "2025-10-14",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-16",
+      "next_day_return": 0.034415584415584455,
+      "as_of": "2025-10-15",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-17",
+      "next_day_return": -0.03640929064657883,
+      "as_of": "2025-10-16",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-20",
+      "next_day_return": 0.07231270358306197,
+      "as_of": "2025-10-17",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-21",
+      "next_day_return": -0.018226002430133725,
+      "as_of": "2025-10-20",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-22",
+      "next_day_return": -0.024752475247524774,
+      "as_of": "2025-10-21",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-23",
+      "next_day_return": -0.016497461928933976,
+      "as_of": "2025-10-22",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-24",
+      "next_day_return": 0.043587594300083854,
+      "as_of": "2025-10-23",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-27",
+      "next_day_return": 0.04578313253012034,
+      "as_of": "2025-10-24",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-28",
+      "next_day_return": 0.0023041474654377225,
+      "as_of": "2025-10-27",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-29",
+      "next_day_return": 0.03524904214559399,
+      "as_of": "2025-10-28",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-30",
+      "next_day_return": 0.00851221317542561,
+      "as_of": "2025-10-29",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-10-31",
+      "next_day_return": -0.006972477064220217,
+      "as_of": "2025-10-30",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-03",
+      "next_day_return": 0.04619364375461932,
+      "as_of": "2025-10-31",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-04",
+      "next_day_return": -0.007726980038634812,
+      "as_of": "2025-11-03",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-05",
+      "next_day_return": 0.022063595068137598,
+      "as_of": "2025-11-04",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-06",
+      "next_day_return": 0.004444444444444473,
+      "as_of": "2025-11-05",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-07",
+      "next_day_return": -0.015802781289506962,
+      "as_of": "2025-11-06",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-10",
+      "next_day_return": -0.005660377358490565,
+      "as_of": "2025-11-07",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-11",
+      "next_day_return": -0.04098671726755221,
+      "as_of": "2025-11-10",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-12",
+      "next_day_return": -0.00591278640059123,
+      "as_of": "2025-11-11",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-13",
+      "next_day_return": -0.00631970260223047,
+      "as_of": "2025-11-12",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-14",
+      "next_day_return": -0.05132317562149158,
+      "as_of": "2025-11-13",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-17",
+      "next_day_return": -0.019442096365173356,
+      "as_of": "2025-11-14",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-18",
+      "next_day_return": -0.0068009752341845475,
+      "as_of": "2025-11-17",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 90.02
+    },
+    {
+      "next_trade_date": "2025-11-19",
+      "next_day_return": 0.0,
+      "as_of": "2025-11-18",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 87.0
+    },
+    {
+      "next_trade_date": "2025-11-20",
+      "next_day_return": 0.007815892314372519,
+      "as_of": "2025-11-19",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-21",
+      "next_day_return": -0.07712193020249891,
+      "as_of": "2025-11-20",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-24",
+      "next_day_return": -0.002412698412698422,
+      "as_of": "2025-11-21",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-25",
+      "next_day_return": 0.001782077393075454,
+      "as_of": "2025-11-24",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-26",
+      "next_day_return": 0.013977128335451061,
+      "as_of": "2025-11-25",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-27",
+      "next_day_return": 0.0,
+      "as_of": "2025-11-26",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-11-28",
+      "next_day_return": 0.0007518796992480592,
+      "as_of": "2025-11-27",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-12-01",
+      "next_day_return": 0.019724770642201905,
+      "as_of": "2025-11-28",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 96.52
+    },
+    {
+      "next_trade_date": "2025-12-02",
+      "next_day_return": 0.019500000000000073,
+      "as_of": "2025-12-01",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-12-03",
+      "next_day_return": 0.007479156449239799,
+      "as_of": "2025-12-02",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-12-04",
+      "next_day_return": -0.0034075696726298954,
+      "as_of": "2025-12-03",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-12-05",
+      "next_day_return": 0.004151911100256589,
+      "as_of": "2025-12-04",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-12-08",
+      "next_day_return": -0.005107624954396206,
+      "as_of": "2025-12-05",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-12-09",
+      "next_day_return": -0.019679745752352984,
+      "as_of": "2025-12-08",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 98.58
+    },
+    {
+      "next_trade_date": "2025-12-10",
+      "next_day_return": -0.0016209476309227977,
+      "as_of": "2025-12-09",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 68.02
+    },
+    {
+      "next_trade_date": "2025-12-11",
+      "next_day_return": -0.016254416961130835,
+      "as_of": "2025-12-10",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 52.95
+    },
+    {
+      "next_trade_date": "2025-12-12",
+      "next_day_return": 0.00025220680958382147,
+      "as_of": "2025-12-11",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 40.8
+    },
+    {
+      "next_trade_date": "2025-12-15",
+      "next_day_return": -0.02267954640907177,
+      "as_of": "2025-12-12",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-12-16",
+      "next_day_return": -0.053717232488182165,
+      "as_of": "2025-12-15",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 79.83
+    },
+    {
+      "next_trade_date": "2025-12-17",
+      "next_day_return": 0.0063781890945473485,
+      "as_of": "2025-12-16",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 65.27
+    },
+    {
+      "next_trade_date": "2025-12-18",
+      "next_day_return": -0.007953274512240593,
+      "as_of": "2025-12-17",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 70.73
+    },
+    {
+      "next_trade_date": "2025-12-19",
+      "next_day_return": -0.004760115244895391,
+      "as_of": "2025-12-18",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 62.67
+    },
+    {
+      "next_trade_date": "2025-12-22",
+      "next_day_return": -0.003650094398993109,
+      "as_of": "2025-12-19",
+      "code": "000333",
+      "name": "美的集团",
+      "trend_score": 47.44
+    },
+    {
+      "next_trade_date": "2025-12-23",
+      "next_day_return": 0.007305194805194981,
+      "as_of": "2025-12-22",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 79.65
+    },
+    {
+      "next_trade_date": "2025-12-24",
+      "next_day_return": 0.009266720386784666,
+      "as_of": "2025-12-23",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 96.76
+    },
+    {
+      "next_trade_date": "2025-12-25",
+      "next_day_return": 0.0004325259515569613,
+      "as_of": "2025-12-24",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 91.92
+    },
+    {
+      "next_trade_date": "2025-12-26",
+      "next_day_return": 0.014267185473411326,
+      "as_of": "2025-12-25",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-12-29",
+      "next_day_return": -0.03196930946291565,
+      "as_of": "2025-12-26",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-12-30",
+      "next_day_return": 0.008490930142802,
+      "as_of": "2025-12-29",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2025-12-31",
+      "next_day_return": -0.013777267508610858,
+      "as_of": "2025-12-30",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-05",
+      "next_day_return": 0.08459448971672479,
+      "as_of": "2025-12-31",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 89.11
+    },
+    {
+      "next_trade_date": "2026-01-06",
+      "next_day_return": 0.056529516994633155,
+      "as_of": "2026-01-05",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-07",
+      "next_day_return": 0.05858449034879776,
+      "as_of": "2026-01-06",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-08",
+      "next_day_return": 0.010695187165775444,
+      "as_of": "2026-01-07",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-09",
+      "next_day_return": -0.012093726379440728,
+      "as_of": "2026-01-08",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-12",
+      "next_day_return": -0.0007651109410864443,
+      "as_of": "2026-01-09",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-13",
+      "next_day_return": -0.011485451761102605,
+      "as_of": "2026-01-12",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-14",
+      "next_day_return": -0.003332222592469125,
+      "as_of": "2026-01-13",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-15",
+      "next_day_return": 0.021731862253426826,
+      "as_of": "2026-01-14",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-16",
+      "next_day_return": 0.033704188481675335,
+      "as_of": "2026-01-15",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-19",
+      "next_day_return": 0.00664767331434013,
+      "as_of": "2026-01-16",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-20",
+      "next_day_return": -0.028930817610062887,
+      "as_of": "2026-01-19",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-21",
+      "next_day_return": 0.03335492227979264,
+      "as_of": "2026-01-20",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-22",
+      "next_day_return": 0.016609213412723367,
+      "as_of": "2026-01-21",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-23",
+      "next_day_return": -0.006139677666922472,
+      "as_of": "2026-01-22",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-26",
+      "next_day_return": 0.019305019305019266,
+      "as_of": "2026-01-23",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-27",
+      "next_day_return": -0.025000000000000022,
+      "as_of": "2026-01-26",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-28",
+      "next_day_return": 0.07433838834374074,
+      "as_of": "2026-01-27",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-29",
+      "next_day_return": -0.0042887776983560055,
+      "as_of": "2026-01-28",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-01-30",
+      "next_day_return": -0.02153625269203152,
+      "as_of": "2026-01-29",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-02-02",
+      "next_day_return": -0.07776962582538516,
+      "as_of": "2026-01-30",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-02-03",
+      "next_day_return": 0.08618127786032681,
+      "as_of": "2026-02-02",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-02-04",
+      "next_day_return": -0.0117647058823529,
+      "as_of": "2026-02-03",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-02-05",
+      "next_day_return": -0.05454042081949062,
+      "as_of": "2026-02-04",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-02-06",
+      "next_day_return": -0.002895403546869235,
+      "as_of": "2026-02-05",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-02-09",
+      "next_day_return": 0.018874773139745837,
+      "as_of": "2026-02-06",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 97.52
+    },
+    {
+      "next_trade_date": "2026-02-10",
+      "next_day_return": -0.012454005094820308,
+      "as_of": "2026-02-09",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-02-11",
+      "next_day_return": 0.03511338697878563,
+      "as_of": "2026-02-10",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-02-12",
+      "next_day_return": 0.004946996466431042,
+      "as_of": "2026-02-11",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-02-13",
+      "next_day_return": -0.026019690576652654,
+      "as_of": "2026-02-12",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-02-24",
+      "next_day_return": 0.03682310469314087,
+      "as_of": "2026-02-13",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-02-25",
+      "next_day_return": 0.0006963788300835549,
+      "as_of": "2026-02-24",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-02-26",
+      "next_day_return": -0.014613778705636626,
+      "as_of": "2026-02-25",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-02-27",
+      "next_day_return": -0.01504281416338804,
+      "as_of": "2026-02-26",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-02",
+      "next_day_return": -0.002686366689053088,
+      "as_of": "2026-02-27",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-03",
+      "next_day_return": 0.005387205387205496,
+      "as_of": "2026-03-02",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-04",
+      "next_day_return": -0.02679169457468189,
+      "as_of": "2026-03-03",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-05",
+      "next_day_return": -0.015141087405368125,
+      "as_of": "2026-03-04",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-06",
+      "next_day_return": -0.016778523489933028,
+      "as_of": "2026-03-05",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-09",
+      "next_day_return": -0.03315585672797672,
+      "as_of": "2026-03-06",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-10",
+      "next_day_return": -0.027472527472527486,
+      "as_of": "2026-03-09",
+      "code": "600089",
+      "name": "特变电工",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-11",
+      "next_day_return": -0.022281424073625544,
+      "as_of": "2026-03-10",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-12",
+      "next_day_return": 0.059876118375774334,
+      "as_of": "2026-03-11",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-13",
+      "next_day_return": -0.012987012987013102,
+      "as_of": "2026-03-12",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-16",
+      "next_day_return": -0.03486842105263155,
+      "as_of": "2026-03-13",
+      "code": "601699",
+      "name": "潞安环能",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-17",
+      "next_day_return": -0.032886723507917215,
+      "as_of": "2026-03-16",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-18",
+      "next_day_return": -0.007358024691358045,
+      "as_of": "2026-03-17",
+      "code": "300750",
+      "name": "宁德时代",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-19",
+      "next_day_return": -0.020334059549745986,
+      "as_of": "2026-03-18",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-20",
+      "next_day_return": -0.018285149493451947,
+      "as_of": "2026-03-19",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    },
+    {
+      "next_trade_date": "2026-03-23",
+      "next_day_return": -0.058142461615907304,
+      "as_of": "2026-03-20",
+      "code": "513310",
+      "name": "中韩芯片",
+      "trend_score": 100.0
+    }
+  ]
+}

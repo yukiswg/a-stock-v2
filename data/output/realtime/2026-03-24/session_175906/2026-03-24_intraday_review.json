@@ -1,0 +1,99 @@
+{
+  "session_summary": {
+    "session_id": "session_175906",
+    "as_of": "2026-03-24",
+    "monitor_plan_path": "data/output/reports/2026-03-24/2026-03-24_monitor_plan.json",
+    "source_kind": "synthetic",
+    "quotes_path": "data/output/realtime/2026-03-24/session_175906/quotes.jsonl",
+    "features_path": "data/output/realtime/2026-03-24/session_175906/features.jsonl",
+    "alerts_path": "data/output/realtime/2026-03-24/session_175906/alerts.jsonl",
+    "alert_count": 9,
+    "iterations_executed": 3,
+    "latest_quote_timestamp": "2026-03-24T17:59:26",
+    "latest_fetched_at": "2026-03-24T17:59:26",
+    "max_freshness_seconds": 0.0,
+    "stale_quote_count": 0
+  },
+  "alert_evaluation": {
+    "session_dir": "data/output/realtime/2026-03-24/session_175906",
+    "alert_count": 9,
+    "evaluated_count": 0,
+    "useful_rate": 0.0,
+    "average_follow_return": 0.0,
+    "evaluations": [],
+    "severity_breakdown": {
+      "high": 3,
+      "medium": 6
+    },
+    "event_breakdown": [
+      {
+        "event_type": "benchmark_drop",
+        "alerts": 3,
+        "evaluated": 0,
+        "useful": 0,
+        "useful_rate": null,
+        "avg_follow_return": 0.0,
+        "status": "unvalidated"
+      },
+      {
+        "event_type": "drawdown_break",
+        "alerts": 3,
+        "evaluated": 0,
+        "useful": 0,
+        "useful_rate": null,
+        "avg_follow_return": 0.0,
+        "status": "unvalidated"
+      },
+      {
+        "event_type": "relative_breakout",
+        "alerts": 3,
+        "evaluated": 0,
+        "useful": 0,
+        "useful_rate": null,
+        "avg_follow_return": 0.0,
+        "status": "unvalidated"
+      }
+    ],
+    "action_breakdown": [
+      {
+        "action_hint": "reduce_risk",
+        "alerts": 3,
+        "evaluated": 0,
+        "useful": 0,
+        "useful_rate": null
+      },
+      {
+        "action_hint": "review_risk",
+        "alerts": 3,
+        "evaluated": 0,
+        "useful": 0,
+        "useful_rate": null
+      },
+      {
+        "action_hint": "watch_entry",
+        "alerts": 3,
+        "evaluated": 0,
+        "useful": 0,
+        "useful_rate": null
+      }
+    ],
+    "diagnostics": {
+      "effective_rules": [],
+      "misleading_rules": [],
+      "unvalidated_rules": [
+        "benchmark_drop",
+        "drawdown_break",
+        "relative_breakout"
+      ],
+      "policy_feedback": [
+        "`benchmark_drop` 触发较多但样本不足，建议延长回看窗口再定是否降权。",
+        "`drawdown_break` 触发较多但样本不足，建议延长回看窗口再定是否降权。",
+        "`relative_breakout` 触发较多但样本不足，建议延长回看窗口再定是否降权。"
+      ]
+    },
+    "risk_alert_count": 6,
+    "entry_alert_count": 3,
+    "sample_gap_count": 9
+  },
+  "headline": "样本不足，但盘中以风控告警为主，明日优先复核风险阈值是否过敏。"
+}

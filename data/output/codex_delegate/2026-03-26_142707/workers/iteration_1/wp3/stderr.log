@@ -1,0 +1,2606 @@
+OpenAI Codex v0.117.0-alpha.10 (research preview)
+--------
+workdir: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/fqyuki/.codex/memories]
+reasoning effort: high
+reasoning summaries: none
+session id: 019d28d9-fb56-7a42-b90a-daeb764618fd
+--------
+user
+你是这个交付循环的 Worker（执行者），负责完成分配给你的任务包。
+
+Project root: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+Run directory: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_142707
+Iteration: 1
+
+## Leader 制定的大目标
+{
+  "outcome": "在 2026-03-26 的回放与报告产物中，系统会输出 1 支带历史回测证据的明日最优标的，并在日报、首页和独立报告里一致展示。",
+  "done_means": [
+    "`build_tomorrow_best_pick(load_config(\"config/default.toml\"), as_of=\"2026-03-26\")` 返回 `candidate_rankings`，长度 `>= 3`，且每一行都包含 `code`、`name`、`selection_score`、`trade_count`、`win_rate`、`average_return`、`composite_score`。",
+    "上述 `candidate_rankings` 按 `composite_score` 非升序排列，且 `best_stock[\"code\"] == candidate_rankings[0][\"code\"]`。",
+    "上述 `best_stock[\"backtest\"]` 中 `trade_count >= 3`、`0.0 <= win_rate <= 1.0`，并且 `trades` 非空。",
+    "`render_best_stock_report(payload)` 的结果同时包含 `## 明日最优标的`、`## 候选对比`、`## 历史回测` 三个小节，并包含 `best_stock` 的 `name(code)`。",
+    "`render_daily_report(...)` 与 `render_homepage_overview(...)` 的结果都包含 `## 明日最优标的`，并包含与 `best_stock[\"code\"]` 相同的代码字符串。",
+    "`replay_daily(load_config(\"config/default.toml\"), as_of=\"2026-03-26\")` 返回的 `artifacts` 同时包含 `best_stock_report_markdown` 与 `best_stock_report_json`；其中 JSON 文件里的 `pick.code` 与同次生成的 `data/output/reports/2026-03-26/2026-03-26_homepage_overview.json` 里的 `best_stock.code` 相等。"
+  ],
+  "risks": [
+    "历史 state 只覆盖少量交易日，回测样本可能偏少；验收阈值不应假设几十笔交易。",
+    "盘前全量流程会触发新闻/补数逻辑；验收测试应优先使用 `2026-03-26` 的本地 state 和 `replay_daily`，避免依赖外网。",
+    "在防守市况下，最优标的可能仍然是“观察型”结论；报告文案要把“最高胜率候选”与“立即买入建议”区分清楚。"
+  ]
+}
+
+## Leader 分配给你的包
+{
+  "packet_id": "wp3",
+  "title": "运行产物接线",
+  "objective": "让回放产物自动落盘 best stock 独立报告，并保证回放输出的报告 JSON、首页 JSON 和 artifact 清单中的最优标的一致可追溯。",
+  "scope": [
+    "src/ashare_harness_v2/runtime_harness/orchestrator.py"
+  ],
+  "test_file": "tests/test_best_stock_runtime_outputs.py"
+}
+
+## 你要做的事（按顺序执行）
+
+### 第一步：执行 objective
+- 严格在 scope 范围内改文件
+- 不要动其他 Worker 负责的文件
+- 不要做 scope 以外的改动
+
+### 第二步：运行 acceptance test
+- test_file: tests/test_best_stock_runtime_outputs.py
+- 运行命令（选合适的）：
+    PYTHONPATH=src python3 -m pytest tests/test_best_stock_runtime_outputs.py -v
+    PYTHONPATH=src python3 -m unittest discover -s tests -v
+- 把每条测试的 passed/output 填入 test_results
+
+### 第三步：返回原始结果
+- status: completed（全部通过）/ blocked（有障碍）/ failed（执行失败）
+- 不要写主观总结，只列 changed_files + test_results + evidence
+- 返回纯 JSON，符合 schema
+
+## 约束
+- 不要加 markdown fence
+- 只动 scope 里的文件
+- test_results 里每个条目：{"name": "...", "passed": bool, "output": "..."}
+- output 截取测试运行输出最后 500 字符即可
+mcp: notion starting
+mcp: notion ready
+mcp startup: ready: notion
+exec
+/bin/zsh -lc "sed -n '1,260p' src/ashare_harness_v2/runtime_harness/orchestrator.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc 'pwd && rg -n "best_stock|homepage_overview|render_daily_report|render_homepage_overview|render_best_stock_report|replay_daily|artifact" src/ashare_harness_v2/runtime_harness/orchestrator.py tests/test_best_stock_runtime_outputs.py' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 exited 127 in 0ms:
+/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+zsh:1: command not found: rg
+ succeeded in 0ms:
+from __future__ import annotations
+
+import shutil
+from pathlib import Path
+from typing import Any
+
+from ..advice_harness import build_tomorrow_best_pick, discover_top_ideas
+from ..agent_layer.engine import build_agent_context, run_structured_agent
+from ..config import UniverseItem, load_universe
+from ..data_harness.holdings import hydrate_holdings_snapshot_with_prices, load_holdings_snapshot
+from ..data_harness.market_data import fetch_daily_series
+from ..data_harness.news import collect_news, fetch_holdings_announcements
+from ..data_harness.supplemental import ensure_sector_metrics_payload, ensure_supplemental_payload, filter_supplemental_codes
+from ..decision_core import infer_market_strategy_style
+from ..decision_harness.engine import build_decision_bundle, write_daily_outputs
+from ..decision_harness.rendering import render_action_summary, render_daily_report
+from ..evaluation_harness.backtest import backtest_watchlist_strategy, write_backtest_report
+from ..evaluation_harness.daily import evaluate_prediction_history, write_prediction_evaluation
+from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+exec
+/bin/zsh -lc "sed -n '1,240p' tests/test_best_stock_runtime_outputs.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 exited 1 in 0ms:
+sed: tests/test_best_stock_runtime_outputs.py: No such file or directory
+exec
+/bin/zsh -lc "grep -n \"def replay_daily\\|def _build_best_stock_overview\\|def _refresh_intraday_reports\\|render_homepage_overview\\|render_best_stock_report\" -n src/ashare_harness_v2/runtime_harness/orchestrator.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+283:def replay_daily(*, config: dict[str, Any], as_of: str) -> dict[str, Any]:
+472:def _refresh_intraday_reports(
+504:def _build_best_stock_overview(
+exec
+/bin/zsh -lc "find tests -maxdepth 2 -type f | sort | grep 'best_stock_runtime_outputs\\|best_stock'" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 exited 1 in 0ms:
+
+exec
+/bin/zsh -lc "sed -n '240,520p' src/ashare_harness_v2/runtime_harness/orchestrator.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+        as_of=as_of,
+        homepage_overview=homepage_overview,
+    )
+    homepage_assets = write_homepage_assets(overview=homepage_overview, homepage_dir=project["homepage_dir"], as_of=as_of)
+    shutil.copy2(homepage_assets["markdown"], report_root / homepage_assets["markdown"].name)
+    shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+    runtime.add_artifact("session_dir", result["session_dir"])
+    runtime.add_artifact("homepage", homepage_assets["markdown"])
+    runtime.finish(status="completed")
+    return {
+        **result,
+        "homepage_assets": {key: str(value) for key, value in homepage_assets.items()},
+    }
+
+
+def run_postclose(*, config: dict[str, Any], as_of: str, session_dir: str | Path | None = None) -> dict[str, Any]:
+    project = config["project"]
+    runtime = RuntimeSession(runtime_dir=project["runtime_dir"], as_of=as_of, session_type="postclose")
+    runtime.log("postclose_start", as_of=as_of)
+    selected_session = Path(session_dir) if session_dir is not None else latest_session_dir(project["realtime_dir"], as_of=as_of)
+exec
+/bin/zsh -lc "sed -n '520,680p' src/ashare_harness_v2/runtime_harness/orchestrator.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+    if best_stock:
+        best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+        best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+        best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+    return best_stock
+exec
+/bin/zsh -lc 'find tests -type f | sort | tail -n 200' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+tests/__pycache__/test_advice_api.cpython-311.pyc
+tests/__pycache__/test_advice_api.cpython-313.pyc
+tests/__pycache__/test_advice_harness.cpython-311.pyc
+tests/__pycache__/test_advice_harness.cpython-313.pyc
+tests/__pycache__/test_decision_bundle.cpython-311-pytest-7.4.0.pyc
+tests/__pycache__/test_decision_bundle.cpython-311.pyc
+tests/__pycache__/test_decision_bundle.cpython-313.pyc
+tests/__pycache__/test_decision_core.cpython-311-pytest-7.4.0.pyc
+tests/__pycache__/test_decision_core.cpython-311.pyc
+tests/__pycache__/test_decision_core.cpython-313.pyc
+tests/__pycache__/test_dynamic_universe_skill.cpython-311.pyc
+tests/__pycache__/test_dynamic_universe_skill.cpython-313.pyc
+tests/__pycache__/test_holdings.cpython-311.pyc
+tests/__pycache__/test_holdings.cpython-313.pyc
+tests/__pycache__/test_homepage_runtime.cpython-311.pyc
+tests/__pycache__/test_homepage_runtime.cpython-313.pyc
+tests/__pycache__/test_market_data.cpython-311.pyc
+tests/__pycache__/test_market_data.cpython-313.pyc
+tests/__pycache__/test_prediction_eval.cpython-311-pytest-7.4.0.pyc
+tests/__pycache__/test_prediction_eval.cpython-311.pyc
+exec
+/bin/zsh -lc "grep -R -n \"best_stock_report_markdown\\|best_stock_report_json\\|render_best_stock_report\\|render_homepage_overview\" src tests" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/homepage.cpython-313.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/homepage.cpython-311.pyc matches
+src/ashare_harness_v2/runtime_harness/homepage.py:9:from ..decision_harness.rendering import render_homepage_overview
+src/ashare_harness_v2/runtime_harness/homepage.py:188:    markdown_path = write_text(root / f"{as_of}_homepage_overview.md", render_homepage_overview(overview))
+src/ashare_harness_v2/decision_harness/rendering.py:193:def render_homepage_overview(overview: dict[str, object]) -> str:
+Binary file src/ashare_harness_v2/decision_harness/__pycache__/rendering.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/decision_harness/__pycache__/rendering.cpython-313.pyc matches
+Binary file src/ashare_harness_v2/decision_harness/__pycache__/engine.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/decision_harness/__pycache__/engine.cpython-313.pyc matches
+src/ashare_harness_v2/decision_harness/engine.py:33:    render_homepage_overview,
+src/ashare_harness_v2/decision_harness/engine.py:776:    homepage_path.write_text(render_homepage_overview(bundle.homepage_overview), encoding="utf-8")
+src/ashare_harness_v2/skill_harness/trading_reports.py:245:    write_text(markdown_path, render_best_stock_report(report_payload))
+src/ashare_harness_v2/skill_harness/trading_reports.py:250:def render_best_stock_report(payload: dict[str, Any]) -> str:
+src/ashare_harness_v2/skill_harness/__init__.py:4:from .trading_reports import build_best_stock_report, build_investment_report, render_best_stock_report
+src/ashare_harness_v2/skill_harness/__init__.py:12:    "render_best_stock_report",
+Binary file src/ashare_harness_v2/skill_harness/__pycache__/trading_reports.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/skill_harness/__pycache__/__init__.cpython-311.pyc matches
+tests/test_decision_bundle.py:30:from ashare_harness_v2.decision_harness.rendering import render_action_summary, render_daily_report, render_homepage_overview
+tests/test_decision_bundle.py:130:        rendered = render_homepage_overview(homepage)
+Binary file tests/__pycache__/test_decision_bundle.cpython-311.pyc matches
+exec
+/bin/zsh -lc "sed -n '220,320p' src/ashare_harness_v2/skill_harness/trading_reports.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "sed -n '720,820p' src/ashare_harness_v2/decision_harness/engine.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+        return None
+    dates = [row.get("trade_date") for row in bars[-60:]]
+    pct = [float(row.get("pct_change") or 0.0) * 100 for row in bars[-60:]]
+    volume = [float(row.get("volume") or 0.0) / 1000000.0 for row in bars[-60:]]
+    path = chart_dir / f"{code}_momentum_chart.png"
+    fig, axes = plt.subplots(2, 1, figsize=(10, 5), sharex=True, gridspec_kw={"height_ratios": [2, 1]})
+    axes[0].bar(dates, pct, color=["#2E8B57" if value >= 0 else "#C00000" for value in pct])
+    axes[0].set_title(f"{code} Daily Change")
+    axes[0].set_ylabel("%")
+    axes[1].plot(dates, volume, color="#1F4E78", linewidth=1.5)
+    axes[1].set_ylabel("Vol (mn)")
+    axes[1].tick_params(axis="x", rotation=45)
+    fig.tight_layout()
+    fig.savefig(path, dpi=180)
+    plt.close(fig)
+    return str(path)
+
+
+def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+    report_payload = _normalize_best_stock_payload(payload, as_of=as_of)
+ succeeded in 0ms:
+    action_plan["rationale"] = f"{item.object_name} 当前不是最优资金去处，优先看 {alternative.object_name}。"
+    action_plan["position_guidance"] = f"不给 {item.object_name} 分配新仓，候选额度优先留给 {alternative.object_name}。"
+    action_plan["urgency_score"] = round(max(float(action_plan.get("urgency_score") or item.priority_score), 66.0), 2)
+    existing_triggers = list(action_plan.get("trigger_conditions") or [])
+    existing_invalidations = list(action_plan.get("invalidation_conditions") or [])
+    action_plan["trigger_conditions"] = [f"若同梯队必须选一只，先等 {alternative.object_name} 满足“{alternative_label}”条件。"] + existing_triggers[:1]
+    action_plan["invalidation_conditions"] = [f"只有当 {item.object_name} 重新强于 {alternative.object_name}，才恢复优先级。"] + existing_invalidations[:1]
+    item.action = "switch_to_better_alternative"
+    item.priority_score = min(item.priority_score, max(alternative.priority_score - 6.0, 0.0))
+    item.reason = [
+        str(action_plan["rationale"]),
+        f"同梯队更强的是 {alternative.object_name}，当前优先级领先 {gap:.1f} 分。",
+    ]
+    item.thesis = f"{item.object_name} 不是完全不能做，但当前执行位和资金效率都弱于 {alternative.object_name}。"
+    item.counterpoints = [f"与 {alternative.object_name} 相比，当前更缺少马上执行的理由。"] + list(item.counterpoints[:2])
+    item.trigger_conditions = list(action_plan["trigger_conditions"][:3])
+    item.invalidation_conditions = list(action_plan["invalidation_conditions"][:3])
+    item.metadata["preferred_alternative"] = {
+        "code": alternative.object_id,
+        "name": alternative.object_name,
+exec
+/bin/zsh -lc 'grep -R -n "build_best_stock_report" src tests' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+Binary file src/ashare_harness_v2/__pycache__/cli.cpython-311.pyc matches
+src/ashare_harness_v2/skill_harness/trading_reports.py:238:def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+src/ashare_harness_v2/skill_harness/__init__.py:4:from .trading_reports import build_best_stock_report, build_investment_report, render_best_stock_report
+src/ashare_harness_v2/skill_harness/__init__.py:10:    "build_best_stock_report",
+Binary file src/ashare_harness_v2/skill_harness/__pycache__/trading_reports.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/skill_harness/__pycache__/__init__.cpython-311.pyc matches
+src/ashare_harness_v2/cli.py:243:        from .skill_harness import build_best_stock_report
+src/ashare_harness_v2/cli.py:254:        artifacts = build_best_stock_report(config, as_of=as_of, payload=result)
+exec
+/bin/zsh -lc "sed -n '220,270p' src/ashare_harness_v2/cli.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+            as_of=as_of,
+            holdings_file=args.holdings,
+            cash=args.cash,
+            write_output=True,
+        )
+        print(dump_json(result))
+        return
+
+    if args.command == "discover-ideas":
+        from .advice_harness import discover_top_ideas
+
+        result = discover_top_ideas(
+            config=config,
+            as_of=as_of,
+            limit=args.limit,
+            holdings_file=args.holdings,
+            cash=args.cash,
+            write_output=True,
+        )
+        print(dump_json(result))
+exec
+/bin/zsh -lc "sed -n '180,260p' src/ashare_harness_v2/decision_harness/rendering.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+            fallback_reason = item.get("analysis_summary") or item.get("display_reason") or item.get("reason") or ""
+            reason_text = " + ".join(str(r) for r in positive_factors[:2]) if positive_factors else fallback_reason
+            valuation_tag = "估值合理" if item.get("coverage_score", 0) >= 50 else "需关注估值"
+            lines.append(
+                f"- {item['name']}({item['code']}) | `{item.get('display_action_label') or item['action_label']}` | "
+                f"估值: {valuation_tag} | 入选主因: {reason_text}{chase_warn} | "
+                f"{item.get('analysis_comparison') or item.get('analysis_summary') or item.get('display_trigger') or item.get('trigger') or item.get('display_reason') or item.get('reason') or ''}"
+            )
+    else:
+        lines.append("- 当前没有接近触发的观察机会。")
+    return "\n".join(lines) + "\n"
+
+
+def render_homepage_overview(overview: dict[str, object]) -> str:
+    market_state = overview.get("market_state") or {}
+    dynamic = overview.get("dynamic_universe") or {}
+    change_log = list(market_state.get("realtime_change_log") or [])
+    lines = [
+        f"# Homepage Overview - {overview['as_of']}",
+        "",
+exec
+/bin/zsh -lc 'grep -R -n "## 明日最优标的" tests src/ashare_harness_v2/decision_harness/rendering.py src/ashare_harness_v2/runtime_harness/homepage.py' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+src/ashare_harness_v2/decision_harness/rendering.py:25:    lines.extend(render_best_stock_section(bundle.homepage_overview, heading="## 明日最优标的"))
+src/ashare_harness_v2/decision_harness/rendering.py:205:    lines.extend(render_best_stock_section(overview, heading="## 明日最优标的"))
+exec
+/bin/zsh -lc "sed -n '1,240p' tests/test_homepage_runtime.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+import json
+import sys
+import tempfile
+from pathlib import Path
+import unittest
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from ashare_harness_v2.runtime_harness.homepage import update_homepage_with_session
+from ashare_harness_v2.runtime_harness.homepage import update_homepage_with_live_quotes
+from ashare_harness_v2.decision_harness.rendering import render_homepage_overview
+from ashare_harness_v2.models import QuoteSnapshot
+
+
+class HomepageRuntimeTests(unittest.TestCase):
+exec
+/bin/zsh -lc 'grep -R -n "def build_tomorrow_best_pick" -n src/ashare_harness_v2' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+src/ashare_harness_v2/advice_harness/tomorrow_pick.py:11:def build_tomorrow_best_pick(
+exec
+/bin/zsh -lc "grep -R -n \"candidate_rankings\\|composite_score\\|best_stock\" src/ashare_harness_v2/advice_harness* src/ashare_harness_v2 -m 40" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+Binary file src/ashare_harness_v2/advice_harness/__pycache__/tomorrow_pick.cpython-311.pyc matches
+src/ashare_harness_v2/advice_harness/tomorrow_pick.py:50:    best_stock = _build_best_stock_payload(pick=pick, backtest=backtest, strategy_style=resolved_style)
+src/ashare_harness_v2/advice_harness/tomorrow_pick.py:57:        "best_stock": best_stock,
+src/ashare_harness_v2/advice_harness/tomorrow_pick.py:107:def _build_best_stock_payload(
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/orchestrator.cpython-311.pyc matches
+src/ashare_harness_v2/runtime_harness/orchestrator.py:132:    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
+src/ashare_harness_v2/runtime_harness/orchestrator.py:327:    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
+src/ashare_harness_v2/runtime_harness/orchestrator.py:504:def _build_best_stock_overview(
+src/ashare_harness_v2/runtime_harness/orchestrator.py:519:    best_stock = dict(payload.get("best_stock") or payload.get("pick") or {})
+src/ashare_harness_v2/runtime_harness/orchestrator.py:520:    if best_stock:
+src/ashare_harness_v2/runtime_harness/orchestrator.py:521:        best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+src/ashare_harness_v2/runtime_harness/orchestrator.py:522:        best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+src/ashare_harness_v2/runtime_harness/orchestrator.py:523:        best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+src/ashare_harness_v2/runtime_harness/orchestrator.py:524:    return best_stock
+Binary file src/ashare_harness_v2/advice_harness/__pycache__/tomorrow_pick.cpython-311.pyc matches
+src/ashare_harness_v2/advice_harness/tomorrow_pick.py:50:    best_stock = _build_best_stock_payload(pick=pick, backtest=backtest, strategy_style=resolved_style)
+src/ashare_harness_v2/advice_harness/tomorrow_pick.py:57:        "best_stock": best_stock,
+src/ashare_harness_v2/advice_harness/tomorrow_pick.py:107:def _build_best_stock_payload(
+src/ashare_harness_v2/decision_harness/rendering.py:25:    lines.extend(render_best_stock_section(bundle.homepage_overview, heading="## 明日最优标的"))
+src/ashare_harness_v2/decision_harness/rendering.py:205:    lines.extend(render_best_stock_section(overview, heading="## 明日最优标的"))
+exec
+/bin/zsh -lc "sed -n '1,180p' src/ashare_harness_v2/advice_harness/tomorrow_pick.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+from typing import Any
+
+from ..decision_core import infer_market_strategy_style
+from ..evaluation_harness.backtest import backtest_top_idea_strategy
+from .engine import discover_top_ideas
+from .evidence import build_advice_snapshot
+
+
+def build_tomorrow_best_pick(
+    config: dict[str, Any],
+    *,
+    as_of: str,
+    strategy_style: str | None = None,
+    holdings_file: str | None = None,
+    cash: float = 0.0,
+    lookback_sessions: int = 25,
+) -> dict[str, Any]:
+    resolved_style, market_view = _resolve_strategy_style(
+exec
+/bin/zsh -lc "grep -R -n \"add_artifact(\\\"best_stock\\|best_stock_report\" src" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+Binary file src/ashare_harness_v2/__pycache__/cli.cpython-311.pyc matches
+src/ashare_harness_v2/skill_harness/trading_reports.py:238:def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+src/ashare_harness_v2/skill_harness/trading_reports.py:243:    markdown_path = root / f"{code}_best_stock_report.md"
+src/ashare_harness_v2/skill_harness/trading_reports.py:244:    json_path = root / f"{code}_best_stock_report.json"
+src/ashare_harness_v2/skill_harness/trading_reports.py:245:    write_text(markdown_path, render_best_stock_report(report_payload))
+src/ashare_harness_v2/skill_harness/trading_reports.py:250:def render_best_stock_report(payload: dict[str, Any]) -> str:
+src/ashare_harness_v2/skill_harness/__init__.py:4:from .trading_reports import build_best_stock_report, build_investment_report, render_best_stock_report
+src/ashare_harness_v2/skill_harness/__init__.py:10:    "build_best_stock_report",
+src/ashare_harness_v2/skill_harness/__init__.py:12:    "render_best_stock_report",
+Binary file src/ashare_harness_v2/skill_harness/__pycache__/trading_reports.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/skill_harness/__pycache__/__init__.cpython-311.pyc matches
+src/ashare_harness_v2/cli.py:243:        from .skill_harness import build_best_stock_report
+src/ashare_harness_v2/cli.py:254:        artifacts = build_best_stock_report(config, as_of=as_of, payload=result)
+exec
+/bin/zsh -lc "grep -n \"def write_json\" -n src/ashare_harness_v2/utils.py && sed -n '1,140p' src/ashare_harness_v2/utils.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+51:def write_json(path: str | Path, payload: Any) -> Path:
+from __future__ import annotations
+
+import json
+import os
+import random
+import time
+import urllib.parse
+import urllib.request
+from dataclasses import asdict, is_dataclass
+from datetime import date, datetime, timezone
+from pathlib import Path
+from typing import Any
+
+
+DEFAULT_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0 Safari/537.36"
+    ),
+exec
+/bin/zsh -lc "sed -n '1,80p' src/ashare_harness_v2/skill_harness/__init__.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from .pdf_insights import analyze_announcement_pdfs
+from .sector_rotation import build_dynamic_universe_from_sectors
+from .spreadsheet_reports import build_portfolio_candidate_workbook
+from .trading_reports import build_best_stock_report, build_investment_report, render_best_stock_report
+
+__all__ = [
+    "analyze_announcement_pdfs",
+    "build_dynamic_universe_from_sectors",
+    "build_portfolio_candidate_workbook",
+    "build_best_stock_report",
+    "build_investment_report",
+    "render_best_stock_report",
+]
+exec
+/bin/zsh -lc "grep -n \"def run_premarket\\|def replay_daily\\|def _build_best_stock_overview\" src/ashare_harness_v2/runtime_harness/orchestrator.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+28:def run_premarket(
+283:def replay_daily(*, config: dict[str, Any], as_of: str) -> dict[str, Any]:
+504:def _build_best_stock_overview(
+file update
+M /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -21,2 +21,3 @@
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+@@ -131,3 +132,3 @@
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+@@ -138,2 +139,3 @@
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+@@ -149,2 +151,3 @@
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+@@ -190,2 +193,4 @@
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+@@ -197,3 +202,6 @@
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+@@ -326,3 +334,3 @@
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+@@ -331,2 +339,3 @@
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+@@ -340,2 +349,3 @@
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+@@ -352,3 +362,3 @@
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+@@ -503,3 +513,3 @@
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+@@ -523,2 +533,11 @@
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+apply_patch(auto_approved=true) exited 0 in 45ms:
+Success. Updated the following files:
+M /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..f7a847a0ba5b985e379d3db360307de371acd226
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..f7a847a0ba5b985e379d3db360307de371acd226
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+exec
+/bin/zsh -lc "sed -n '1,220p' src/ashare_harness_v2/runtime_harness/orchestrator.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+import shutil
+from pathlib import Path
+from typing import Any
+
+from ..advice_harness import build_tomorrow_best_pick, discover_top_ideas
+from ..agent_layer.engine import build_agent_context, run_structured_agent
+from ..config import UniverseItem, load_universe
+from ..data_harness.holdings import hydrate_holdings_snapshot_with_prices, load_holdings_snapshot
+from ..data_harness.market_data import fetch_daily_series
+from ..data_harness.news import collect_news, fetch_holdings_announcements
+from ..data_harness.supplemental import ensure_sector_metrics_payload, ensure_supplemental_payload, filter_supplemental_codes
+from ..decision_core import infer_market_strategy_style
+from ..decision_harness.engine import build_decision_bundle, write_daily_outputs
+from ..decision_harness.rendering import render_action_summary, render_daily_report
+from ..evaluation_harness.backtest import backtest_watchlist_strategy, write_backtest_report
+from ..evaluation_harness.daily import evaluate_prediction_history, write_prediction_evaluation
+from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+exec
+/bin/zsh -lc "sed -n '300,560p' src/ashare_harness_v2/runtime_harness/orchestrator.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+        fallback=load_universe(project["universe_file"]),
+    )
+    holdings = holdings_from_payload(holdings_payload)
+    series_map = {code: series_from_payload(item) for code, item in (series_payload or {}).items()}
+    news_items = [NewsItem(**item) for item in (load_json(state_root / "news.json", default=[]) or [])]
+    announcements = [AnnouncementItem(**item) for item in (load_json(state_root / "announcements.json", default=[]) or [])]
+    llm_summary = load_json(state_root / "agent_output.json", default={}) or {}
+    bundle, feature_map = build_decision_bundle(
+        as_of=as_of,
+        holdings=holdings,
+        universe=universe,
+        series_map=series_map,
+        news_items=news_items,
+        announcements=announcements,
+        llm_summary=llm_summary,
+        config=config,
+        supplemental={key: load_json(state_root / f"{key}.json", default={}) or {} for key in ("fundamentals", "valuation", "capital_flow", "company_info")},
+        sector_map=load_json(state_root / "sector_map.json", default={}) or {},
+        sector_metrics=load_json(state_root / "sector_metrics.json", default={}) or {},
+    )
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..f7a847a0ba5b985e379d3db360307de371acd226
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+exec
+/bin/zsh -lc "PYTHONPATH=src python3 - <<'PY'
+from ashare_harness_v2.config import load_config
+from ashare_harness_v2.runtime_harness.orchestrator import replay_daily
+from ashare_harness_v2.utils import load_json
+cfg = load_config('config/default.toml')
+result = replay_daily(config=cfg, as_of='2026-03-26')
+artifacts = result['artifacts']
+print(sorted(k for k in artifacts if 'best_stock' in k))
+print(artifacts.get('best_stock_report_json'))
+print(artifacts.get('best_stock_report_markdown'))
+home = load_json('data/output/reports/2026-03-26/2026-03-26_homepage_overview.json', default={})
+report = load_json(artifacts['best_stock_report_json'], default={})
+print(home.get('best_stock', {}).get('code'))
+print((report.get('pick') or {}).get('code'))
+PY" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..f7a847a0ba5b985e379d3db360307de371acd226
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+ exited 1 in 1.49s:
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py", line 350, in replay_daily
+    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: _write_best_stock_report_artifacts() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..f7a847a0ba5b985e379d3db360307de371acd226
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+file update
+M /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -151,3 +151,3 @@
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
+-    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+@@ -349,3 +349,3 @@
+     )
+-    best_stock_report_artifacts = _write_best_stock_report_artifacts(config, as_of=as_of, payload=best_stock_payload)
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+apply_patch(auto_approved=true) exited 0 in 29ms:
+Success. Updated the following files:
+M /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..5a52f142354d77a945e850c293007eea78cc10dd
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..5a52f142354d77a945e850c293007eea78cc10dd
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+exec
+/bin/zsh -lc "PYTHONPATH=src python3 - <<'PY'
+from ashare_harness_v2.config import load_config
+from ashare_harness_v2.runtime_harness.orchestrator import replay_daily
+from ashare_harness_v2.utils import load_json
+cfg = load_config('config/default.toml')
+result = replay_daily(config=cfg, as_of='2026-03-26')
+artifacts = result['artifacts']
+print(sorted(k for k in artifacts if 'best_stock' in k))
+print(artifacts.get('best_stock_report_json'))
+print(artifacts.get('best_stock_report_markdown'))
+home = load_json('data/output/reports/2026-03-26/2026-03-26_homepage_overview.json', default={})
+report = load_json(artifacts['best_stock_report_json'], default={})
+print(home.get('best_stock', {}).get('code'))
+print((report.get('pick') or {}).get('code'))
+PY" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..5a52f142354d77a945e850c293007eea78cc10dd
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+ succeeded in 1.25s:
+['best_stock_report_json', 'best_stock_report_markdown']
+data/output/reports/2026-03-26/best_stock/600125_best_stock_report.json
+data/output/reports/2026-03-26/best_stock/600125_best_stock_report.md
+600125
+600125
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..5a52f142354d77a945e850c293007eea78cc10dd
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+exec
+/bin/zsh -lc "find . -path '*test_best_stock_runtime_outputs.py'" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 131ms:
+
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..5a52f142354d77a945e850c293007eea78cc10dd
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+exec
+/bin/zsh -lc 'PYTHONPATH=src python3 -m unittest discover -s tests -v' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..5a52f142354d77a945e850c293007eea78cc10dd
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+ exited 1 in 2.66s:
+test_api_exposes_advice_and_discovery (test_advice_api.AdviceApiTests.test_api_exposes_advice_and_discovery) ... ERROR
+test_add_position_colloquial_query_resolves_security (test_advice_harness.AdviceHarnessTests.test_add_position_colloquial_query_resolves_security) ... ok
+test_add_position_query_returns_position_context (test_advice_harness.AdviceHarnessTests.test_add_position_query_returns_position_context) ... ok
+test_answer_user_query_returns_structured_decision (test_advice_harness.AdviceHarnessTests.test_answer_user_query_returns_structured_decision) ... ERROR
+test_discover_top_ideas_respects_strategy_style (test_advice_harness.AdviceHarnessTests.test_discover_top_ideas_respects_strategy_style) ... ok
+test_discover_top_ideas_returns_candidates (test_advice_harness.AdviceHarnessTests.test_discover_top_ideas_returns_candidates) ... ok
+test_holding_query_without_explicit_add_still_uses_position_mode (test_advice_harness.AdviceHarnessTests.test_holding_query_without_explicit_add_still_uses_position_mode) ... ok
+test_query_parser_detects_strategy_style (test_advice_harness.AdviceHarnessTests.test_query_parser_detects_strategy_style) ... ok
+test_query_parser_extracts_code (test_advice_harness.AdviceHarnessTests.test_query_parser_extracts_code) ... ok
+test_query_parser_extracts_name_and_horizon (test_advice_harness.AdviceHarnessTests.test_query_parser_extracts_name_and_horizon) ... ok
+test_query_parser_handles_colloquial_add_position_sentence (test_advice_harness.AdviceHarnessTests.test_query_parser_handles_colloquial_add_position_sentence) ... ok
+test_query_parser_supports_plain_name_and_add_position (test_advice_harness.AdviceHarnessTests.test_query_parser_supports_plain_name_and_add_position) ... ok
+test_query_parser_trims_colloquial_suffix (test_advice_harness.AdviceHarnessTests.test_query_parser_trims_colloquial_suffix) ... ok
+test_style_based_query_returns_strategy_profile (test_advice_harness.AdviceHarnessTests.test_style_based_query_returns_strategy_profile) ... ok
+test_action_summary_prefers_live_priorities (test_decision_bundle.DecisionBundleTests.test_action_summary_prefers_live_priorities) ... ok
+test_action_summary_watch_section_prefers_alternative_hint (test_decision_bundle.DecisionBundleTests.test_action_summary_watch_section_prefers_alternative_hint) ... ok
+test_daily_report_prefers_realtime_market_state_probability (test_decision_bundle.DecisionBundleTests.test_daily_report_prefers_realtime_market_state_probability) ... ok
+test_daily_report_shows_action_family_and_position_completeness (test_decision_bundle.DecisionBundleTests.test_daily_report_shows_action_family_and_position_completeness) ... ok
+test_decision_bundle_has_structured_sections (test_decision_bundle.DecisionBundleTests.test_decision_bundle_has_structured_sections) ... ok
+test_homepage_payload_and_rendering_expose_predictions (test_decision_bundle.DecisionBundleTests.test_homepage_payload_and_rendering_expose_predictions) ... ok
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..5a52f142354d77a945e850c293007eea78cc10dd
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+exec
+/bin/zsh -lc 'PYTHONPATH=src python3 -m pytest tests/test_best_stock_runtime_outputs.py -v' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 exited 1 in 0ms:
+/Users/fqyuki/.pyenv/versions/3.11.0/bin/python3: No module named pytest
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..5a52f142354d77a945e850c293007eea78cc10dd
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+exec
+/bin/zsh -lc 'PYTHONPATH=src python3 -m pytest tests/test_best_stock_runtime_outputs.py -v 2>&1 | tail -c 500' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+/Users/fqyuki/.pyenv/versions/3.11.0/bin/python3: No module named pytest
+exec
+/bin/zsh -lc "PYTHONPATH=src python3 - <<'PY'
+from ashare_harness_v2.config import load_config
+from ashare_harness_v2.runtime_harness.orchestrator import replay_daily
+from ashare_harness_v2.utils import load_json
+cfg = load_config('config/default.toml')
+result = replay_daily(config=cfg, as_of='2026-03-26')
+artifacts = result['artifacts']
+report = load_json(artifacts['best_stock_report_json'], default={})
+home = load_json('data/output/reports/2026-03-26/2026-03-26_homepage_overview.json', default={})
+print({'artifact_keys': sorted(k for k in artifacts if 'best_stock' in k), 'homepage_code': home.get('best_stock', {}).get('code'), 'report_code': (report.get('pick') or {}).get('code')})
+PY" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc 'PYTHONPATH=src python3 -m unittest discover -s tests -v 2>&1 | tail -c 500' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..5a52f142354d77a945e850c293007eea78cc10dd
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+ succeeded in 1.55s:
+{'artifact_keys': ['best_stock_report_json', 'best_stock_report_markdown'], 'homepage_code': '600125', 'report_code': '600125'}
+ succeeded in 2.97s:
+2026/自学内容/代码类/ashare-phase1-agents-v2/tests/test_supplemental_bridge.py", line 18, in <module>
+    SCRIPT_SPEC.loader.exec_module(SUPPLEMENTAL_SCRIPT)
+  File "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/scripts/fetch_akshare_supplemental.py", line 11, in <module>
+    import akshare as ak
+ModuleNotFoundError: No module named 'akshare'
+
+
+----------------------------------------------------------------------
+Ran 45 tests in 2.110s
+
+FAILED (errors=3)
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..5a52f142354d77a945e850c293007eea78cc10dd
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+exec
+/bin/zsh -lc 'git diff -- src/ashare_harness_v2/runtime_harness/orchestrator.py' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 exited 129 in 0ms:
+warning: Not a git repository. Use --no-index to compare two paths outside a working tree
+usage: git diff --no-index [<options>] <path> <path>
+
+Diff output format options
+    -p, --patch           generate patch
+    -s, --no-patch        suppress diff output
+    -u                    generate patch
+    -U, --unified[=<n>]   generate diffs with <n> lines context
+    -W, --function-context
+                          generate diffs with <n> lines context
+    --raw                 generate the diff in raw format
+    --patch-with-raw      synonym for '-p --raw'
+    --patch-with-stat     synonym for '-p --stat'
+    --numstat             machine friendly --stat
+    --shortstat           output only the last line of --stat
+    -X, --dirstat[=<param1,param2>...]
+                          output the distribution of relative amount of changes for each sub-directory
+    --cumulative          synonym for --dirstat=cumulative
+    --dirstat-by-file[=<param1,param2>...]
+                          synonym for --dirstat=files,param1,param2...
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..5a52f142354d77a945e850c293007eea78cc10dd
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+codex
+{"status":"blocked","changed_files":["src/ashare_harness_v2/runtime_harness/orchestrator.py"],"test_results":[{"name":"PYTHONPATH=src python3 -m pytest tests/test_best_stock_runtime_outputs.py -v","passed":false,"output":"/Users/fqyuki/.pyenv/versions/3.11.0/bin/python3: No module named pytest"},{"name":"PYTHONPATH=src python3 -m unittest discover -s tests -v","passed":false,"output":"2026/自学内容/代码类/ashare-phase1-agents-v2/tests/test_supplemental_bridge.py\", line 18, in <module>\n    SCRIPT_SPEC.loader.exec_module(SUPPLEMENTAL_SCRIPT)\n  File \"/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/scripts/fetch_akshare_supplemental.py\", line 11, in <module>\n    import akshare as ak\nModuleNotFoundError: No module named 'akshare'\n\n\n----------------------------------------------------------------------\nRan 45 tests in 2.110s\n\nFAILED (errors=3)"}],"evidence":["Smoke check passed: replay_daily(load_config('config/default.toml'), as_of='2026-03-26') produced artifacts ['best_stock_report_json', 'best_stock_report_markdown'], and homepage_code == report_code == 600125.","Acceptance target tests/test_best_stock_runtime_outputs.py is not present in the workspace.","The environment does not have pytest installed.","unittest discover is blocked by issues outside this scope: local socket bind PermissionError, external name resolution failure during announcement fetch, and missing dependency 'akshare'."]}
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+index 57e92c9923c096ca6c8f71400805e6b71bb749e5..5a52f142354d77a945e850c293007eea78cc10dd
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/orchestrator.py
+@@ -19,6 +19,7 @@
+ from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+ from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+ from ..skill_harness.sector_rotation import build_dynamic_universe_from_sectors
++from ..skill_harness.trading_reports import build_best_stock_report
+ from ..utils import ensure_dir, load_json, today_stamp, write_json
+ from .homepage import update_homepage_with_live_quotes, update_homepage_with_session, write_homepage_assets
+ from .realtime import run_realtime_session
+@@ -129,13 +130,14 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+         holdings_file=holdings_path,
+         cash=cash,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     runtime.log("write_daily_outputs_start")
+     artifacts = write_daily_outputs(
+@@ -147,6 +149,7 @@
+         announcements=announcements,
+     )
+     runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     state_root = ensure_dir(Path(project["state_dir"]) / as_of)
+     write_json(state_root / "holdings_snapshot.json", holdings.to_dict())
+     write_json(state_root / "news.json", [item.to_dict() for item in news_items])
+@@ -188,6 +191,8 @@
+     runtime.add_artifact("comprehensive_report", artifacts["comprehensive_report"])
+     runtime.add_artifact("monitor_plan", artifacts["monitor_plan_json"])
+     runtime.add_artifact("homepage", homepage_assets["markdown"])
++    for key, value in best_stock_report_artifacts.items():
++        runtime.add_artifact(key, value)
+     for key, value in (discovery_payload.get("artifacts") or {}).items():
+         runtime.add_artifact(key, value)
+     runtime.log("premarket_done", artifact_count=len(runtime.manifest.artifacts))
+@@ -195,7 +200,10 @@
+     return {
+         "report_dir": report_root,
+         "state_dir": state_root,
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **(discovery_payload.get('artifacts') or {})}.items()},
++        "artifacts": {
++            key: str(value)
++            for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts, **(discovery_payload.get("artifacts") or {})}.items()
++        },
+         "bundle": bundle.to_dict(),
+         "discovery": discovery_payload,
+     }
+@@ -324,11 +332,12 @@
+         action=bundle.market_view.action,
+         regime=str(bundle.market_view.metadata.get("regime") or ""),
+     )
+-    bundle.homepage_overview["best_stock"] = _build_best_stock_overview(
++    best_stock_payload = _build_best_stock_payload(
+         config,
+         as_of=as_of,
+         strategy_style=discovery_style,
+     )
++    bundle.homepage_overview["best_stock"] = dict(best_stock_payload.get("best_stock") or {})
+     report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+     artifacts = write_daily_outputs(
+         output_dir=report_root,
+@@ -338,6 +347,7 @@
+         news_items=news_items,
+         announcements=announcements,
+     )
++    best_stock_report_artifacts = _write_best_stock_report_artifacts(config=config, as_of=as_of, payload=best_stock_payload)
+     write_json(state_root / "features.json", {code: feature.to_dict() for code, feature in feature_map.items()})
+     write_json(state_root / "decision_bundle.json", bundle.to_dict())
+     write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+@@ -350,7 +360,7 @@
+     shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+     return {
+         "decision_bundle": bundle.to_dict(),
+-        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets}.items()},
++        "artifacts": {key: str(value) for key, value in {**artifacts, **homepage_assets, **best_stock_report_artifacts}.items()},
+     }
+ 
+ 
+@@ -501,7 +511,7 @@
+     )
+ 
+ 
+-def _build_best_stock_overview(
++def _build_best_stock_payload(
+     config: dict[str, Any],
+     *,
+     as_of: str,
+@@ -521,4 +531,13 @@
+         best_stock["backtest"] = dict(payload.get("backtest") or best_stock.get("backtest") or {})
+         best_stock["strategy_style"] = str(best_stock.get("strategy_style") or payload.get("strategy_style") or strategy_style)
+         best_stock["selection_score"] = float(best_stock.get("selection_score") or 0.0)
+-    return best_stock
++    payload["best_stock"] = best_stock
++    return payload
++
++
++def _write_best_stock_report_artifacts(*, config: dict[str, Any], as_of: str, payload: dict[str, Any]) -> dict[str, Path]:
++    report_artifacts = build_best_stock_report(config, as_of=as_of, payload=payload)
++    return {
++        "best_stock_report_markdown": Path(report_artifacts["markdown"]),
++        "best_stock_report_json": Path(report_artifacts["json"]),
++    }
+
+tokens used
+286,395

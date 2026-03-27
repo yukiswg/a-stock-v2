@@ -1,0 +1,14 @@
+{"ts": "2026-03-24T10:02:56.010652Z", "event": "premarket_start", "as_of": "2026-03-24"}
+{"ts": "2026-03-24T10:02:56.011443Z", "event": "fetch_daily_series", "code": "601699", "name": "潞安环能"}
+{"ts": "2026-03-24T10:02:56.013246Z", "event": "fetch_daily_series", "code": "513310", "name": "中韩芯片"}
+{"ts": "2026-03-24T10:02:56.014436Z", "event": "fetch_daily_series", "code": "588000", "name": "科创50"}
+{"ts": "2026-03-24T10:02:56.016066Z", "event": "fetch_daily_series", "code": "600089", "name": "特变电工"}
+{"ts": "2026-03-24T10:02:56.017668Z", "event": "fetch_daily_series", "code": "300750", "name": "宁德时代"}
+{"ts": "2026-03-24T10:02:56.019388Z", "event": "fetch_daily_series", "code": "600036", "name": "招商银行"}
+{"ts": "2026-03-24T10:02:56.020603Z", "event": "fetch_daily_series", "code": "601127", "name": "赛力斯"}
+{"ts": "2026-03-24T10:02:56.022226Z", "event": "fetch_daily_series", "code": "000333", "name": "美的集团"}
+{"ts": "2026-03-24T10:02:56.023447Z", "event": "fetch_daily_series", "code": "000858", "name": "五粮液"}
+{"ts": "2026-03-24T10:02:56.024672Z", "event": "fetch_daily_series", "code": "510300", "name": "沪深300ETF"}
+{"ts": "2026-03-24T10:02:56.027233Z", "event": "fetch_daily_series", "code": "000300", "name": "沪深300"}
+{"ts": "2026-03-24T10:02:56.028447Z", "event": "fetch_daily_series", "code": "000001", "name": "上证指数"}
+{"ts": "2026-03-24T10:02:56.030111Z", "event": "fetch_daily_series", "code": "399006", "name": "创业板指"}

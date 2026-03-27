@@ -1,0 +1,263 @@
+{
+  "as_of": "2026-03-27",
+  "strategy_style": "defensive_quality",
+  "pick": {
+    "code": "300750",
+    "name": "宁德时代",
+    "decision": "watch",
+    "trade_action": "等放量突破",
+    "total_score": 54.18,
+    "coverage_score": 80.0,
+    "market_score": 35.69,
+    "summary": "宁德时代 当前策略为“等放量突破”。 综合分 54.2，市场分 35.7，覆盖度 80.0。",
+    "thesis": "宁德时代 的主逻辑是 20日收益 +18.77%，趋势延续性较强；相对强弱 +23.63%，强于基准，但 量比 0.32x，量能严重不足，所以当前策略是“等放量突破”。",
+    "catalysts": [
+      "20日收益 +18.77%，趋势延续性较强。",
+      "相对强弱 +23.63%，强于基准。",
+      "营收同比 +17.04%。"
+    ],
+    "risks": [
+      "量比 0.32x，量能严重不足。",
+      "市场环境偏谨慎，买入阈值应提高。"
+    ],
+    "trigger_conditions": [
+      "只有放量突破 413.00，才升级为试仓。",
+      "先等指数和市场广度修复，再看个股确认。"
+    ],
+    "invalidation_conditions": [
+      "若回落跌破 396.99，取消突破预案。"
+    ],
+    "position_guidance": "先观察，不提前追价。",
+    "priority_score": 69.32,
+    "action_plan": {
+      "action": "wait_for_breakout",
+      "label": "等放量突破",
+      "rationale": "宁德时代 接近关键位，但还没给出值得执行的确认。",
+      "position_guidance": "先观察，不提前追价。",
+      "urgency": "medium",
+      "urgency_score": 62.0,
+      "levels": {
+        "breakout_price": 413.0,
+        "support_price": 396.99,
+        "pullback_price": 401.096,
+        "retest_price": 406.19,
+        "stop_price": 385.08,
+        "entry_reward_risk": 0.32,
+        "entry_upside_pct": 1.68,
+        "entry_downside_pct": 5.2,
+        "box_position_pct": 57.46
+      },
+      "trigger_conditions": [
+        "只有放量突破 413.00，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 396.99，取消突破预案。"
+      ],
+      "blockers": [
+        "市场分 35.7 低于 40，当前不支持主动进攻。",
+        "临近关键位但量比只有 0.32x，容易演变成追价。",
+        "当前位置赔率只有 0.32，还不够支持积极出手。"
+      ],
+      "execution_brief": [
+        "现在不提前开仓，只等确认信号。",
+        "只有放量突破 413.00，才升级为试仓。",
+        "若回落跌破 396.99，取消突破预案。"
+      ],
+      "do_not": [
+        "不要在没有触发条件前提前追单。",
+        "不要把单票仓位一次性打满。",
+        "不要忽略市场状态对个股执行的影响。"
+      ],
+      "monitoring_focus": [
+        "当前更像 支撑区，重点看价格相对 413.00 / 396.99 的反应。",
+        "20日收益 +18.77%，趋势延续性较强。",
+        "量比 0.32x，量能严重不足。"
+      ]
+    },
+    "metadata": {
+      "sector": "电池",
+      "sector_proxy": false,
+      "strategy_label": "防守质量",
+      "style_fit_score": 4.0,
+      "selection_score": 69.32,
+      "strategy_style": "defensive_quality",
+      "is_actionable": false
+    },
+    "selection_score": 69.32,
+    "strategy_style": "defensive_quality",
+    "is_actionable": false,
+    "trade_count": 0,
+    "signal_count": 7,
+    "skipped_signal_count": 6,
+    "actionable_ratio": 0.0,
+    "win_rate": 0.0,
+    "average_return": 0.0,
+    "composite_score": 39.63,
+    "backtest": {
+      "as_of": "2026-03-27",
+      "strategy_style": "defensive_quality",
+      "benchmark_code": "000300",
+      "begin": null,
+      "end": "2026-03-27",
+      "candidate_code": "300750",
+      "candidate_name": "宁德时代",
+      "signal_count": 7,
+      "skipped_signal_count": 6,
+      "actionable_ratio": 0.0,
+      "trade_count": 0,
+      "win_rate": 0.0,
+      "average_return": 0.0,
+      "median_return": 0.0,
+      "cumulative_return": 0.0,
+      "max_drawdown": 0.0,
+      "trades": []
+    }
+  },
+  "backtest": {
+    "as_of": "2026-03-27",
+    "strategy_style": "defensive_quality",
+    "benchmark_code": "000300",
+    "begin": null,
+    "end": "2026-03-27",
+    "candidate_code": "300750",
+    "candidate_name": "宁德时代",
+    "signal_count": 7,
+    "skipped_signal_count": 6,
+    "actionable_ratio": 0.0,
+    "trade_count": 0,
+    "win_rate": 0.0,
+    "average_return": 0.0,
+    "median_return": 0.0,
+    "cumulative_return": 0.0,
+    "max_drawdown": 0.0,
+    "trades": []
+  },
+  "candidate_rankings": [
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "selection_score": 69.32,
+      "trade_count": 0,
+      "win_rate": 0.0,
+      "average_return": 0.0,
+      "composite_score": 39.63
+    },
+    {
+      "code": "000617",
+      "name": "中油资本",
+      "selection_score": 64.46,
+      "trade_count": 0,
+      "win_rate": 0.0,
+      "average_return": 0.0,
+      "composite_score": 36.95
+    },
+    {
+      "code": "000988",
+      "name": "华工科技",
+      "selection_score": 64.01,
+      "trade_count": 0,
+      "win_rate": 0.0,
+      "average_return": 0.0,
+      "composite_score": 36.71
+    },
+    {
+      "code": "600227",
+      "name": "赤天化",
+      "selection_score": 63.81,
+      "trade_count": 0,
+      "win_rate": 0.0,
+      "average_return": 0.0,
+      "composite_score": 36.6
+    },
+    {
+      "code": "000978",
+      "name": "桂林旅游",
+      "selection_score": 62.69,
+      "trade_count": 0,
+      "win_rate": 0.0,
+      "average_return": 0.0,
+      "composite_score": 35.98
+    },
+    {
+      "code": "002015",
+      "name": "协鑫能科",
+      "selection_score": 59.76,
+      "trade_count": 0,
+      "win_rate": 0.0,
+      "average_return": 0.0,
+      "composite_score": 34.37
+    },
+    {
+      "code": "300518",
+      "name": "新迅达",
+      "selection_score": 59.65,
+      "trade_count": 0,
+      "win_rate": 0.0,
+      "average_return": 0.0,
+      "composite_score": 34.31
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "selection_score": 54.58,
+      "trade_count": 0,
+      "win_rate": 0.0,
+      "average_return": 0.0,
+      "composite_score": 31.52
+    }
+  ],
+  "market_view": {
+    "object_type": "market",
+    "object_id": "000300",
+    "object_name": "偏空市场",
+    "at": "2026-03-27",
+    "action": "risk_off",
+    "score": 35.69,
+    "probability": 0.3569,
+    "reason": [
+      "沪深300 5日收益 -1.88%，20日收益 -4.87%。",
+      "候选池平均趋势分 39.5。",
+      "强势候选 3 个，明显走弱对象 7 个。",
+      "新闻偏移 +0.00，公告偏移 +0.00。"
+    ],
+    "risk": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "sources": [
+      "benchmark_daily_bars",
+      "official_news",
+      "cninfo_announcements"
+    ],
+    "thesis": "防守期下，当前更适合执行“新开仓从严控制”而不是平均分配火力。",
+    "counterpoints": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "trigger_conditions": [
+      "新开仓从严控制",
+      "优先处理弱持仓和破位风险"
+    ],
+    "invalidation_conditions": [
+      "若指数与广度快速修复，需上调风险预算。",
+      "若强势股同步失去相对强度，继续收缩进攻动作。"
+    ],
+    "priority_score": 97.84,
+    "metadata": {
+      "label": "偏空",
+      "regime": "防守期",
+      "policy": [
+        "新开仓从严控制",
+        "优先处理弱持仓和破位风险",
+        "只保留少量观察名单"
+      ],
+      "benchmark_code": "000300",
+      "benchmark_ret_5d": -0.018760592246147456,
+      "benchmark_ret_20d": -0.04867905703034603,
+      "breadth_score": 39.45214285714286,
+      "leadership_count": 3,
+      "breakdown_count": 7
+    }
+  }
+}

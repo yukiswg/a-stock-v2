@@ -1,0 +1,100 @@
+{
+  "300750": {
+    "industry_name": "电气机械和器材制造业",
+    "industry_pe": 28.64,
+    "industry_pe_median": 47.22,
+    "industry_level": 2.0,
+    "industry_company_count": 352.0
+  },
+  "605169": {
+    "industry_name": "燃气生产和供应业",
+    "industry_pe": 19.76,
+    "industry_pe_median": 22.53,
+    "industry_level": 2.0,
+    "industry_company_count": 32.0
+  },
+  "600617": {
+    "industry_name": "燃气生产和供应业",
+    "industry_pe": 19.76,
+    "industry_pe_median": 22.53,
+    "industry_level": 2.0,
+    "industry_company_count": 32.0
+  },
+  "002565": {
+    "industry_name": "造纸和纸制品业",
+    "industry_pe": 24.84,
+    "industry_pe_median": 33.18,
+    "industry_level": 2.0,
+    "industry_company_count": 43.0
+  },
+  "002594": {
+    "industry_name": "汽车制造业",
+    "industry_pe": 27.8,
+    "industry_pe_median": 42.01,
+    "industry_level": 2.0,
+    "industry_company_count": 215.0
+  },
+  "601699": {
+    "industry_name": "煤炭开采和洗选业",
+    "industry_pe": 14.72,
+    "industry_pe_median": 13.45,
+    "industry_level": 2.0,
+    "industry_company_count": 25.0
+  },
+  "300483": {
+    "industry_name": "石油和天然气开采业",
+    "industry_pe": 14.17,
+    "industry_pe_median": 17.94,
+    "industry_level": 2.0,
+    "industry_company_count": 10.0
+  },
+  "601985": {
+    "industry_name": "电力、热力生产和供应业",
+    "industry_pe": 20.09,
+    "industry_pe_median": 25.51,
+    "industry_level": 2.0,
+    "industry_company_count": 92.0
+  },
+  "601857": {
+    "industry_name": "石油和天然气开采业",
+    "industry_pe": 14.17,
+    "industry_pe_median": 17.94,
+    "industry_level": 2.0,
+    "industry_company_count": 10.0
+  },
+  "603026": {
+    "industry_name": "化学原料和化学制品制造业",
+    "industry_pe": 31.37,
+    "industry_pe_median": 42.92,
+    "industry_level": 2.0,
+    "industry_company_count": 369.0
+  },
+  "000938": {
+    "industry_name": "计算机、通信和其他电子设备制造业",
+    "industry_pe": 59.42,
+    "industry_pe_median": 74.95,
+    "industry_level": 2.0,
+    "industry_company_count": 681.0
+  },
+  "300207": {
+    "industry_name": "电气机械和器材制造业",
+    "industry_pe": 28.64,
+    "industry_pe_median": 47.22,
+    "industry_level": 2.0,
+    "industry_company_count": 352.0
+  },
+  "300191": {
+    "industry_name": "石油和天然气开采业",
+    "industry_pe": 14.17,
+    "industry_pe_median": 17.94,
+    "industry_level": 2.0,
+    "industry_company_count": 10.0
+  },
+  "600256": {
+    "industry_name": "石油和天然气开采业",
+    "industry_pe": 14.17,
+    "industry_pe_median": 17.94,
+    "industry_level": 2.0,
+    "industry_company_count": 10.0
+  }
+}

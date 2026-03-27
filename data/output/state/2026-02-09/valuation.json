@@ -1,0 +1,86 @@
+{
+  "601699": {
+    "industry_name": "煤炭开采和洗选业",
+    "industry_pe": 12.14,
+    "industry_pe_median": 11.98,
+    "industry_level": 2.0,
+    "industry_company_count": 25.0
+  },
+  "600089": {
+    "industry_name": "电气机械和器材制造业",
+    "industry_pe": 28.58,
+    "industry_pe_median": 51.67,
+    "industry_level": 2.0,
+    "industry_company_count": 352.0
+  },
+  "300750": {
+    "industry_name": "电气机械和器材制造业",
+    "industry_pe": 28.58,
+    "industry_pe_median": 51.67,
+    "industry_level": 2.0,
+    "industry_company_count": 352.0
+  },
+  "600036": {
+    "industry_name": "货币金融服务",
+    "industry_pe": 7.02,
+    "industry_pe_median": 6.71,
+    "industry_level": 2.0,
+    "industry_company_count": 45.0
+  },
+  "601127": {
+    "industry_name": "汽车制造业",
+    "industry_pe": 30.23,
+    "industry_pe_median": 49.69,
+    "industry_level": 2.0,
+    "industry_company_count": 212.0
+  },
+  "000333": {
+    "industry_name": "电气机械和器材制造业",
+    "industry_pe": 28.58,
+    "industry_pe_median": 51.67,
+    "industry_level": 2.0,
+    "industry_company_count": 352.0
+  },
+  "000858": {
+    "industry_name": "酒、饮料和精制茶制造业",
+    "industry_pe": 19.5,
+    "industry_pe_median": 30.32,
+    "industry_level": 2.0,
+    "industry_company_count": 49.0
+  },
+  "300204": {
+    "industry_name": "医药制造业",
+    "industry_pe": 29.51,
+    "industry_pe_median": 33.86,
+    "industry_level": 2.0,
+    "industry_company_count": 327.0
+  },
+  "688710": {
+    "industry_name": "研究和试验发展",
+    "industry_pe": 43.17,
+    "industry_pe_median": 67.84,
+    "industry_level": 2.0,
+    "industry_company_count": 31.0
+  },
+  "600227": {
+    "industry_name": "化学原料和化学制品制造业",
+    "industry_pe": 34.15,
+    "industry_pe_median": 47.59,
+    "industry_level": 2.0,
+    "industry_company_count": 368.0
+  },
+  "300518": {
+    "industry_name": "互联网和相关服务",
+    "industry_pe": 53.68,
+    "industry_pe_median": 110.58,
+    "industry_level": 2.0,
+    "industry_company_count": 60.0
+  },
+  "002428": {
+    "industry_name": "有色金属冶炼和压延加工业",
+    "industry_pe": 33.2,
+    "industry_pe_median": 57.17,
+    "industry_level": 2.0,
+    "industry_company_count": 88.0
+  }
+}

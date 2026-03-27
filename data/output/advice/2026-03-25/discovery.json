@@ -1,0 +1,432 @@
+{
+  "as_of": "2026-03-25",
+  "idea_count": 21,
+  "ideas": [
+    {
+      "code": "000938",
+      "name": "紫光股份",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 54.19,
+      "coverage_score": 85.0,
+      "market_score": 39.47,
+      "summary": "紫光股份 当前策略为“等放量突破”。 综合分 54.2，市场分 39.5，覆盖度 85.0。",
+      "thesis": "紫光股份 的主逻辑是 相对强弱 +10.79%，强于基准；营收同比 +31.41%，但 利润同比 -11.24%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "相对强弱 +10.79%，强于基准。",
+        "营收同比 +31.41%。",
+        "经营现金流同比 +111.35%。"
+      ],
+      "risks": [
+        "利润同比 -11.24%。",
+        "资产负债率 81.6% 偏高。",
+        "PE 54.5x。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 26.77，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 24.13，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 66.0,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "紫光股份 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 26.77,
+          "support_price": 24.13,
+          "pullback_price": 25.742,
+          "retest_price": 26.77,
+          "stop_price": 23.406,
+          "entry_reward_risk": 0.0,
+          "entry_upside_pct": 0.0,
+          "entry_downside_pct": 12.57,
+          "box_position_pct": 100.0
+        },
+        "trigger_conditions": [
+          "只有放量突破 26.77，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 24.13，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 阻力/突破前沿，重点看价格相对 26.77 / 24.13 的反应。",
+          "相对强弱 +10.79%，强于基准。",
+          "利润同比 -11.24%。"
+        ]
+      },
+      "metadata": {
+        "sector": "IT服务",
+        "sector_proxy": false,
+        "strategy_label": "防守质量",
+        "style_fit_score": 4.0,
+        "selection_score": 66.0,
+        "strategy_style": "defensive_quality"
+      }
+    },
+    {
+      "code": "000978",
+      "name": "桂林旅游",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 53.89,
+      "coverage_score": 85.0,
+      "market_score": 39.47,
+      "summary": "桂林旅游 当前策略为“等放量突破”。 综合分 53.9，市场分 39.5，覆盖度 85.0。",
+      "thesis": "桂林旅游 的主逻辑是 相对强弱 +7.92%，强于基准；利润同比 +425.76%，但 ROE 3.3%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "相对强弱 +7.92%，强于基准。",
+        "利润同比 +425.76%。",
+        "经营现金流同比 +74.62%。"
+      ],
+      "risks": [
+        "ROE 3.3%。",
+        "PE 97.1x。",
+        "近5日主力资金净流出。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 7.43，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 6.42，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 65.84,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "桂林旅游 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 7.43,
+          "support_price": 6.42,
+          "pullback_price": 6.956,
+          "retest_price": 7.38,
+          "stop_price": 6.227,
+          "entry_reward_risk": 0.04,
+          "entry_upside_pct": 0.68,
+          "entry_downside_pct": 15.62,
+          "box_position_pct": 95.05
+        },
+        "trigger_conditions": [
+          "只有放量突破 7.43，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 6.42，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 阻力/突破前沿，重点看价格相对 7.43 / 6.42 的反应。",
+          "相对强弱 +7.92%，强于基准。",
+          "ROE 3.3%。"
+        ]
+      },
+      "metadata": {
+        "sector": "旅游及酒店",
+        "sector_proxy": false,
+        "strategy_label": "防守质量",
+        "style_fit_score": 3.84,
+        "selection_score": 65.84,
+        "strategy_style": "defensive_quality"
+      }
+    },
+    {
+      "code": "002015",
+      "name": "协鑫能科",
+      "decision": "watch",
+      "trade_action": "等回踩",
+      "total_score": 54.42,
+      "coverage_score": 85.0,
+      "market_score": 39.47,
+      "summary": "协鑫能科 当前策略为“等回踩”。 综合分 54.4，市场分 39.5，覆盖度 85.0。",
+      "thesis": "协鑫能科 的主逻辑是 20日收益 +63.69%，趋势延续性较强；相对强弱 +67.96%，强于基准，但 ROE 6.3%，所以当前策略是“等回踩”。",
+      "catalysts": [
+        "20日收益 +63.69%，趋势延续性较强。",
+        "相对强弱 +67.96%，强于基准。",
+        "利润同比 +25.78%。"
+      ],
+      "risks": [
+        "ROE 6.3%。",
+        "近5日主力资金净流出。",
+        "主力净占比 -2.13%。"
+      ],
+      "trigger_conditions": [
+        "回踩 20.88 一带且量能不失真时，再考虑出手。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若直接跌破 15.62，取消计划。"
+      ],
+      "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+      "priority_score": 64.0,
+      "action_plan": {
+        "action": "wait_for_pullback",
+        "label": "等回踩",
+        "rationale": "协鑫能科 方向还在，但更优赔率不在当前位置。",
+        "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+        "urgency": "medium",
+        "urgency_score": 60.0,
+        "levels": {
+          "breakout_price": 22.28,
+          "support_price": 15.62,
+          "pullback_price": 20.884,
+          "retest_price": 22.28,
+          "stop_price": 15.151,
+          "entry_reward_risk": 0.36,
+          "entry_upside_pct": 9.32,
+          "entry_downside_pct": 25.66,
+          "box_position_pct": 71.47
+        },
+        "trigger_conditions": [
+          "回踩 20.88 一带且量能不失真时，再考虑出手。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若直接跌破 15.62，取消计划。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 箱体上沿，重点看价格相对 22.28 / 15.62 的反应。",
+          "20日收益 +63.69%，趋势延续性较强。",
+          "ROE 6.3%。"
+        ]
+      },
+      "metadata": {
+        "sector": "电力",
+        "sector_proxy": false,
+        "strategy_label": "防守质量",
+        "style_fit_score": 4.0,
+        "selection_score": 64.0,
+        "strategy_style": "defensive_quality"
+      }
+    },
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "decision": "watch",
+      "trade_action": "只观察",
+      "total_score": 56.91,
+      "coverage_score": 85.0,
+      "market_score": 39.47,
+      "summary": "宁德时代 当前策略为“只观察”。 综合分 56.9，市场分 39.5，覆盖度 85.0。",
+      "thesis": "宁德时代 的主逻辑是 20日收益 +8.64%，趋势延续性较强；相对强弱 +12.90%，强于基准，但 近5日主力资金净流出，所以当前策略是“只观察”。",
+      "catalysts": [
+        "20日收益 +8.64%，趋势延续性较强。",
+        "相对强弱 +12.90%，强于基准。",
+        "营收同比 +17.04%。"
+      ],
+      "risks": [
+        "近5日主力资金净流出。",
+        "主力净占比 -2.45%。",
+        "量比 0.34x，量能严重不足。"
+      ],
+      "trigger_conditions": [
+        "先等指数和市场广度修复，再看个股确认。",
+        "关注下一次放量是否能站稳关键价位。"
+      ],
+      "invalidation_conditions": [
+        "若跌破 393.46，从候选名单降级。"
+      ],
+      "position_guidance": "不分配资金，保留观察位。",
+      "priority_score": 55.0,
+      "action_plan": {
+        "action": "watch_only",
+        "label": "只观察",
+        "rationale": "宁德时代 还没有进入可交易区间，现在更适合跟踪，不适合执行。",
+        "position_guidance": "不分配资金，保留观察位。",
+        "urgency": "low",
+        "urgency_score": 44.0,
+        "levels": {
+          "breakout_price": 413.0,
+          "support_price": 393.46,
+          "pullback_price": 401.188,
+          "retest_price": 413.0,
+          "stop_price": 381.656,
+          "entry_reward_risk": 1.66,
+          "entry_upside_pct": 4.97,
+          "entry_downside_pct": 3.0,
+          "box_position_pct": 0.0
+        },
+        "trigger_conditions": [
+          "先等指数和市场广度修复，再看个股确认。",
+          "关注下一次放量是否能站稳关键价位。"
+        ],
+        "invalidation_conditions": [
+          "若跌破 393.46，从候选名单降级。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 支撑区，重点看价格相对 413.00 / 393.46 的反应。",
+          "20日收益 +8.64%，趋势延续性较强。",
+          "近5日主力资金净流出。"
+        ]
+      },
+      "metadata": {
+        "sector": "电池",
+        "sector_proxy": false,
+        "strategy_label": "防守质量",
+        "style_fit_score": 11.0,
+        "selection_score": 55.0,
+        "strategy_style": "defensive_quality"
+      }
+    },
+    {
+      "code": "000617",
+      "name": "中油资本",
+      "decision": "watch",
+      "trade_action": "只观察",
+      "total_score": 56.53,
+      "coverage_score": 85.0,
+      "market_score": 39.47,
+      "summary": "中油资本 当前策略为“只观察”。 综合分 56.5，市场分 39.5，覆盖度 85.0。",
+      "thesis": "中油资本 的主逻辑是 20日收益 +17.62%，趋势延续性较强；相对强弱 +21.89%，强于基准，但 营收同比 -12.22%，所以当前策略是“只观察”。",
+      "catalysts": [
+        "20日收益 +17.62%，趋势延续性较强。",
+        "相对强弱 +21.89%，强于基准。",
+        "毛利率 25.3%。"
+      ],
+      "risks": [
+        "营收同比 -12.22%。",
+        "ROE 3.9%。",
+        "经营现金流同比 -145.28%。"
+      ],
+      "trigger_conditions": [
+        "先等指数和市场广度修复，再看个股确认。",
+        "关注下一次放量是否能站稳关键价位。"
+      ],
+      "invalidation_conditions": [
+        "若跌破 8.88，从候选名单降级。"
+      ],
+      "position_guidance": "不分配资金，保留观察位。",
+      "priority_score": 55.0,
+      "action_plan": {
+        "action": "watch_only",
+        "label": "只观察",
+        "rationale": "中油资本 还没有进入可交易区间，现在更适合跟踪，不适合执行。",
+        "position_guidance": "不分配资金，保留观察位。",
+        "urgency": "low",
+        "urgency_score": 44.0,
+        "levels": {
+          "breakout_price": 10.71,
+          "support_price": 8.88,
+          "pullback_price": 10.108,
+          "retest_price": 10.71,
+          "stop_price": 8.614,
+          "entry_reward_risk": 0.26,
+          "entry_upside_pct": 4.18,
+          "entry_downside_pct": 16.21,
+          "box_position_pct": 76.5
+        },
+        "trigger_conditions": [
+          "先等指数和市场广度修复，再看个股确认。",
+          "关注下一次放量是否能站稳关键价位。"
+        ],
+        "invalidation_conditions": [
+          "若跌破 8.88，从候选名单降级。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 箱体上沿，重点看价格相对 10.71 / 8.88 的反应。",
+          "20日收益 +17.62%，趋势延续性较强。",
+          "营收同比 -12.22%。"
+        ]
+      },
+      "metadata": {
+        "sector": "综合",
+        "sector_proxy": false,
+        "strategy_label": "防守质量",
+        "style_fit_score": 11.0,
+        "selection_score": 55.0,
+        "strategy_style": "defensive_quality"
+      }
+    }
+  ],
+  "market_view": {
+    "object_type": "market",
+    "object_id": "000300",
+    "object_name": "偏空市场",
+    "at": "2026-03-25",
+    "action": "risk_off",
+    "score": 39.47,
+    "probability": 0.3947,
+    "reason": [
+      "沪深300 5日收益 -2.67%，20日收益 -4.27%。",
+      "候选池平均趋势分 43.7。",
+      "强势候选 3 个，明显走弱对象 6 个。",
+      "新闻偏移 +0.00，公告偏移 +0.00。"
+    ],
+    "risk": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "sources": [
+      "benchmark_daily_bars",
+      "official_news",
+      "cninfo_announcements"
+    ],
+    "thesis": "防守期下，当前更适合执行“新开仓从严控制”而不是平均分配火力。",
+    "counterpoints": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "trigger_conditions": [
+      "新开仓从严控制",
+      "优先处理弱持仓和破位风险"
+    ],
+    "invalidation_conditions": [
+      "若指数与广度快速修复，需上调风险预算。",
+      "若强势股同步失去相对强度，继续收缩进攻动作。"
+    ],
+    "priority_score": 99.73,
+    "metadata": {
+      "label": "偏空",
+      "regime": "防守期",
+      "policy": [
+        "新开仓从严控制",
+        "优先处理弱持仓和破位风险",
+        "只保留少量观察名单"
+      ],
+      "benchmark_code": "000300",
+      "benchmark_ret_5d": -0.02672416939117661,
+      "benchmark_ret_20d": -0.042663575378651175,
+      "breadth_score": 43.69857142857143,
+      "leadership_count": 3,
+      "breakdown_count": 6
+    }
+  },
+  "artifacts": {
+    "workbook": "data/output/spreadsheet/2026-03-25/2026-03-25_portfolio_candidates.xlsx"
+  }
+}

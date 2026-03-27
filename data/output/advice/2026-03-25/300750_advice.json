@@ -1,0 +1,754 @@
+{
+  "as_of": "2026-03-25",
+  "question": {
+    "raw_query": "宁德时代现在能买吗",
+    "normalized_query": "宁德时代现在能买吗",
+    "question_type": "should_buy",
+    "horizon": "swing",
+    "risk_profile": "balanced",
+    "wants_discovery": false,
+    "strategy_style": "general",
+    "symbol_hint": null,
+    "stock_name_hint": "宁德时代",
+    "has_position_hint": null
+  },
+  "security": {
+    "code": "300750",
+    "name": "宁德时代",
+    "category": "watch",
+    "sector": "电池"
+  },
+  "plan": {
+    "use_market": true,
+    "use_sector": true,
+    "use_stock": true,
+    "use_timing": true,
+    "use_discovery": false,
+    "need_announcements": true,
+    "need_supplemental": true,
+    "need_sector_proxy": false
+  },
+  "decision": "watch",
+  "confidence": 0.7837,
+  "summary": "宁德时代 当前策略为“替代更优标的”。 综合分 58.7，市场分 37.7，覆盖度 98.0。",
+  "thesis": "宁德时代 的主逻辑是 20日收益 +8.64%，趋势延续性较强；相对强弱 +12.90%，强于基准，但 近5日主力资金净流出，所以当前策略是“替代更优标的”。",
+  "scorecard": {
+    "market_score": 37.68,
+    "sector_score": 65.09,
+    "stock_score": 100.0,
+    "timing_score": 38.17,
+    "risk_penalty": 6.0,
+    "missing_data_penalty": 0.0,
+    "coverage_score": 98.0,
+    "total_score": 58.74
+  },
+  "positive_factors": [
+    "20日收益 +8.64%，趋势延续性较强。",
+    "相对强弱 +12.90%，强于基准。",
+    "营收同比 +17.04%。",
+    "利润同比 +42.28%。",
+    "ROE 24.9%。",
+    "经营现金流同比 +32.53%。"
+  ],
+  "negative_factors": [
+    "近5日主力资金净流出。",
+    "主力净占比 -2.45%。",
+    "量比 0.34x，量能不足。",
+    "市场环境偏谨慎，买入阈值应提高。"
+  ],
+  "counter_evidence": [
+    "近5日主力资金净流出。",
+    "主力净占比 -2.45%。",
+    "量比 0.34x，量能不足。",
+    "市场环境偏谨慎，买入阈值应提高。",
+    "先等指数和市场广度修复，再看个股确认。",
+    "关注下一次放量是否能站稳关键价位。"
+  ],
+  "missing_information": [],
+  "next_checks": [
+    "先等指数和市场广度修复，再看个股确认。",
+    "关注下一次放量是否能站稳关键价位。"
+  ],
+  "trigger_conditions": [
+    "若必须在同类标的里选一只，优先看 中闽能源 的触发条件。",
+    "先等指数和市场广度修复，再看个股确认。"
+  ],
+  "invalidation_conditions": [
+    "只有当 宁德时代 重新强于 中闽能源，才恢复优先级。",
+    "若跌破 393.46，从候选名单降级。"
+  ],
+  "action_plan": {
+    "action": "switch_to_better_alternative",
+    "label": "替代更优标的",
+    "rationale": "宁德时代 当前不是最优资金去处，优先关注 中闽能源。",
+    "position_guidance": "当前不分配仓位给 宁德时代，把候选额度留给 中闽能源。",
+    "urgency": "low",
+    "urgency_score": 66.0,
+    "levels": {},
+    "trigger_conditions": [
+      "若必须在同类标的里选一只，优先看 中闽能源 的触发条件。",
+      "先等指数和市场广度修复，再看个股确认。"
+    ],
+    "invalidation_conditions": [
+      "只有当 宁德时代 重新强于 中闽能源，才恢复优先级。",
+      "若跌破 393.46，从候选名单降级。"
+    ],
+    "do_not": [
+      "不要在没有触发条件前提前追单。",
+      "不要把单票仓位一次性打满。",
+      "不要忽略市场状态对个股执行的影响。"
+    ],
+    "monitoring_focus": [
+      "对比 宁德时代 与 中闽能源 的相对强弱。",
+      "当前更像 支撑区，重点看价格相对 413.00 / 393.46 的反应。"
+    ]
+  },
+  "strategy_profile": {
+    "style": "general",
+    "label": "综合决策",
+    "policy_summary": "综合决策视角下，当前建议执行“替代更优标的”，同时绑定触发与失效条件。",
+    "regime_overlay": "当前市场偏弱，执行上先看风控与触发条件。",
+    "checklist": [
+      "先看市场状态，再看个股质量与时点。",
+      "动作必须和触发条件绑定，不凭主观感觉执行。",
+      "失效条件触发后，优先回到风险动作。"
+    ],
+    "do_not": [
+      "不要忽略仓位与市场环境约束。",
+      "不要脱离触发条件提前交易。"
+    ],
+    "preferred_actions": [
+      "替代更优标的"
+    ]
+  },
+  "position_guidance": "当前不分配仓位给 宁德时代，把候选额度留给 中闽能源。",
+  "evidence_used": [
+    {
+      "category": "market",
+      "signal": "negative",
+      "strength": 37.68,
+      "summary": "沪深300 5日收益 -2.67%，20日收益 -4.27%。",
+      "source": "decision_bundle.market_view",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "action": "risk_off",
+        "label": "偏空"
+      }
+    },
+    {
+      "category": "technical",
+      "signal": "positive",
+      "strength": 84.11,
+      "summary": "趋势分 84.1，20日相对强弱 +12.90%。",
+      "source": "daily_features",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "code": "300750"
+      }
+    },
+    {
+      "category": "timing",
+      "signal": "negative",
+      "strength": 36.537530266343815,
+      "summary": "距20日高点 -4.73%，5日量比 0.34x。",
+      "source": "daily_features",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "code": "300750"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-10 公告：2026年3月9日投资者关系活动记录表",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-10",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-10/1225002708.PDF"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-10 公告：关于向金融机构申请2026年度综合授信额度的公告",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-10",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-10/1225002248.PDF"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-10 公告：《2025年度董事会工作报告》",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-10",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-10/1225002247.PDF"
+      }
+    },
+    {
+      "category": "pdf_insight",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-10 PDF 深读：2026年3月9日投资者关系活动记录表。提炼结论：本公告以常规披露为主，未形成明确交易催化。",
+      "source": "pdf_skill",
+      "verified": true,
+      "freshness": "2026-03-10",
+      "metadata": {
+        "title": "2026年3月9日投资者关系活动记录表",
+        "pdf_path": "data/output/pdf/2026-03-25/300750/8f09612a086d.pdf",
+        "text_path": "data/output/pdf/2026-03-25/300750/8f09612a086d.txt"
+      }
+    },
+    {
+      "category": "pdf_insight",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-10 PDF 深读：关于向金融机构申请2026年度综合授信额度的公告。提炼结论：本公告以常规披露为主，未形成明确交易催化。",
+      "source": "pdf_skill",
+      "verified": true,
+      "freshness": "2026-03-10",
+      "metadata": {
+        "title": "关于向金融机构申请2026年度综合授信额度的公告",
+        "pdf_path": "data/output/pdf/2026-03-25/300750/3ed958add1ec.pdf",
+        "text_path": "data/output/pdf/2026-03-25/300750/3ed958add1ec.txt"
+      }
+    },
+    {
+      "category": "fundamental",
+      "signal": "positive",
+      "strength": 65.0,
+      "summary": "营收同比 +17.04%，利润同比 +42.28%，ROE 24.9%。",
+      "source": "supplemental.fundamentals",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "keys": [
+          "bps",
+          "debt_to_asset",
+          "eps",
+          "gross_margin",
+          "net_margin",
+          "notice_date",
+          "operating_cashflow_margin",
+          "operating_cashflow_yoy",
+          "profit_growth_yoy",
+          "report_date",
+          "revenue_growth_yoy",
+          "roe",
+          "roic"
+        ]
+      }
+    },
+    {
+      "category": "valuation",
+      "signal": "neutral",
+      "strength": 55.0,
+      "summary": "PE 24.4x，PB 5.33x。",
+      "source": "supplemental.valuation",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "keys": [
+          "industry_name",
+          "pb",
+          "pe_ttm"
+        ]
+      }
+    },
+    {
+      "category": "capital_flow",
+      "signal": "neutral",
+      "strength": 55.0,
+      "summary": "5日主力净流入 -12.04 亿，5日主力净占比 -2.45%。",
+      "source": "supplemental.capital_flow",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "keys": [
+          "close_price",
+          "latest_date",
+          "main_net_flow_1d",
+          "main_net_flow_5d",
+          "main_net_ratio_1d",
+          "main_net_ratio_5d",
+          "pct_change_1d"
+        ]
+      }
+    },
+    {
+      "category": "company",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "所属行业 电气机械和器材制造业，主营 新能源汽车动力电池系统、储能系统的研发、生产和销售，以及锂电池回收利用业务。。",
+      "source": "supplemental.company_info",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "keys": [
+          "business",
+          "business_outline",
+          "business_scope",
+          "code",
+          "company_name",
+          "industry_changed_at",
+          "industry_large",
+          "industry_medium",
+          "industry_name",
+          "industry_root",
+          "industry_small",
+          "industry_standard",
+          "listing_date",
+          "market",
+          "name",
+          "product_types",
+          "products",
+          "sector_match",
+          "sector_match_source",
+          "selected_indexes",
+          "website"
+        ]
+      }
+    }
+  ],
+  "better_candidates": [
+    {
+      "code": "600163",
+      "name": "中闽能源",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 67.42,
+      "coverage_score": 85.0,
+      "market_score": 37.68,
+      "summary": "中闽能源 当前策略为“等放量突破”。 综合分 67.4，市场分 37.7，覆盖度 85.0。",
+      "thesis": "中闽能源 的主逻辑是 20日收益 +23.20%，趋势延续性较强；相对强弱 +27.47%，强于基准，但 利润同比 -19.82%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "20日收益 +23.20%，趋势延续性较强。",
+        "相对强弱 +27.47%，强于基准。",
+        "经营现金流同比 +196.50%。"
+      ],
+      "risks": [
+        "利润同比 -19.82%。",
+        "ROE 4.8%。",
+        "市场环境偏谨慎，买入阈值应提高。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 7.54，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 6.44，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 62.0,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "中闽能源 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 7.54,
+          "support_price": 6.44,
+          "pullback_price": 6.778,
+          "retest_price": 7.54,
+          "stop_price": 6.247,
+          "entry_reward_risk": 0.0,
+          "entry_upside_pct": 0.0,
+          "entry_downside_pct": 17.15,
+          "box_position_pct": 100.0
+        },
+        "trigger_conditions": [
+          "只有放量突破 7.54，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 6.44，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 阻力/突破前沿，重点看价格相对 7.54 / 6.44 的反应。",
+          "20日收益 +23.20%，趋势延续性较强。",
+          "利润同比 -19.82%。"
+        ]
+      },
+      "metadata": {
+        "sector": "电力",
+        "sector_proxy": false,
+        "strategy_label": "综合决策",
+        "style_fit_score": 0.0,
+        "selection_score": 62.0,
+        "strategy_style": "general"
+      }
+    },
+    {
+      "code": "000938",
+      "name": "紫光股份",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 65.23,
+      "coverage_score": 85.0,
+      "market_score": 37.68,
+      "summary": "紫光股份 当前策略为“等放量突破”。 综合分 65.2，市场分 37.7，覆盖度 85.0。",
+      "thesis": "紫光股份 的主逻辑是 相对强弱 +10.79%，强于基准；营收同比 +31.41%，但 利润同比 -11.24%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "相对强弱 +10.79%，强于基准。",
+        "营收同比 +31.41%。",
+        "经营现金流同比 +111.35%。"
+      ],
+      "risks": [
+        "利润同比 -11.24%。",
+        "资产负债率 81.6% 偏高。",
+        "PE 54.5x。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 26.77，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 24.13，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 62.0,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "紫光股份 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 26.77,
+          "support_price": 24.13,
+          "pullback_price": 25.742,
+          "retest_price": 26.77,
+          "stop_price": 23.406,
+          "entry_reward_risk": 0.0,
+          "entry_upside_pct": 0.0,
+          "entry_downside_pct": 12.57,
+          "box_position_pct": 100.0
+        },
+        "trigger_conditions": [
+          "只有放量突破 26.77，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 24.13，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 阻力/突破前沿，重点看价格相对 26.77 / 24.13 的反应。",
+          "相对强弱 +10.79%，强于基准。",
+          "利润同比 -11.24%。"
+        ]
+      },
+      "metadata": {
+        "sector": "IT服务",
+        "sector_proxy": false,
+        "strategy_label": "综合决策",
+        "style_fit_score": 0.0,
+        "selection_score": 62.0,
+        "strategy_style": "general"
+      }
+    },
+    {
+      "code": "000978",
+      "name": "桂林旅游",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 64.86,
+      "coverage_score": 85.0,
+      "market_score": 37.68,
+      "summary": "桂林旅游 当前策略为“等放量突破”。 综合分 64.9，市场分 37.7，覆盖度 85.0。",
+      "thesis": "桂林旅游 的主逻辑是 相对强弱 +7.92%，强于基准；利润同比 +425.76%，但 ROE 3.3%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "相对强弱 +7.92%，强于基准。",
+        "利润同比 +425.76%。",
+        "经营现金流同比 +74.62%。"
+      ],
+      "risks": [
+        "ROE 3.3%。",
+        "PE 97.1x。",
+        "近5日主力资金净流出。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 7.43，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 6.42，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 62.0,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "桂林旅游 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 7.43,
+          "support_price": 6.42,
+          "pullback_price": 6.956,
+          "retest_price": 7.38,
+          "stop_price": 6.227,
+          "entry_reward_risk": 0.04,
+          "entry_upside_pct": 0.68,
+          "entry_downside_pct": 15.62,
+          "box_position_pct": 95.05
+        },
+        "trigger_conditions": [
+          "只有放量突破 7.43，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 6.42，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 阻力/突破前沿，重点看价格相对 7.43 / 6.42 的反应。",
+          "相对强弱 +7.92%，强于基准。",
+          "ROE 3.3%。"
+        ]
+      },
+      "metadata": {
+        "sector": "旅游及酒店",
+        "sector_proxy": false,
+        "strategy_label": "综合决策",
+        "style_fit_score": 0.0,
+        "selection_score": 62.0,
+        "strategy_style": "general"
+      }
+    },
+    {
+      "code": "301419",
+      "name": "阿莱德",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 62.58,
+      "coverage_score": 85.0,
+      "market_score": 37.68,
+      "summary": "阿莱德 当前策略为“等放量突破”。 综合分 62.6，市场分 37.7，覆盖度 85.0。",
+      "thesis": "阿莱德 的主逻辑是 20日收益 +20.97%，趋势延续性较强；相对强弱 +25.23%，强于基准，但 ROE 5.5%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "20日收益 +20.97%，趋势延续性较强。",
+        "相对强弱 +25.23%，强于基准。",
+        "营收同比 +25.11%。"
+      ],
+      "risks": [
+        "ROE 5.5%。",
+        "PE 100.6x。",
+        "量比 0.77x，量能不足。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 43.79，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 35.07，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 62.0,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "阿莱德 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 43.79,
+          "support_price": 35.07,
+          "pullback_price": 38.478,
+          "retest_price": 43.79,
+          "stop_price": 34.018,
+          "entry_reward_risk": 0.0,
+          "entry_upside_pct": 0.0,
+          "entry_downside_pct": 22.32,
+          "box_position_pct": 100.0
+        },
+        "trigger_conditions": [
+          "只有放量突破 43.79，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 35.07，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 阻力/突破前沿，重点看价格相对 43.79 / 35.07 的反应。",
+          "20日收益 +20.97%，趋势延续性较强。",
+          "ROE 5.5%。"
+        ]
+      },
+      "metadata": {
+        "sector": "消费电子",
+        "sector_proxy": false,
+        "strategy_label": "综合决策",
+        "style_fit_score": 0.0,
+        "selection_score": 62.0,
+        "strategy_style": "general"
+      }
+    },
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 61.84,
+      "coverage_score": 85.0,
+      "market_score": 37.68,
+      "summary": "深华发Ａ 当前策略为“等放量突破”。 综合分 61.8，市场分 37.7，覆盖度 85.0。",
+      "thesis": "深华发Ａ 的主逻辑是 20日收益 +38.63%，趋势延续性较强；相对强弱 +42.89%，强于基准，但 ROE 5.1%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "20日收益 +38.63%，趋势延续性较强。",
+        "相对强弱 +42.89%，强于基准。",
+        "营收同比 +12.65%。"
+      ],
+      "risks": [
+        "ROE 5.1%。",
+        "经营现金流同比 -268.21%。",
+        "PE 282.4x。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 21.21，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 14.30，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 62.0,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "深华发Ａ 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 21.21,
+          "support_price": 14.3,
+          "pullback_price": 17.69,
+          "retest_price": 21.21,
+          "stop_price": 13.871,
+          "entry_reward_risk": 0.0,
+          "entry_upside_pct": 0.0,
+          "entry_downside_pct": 34.6,
+          "box_position_pct": 100.0
+        },
+        "trigger_conditions": [
+          "只有放量突破 21.21，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 14.30，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 阻力/突破前沿，重点看价格相对 21.21 / 14.30 的反应。",
+          "20日收益 +38.63%，趋势延续性较强。",
+          "ROE 5.1%。"
+        ]
+      },
+      "metadata": {
+        "sector": "光学光电子",
+        "sector_proxy": false,
+        "strategy_label": "综合决策",
+        "style_fit_score": 0.0,
+        "selection_score": 62.0,
+        "strategy_style": "general"
+      }
+    }
+  ],
+  "position_context": {
+    "is_holding": false,
+    "quantity": 0.0,
+    "available_quantity": 0.0,
+    "market_value": 0.0,
+    "position_weight": 0.0,
+    "sector_weight": 0.0,
+    "pnl_pct": null,
+    "cost_price": null,
+    "last_price": null,
+    "total_equity": 10000.0,
+    "exposure_ratio": 1.0,
+    "effective_sector": "电池",
+    "holding_sector": null,
+    "sector_weight_basis": null,
+    "position_pricing_complete": false,
+    "position_size_complete": false,
+    "position_execution_complete": false
+  },
+  "pdf_insights": [
+    {
+      "published_at": "2026-03-10",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-10 PDF 深读：2026年3月9日投资者关系活动记录表。提炼结论：本公告以常规披露为主，未形成明确交易催化。",
+      "key_lines": [
+        "证券代码：300750 证券简称：宁德时代 宁德时代新能源科技股份有限公司 投资者关系活动记录表 编号：202…",
+        "归母净利润 722 亿元，同比增长 42.3%",
+        "经营性现 金流净额 1,332 亿元，同比增长 37.4%",
+        "上实现显著突破，获得了车企客户的高度认可，长安汽车 旗下阿维塔等多品牌将搭载宁德时代钠新电池，另有多家 车企的…"
+      ],
+      "pdf_path": "data/output/pdf/2026-03-25/300750/8f09612a086d.pdf",
+      "text_path": "data/output/pdf/2026-03-25/300750/8f09612a086d.txt",
+      "verified": true,
+      "title": "2026年3月9日投资者关系活动记录表",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-10/1225002708.PDF"
+    },
+    {
+      "published_at": "2026-03-10",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-10 PDF 深读：关于向金融机构申请2026年度综合授信额度的公告。提炼结论：本公告以常规披露为主，未形成明确交易催化。",
+      "key_lines": [
+        "为办理上述金融机构综合授信额度申请及后续相关借款、担保等事项，拟授 权公司总经理或其授权人士代表公司在上述授信…"
+      ],
+      "pdf_path": "data/output/pdf/2026-03-25/300750/3ed958add1ec.pdf",
+      "text_path": "data/output/pdf/2026-03-25/300750/3ed958add1ec.txt",
+      "verified": true,
+      "title": "关于向金融机构申请2026年度综合授信额度的公告",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-10/1225002248.PDF"
+    }
+  ],
+  "artifacts": {
+    "markdown": "data/output/reports/2026-03-25/advice/300750_investment_report.md",
+    "json": "data/output/reports/2026-03-25/advice/300750_investment_report.json",
+    "price_chart": "data/output/reports/2026-03-25/advice/charts/300750_price_chart.png",
+    "momentum_chart": "data/output/reports/2026-03-25/advice/charts/300750_momentum_chart.png"
+  }
+}

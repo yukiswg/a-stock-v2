@@ -1,0 +1,1 @@
+改造日报和首页摘要，不要再只会追涨杀跌。要求：1) 先定义 Done Means；2) 拆成 2 个执行包（评分内核+渲染）；3) 用 Codex workers 执行；4) 用 reviewer 验收；5) 不通过就继续返工。范围建议：scoring.py 降低 ret_5 权重并增加均值回归惩罚；compute_stock_score 在 negatives 增加涨幅过大提示；decision_core 适配返回值；rendering.py 的日报 watchlist 和首页摘要增加入选理由/估值信息/追高警告。验收：run-premarket --date 2026-03-26 不报错；homepage_overview.md 含入选理由或估值字段；daily_report.md watchlist 含入选理由并有过滤纯动量股提示。

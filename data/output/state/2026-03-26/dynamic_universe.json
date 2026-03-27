@@ -1,0 +1,113 @@
+{
+  "selection_mode": "dynamic_sector_leaders",
+  "top_sectors": [
+    {
+      "sector": "电池",
+      "score": 71.96,
+      "pct_change": 0.019799999999999998,
+      "net_inflow": 51.21,
+      "leader": "海科新源",
+      "leader_pct_change": 0.1636,
+      "rank_score": 77.29,
+      "rank": 1
+    },
+    {
+      "sector": "能源金属",
+      "score": 65.02,
+      "pct_change": 0.019,
+      "net_inflow": 19.84,
+      "leader": "融捷股份",
+      "leader_pct_change": 0.1001,
+      "rank_score": 68.67,
+      "rank": 2
+    },
+    {
+      "sector": "银行",
+      "score": 64.65,
+      "pct_change": 0.0064,
+      "net_inflow": 9.99,
+      "leader": "江阴银行",
+      "leader_pct_change": 0.0176,
+      "rank_score": 66.05,
+      "rank": 3
+    },
+    {
+      "sector": "公路铁路运输",
+      "score": 59.98,
+      "pct_change": 0.0051,
+      "net_inflow": 4.5,
+      "leader": "铁龙物流",
+      "leader_pct_change": 0.0433,
+      "rank_score": 60.92,
+      "rank": 4
+    },
+    {
+      "sector": "小家电",
+      "score": 56.63,
+      "pct_change": 0.0089,
+      "net_inflow": -1.85,
+      "leader": "新宝股份",
+      "leader_pct_change": 0.0998,
+      "rank_score": 57.78,
+      "rank": 5
+    }
+  ],
+  "leaders": [
+    {
+      "code": "301292",
+      "name": "海科新源",
+      "sector": "电池",
+      "sector_score": 71.96,
+      "sector_pct_change": 0.019799999999999998,
+      "sector_net_inflow": 51.21,
+      "leader_name_raw": "海科新源",
+      "rank": 1,
+      "rank_score": 77.29
+    },
+    {
+      "code": "002192",
+      "name": "融捷股份",
+      "sector": "能源金属",
+      "sector_score": 65.02,
+      "sector_pct_change": 0.019,
+      "sector_net_inflow": 19.84,
+      "leader_name_raw": "融捷股份",
+      "rank": 2,
+      "rank_score": 68.67
+    },
+    {
+      "code": "002807",
+      "name": "江阴银行",
+      "sector": "银行",
+      "sector_score": 64.65,
+      "sector_pct_change": 0.0064,
+      "sector_net_inflow": 9.99,
+      "leader_name_raw": "江阴银行",
+      "rank": 3,
+      "rank_score": 66.05
+    },
+    {
+      "code": "600125",
+      "name": "铁龙物流",
+      "sector": "公路铁路运输",
+      "sector_score": 59.98,
+      "sector_pct_change": 0.0051,
+      "sector_net_inflow": 4.5,
+      "leader_name_raw": "铁龙物流",
+      "rank": 4,
+      "rank_score": 60.92
+    },
+    {
+      "code": "002705",
+      "name": "新宝股份",
+      "sector": "小家电",
+      "sector_score": 56.63,
+      "sector_pct_change": 0.0089,
+      "sector_net_inflow": -1.85,
+      "leader_name_raw": "新宝股份",
+      "rank": 5,
+      "rank_score": 57.78
+    }
+  ],
+  "resolver_failures": []
+}

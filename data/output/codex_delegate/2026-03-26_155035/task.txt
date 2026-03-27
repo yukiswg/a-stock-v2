@@ -1,0 +1,1 @@
+在 tests/ 目录下创建一个 hello_world.py 文件，内容是 print("Hello World")，并给它写一个可单独运行的测试。

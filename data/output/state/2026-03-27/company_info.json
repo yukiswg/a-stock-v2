@@ -1,0 +1,515 @@
+{
+  "601699": {
+    "code": "601699",
+    "name": "潞安环能",
+    "company_name": "山西潞安环保能源开发股份有限公司",
+    "industry_name": "煤炭开采和洗选业",
+    "market": "上交所",
+    "business": "原煤开采、煤炭洗选、煤焦冶炼；洁净煤技术的开发与利用；煤层气开发；煤炭的综合利用、地质勘探等。",
+    "business_scope": "原煤开采（只限分支机构）。煤炭洗选；煤焦冶炼；洁净煤技术的开发与利用；煤层气开发；煤矸石砖的制造；煤炭的综合利用；勘查工程施工（钻探）；固体矿产勘查、气体矿产勘查、地球物理勘查；地质钻探；水文地质、工程地质、环境地质调查；销售机器设备；机器设备租赁；住宿、餐饮、会务、旅游服务（只限分支机构）；普通货物运输；其他现代服务业。",
+    "listing_date": "2006-09-22",
+    "selected_indexes": [
+      "国证Ａ指",
+      "红利指数",
+      "巨潮中盘",
+      "上证380",
+      "中证500",
+      "中证红利"
+    ],
+    "website": "www.luanhn.com",
+    "industry_standard": "中证行业分类标准",
+    "industry_large": "煤炭",
+    "industry_medium": "焦炭",
+    "industry_small": "能源",
+    "industry_root": "能源",
+    "industry_changed_at": "2021-12-17",
+    "product_types": [
+      "煤炭",
+      "焦炭"
+    ],
+    "products": [
+      "煤炭",
+      "焦炭"
+    ],
+    "business_outline": "生产销售煤炭、焦炭产品。",
+    "sector_match": "能源金属",
+    "sector_match_source": "industry_fuzzy"
+  },
+  "600089": {
+    "industry_name": "电网设备",
+    "concept_names": [
+      "HS300_",
+      "MSCI中国",
+      "一带一路",
+      "上证180_",
+      "上证50_",
+      "储能",
+      "充电桩",
+      "太阳能",
+      "富时罗素",
+      "工业4.0",
+      "新能源",
+      "智能电网",
+      "标准普尔",
+      "沪股通",
+      "煤化工",
+      "特高压",
+      "融资融券",
+      "超超临界发电",
+      "雄安新区",
+      "预亏预减",
+      "风能",
+      "黄金概念"
+    ],
+    "capitalfarmer_provider": "capitalfarmer_adapter"
+  },
+  "300750": {
+    "industry_name": "电池",
+    "concept_names": [
+      "HS300_",
+      "MSCI中国",
+      "储能",
+      "创业成份",
+      "创业板综",
+      "华为概念",
+      "固态电池",
+      "宁组合",
+      "富时罗素",
+      "小米汽车",
+      "新能源车",
+      "深成500",
+      "深股通",
+      "深证100R",
+      "特斯拉",
+      "独角兽",
+      "百元股",
+      "茅指数",
+      "融资融券",
+      "钠离子电池",
+      "锂电池",
+      "锂矿概念",
+      "高送转",
+      "麒麟电池"
+    ],
+    "capitalfarmer_provider": "capitalfarmer_adapter",
+    "product_types": [
+      "动力电池系统",
+      "储能电池系统",
+      "电池材料及回收",
+      "电池矿产资源"
+    ],
+    "products": [
+      "动力电池系统",
+      "储能电池系统",
+      "电池材料",
+      "回收及矿产资源"
+    ],
+    "business_outline": "动力电池、储能电池的研发、生产、销售。",
+    "sector_candidates": [
+      {
+        "label": "电池",
+        "code": "BK1033",
+        "pct_change": 2.88
+      },
+      {
+        "label": "锂电池",
+        "code": "BK1303",
+        "pct_change": 2.32
+      },
+      {
+        "label": "电力设备",
+        "code": "BK1200",
+        "pct_change": 1.29
+      },
+      {
+        "label": "福建板块",
+        "code": "BK0151",
+        "pct_change": 1.08
+      },
+      {
+        "label": "锂矿概念",
+        "code": "BK1173",
+        "pct_change": 5.52
+      }
+    ],
+    "sector_provider": "qstock_adapter"
+  },
+  "600036": {
+    "industry_name": "银行",
+    "concept_names": [
+      "AH股",
+      "HS300_",
+      "MSCI中国",
+      "上证180_",
+      "上证50_",
+      "互联金融",
+      "国企改革",
+      "央企改革",
+      "央视50_",
+      "富时罗素",
+      "标准普尔",
+      "沪股通",
+      "深圳特区",
+      "茅指数",
+      "融资融券",
+      "跨境支付"
+    ],
+    "capitalfarmer_provider": "capitalfarmer_adapter"
+  },
+  "601127": {
+    "industry_name": "汽车整车",
+    "concept_names": [
+      "MSCI中国",
+      "华为概念",
+      "华为汽车",
+      "参股银行",
+      "固态电池",
+      "地摊经济",
+      "成渝特区",
+      "新能源车",
+      "无人机",
+      "无人驾驶",
+      "标准普尔",
+      "沪股通",
+      "百度概念",
+      "融资融券",
+      "车联网(车路云)",
+      "阿里概念",
+      "预盈预增"
+    ],
+    "capitalfarmer_provider": "capitalfarmer_adapter"
+  },
+  "000333": {
+    "industry_name": "家电行业",
+    "concept_names": [
+      "HS300_",
+      "MSCI中国",
+      "净水概念",
+      "医疗器械概念",
+      "参股银行",
+      "国产芯片",
+      "基金重仓",
+      "央视50_",
+      "工业4.0",
+      "工业互联",
+      "新能源车",
+      "智能家居",
+      "智能机器",
+      "机构重仓",
+      "标准普尔",
+      "深成500",
+      "深股通",
+      "深证100R",
+      "物联网",
+      "空气能热泵",
+      "股权激励",
+      "茅指数",
+      "融资融券",
+      "证金持股",
+      "超级品牌",
+      "鸿蒙概念"
+    ],
+    "capitalfarmer_provider": "capitalfarmer_adapter"
+  },
+  "000858": {
+    "industry_name": "酿酒行业",
+    "concept_names": [
+      "HS300_",
+      "MSCI中国",
+      "参股银行",
+      "国企改革",
+      "富时罗素",
+      "成渝特区",
+      "新零售",
+      "机构重仓",
+      "标准普尔",
+      "深成500",
+      "深股通",
+      "深证100R",
+      "电商概念",
+      "白酒",
+      "百元股",
+      "茅指数",
+      "融资融券",
+      "证金持股",
+      "超级品牌"
+    ],
+    "capitalfarmer_provider": "capitalfarmer_adapter"
+  },
+  "002240": {
+    "industry_name": "能源金属",
+    "concept_names": [
+      "中证500",
+      "富时罗素",
+      "小金属概念",
+      "深圳特区",
+      "深成500",
+      "深股通",
+      "股权激励",
+      "融资融券",
+      "锂电池",
+      "锂矿概念",
+      "预亏预减"
+    ],
+    "capitalfarmer_provider": "capitalfarmer_adapter"
+  },
+  "688799": {
+    "sector_candidates": [
+      {
+        "label": "化学制剂",
+        "code": "BK1594",
+        "pct_change": 4.76
+      },
+      {
+        "label": "化学制药",
+        "code": "BK0465",
+        "pct_change": 4.52
+      },
+      {
+        "label": "医药生物",
+        "code": "BK1216",
+        "pct_change": 3.46
+      },
+      {
+        "label": "湖南板块",
+        "code": "BK0158",
+        "pct_change": 1.53
+      },
+      {
+        "label": "创新药",
+        "code": "BK1106",
+        "pct_change": 4.63
+      }
+    ],
+    "sector_provider": "qstock_adapter"
+  },
+  "600227": {
+    "industry_name": "化肥行业",
+    "concept_names": [
+      "低价股",
+      "化工原料",
+      "医疗器械概念",
+      "参股银行",
+      "沪股通",
+      "煤化工",
+      "破净股",
+      "阿兹海默",
+      "预盈预增"
+    ],
+    "capitalfarmer_provider": "capitalfarmer_adapter"
+  },
+  "002428": {
+    "industry_name": "小金属",
+    "concept_names": [
+      "光通信模块",
+      "军工",
+      "半导体概念",
+      "华为概念",
+      "商业航天",
+      "太阳能",
+      "富时罗素",
+      "小金属概念",
+      "深股通",
+      "稀缺资源",
+      "第三代半导体",
+      "融资融券",
+      "预盈预增"
+    ],
+    "capitalfarmer_provider": "capitalfarmer_adapter"
+  },
+  "300518": {
+    "code": "300518",
+    "name": "新迅达",
+    "company_name": "广西新迅达科技集团股份公司",
+    "industry_name": "互联网和相关服务",
+    "market": "深交所创业板",
+    "business": "游戏软件开发、游戏运营推广、互联网演艺和电信业务等",
+    "business_scope": "一般项目：技术服务、技术开发、技术咨询、技术交流、技术转让、技术推广；工业互联网数据服务；软件开发；软件销售；技术进出口；计算机软硬件及外围设备制造；通信设备销售；移动终端设备制造；专业设计服务；信息技术咨询服务；电力电子元器件销售；国内贸易代理；货物进出口；进出口代理。（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）许可项目：互联网游戏服务；第二类增值电信业务；网络文化经营；音像制品制作；音像制品复制；广播电视节目制作经营；电视剧发行。（依法须经批准的项目，经相关部门批准后方可开展经营活动，具体经营项目以相关部门批准文件或许可证件为准）",
+    "listing_date": "2016-06-24",
+    "selected_indexes": [
+      "国证Ａ指"
+    ],
+    "website": "www.gamexun.com",
+    "industry_standard": "中证行业分类标准",
+    "industry_large": "文化娱乐",
+    "industry_medium": "游戏",
+    "industry_small": "传媒",
+    "industry_root": "通信服务",
+    "industry_changed_at": "2021-12-17",
+    "product_types": [
+      "电商直销业务"
+    ],
+    "products": [
+      "电商直销"
+    ],
+    "business_outline": "直播电商业务、电商直销业务及矿产品业务等。",
+    "sector_match": "游戏",
+    "sector_match_source": "industry_exact"
+  },
+  "000988": {
+    "code": "000988",
+    "name": "华工科技",
+    "company_name": "华工科技产业股份有限公司",
+    "industry_name": "计算机、通信和其他电子设备制造业",
+    "market": "深交所主板",
+    "business": "以激光技术、计算机软件和系统集成技术、PTC技术为核心相关产品生产、销售及技术服务。",
+    "business_scope": "提供激光智能装备、激光自动化产线、激光全息综合防伪产品、传感器、汽车电子产品、光通信产品的研发、生产及销售；提供产品信息追溯系统的解决方案；提供医疗装备的研发、生产、销售及服务。",
+    "listing_date": "2000-06-08",
+    "selected_indexes": [
+      "国证Ａ指",
+      "巨潮中盘",
+      "深成指R",
+      "深市精选",
+      "深证300",
+      "深证成指",
+      "深证新兴"
+    ],
+    "website": "www.hgtech.com.cn",
+    "industry_standard": "中证行业分类标准",
+    "industry_large": "其他电子",
+    "industry_medium": "其他电子",
+    "industry_small": "电子",
+    "industry_root": "信息技术",
+    "industry_changed_at": "2021-12-17",
+    "product_types": [
+      "激光加工装备及智能制造产线",
+      "激光全息膜类系列产品",
+      "光电器件系列产品",
+      "敏感元器件"
+    ],
+    "products": [
+      "超高速光模块",
+      "铜连接模块",
+      "智能车载光",
+      "卫星通讯光模块"
+    ],
+    "business_outline": "激光设备的生产与销售、激光防伪标识的生产与销售、敏感电子元器件的生产与销售、光通信电子元器件的生产与销售、计算机软件与信息系统集成等技术及产品的开发、研制、销售等业务。",
+    "sector_match": "其他电子",
+    "sector_match_source": "industry_exact"
+  },
+  "000617": {
+    "industry_name": "多元金融",
+    "concept_names": [
+      "HS300_",
+      "一带一路",
+      "中字头",
+      "中特估",
+      "创投",
+      "参股保险",
+      "参股银行",
+      "国企改革",
+      "央企改革",
+      "数字货币",
+      "机构重仓",
+      "标准普尔",
+      "深成500",
+      "深股通",
+      "深证100R",
+      "融资融券",
+      "跨境支付"
+    ],
+    "capitalfarmer_provider": "capitalfarmer_adapter"
+  },
+  "002015": {
+    "code": "002015",
+    "name": "协鑫能科",
+    "company_name": "协鑫能源科技股份有限公司",
+    "industry_name": "电力、热力生产和供应业",
+    "market": "深交所主板",
+    "business": "清洁能源发电、热电联产及综合能源服务。",
+    "business_scope": "许可项目：建设工程设计；保险兼业代理业务；发电业务、输电业务、供（配）电业务（依法须经批准的项目，经相关部门批准后方可开展经营活动，具体经营项目以审批结果为准）一般项目：发电技术服务；热力生产和供应；电力行业高效节能技术研发；技术服务、技术开发、技术咨询、技术交流、技术转让、技术推广；以自有资金从事投资活动；对外承包工程；工程管理服务；电气设备销售；人工智能基础资源与技术平台；人工智能行业应用系统集成服务；数据处理服务；计算机系统服务；软件开发；合同能源管理；企业管理；供应链管理服务；互联网数据服务；煤炭及制品销售（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）",
+    "listing_date": "2004-07-08",
+    "selected_indexes": [
+      "国证Ａ指",
+      "巨潮小盘",
+      "深成指R",
+      "深证成指",
+      "中小300"
+    ],
+    "website": "www.gcl-et.com",
+    "industry_standard": "中证行业分类标准",
+    "industry_large": "电力及电网",
+    "industry_medium": "火电",
+    "industry_small": "公用事业",
+    "industry_root": "公用事业",
+    "industry_changed_at": "2021-12-17",
+    "product_types": [
+      "电力销售",
+      "热力销售",
+      "能源服务"
+    ],
+    "products": [
+      "电力销售",
+      "热力销售",
+      "能源服务"
+    ],
+    "business_outline": "能源资产管理和综合能源服务。",
+    "sector_match": "电力",
+    "sector_match_source": "industry_alias"
+  },
+  "000978": {
+    "code": "000978",
+    "name": "桂林旅游",
+    "company_name": "桂林旅游股份有限公司",
+    "industry_name": "公共设施管理业",
+    "market": "深交所主板",
+    "business": "游船客运、景区旅游业务、酒店、公路旅行客运、出租车业务等。",
+    "business_scope": "游船客运、旅游观光服务；旅行社业务经营、旅游工艺品制造、销售，卫星定位产品的销售及监控服务（无线电发射及地面卫星接收设施除外）；文化艺术活动策划、文艺创作与表演；机票、车票、景区门票代理；房屋、场地租赁，车、船、机械设备租赁；国内各类广告设计、制作、代理、发布；物业服务。以下经营范围仅供分支机构使用（漓江码头管理、旅游餐饮服务及其它旅游服务，汽车出租、酒店、客运站，停车场管理服务，食品生产、经营）。",
+    "listing_date": "2000-05-18",
+    "selected_indexes": [
+      "国证Ａ指"
+    ],
+    "website": "www.guilintravel.com",
+    "industry_standard": "中证行业分类标准",
+    "industry_large": "休闲服务",
+    "industry_medium": "景点",
+    "industry_small": "消费者服务",
+    "industry_root": "可选消费",
+    "industry_changed_at": "2021-12-17",
+    "product_types": [
+      "景区旅游",
+      "漓江游船客运",
+      "漓江大瀑布饭店",
+      "客运服务",
+      "其他"
+    ],
+    "products": [
+      "景区旅游",
+      "漓江游船客运",
+      "漓江大瀑布饭店",
+      "客运服务",
+      "其他"
+    ],
+    "business_outline": "游船客运、景区旅游业务、酒店、公路旅行客运、出租车业务等。"
+  },
+  "688710": {
+    "sector_candidates": [
+      {
+        "label": "医疗研发外包",
+        "code": "BK1600",
+        "pct_change": 5.72
+      },
+      {
+        "label": "医疗服务",
+        "code": "BK0727",
+        "pct_change": 4.09
+      },
+      {
+        "label": "医药生物",
+        "code": "BK1216",
+        "pct_change": 3.46
+      },
+      {
+        "label": "上海板块",
+        "code": "BK0145",
+        "pct_change": 1.36
+      },
+      {
+        "label": "CRO",
+        "code": "BK0899",
+        "pct_change": 4.73
+      }
+    ],
+    "sector_provider": "qstock_adapter"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/Users/fqyuki/.vscode/extensions/openai.chatgpt-26.323.20928-darwin-arm64/bin/macos-aarch64/codex",
+    "exec",
+    "--skip-git-repo-check",
+    "-C",
+    "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--output-schema",
+    "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_132236/schemas/plan.schema.json",
+    "--output-last-message",
+    "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_132236/planner/response.json",
+    "你是这个交付循环的 Leader（组织者），不是执行者。\n\n你的 Boss（用户）给了你这个任务：\n\n---\n在报告中输出一支你认为明天受益最好的股票，尽可能保证准确率，最好能过去回测一下。\n---\n\n## 你的职责（只有以下三件事）\n\n1. **定义验收条件（done_means）**\n   - 每条必须是可判定的（测得出 PASS/FAIL），不是含糊的方向描述\n   - 用结果语言，不写实现步骤\n   - 例如：\"trend_score_from_parts(ret_5=0.12) 的得分 < trend_score_from_parts(ret_5=0.08)\"\n   - 例如：\"build_prediction_bundle() 返回的 PredictionBundle 包含 intraday/dayend/nextday/longterm 四个字段\"\n\n2. **拆成 2 个以内的工作包（work_packets）**\n   - 每个包 = 一个 Codex Worker 的独立任务\n   - scope 写明 Worker 可以改哪些文件\n   - 同一文件原则上不跨包，防止冲突\n\n3. **给每个包写 acceptance test（test_file）**\n   - test_file 是一个 pytest / unittest 文件的路径，Worker 执行后会运行它\n   - 测试必须覆盖 done_means 中的验收条件\n   - 文件内容由你完整写出（不是让 Worker 写）\n   - 测试文件放在 tests/ 目录下，用有意义的命名\n   - 不要写 mock 测试；写真正能验证行为的测试\n\n## 约束\n\n- 输出必须是纯 JSON，符合提供的 schema\n- 不要加 markdown fence\n- 不要写代码实现，只写计划\n- outcome 用一句话描述最终目标（可观测结果）\n- risks 可选，写给 Worker 参考的边界条件，不写入 Boss 的 task\n\n## 项目上下文\n\nProject root: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2\nWorker 会在 sandbox=workspace-write 模式下执行，可以创建和修改文件。\nWorker 返回的 test_results 是 Leader 验收的唯一依据。\n\n请先快速浏览项目结构（README.md 等），再产出计划。"
+  ],
+  "phase": "leader",
+  "name": "leader"
+}

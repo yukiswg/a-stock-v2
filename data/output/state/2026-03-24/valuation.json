@@ -1,0 +1,104 @@
+{
+  "300750": {
+    "industry_name": "电气机械和器材制造业"
+  },
+  "605169": {
+    "industry_name": "燃气生产和供应业"
+  },
+  "600617": {
+    "industry_name": "燃气生产和供应业"
+  },
+  "002565": {
+    "industry_name": "造纸和纸制品业"
+  },
+  "002594": {
+    "industry_name": "汽车制造业"
+  },
+  "601699": {
+    "industry_name": "煤炭开采和洗选业"
+  },
+  "300483": {
+    "industry_name": "石油和天然气开采业"
+  },
+  "601985": {
+    "industry_name": "电力、热力生产和供应业"
+  },
+  "601857": {
+    "industry_name": "石油和天然气开采业"
+  },
+  "603026": {
+    "industry_name": "化学原料和化学制品制造业"
+  },
+  "000938": {
+    "industry_name": "计算机、通信和其他电子设备制造业"
+  },
+  "300207": {
+    "industry_name": "电气机械和器材制造业"
+  },
+  "300191": {
+    "industry_name": "石油和天然气开采业"
+  },
+  "600256": {
+    "industry_name": "石油和天然气开采业"
+  },
+  "600089": {
+    "industry_name": "电气机械和器材制造业"
+  },
+  "600036": {
+    "industry_name": "货币金融服务"
+  },
+  "601127": {
+    "industry_name": "汽车制造业"
+  },
+  "000333": {
+    "industry_name": "电气机械和器材制造业"
+  },
+  "000858": {
+    "industry_name": "酒、饮料和精制茶制造业"
+  },
+  "000001": {
+    "industry_name": "货币金融服务"
+  },
+  "002050": {
+    "industry_name": "通用设备制造业",
+    "industry_pe": 45.88,
+    "industry_pe_median": 51.77,
+    "industry_level": 2.0,
+    "industry_company_count": 259.0
+  },
+  "300335": {
+    "industry_name": "电力、热力生产和供应业",
+    "industry_pe": 20.78,
+    "industry_pe_median": 27.08,
+    "industry_level": 2.0,
+    "industry_company_count": 92.0
+  },
+  "688796": {
+    "industry_name": "研究和试验发展",
+    "industry_pe": 38.56,
+    "industry_pe_median": 55.26,
+    "industry_level": 2.0,
+    "industry_company_count": 31.0
+  },
+  "603527": {
+    "industry_name": "有色金属冶炼和压延加工业",
+    "industry_pe": 28.89,
+    "industry_pe_median": 52.14,
+    "industry_level": 2.0,
+    "industry_company_count": 88.0
+  },
+  "300983": {
+    "industry_name": "专业技术服务业",
+    "industry_pe": 35.57,
+    "industry_pe_median": 46.17,
+    "industry_level": 2.0,
+    "industry_company_count": 87.0
+  },
+  "601975": {
+    "industry_name": "水上运输业",
+    "industry_pe": 11.83,
+    "industry_pe_median": 17.38,
+    "industry_level": 2.0,
+    "industry_company_count": 36.0
+  }
+}

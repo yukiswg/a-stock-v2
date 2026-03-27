@@ -1,0 +1,84 @@
+[project]
+name = "A-share Harness V2"
+timezone = "Asia/Shanghai"
+report_dir = "data/output/reports"
+state_dir = "data/output/state"
+realtime_dir = "data/output/realtime"
+evaluation_dir = "data/output/evaluations"
+backtest_dir = "data/output/backtests"
+runtime_dir = "data/output/runtime"
+homepage_dir = "data/output/homepage"
+advice_dir = "data/output/advice"
+pdf_dir = "data/output/pdf"
+spreadsheet_dir = "data/output/spreadsheet"
+daily_bar_cache_dir = "data/cache/daily_bars"
+holdings_file = "data/input/holdings/default_holdings.csv"
+universe_file = "config/universe.csv"
+
+[analysis]
+news_max_items_per_source = 8
+news_max_age_days = 60
+announcement_limit_per_stock = 4
+candidate_limit = 5
+watchlist_limit = 4
+max_monitor_targets = 14
+market_positive_threshold = 0.58
+market_negative_threshold = 0.42
+alert_eval_horizon_steps = 3
+
+[realtime]
+poll_interval_seconds = 5
+default_iterations = 3
+stale_after_seconds = 90
+alert_cooldown_seconds = 180
+price_jump_threshold_5m = 0.015
+price_drop_threshold_5m = -0.015
+relative_strength_threshold_5m = 0.01
+volume_ratio_threshold = 1.5
+benchmark_risk_threshold = -0.01
+
+[llm]
+enabled = false
+provider = "generic_chat"
+url = ""
+api_key = ""
+model = "unset"
+timeout_seconds = 30
+max_completion_tokens = 1400
+temperature = 0.15
+
+[supplemental]
+enabled = true
+python = ".venv/bin/python"
+script = "scripts/fetch_akshare_supplemental.py"
+providers = ["akshare_bridge", "qstock_bridge", "capitalfarmer_bridge"]
+refresh_on_missing = true
+discovery_enrich_limit = 12
+timeout_seconds = 120
+
+[supplemental.provider_scripts]
+akshare_bridge = "scripts/fetch_akshare_supplemental.py"
+qstock_bridge = "scripts/fetch_qstock_supplemental.py"
+capitalfarmer_bridge = "scripts/fetch_capitalfarmer_supplemental.py"
+
+[dynamic_universe]
+enabled = true
+top_sector_limit = 5
+leaders_per_sector = 1
+min_sector_score = 52
+include_static_watch = true
+
+[[news.sources]]
+id = "csrc_xwfb"
+name = "证监会要闻"
+url = "https://www.csrc.gov.cn/csrc/xwfb/index.shtml"
+base_url = "https://www.csrc.gov.cn"
+pattern = "<a href=\"(?P<href>[^\"]*content\\.shtml)\"[^>]*>(?P<title>.*?)</a>"
+article_date_meta = "PubDate"
+
+[[news.sources]]
+id = "pbc_news"
+name = "人民银行新闻"
+url = "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/index.html"
+base_url = "https://www.pbc.gov.cn"
+pattern = "<a href=\"(?P<href>[^\"]+)\"[^>]*title=\"(?P<title>[^\"]+)\"[^>]*istitle=\"true\">.*?</a></font><span class=\"hui12\">(?P<date>\\d{4}-\\d{2}-\\d{2})</span>"

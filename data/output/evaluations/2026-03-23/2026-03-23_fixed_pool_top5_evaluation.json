@@ -1,0 +1,164 @@
+{
+  "as_of": "2026-03-23",
+  "strategy_style": "general",
+  "benchmark_code": "000300",
+  "begin": "2026-03-20",
+  "end": "2026-03-23",
+  "pool_size": 20,
+  "top_n": 5,
+  "signal_day_count": 0,
+  "evaluated_day_count": 0,
+  "incomplete_selection_days": 0,
+  "uses_only_signal_date_data": true,
+  "data_basis": "T日按当日可见数据排序，评估T+1收盘相对T日收盘收益；不使用T+1信息做选股。",
+  "fixed_pool": [
+    {
+      "rank": 1,
+      "code": "300750",
+      "name": "宁德时代",
+      "selection_score": 58.99,
+      "trade_action": "等放量突破"
+    },
+    {
+      "rank": 2,
+      "code": "300483",
+      "name": "首华燃气",
+      "selection_score": 56.19,
+      "trade_action": "只观察"
+    },
+    {
+      "rank": 3,
+      "code": "300191",
+      "name": "潜能恒信",
+      "selection_score": 55.5,
+      "trade_action": "等回踩"
+    },
+    {
+      "rank": 4,
+      "code": "002594",
+      "name": "比亚迪",
+      "selection_score": 51.86,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 5,
+      "code": "300207",
+      "name": "欣旺达",
+      "selection_score": 48.75,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 6,
+      "code": "000938",
+      "name": "紫光股份",
+      "selection_score": 41.43,
+      "trade_action": "箱中观望"
+    },
+    {
+      "rank": 7,
+      "code": "300857",
+      "name": "协创数据",
+      "selection_score": 30.4,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 8,
+      "code": "000617",
+      "name": "中油资本",
+      "selection_score": 30.04,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 9,
+      "code": "002565",
+      "name": "顺灏股份",
+      "selection_score": 29.32,
+      "trade_action": "等放量突破"
+    },
+    {
+      "rank": 10,
+      "code": "300014",
+      "name": "亿纬锂能",
+      "selection_score": 27.71,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 11,
+      "code": "300335",
+      "name": "迪森股份",
+      "selection_score": 27.08,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 12,
+      "code": "300274",
+      "name": "阳光电源",
+      "selection_score": 27.03,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 13,
+      "code": "002384",
+      "name": "东山精密",
+      "selection_score": 26.24,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 14,
+      "code": "301292",
+      "name": "海科新源",
+      "selection_score": 25.92,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 15,
+      "code": "300975",
+      "name": "商络电子",
+      "selection_score": 25.91,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 16,
+      "code": "002463",
+      "name": "沪电股份",
+      "selection_score": 25.82,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 17,
+      "code": "002428",
+      "name": "云南锗业",
+      "selection_score": 25.22,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 18,
+      "code": "000988",
+      "name": "华工科技",
+      "selection_score": 23.94,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 19,
+      "code": "300724",
+      "name": "捷佳伟创",
+      "selection_score": 22.92,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 20,
+      "code": "300308",
+      "name": "中际旭创",
+      "selection_score": 22.87,
+      "trade_action": "暂不参与"
+    }
+  ],
+  "daily_average_next_day_return": 0.0,
+  "daily_median_next_day_return": 0.0,
+  "positive_day_rate": 0.0,
+  "stock_pick_count": 0,
+  "stock_win_rate": 0.0,
+  "stock_average_next_day_return": 0.0,
+  "stock_median_next_day_return": 0.0,
+  "daily_rows": []
+}

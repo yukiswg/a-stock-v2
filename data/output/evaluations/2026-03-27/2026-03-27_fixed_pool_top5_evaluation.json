@@ -1,0 +1,571 @@
+{
+  "as_of": "2026-03-27",
+  "strategy_style": "general",
+  "benchmark_code": "000300",
+  "begin": null,
+  "end": "2026-03-27",
+  "pool_size": 20,
+  "top_n": 5,
+  "signal_day_count": 7,
+  "evaluated_day_count": 7,
+  "incomplete_selection_days": 0,
+  "uses_only_signal_date_data": true,
+  "data_basis": "T日按当日可见数据排序，评估T+1收盘相对T日收盘收益；不使用T+1信息做选股。",
+  "fixed_pool": [
+    {
+      "rank": 1,
+      "code": "300750",
+      "name": "宁德时代",
+      "selection_score": 59.62,
+      "trade_action": "等放量突破"
+    },
+    {
+      "rank": 2,
+      "code": "600227",
+      "name": "赤天化",
+      "selection_score": 59.07,
+      "trade_action": "等回踩"
+    },
+    {
+      "rank": 3,
+      "code": "000988",
+      "name": "华工科技",
+      "selection_score": 57.17,
+      "trade_action": "等回踩"
+    },
+    {
+      "rank": 4,
+      "code": "000617",
+      "name": "中油资本",
+      "selection_score": 56.39,
+      "trade_action": "等放量突破"
+    },
+    {
+      "rank": 5,
+      "code": "002015",
+      "name": "协鑫能科",
+      "selection_score": 52.92,
+      "trade_action": "等回踩"
+    },
+    {
+      "rank": 6,
+      "code": "000978",
+      "name": "桂林旅游",
+      "selection_score": 50.92,
+      "trade_action": "等放量突破"
+    },
+    {
+      "rank": 7,
+      "code": "600036",
+      "name": "招商银行",
+      "selection_score": 50.51,
+      "trade_action": "等放量突破"
+    },
+    {
+      "rank": 8,
+      "code": "000858",
+      "name": "五粮液",
+      "selection_score": 47.75,
+      "trade_action": "等放量突破"
+    },
+    {
+      "rank": 9,
+      "code": "300518",
+      "name": "新迅达",
+      "selection_score": 46.84,
+      "trade_action": "只观察"
+    },
+    {
+      "rank": 10,
+      "code": "688799",
+      "name": "华纳药厂",
+      "selection_score": 41.79,
+      "trade_action": "等放量突破"
+    },
+    {
+      "rank": 11,
+      "code": "000333",
+      "name": "美的集团",
+      "selection_score": 33.65,
+      "trade_action": "只观察"
+    },
+    {
+      "rank": 12,
+      "code": "300857",
+      "name": "协创数据",
+      "selection_score": 31.22,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 13,
+      "code": "300207",
+      "name": "欣旺达",
+      "selection_score": 30.01,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 14,
+      "code": "002428",
+      "name": "云南锗业",
+      "selection_score": 29.97,
+      "trade_action": "等放量突破"
+    },
+    {
+      "rank": 15,
+      "code": "002594",
+      "name": "比亚迪",
+      "selection_score": 29.79,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 16,
+      "code": "300483",
+      "name": "首华燃气",
+      "selection_score": 28.61,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 17,
+      "code": "300014",
+      "name": "亿纬锂能",
+      "selection_score": 28.54,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 18,
+      "code": "300191",
+      "name": "潜能恒信",
+      "selection_score": 28.26,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 19,
+      "code": "300274",
+      "name": "阳光电源",
+      "selection_score": 27.85,
+      "trade_action": "暂不参与"
+    },
+    {
+      "rank": 20,
+      "code": "688710",
+      "name": "益诺思",
+      "selection_score": 27.26,
+      "trade_action": "等放量突破"
+    }
+  ],
+  "daily_average_next_day_return": -0.0163,
+  "daily_median_next_day_return": -0.0163,
+  "positive_day_rate": 0.1429,
+  "stock_pick_count": 35,
+  "stock_win_rate": 0.3143,
+  "stock_average_next_day_return": -0.0163,
+  "stock_median_next_day_return": -0.0093,
+  "daily_rows": [
+    {
+      "as_of": "2026-03-12",
+      "selection_count": 5,
+      "average_next_day_return": -0.019,
+      "positive_pick_ratio": 0.2,
+      "picks": [
+        {
+          "rank": 1,
+          "code": "300857",
+          "name": "协创数据",
+          "selection_score": 31.05,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-13",
+          "next_day_return": -0.013899952206468114
+        },
+        {
+          "rank": 2,
+          "code": "002428",
+          "name": "云南锗业",
+          "selection_score": 31.01,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-13",
+          "next_day_return": -0.04007084348018597
+        },
+        {
+          "rank": 3,
+          "code": "300483",
+          "name": "首华燃气",
+          "selection_score": 30.83,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-13",
+          "next_day_return": -0.015539305301645379
+        },
+        {
+          "rank": 4,
+          "code": "002594",
+          "name": "比亚迪",
+          "selection_score": 30.5,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-13",
+          "next_day_return": 0.005751765893037497
+        },
+        {
+          "rank": 5,
+          "code": "300191",
+          "name": "潜能恒信",
+          "selection_score": 27.54,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-13",
+          "next_day_return": -0.031325301204819245
+        }
+      ]
+    },
+    {
+      "as_of": "2026-03-17",
+      "selection_count": 5,
+      "average_next_day_return": -0.0027,
+      "positive_pick_ratio": 0.2,
+      "picks": [
+        {
+          "rank": 1,
+          "code": "300483",
+          "name": "首华燃气",
+          "selection_score": 29.12,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-18",
+          "next_day_return": 0.04459861248761143
+        },
+        {
+          "rank": 2,
+          "code": "002594",
+          "name": "比亚迪",
+          "selection_score": 28.61,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-18",
+          "next_day_return": -0.011470788373675544
+        },
+        {
+          "rank": 3,
+          "code": "300750",
+          "name": "宁德时代",
+          "selection_score": 27.83,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-18",
+          "next_day_return": -0.007358024691358045
+        },
+        {
+          "rank": 4,
+          "code": "300191",
+          "name": "潜能恒信",
+          "selection_score": 27.47,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-18",
+          "next_day_return": -0.03428434428194682
+        },
+        {
+          "rank": 5,
+          "code": "600036",
+          "name": "招商银行",
+          "selection_score": 27.31,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-18",
+          "next_day_return": -0.004985044865403632
+        }
+      ]
+    },
+    {
+      "as_of": "2026-03-19",
+      "selection_count": 5,
+      "average_next_day_return": -0.041,
+      "positive_pick_ratio": 0.4,
+      "picks": [
+        {
+          "rank": 1,
+          "code": "000988",
+          "name": "华工科技",
+          "selection_score": 32.25,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-20",
+          "next_day_return": -0.032586048837403125
+        },
+        {
+          "rank": 2,
+          "code": "300191",
+          "name": "潜能恒信",
+          "selection_score": 30.51,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-20",
+          "next_day_return": -0.08645465253239104
+        },
+        {
+          "rank": 3,
+          "code": "300857",
+          "name": "协创数据",
+          "selection_score": 30.08,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-20",
+          "next_day_return": -0.1488742236024846
+        },
+        {
+          "rank": 4,
+          "code": "300750",
+          "name": "宁德时代",
+          "selection_score": 29.22,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-20",
+          "next_day_return": 0.03121098626716612
+        },
+        {
+          "rank": 5,
+          "code": "002015",
+          "name": "协鑫能科",
+          "selection_score": 28.78,
+          "decision": "insufficient_evidence",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-20",
+          "next_day_return": 0.031746031746031855
+        }
+      ]
+    },
+    {
+      "as_of": "2026-03-23",
+      "selection_count": 5,
+      "average_next_day_return": -0.0163,
+      "positive_pick_ratio": 0.0,
+      "picks": [
+        {
+          "rank": 1,
+          "code": "300750",
+          "name": "宁德时代",
+          "selection_score": 59.0,
+          "decision": "watch",
+          "trade_action": "等放量突破",
+          "next_trade_date": "2026-03-24",
+          "next_day_return": -0.012438120351252469
+        },
+        {
+          "rank": 2,
+          "code": "300191",
+          "name": "潜能恒信",
+          "selection_score": 53.65,
+          "decision": "watch",
+          "trade_action": "等回踩",
+          "next_trade_date": "2026-03-24",
+          "next_day_return": -0.020375760783275854
+        },
+        {
+          "rank": 3,
+          "code": "002594",
+          "name": "比亚迪",
+          "selection_score": 51.75,
+          "decision": "avoid",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-24",
+          "next_day_return": -0.009198178946390412
+        },
+        {
+          "rank": 4,
+          "code": "300207",
+          "name": "欣旺达",
+          "selection_score": 48.76,
+          "decision": "avoid",
+          "trade_action": "暂不参与",
+          "next_trade_date": "2026-03-24",
+          "next_day_return": -0.009285714285714342
+        },
+        {
+          "rank": 5,
+          "code": "300483",
+          "name": "首华燃气",
+          "selection_score": 36.75,
+          "decision": "watch",
+          "trade_action": "只观察",
+          "next_trade_date": "2026-03-24",
+          "next_day_return": -0.030087755954868345
+        }
+      ]
+    },
+    {
+      "as_of": "2026-03-24",
+      "selection_count": 5,
+      "average_next_day_return": -0.0024,
+      "positive_pick_ratio": 0.4,
+      "picks": [
+        {
+          "rank": 1,
+          "code": "300750",
+          "name": "宁德时代",
+          "selection_score": 67.07,
+          "decision": "watch",
+          "trade_action": "等放量突破",
+          "next_trade_date": "2026-03-25",
+          "next_day_return": 0.0020655432126752693
+        },
+        {
+          "rank": 2,
+          "code": "300191",
+          "name": "潜能恒信",
+          "selection_score": 58.1,
+          "decision": "watch",
+          "trade_action": "等回踩",
+          "next_trade_date": "2026-03-25",
+          "next_day_return": -0.012695840086439869
+        },
+        {
+          "rank": 3,
+          "code": "002594",
+          "name": "比亚迪",
+          "selection_score": 57.72,
+          "decision": "watch",
+          "trade_action": "只观察",
+          "next_trade_date": "2026-03-25",
+          "next_day_return": -0.00037509377344346895
+        },
+        {
+          "rank": 4,
+          "code": "300207",
+          "name": "欣旺达",
+          "selection_score": 55.58,
+          "decision": "watch",
+          "trade_action": "只观察",
+          "next_trade_date": "2026-03-25",
+          "next_day_return": -0.0010814708002883089
+        },
+        {
+          "rank": 5,
+          "code": "600036",
+          "name": "招商银行",
+          "selection_score": 43.67,
+          "decision": "watch",
+          "trade_action": "只观察",
+          "next_trade_date": "2026-03-25",
+          "next_day_return": 0.0002547770700636054
+        }
+      ]
+    },
+    {
+      "as_of": "2026-03-25",
+      "selection_count": 5,
+      "average_next_day_return": -0.0351,
+      "positive_pick_ratio": 0.4,
+      "picks": [
+        {
+          "rank": 1,
+          "code": "002015",
+          "name": "协鑫能科",
+          "selection_score": 61.27,
+          "decision": "watch",
+          "trade_action": "等回踩",
+          "next_trade_date": "2026-03-26",
+          "next_day_return": -0.07042957042957043
+        },
+        {
+          "rank": 2,
+          "code": "000988",
+          "name": "华工科技",
+          "selection_score": 58.53,
+          "decision": "watch",
+          "trade_action": "等回踩",
+          "next_trade_date": "2026-03-26",
+          "next_day_return": -0.08977017452911695
+        },
+        {
+          "rank": 3,
+          "code": "002594",
+          "name": "比亚迪",
+          "selection_score": 57.52,
+          "decision": "watch",
+          "trade_action": "等放量突破",
+          "next_trade_date": "2026-03-26",
+          "next_day_return": -0.03245778611632266
+        },
+        {
+          "rank": 4,
+          "code": "300207",
+          "name": "欣旺达",
+          "selection_score": 55.89,
+          "decision": "watch",
+          "trade_action": "等放量突破",
+          "next_trade_date": "2026-03-26",
+          "next_day_return": 0.0021652832912304465
+        },
+        {
+          "rank": 5,
+          "code": "000978",
+          "name": "桂林旅游",
+          "selection_score": 53.46,
+          "decision": "watch",
+          "trade_action": "只观察",
+          "next_trade_date": "2026-03-26",
+          "next_day_return": 0.014905149051490652
+        }
+      ]
+    },
+    {
+      "as_of": "2026-03-26",
+      "selection_count": 5,
+      "average_next_day_return": 0.0024,
+      "positive_pick_ratio": 0.6,
+      "picks": [
+        {
+          "rank": 1,
+          "code": "002015",
+          "name": "协鑫能科",
+          "selection_score": 54.98,
+          "decision": "watch",
+          "trade_action": "等回踩",
+          "next_trade_date": "2026-03-27",
+          "next_day_return": -0.047823750671681875
+        },
+        {
+          "rank": 2,
+          "code": "000617",
+          "name": "中油资本",
+          "selection_score": 54.2,
+          "decision": "watch",
+          "trade_action": "等回踩",
+          "next_trade_date": "2026-03-27",
+          "next_day_return": 0.04296875
+        },
+        {
+          "rank": 3,
+          "code": "300750",
+          "name": "宁德时代",
+          "selection_score": 47.21,
+          "decision": "watch",
+          "trade_action": "只观察",
+          "next_trade_date": "2026-03-27",
+          "next_day_return": 0.009167701863354027
+        },
+        {
+          "rank": 4,
+          "code": "600036",
+          "name": "招商银行",
+          "selection_score": 45.56,
+          "decision": "watch",
+          "trade_action": "等放量突破",
+          "next_trade_date": "2026-03-27",
+          "next_day_return": -0.0032861476238625897
+        },
+        {
+          "rank": 5,
+          "code": "000858",
+          "name": "五粮液",
+          "selection_score": 42.27,
+          "decision": "watch",
+          "trade_action": "等放量突破",
+          "next_trade_date": "2026-03-27",
+          "next_day_return": 0.010959715639810463
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "outcome": "Finalize the anti-chasing scoring changes and statistical price-prediction plumbing already partially present in the repo, with worker scopes split between scoring calibration and prediction/decision integration. The immediate known gap is acceptance check 2: current `trend_score_from_parts(ret_5=-0.06, high_gap=-0.12, ...)` still scores below a neutral baseline, so the pullback bonus logic needs recalibration and test coverage.",
+  "done_means": [
+    "`src/ashare_harness_v2/data_harness/market_data.py` and `src/ashare_harness_v2/advice_harness/scoring.py` reflect the requested anti-chasing behavior, including explicit overbought penalties and pullback-favoring language, without regressing existing timing semantics.",
+    "`src/ashare_harness_v2/models.py`, `src/ashare_harness_v2/prediction_harness/__init__.py`, `src/ashare_harness_v2/prediction_harness/engine.py`, `src/ashare_harness_v2/decision_core.py`, `src/ashare_harness_v2/decision_harness/engine.py`, and `src/ashare_harness_v2/decision_harness/rendering.py` produce and surface a `PredictionBundle` containing `intraday`, `dayend`, `nextday`, and `longterm`.",
+    "Targeted tests cover both business checks: chasing penalty (`ret_5=0.12` < `ret_5=0.08`) and pullback bonus (`ret_5=-0.06` with `high_gap=-0.12` > chosen baseline per acceptance intent), plus a prediction-bundle smoke test and homepage serialization/rendering presence where appropriate.",
+    "All touched Python files pass AST parsing; do not introduce ML dependencies, external services, or unrelated refactors."
+  ],
+  "review_checks": [
+    "Run AST validation on the 8 target source files with `PYTHONPATH=src python3 -c \"import ast,pathlib; ...\"`.",
+    "Run targeted unit tests for scoring and prediction plumbing, at minimum `PYTHONPATH=src python3 -m unittest tests.test_market_data tests.test_decision_bundle tests.test_decision_core`.",
+    "Run a direct verification snippet for `trend_score_from_parts` comparing `ret_5=0.08`, `ret_5=0.12`, and the pullback case `ret_5=-0.06, high_gap=-0.12`, and include the numeric outputs in worker evidence.",
+    "Run a direct verification snippet for `build_prediction_bundle` using synthetic `DailyBar` inputs and confirm the returned `PredictionBundle` exposes `intraday/dayend/nextday/longterm`."
+  ],
+  "risks": [
+    "The repository already contains most of the requested prediction and rendering changes, so workers should reconcile and tighten behavior rather than re-implementing blindly.",
+    "Current observed behavior fails one stated acceptance check: the pullback case scores below a neutral baseline, so packet 1 must resolve the business intent explicitly and codify it in tests.",
+    "Decision and homepage layers already carry `prediction_bundle` metadata; packet 2 should preserve existing payload contracts and avoid breaking downstream rendering/API consumers."
+  ],
+  "work_packets": [
+    {
+      "packet_id": "wp1",
+      "title": "Recalibrate Anti-Chasing Scores",
+      "objective": "Finish the scoring-side business change and make the acceptance checks executable, with emphasis on the known pullback-bonus gap in `trend_score_from_parts`.",
+      "scope": [
+        "Align `trend_score_from_parts` with the requested anti-chasing / anti-panic-sell behavior and adjust calibration so the acceptance comparison passes.",
+        "Confirm `compute_timing_score` exactly matches the requested clamp, overbought penalty, pullback bonus, and near-high wording/score behavior.",
+        "Add or update focused tests for the two numeric business checks."
+      ],
+      "files": [
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/data_harness/market_data.py",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/advice_harness/scoring.py",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/tests/test_market_data.py"
+      ],
+      "commands": [
+        "sed -n '386,470p' src/ashare_harness_v2/data_harness/market_data.py",
+        "sed -n '191,290p' src/ashare_harness_v2/advice_harness/scoring.py",
+        "PYTHONPATH=src python3 -m unittest tests.test_market_data",
+        "PYTHONPATH=src python3 -c \"from ashare_harness_v2.data_harness.market_data import trend_score_from_parts; base=trend_score_from_parts(ret_5=0.08, ret_20=0.0, relative_strength=0.0, high_gap=-0.02, volume_ratio=1.0); chase=trend_score_from_parts(ret_5=0.12, ret_20=0.0, relative_strength=0.0, high_gap=-0.02, volume_ratio=1.0); pullback=trend_score_from_parts(ret_5=-0.06, ret_20=0.0, relative_strength=0.0, high_gap=-0.12, volume_ratio=1.0); print(base, chase, pullback)\""
+      ],
+      "deliverables": [
+        "Patched scoring code in the two source files.",
+        "Test evidence showing the chase penalty and pullback bonus comparisons with actual numeric outputs.",
+        "A short note if the pullback baseline had to be interpreted more precisely than the original brief."
+      ]
+    },
+    {
+      "packet_id": "wp2",
+      "title": "Prediction Bundle Integration And Surface",
+      "objective": "Tighten the statistical prediction path end-to-end, preserving the existing partial implementation while ensuring bundle creation, serialization, and homepage rendering are all verifiable.",
+      "scope": [
+        "Reconcile `PricePrediction` / `PredictionBundle` dataclasses and prediction engine structure with current code, keeping pure-statistical methods only.",
+        "Ensure `evaluate_security`, homepage serialization, holdings/watchlist metadata, and overview rendering all surface prediction data consistently.",
+        "Add or update focused tests for prediction bundle creation and homepage exposure/rendering, then run syntax validation on all touched files."
+      ],
+      "files": [
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/models.py",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/prediction_harness/__init__.py",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/prediction_harness/engine.py",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_core.py",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/engine.py",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/tests/test_decision_bundle.py",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/tests/test_decision_core.py"
+      ],
+      "commands": [
+        "sed -n '1,260p' src/ashare_harness_v2/prediction_harness/engine.py",
+        "sed -n '1,220p' src/ashare_harness_v2/decision_core.py",
+        "sed -n '487,720p' src/ashare_harness_v2/decision_harness/engine.py",
+        "sed -n '200,360p' src/ashare_harness_v2/decision_harness/rendering.py",
+        "PYTHONPATH=src python3 -m unittest tests.test_decision_bundle tests.test_decision_core tests.test_prediction_eval",
+        "PYTHONPATH=src python3 -c \"from ashare_harness_v2.prediction_harness.engine import build_prediction_bundle; from ashare_harness_v2.models import DailyBar; bars=[]; price=10.0; dates=[f'2026-01-{i:02d}' for i in range(1,32)] + [f'2026-02-{i:02d}' for i in range(1,30)];\nfor idx,d in enumerate(dates[:60], start=1): close=price*(1+0.001*((idx%7)-3)); open_p=price; high=max(open_p,close)*1.01; low=min(open_p,close)*0.99; bars.append(DailyBar(trade_date=d, open_price=round(open_p,3), close_price=round(close,3), high_price=round(high,3), low_price=round(low,3), volume=100000+idx*100, amount=1000000+idx*1000, amplitude=0.02, pct_change=(close/open_p)-1, change_amount=close-open_p, turnover=0.01)); price=close; bundle=build_prediction_bundle(code='000001', name='Demo', bars=bars, trend_score=55.0, relative_strength=0.02); data=bundle.to_dict(); print(type(bundle).__name__, sorted(k for k in data if k in ['intraday','dayend','nextday','longterm']))\"",
+        "PYTHONPATH=src python3 -c \"import ast,pathlib; files=[pathlib.Path('src/ashare_harness_v2/models.py'), pathlib.Path('src/ashare_harness_v2/prediction_harness/__init__.py'), pathlib.Path('src/ashare_harness_v2/prediction_harness/engine.py'), pathlib.Path('src/ashare_harness_v2/decision_core.py'), pathlib.Path('src/ashare_harness_v2/decision_harness/engine.py'), pathlib.Path('src/ashare_harness_v2/decision_harness/rendering.py')]; [ast.parse(p.read_text()) for p in files]; print('ast_ok', len(files))\""
+      ],
+      "deliverables": [
+        "Patched prediction/plumbing/rendering files with no ML dependencies.",
+        "Test evidence showing `PredictionBundle` contains `intraday/dayend/nextday/longterm` and that homepage payload/rendering exposes predictions.",
+        "AST-validation output for all touched prediction/decision files."
+      ]
+    }
+  ]
+}

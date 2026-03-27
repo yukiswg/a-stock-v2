@@ -1,0 +1,1958 @@
+OpenAI Codex v0.117.0-alpha.10 (research preview)
+--------
+workdir: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/fqyuki/.codex/memories]
+reasoning effort: high
+reasoning summaries: none
+session id: 019d28bf-6655-75a2-b24c-7a23ce16655c
+--------
+user
+你是这个交付循环的 Worker（执行者），负责完成分配给你的任务包。
+
+Project root: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+Run directory: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_135252
+Iteration: 1
+
+## Leader 制定的大目标
+{
+  "outcome": "生成一份可落盘的“明日最优标的”报告：只给出 1 支股票，并同时附带同口径历史次日回测摘要，且该结论可被日报/首页直接展示。",
+  "done_means": [
+    "调用 replay_daily(config=临时输出目录配置, as_of=\"2026-03-25\") 后，返回结果中的 decision_bundle.homepage_overview.best_stock 存在且包含非空的 code、name、strategy_style、selection_score。",
+    "在同一配置与日期下，decision_bundle.homepage_overview.best_stock.code 必须等于 discover_top_ideas(config, as_of=\"2026-03-25\", limit=1, strategy_style=best_stock.strategy_style, write_output=False)[\"ideas\"][0][\"code\"]。",
+    "decision_bundle.homepage_overview.best_stock.backtest 满足 trade_count >= 1、len(trades) == trade_count，且每条 trade 都包含非空 code、name、trade_action 以及数值型 next_day_return。",
+    "调用 build_best_stock_report(临时配置, as_of=\"2026-03-25\", payload=样例负载) 后，会在 <report_dir>/2026-03-25/best_stock/ 下生成 markdown/json 两个文件；json 中 pick.code == \"300750\" 且 backtest.trade_count == 2；render_daily_report(...) 与 render_homepage_overview(...) 在收到 best_stock 负载后都包含标题“## 明日最优标的”、字符串“测试股份(300750)”以及回测摘要中的交易数和胜率。"
+  ],
+  "risks": [
+    "历史状态快照和日线缓存并不是每个日期都完整，验收测试应固定使用仓库里已有状态的 2026-03-25。",
+    "best stock 不能重新发明一套排序逻辑；必须复用 discover_top_ideas 的第一名，否则会出现两个互相冲突的“最优标的”。",
+    "报告层可能因为 matplotlib/PDF 可选依赖的环境问题误伤测试；测试文件里应先把 MPLCONFIGDIR 指到临时目录，并沿用仓库现有的 pdfplumber/pypdf 兜底写法。"
+  ]
+}
+
+## Leader 分配给你的包
+{
+  "packet_id": "wp2",
+  "title": "独立最佳标的报告",
+  "objective": "把单一推荐标的及其历史回测证据落成独立 markdown/json 报告，便于直接交付和复核。",
+  "scope": [
+    "src/ashare_harness_v2/skill_harness/trading_reports.py",
+    "src/ashare_harness_v2/skill_harness/__init__.py"
+  ],
+  "test_file": "tests/test_best_stock_report_artifact.py"
+}
+
+## 你要做的事（按顺序执行）
+
+### 第一步：执行 objective
+- 严格在 scope 范围内改文件
+- 不要动其他 Worker 负责的文件
+- 不要做 scope 以外的改动
+
+### 第二步：运行 acceptance test
+- test_file: tests/test_best_stock_report_artifact.py
+- 运行命令（选合适的）：
+    PYTHONPATH=src python3 -m pytest tests/test_best_stock_report_artifact.py -v
+    PYTHONPATH=src python3 -m unittest discover -s tests -v
+- 把每条测试的 passed/output 填入 test_results
+
+### 第三步：返回原始结果
+- status: completed（全部通过）/ blocked（有障碍）/ failed（执行失败）
+- 不要写主观总结，只列 changed_files + test_results + evidence
+- 返回纯 JSON，符合 schema
+
+## 约束
+- 不要加 markdown fence
+- 只动 scope 里的文件
+- test_results 里每个条目：{"name": "...", "passed": bool, "output": "..."}
+- output 截取测试运行输出最后 500 字符即可
+mcp: notion starting
+mcp: notion ready
+mcp startup: ready: notion
+exec
+/bin/zsh -lc "pwd && rg --files src/ashare_harness_v2/skill_harness tests | rg '(trading_reports\\.py|__init__\\.py|test_best_stock_report_artifact\\.py)"'$'"'" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 exited 127 in 0ms:
+/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+zsh:1: command not found: rg
+zsh:1: command not found: rg
+Plan update
+  → Inspect current report implementation and acceptance test expectations
+  • Implement best-stock artifact generation within scoped files only
+  • Run acceptance test and capture raw results
+exec
+/bin/zsh -lc "sed -n '1,260p' tests/test_best_stock_report_artifact.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "find src/ashare_harness_v2/skill_harness tests \\( -name 'trading_reports.py' -o -name '__init__.py' -o -name 'test_best_stock_report_artifact.py' \\) | sort" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 exited 1 in 0ms:
+sed: tests/test_best_stock_report_artifact.py: No such file or directory
+ succeeded in 0ms:
+src/ashare_harness_v2/skill_harness/__init__.py
+src/ashare_harness_v2/skill_harness/trading_reports.py
+exec
+/bin/zsh -lc "sed -n '1,260p' src/ashare_harness_v2/skill_harness/__init__.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "sed -n '1,260p' src/ashare_harness_v2/skill_harness/trading_reports.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from .pdf_insights import analyze_announcement_pdfs
+from .sector_rotation import build_dynamic_universe_from_sectors
+from .spreadsheet_reports import build_portfolio_candidate_workbook
+from .trading_reports import build_best_stock_report, build_investment_report, render_best_stock_report
+
+__all__ = [
+    "analyze_announcement_pdfs",
+    "build_dynamic_universe_from_sectors",
+    "build_portfolio_candidate_workbook",
+    "build_best_stock_report",
+    "build_investment_report",
+    "render_best_stock_report",
+]
+ succeeded in 0ms:
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any
+
+import matplotlib
+
+matplotlib.use("Agg")
+
+import matplotlib.pyplot as plt
+
+from ..decision_harness.display import build_analysis_snapshot, canonical_action_label
+from ..utils import ensure_dir, write_json, write_text
+
+
+def build_investment_report(
+    config: dict[str, Any],
+    *,
+    as_of: str,
+    evaluation: dict[str, Any],
+exec
+/bin/zsh -lc "sed -n '261,520p' src/ashare_harness_v2/skill_harness/trading_reports.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+        pick.get("priority_score"),
+        backtest.get("selection_score"),
+    )
+    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
+    lines = [
+        "# 明日最优标的报告",
+        "",
+        f"- 截止日期: `{as_of}`",
+        f"- 策略风格: `{payload.get('strategy_style') or metadata.get('strategy_style') or 'general'}`",
+        f"- 最优标的: {pick.get('name') or pick.get('code') or '未知标的'}({pick.get('code') or 'unknown'})",
+        f"- 交易结论: `{trade_action}`",
+        f"- 排序分数: `{selection_score:.2f}`",
+        f"- 总分: `{_coerce_float(pick.get('total_score')):.2f}` | 覆盖度 `{_coerce_float(pick.get('coverage_score')):.2f}` | 市场分 `{_coerce_float(pick.get('market_score')):.2f}`",
+        "",
+        "## 结论摘要",
+        "",
+        f"- 摘要: {pick.get('summary') or '暂无摘要。'}",
+        f"- 交易主线: {pick.get('thesis') or '暂无主线描述。'}",
+        f"- 仓位建议: {pick.get('position_guidance') or '暂无仓位建议。'}",
+    ]
+exec
+/bin/zsh -lc 'find tests -maxdepth 2 -type f | sort | tail -n 40' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+tests/__pycache__/test_advice_api.cpython-313.pyc
+tests/__pycache__/test_advice_harness.cpython-311.pyc
+tests/__pycache__/test_advice_harness.cpython-313.pyc
+tests/__pycache__/test_decision_bundle.cpython-311.pyc
+tests/__pycache__/test_decision_bundle.cpython-313.pyc
+tests/__pycache__/test_decision_core.cpython-311.pyc
+tests/__pycache__/test_decision_core.cpython-313.pyc
+tests/__pycache__/test_dynamic_universe_skill.cpython-313.pyc
+tests/__pycache__/test_holdings.cpython-313.pyc
+tests/__pycache__/test_homepage_runtime.cpython-313.pyc
+tests/__pycache__/test_market_data.cpython-311.pyc
+tests/__pycache__/test_market_data.cpython-313.pyc
+tests/__pycache__/test_prediction_eval.cpython-311.pyc
+tests/__pycache__/test_prediction_eval.cpython-313.pyc
+tests/__pycache__/test_realtime_and_review.cpython-313.pyc
+tests/__pycache__/test_supplemental_bridge.cpython-313.pyc
+tests/test_advice_api.py
+tests/test_advice_harness.py
+tests/test_decision_bundle.py
+tests/test_decision_core.py
+exec
+/bin/zsh -lc "find . -name 'test_best_stock_report_artifact.py' | sort" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+
+exec
+/bin/zsh -lc 'grep -R "best_stock" -n src/ashare_harness_v2 tests | head -n 300' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+Binary file src/ashare_harness_v2/__pycache__/cli.cpython-311.pyc matches
+src/ashare_harness_v2/skill_harness/trading_reports.py:234:def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+src/ashare_harness_v2/skill_harness/trading_reports.py:237:    root = ensure_dir(Path(config["project"]["report_dir"]) / as_of / "best_stock")
+src/ashare_harness_v2/skill_harness/trading_reports.py:238:    markdown_path = root / f"{code}_best_stock_report.md"
+src/ashare_harness_v2/skill_harness/trading_reports.py:239:    json_path = root / f"{code}_best_stock_report.json"
+src/ashare_harness_v2/skill_harness/trading_reports.py:247:    write_text(markdown_path, render_best_stock_report(report_payload))
+src/ashare_harness_v2/skill_harness/trading_reports.py:252:def render_best_stock_report(payload: dict[str, Any]) -> str:
+src/ashare_harness_v2/skill_harness/__init__.py:4:from .trading_reports import build_best_stock_report, build_investment_report, render_best_stock_report
+src/ashare_harness_v2/skill_harness/__init__.py:10:    "build_best_stock_report",
+src/ashare_harness_v2/skill_harness/__init__.py:12:    "render_best_stock_report",
+Binary file src/ashare_harness_v2/skill_harness/__pycache__/trading_reports.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/skill_harness/__pycache__/__init__.cpython-311.pyc matches
+src/ashare_harness_v2/cli.py:68:    best_stock = subparsers.add_parser("best-stock-report", help="Generate the single best-stock report for the next session.")
+src/ashare_harness_v2/cli.py:69:    best_stock.add_argument("--as-of", default=None, help="Trading date. Default is today.")
+src/ashare_harness_v2/cli.py:70:    best_stock.add_argument("--strategy-style", default="general", help="Selection style passed to best-pick discovery.")
+src/ashare_harness_v2/cli.py:71:    best_stock.add_argument("--holdings", default=None, help="Optional holdings CSV path.")
+src/ashare_harness_v2/cli.py:72:    best_stock.add_argument("--cash", type=float, default=0.0)
+src/ashare_harness_v2/cli.py:243:        from .skill_harness import build_best_stock_report
+src/ashare_harness_v2/cli.py:245:        build_tomorrow_best_pick = resolve_best_stock_builder()
+src/ashare_harness_v2/cli.py:254:        artifacts = build_best_stock_report(config, as_of=as_of, payload=result)
+exec
+/bin/zsh -lc "grep -R \"build_best_stock_report\\|render_best_stock_report\\|render_homepage_overview\\|明日最优标的\" -n src tests | head -n 200" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/homepage.cpython-313.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/homepage.cpython-311.pyc matches
+src/ashare_harness_v2/runtime_harness/homepage.py:9:from ..decision_harness.rendering import render_homepage_overview
+src/ashare_harness_v2/runtime_harness/homepage.py:188:    markdown_path = write_text(root / f"{as_of}_homepage_overview.md", render_homepage_overview(overview))
+src/ashare_harness_v2/decision_harness/rendering.py:192:def render_homepage_overview(overview: dict[str, object]) -> str:
+Binary file src/ashare_harness_v2/decision_harness/__pycache__/rendering.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/decision_harness/__pycache__/rendering.cpython-313.pyc matches
+Binary file src/ashare_harness_v2/decision_harness/__pycache__/engine.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/decision_harness/__pycache__/engine.cpython-313.pyc matches
+src/ashare_harness_v2/decision_harness/engine.py:33:    render_homepage_overview,
+src/ashare_harness_v2/decision_harness/engine.py:776:    homepage_path.write_text(render_homepage_overview(bundle.homepage_overview), encoding="utf-8")
+Binary file src/ashare_harness_v2/__pycache__/cli.cpython-311.pyc matches
+src/ashare_harness_v2/skill_harness/trading_reports.py:234:def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+src/ashare_harness_v2/skill_harness/trading_reports.py:247:    write_text(markdown_path, render_best_stock_report(report_payload))
+src/ashare_harness_v2/skill_harness/trading_reports.py:252:def render_best_stock_report(payload: dict[str, Any]) -> str:
+src/ashare_harness_v2/skill_harness/trading_reports.py:266:        "# 明日最优标的报告",
+src/ashare_harness_v2/skill_harness/__init__.py:4:from .trading_reports import build_best_stock_report, build_investment_report, render_best_stock_report
+src/ashare_harness_v2/skill_harness/__init__.py:10:    "build_best_stock_report",
+src/ashare_harness_v2/skill_harness/__init__.py:12:    "render_best_stock_report",
+Binary file src/ashare_harness_v2/skill_harness/__pycache__/trading_reports.cpython-311.pyc matches
+exec
+/bin/zsh -lc "sed -n '150,320p' src/ashare_harness_v2/decision_harness/rendering.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "sed -n '1,220p' tests/test_decision_bundle.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+    market_probability = float(market_state.get("probability") or bundle.market_view.probability or 0.0)
+    lines = [
+        f"# Action Summary - {bundle.as_of}",
+        "",
+        f"- 今天怎么做: {build_live_action_summary(bundle)}",
+        f"- 市场状态: `{market_state.get('regime') or bundle.market_view.metadata.get('regime') or bundle.market_view.action}` | 概率 `{market_probability:.0%}`",
+        "",
+        "## Top Priorities",
+    ]
+    for item in (bundle.homepage_overview.get("priority_actions") or [])[:3]:
+        lines.append(
+            f"- {item['headline']} | `{item.get('display_action_label') or item['action_label']}` | "
+            f"行动紧急度 `{item.get('execution_urgency_label') or '盘前优先'}` | "
+            f"{item.get('current_status') or item.get('priority_note') or item.get('display_reason') or item['reason']}"
+        )
+    lines.extend(["", "## Holdings Risks"])
+    for item in (bundle.homepage_overview.get("holdings_risks") or [])[:3]:
+        lines.append(
+            f"- {item['name']}({item['code']}) | `{item.get('display_action_label') or item['action_label']}` | "
+            f"{item.get('analysis_summary') or item.get('display_reason') or item['reason']}"
+ succeeded in 0ms:
+from __future__ import annotations
+
+import sys
+import types
+from pathlib import Path
+import unittest
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+if "pdfplumber" not in sys.modules:
+    pdfplumber_stub = types.ModuleType("pdfplumber")
+    pdfplumber_stub.open = lambda *args, **kwargs: None
+    sys.modules["pdfplumber"] = pdfplumber_stub
+if "pypdf" not in sys.modules:
+    pypdf_stub = types.ModuleType("pypdf")
+    pypdf_stub.PdfReader = object
+    sys.modules["pypdf"] = pypdf_stub
+
+exec
+/bin/zsh -lc "sed -n '220,360p' src/ashare_harness_v2/cli.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+            as_of=as_of,
+            holdings_file=args.holdings,
+            cash=args.cash,
+            write_output=True,
+        )
+        print(dump_json(result))
+        return
+
+    if args.command == "discover-ideas":
+        from .advice_harness import discover_top_ideas
+
+        result = discover_top_ideas(
+            config=config,
+            as_of=as_of,
+            limit=args.limit,
+            holdings_file=args.holdings,
+            cash=args.cash,
+            write_output=True,
+        )
+        print(dump_json(result))
+exec
+/bin/zsh -lc "grep -R \"def build_tomorrow_best_pick\\|return {.*pick\\|\\\"backtest\\\"\" -n src/ashare_harness_v2/advice_harness src/ashare_harness_v2 | head -n 200" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+src/ashare_harness_v2/advice_harness/tomorrow_pick.py:11:def build_tomorrow_best_pick(
+src/ashare_harness_v2/advice_harness/tomorrow_pick.py:51:        "backtest": backtest,
+src/ashare_harness_v2/advice_harness/tomorrow_pick.py:11:def build_tomorrow_best_pick(
+src/ashare_harness_v2/advice_harness/tomorrow_pick.py:51:        "backtest": backtest,
+src/ashare_harness_v2/skill_harness/trading_reports.py:244:        "backtest": dict(payload.get("backtest") or {}),
+src/ashare_harness_v2/skill_harness/trading_reports.py:255:    backtest = dict(payload.get("backtest") or {})
+src/ashare_harness_v2/cli.py:43:    backtest = subparsers.add_parser("backtest", help="Run watchlist backtest from cached daily bars.")
+src/ashare_harness_v2/cli.py:192:    if args.command == "backtest":
+exec
+/bin/zsh -lc "sed -n '1,220p' src/ashare_harness_v2/advice_harness/tomorrow_pick.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+from typing import Any
+
+from ..decision_core import infer_market_strategy_style
+from ..evaluation_harness.backtest import backtest_top_idea_strategy
+from .engine import discover_top_ideas
+from .evidence import build_advice_snapshot
+
+
+def build_tomorrow_best_pick(
+    config: dict[str, Any],
+    *,
+    as_of: str,
+    strategy_style: str | None = None,
+    holdings_file: str | None = None,
+    cash: float = 0.0,
+    lookback_sessions: int = 25,
+) -> dict[str, Any]:
+    resolved_style, market_view = _resolve_strategy_style(
+exec
+/bin/zsh -lc "grep -R \"investment_report\\|best_stock_report\" -n tests src | head -n 200" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+Binary file src/ashare_harness_v2/advice_harness/__pycache__/engine.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/advice_harness/__pycache__/engine.cpython-313.pyc matches
+src/ashare_harness_v2/advice_harness/engine.py:16:from ..skill_harness import analyze_announcement_pdfs, build_investment_report, build_portfolio_candidate_workbook
+src/ashare_harness_v2/advice_harness/engine.py:115:        report_paths = build_investment_report(
+Binary file src/ashare_harness_v2/__pycache__/cli.cpython-311.pyc matches
+src/ashare_harness_v2/skill_harness/trading_reports.py:16:def build_investment_report(
+src/ashare_harness_v2/skill_harness/trading_reports.py:31:    markdown_path = root / f"{code}_investment_report.md"
+src/ashare_harness_v2/skill_harness/trading_reports.py:32:    json_path = root / f"{code}_investment_report.json"
+src/ashare_harness_v2/skill_harness/trading_reports.py:33:    markdown = render_investment_report(
+src/ashare_harness_v2/skill_harness/trading_reports.py:57:def render_investment_report(
+src/ashare_harness_v2/skill_harness/trading_reports.py:234:def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+src/ashare_harness_v2/skill_harness/trading_reports.py:238:    markdown_path = root / f"{code}_best_stock_report.md"
+src/ashare_harness_v2/skill_harness/trading_reports.py:239:    json_path = root / f"{code}_best_stock_report.json"
+src/ashare_harness_v2/skill_harness/trading_reports.py:247:    write_text(markdown_path, render_best_stock_report(report_payload))
+src/ashare_harness_v2/skill_harness/trading_reports.py:252:def render_best_stock_report(payload: dict[str, Any]) -> str:
+src/ashare_harness_v2/skill_harness/__init__.py:4:from .trading_reports import build_best_stock_report, build_investment_report, render_best_stock_report
+src/ashare_harness_v2/skill_harness/__init__.py:10:    "build_best_stock_report",
+src/ashare_harness_v2/skill_harness/__init__.py:11:    "build_investment_report",
+src/ashare_harness_v2/skill_harness/__init__.py:12:    "render_best_stock_report",
+Binary file src/ashare_harness_v2/skill_harness/__pycache__/trading_reports.cpython-311.pyc matches
+exec
+/bin/zsh -lc "sed -n '1,260p' src/ashare_harness_v2/evaluation_harness/backtest.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any
+
+from ..advice_harness.engine import discover_top_ideas
+from ..config import UniverseItem
+from ..data_harness.market_data import compute_series_features, fetch_daily_series
+from ..models import InstrumentFeatures
+from ..utils import average, median, write_json
+
+
+def backtest_watchlist_strategy(
+    *,
+    universe: list[UniverseItem],
+    cache_dir: str | Path,
+    benchmark_code: str = "000300",
+    begin: str | None = None,
+    end: str | None = None,
+) -> dict[str, Any]:
+exec
+/bin/zsh -lc "PYTHONPATH=src python3 - <<'PY'
+from tempfile import TemporaryDirectory
+from pathlib import Path
+from ashare_harness_v2.skill_harness import build_best_stock_report, render_best_stock_report
+import json
+payload={
+  'strategy_style':'pullback_accumulation',
+  'pick':{
+    'code':'300750','name':'测试股份','trade_action':'buy','selection_score':91.2,'total_score':88.8,'coverage_score':77.7,'market_score':66.6,
+    'summary':'摘要','thesis':'主线','position_guidance':'三成试仓',
+    'catalysts':['催化1'],'risks':['风险1'],
+    'metadata':{'strategy_style':'pullback_accumulation','selection_score':91.2}
+  },
+  'backtest':{
+    'trade_count':2,'win_rate':0.5,'average_return':0.0123,'median_return':0.01,'cumulative_return':0.0247,'max_drawdown':-0.03,
+    'trades':[
+      {'as_of':'2026-03-20','code':'300750','name':'测试股份','selection_score':90,'next_day_return':0.02,'trade_action':'buy'},
+      {'as_of':'2026-03-21','code':'300750','name':'测试股份','selection_score':85,'next_day_return':-0.01,'trade_action':'hold'}
+    ]
+  },
+  'market_view':{'reason':['市场原因']},
+}
+with TemporaryDirectory() as td:
+    config={'project':{'report_dir':td}}
+    artifacts=build_best_stock_report(config, as_of='2026-03-25', payload=payload)
+    print(artifacts)
+    print(Path(artifacts['markdown']).read_text())
+    print(json.loads(Path(artifacts['json']).read_text())['backtest']['trade_count'])
+PY" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 7.87s:
+Matplotlib created a temporary cache directory at /var/folders/1b/_p6jb_jj3sz_5v961q_lj18m0000gn/T/matplotlib-3bteqc4n because the default path (/Users/fqyuki/.matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Fontconfig error: No writable cache directories
+2026-03-26 14:08:40.942 system_profiler[22307:130227] XType: Using static font registry.
+Matplotlib is building the font cache; this may take a moment.
+{'markdown': '/var/folders/1b/_p6jb_jj3sz_5v961q_lj18m0000gn/T/tmpjafu3xz4/2026-03-25/best_stock/300750_best_stock_report.md', 'json': '/var/folders/1b/_p6jb_jj3sz_5v961q_lj18m0000gn/T/tmpjafu3xz4/2026-03-25/best_stock/300750_best_stock_report.json'}
+# 明日最优标的报告
+
+- 截止日期: `2026-03-25`
+- 策略风格: `pullback_accumulation`
+- 最优标的: 测试股份(300750)
+- 交易结论: `buy`
+- 排序分数: `91.20`
+- 总分: `88.80` | 覆盖度 `77.70` | 市场分 `66.60`
+
+## 结论摘要
+
+- 摘要: 摘要
+- 交易主线: 主线
+- 仓位建议: 三成试仓
+- 催化: 催化1
+Plan update
+Acceptance test file is not present in the workspace, so I’m implementing against the stated contract and tightening the report payload/markdown behavior inside the scoped report module.
+  ✓ Inspect current report implementation and acceptance test expectations
+  → Implement best-stock artifact generation within scoped files only
+  • Run acceptance test and capture raw results
+exec
+/bin/zsh -lc "grep -n \"from pathlib import Path\" -n src/ashare_harness_v2/skill_harness/trading_reports.py && sed -n '1,40p' src/ashare_harness_v2/skill_harness/trading_reports.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+3:from pathlib import Path
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any
+
+import matplotlib
+
+matplotlib.use("Agg")
+
+import matplotlib.pyplot as plt
+
+from ..decision_harness.display import build_analysis_snapshot, canonical_action_label
+from ..utils import ensure_dir, write_json, write_text
+
+
+def build_investment_report(
+    config: dict[str, Any],
+    *,
+    as_of: str,
+file update
+M /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+@@ -2,2 +2,4 @@
+ 
++import os
++import tempfile
+ from pathlib import Path
+@@ -5,2 +7,4 @@
+ 
++os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "matplotlib"))
++
+ import matplotlib
+@@ -234,3 +238,4 @@
+ def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+-    pick = dict(payload.get("pick") or {})
++    report_payload = _normalize_best_stock_payload(payload, as_of=as_of)
++    pick = dict(report_payload.get("pick") or {})
+     code = str(pick.get("code") or "unknown")
+@@ -239,9 +244,2 @@
+     json_path = root / f"{code}_best_stock_report.json"
+-    report_payload = {
+-        "as_of": as_of,
+-        "strategy_style": str(payload.get("strategy_style") or (pick.get("metadata") or {}).get("strategy_style") or "general"),
+-        "pick": pick,
+-        "backtest": dict(payload.get("backtest") or {}),
+-        "market_view": dict(payload.get("market_view") or {}),
+-    }
+     write_text(markdown_path, render_best_stock_report(report_payload))
+@@ -252,6 +250,7 @@
+ def render_best_stock_report(payload: dict[str, Any]) -> str:
+-    as_of = str(payload.get("as_of") or "")
+-    pick = dict(payload.get("pick") or {})
+-    backtest = dict(payload.get("backtest") or {})
+-    market_view = dict(payload.get("market_view") or {})
++    normalized = _normalize_best_stock_payload(payload, as_of=str(payload.get("as_of") or ""))
++    as_of = str(normalized.get("as_of") or "")
++    pick = dict(normalized.get("pick") or {})
++    backtest = dict(normalized.get("backtest") or {})
++    market_view = dict(normalized.get("market_view") or {})
+     metadata = dict(pick.get("metadata") or {})
+@@ -263,3 +262,3 @@
+     )
+-    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or pick.get("action_label") or "待确认")
+     lines = [
+@@ -267,2 +266,4 @@
+         "",
++        "## 明日最优标的",
++        "",
+         f"- 截止日期: `{as_of}`",
+@@ -300,4 +301,5 @@
+             trade_score = _coerce_float(row.get("selection_score"), (row.get("metadata") or {}).get("selection_score"))
++            trade_action = str(row.get("trade_action") or row.get("decision") or "待确认")
+             lines.append(
+-                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
++                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 动作 `{trade_action}` | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
+             )
+@@ -308,2 +310,33 @@
+ 
++def _normalize_best_stock_payload(payload: dict[str, Any], *, as_of: str) -> dict[str, Any]:
++    pick = dict(payload.get("pick") or {})
++    pick_metadata = dict(pick.get("metadata") or {})
++    strategy_style = str(payload.get("strategy_style") or pick.get("strategy_style") or pick_metadata.get("strategy_style") or "general")
++    selection_score = _coerce_float(
++        pick.get("selection_score"),
++        pick_metadata.get("selection_score"),
++        pick.get("priority_score"),
++        pick.get("total_score"),
++    )
++    pick_metadata["strategy_style"] = strategy_style
++    pick_metadata["selection_score"] = round(selection_score, 2)
++    normalized_pick = {
++        **pick,
++        "name": str(pick.get("name") or pick.get("code") or ""),
++        "selection_score": round(selection_score, 2),
++        "strategy_style": strategy_style,
++        "metadata": pick_metadata,
++    }
++    backtest = dict(payload.get("backtest") or {})
++    trades = [dict(item) for item in (backtest.get("trades") or [])]
++    normalized_backtest = {**backtest, "trades": trades}
++    return {
++        "as_of": str(as_of or payload.get("as_of") or ""),
++        "strategy_style": strategy_style,
++        "pick": normalized_pick,
++        "backtest": normalized_backtest,
++        "market_view": dict(payload.get("market_view") or {}),
++    }
++
++
+ def _coerce_float(*values: Any) -> float:
+apply_patch(auto_approved=true) exited 0 in 20ms:
+Success. Updated the following files:
+M /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+index dd74055e8f1371f4793a65ab999f9a90fa04f250..9a22232fec3bb4a930a769b6c1436d3e31b2f200
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+@@ -1,8 +1,12 @@
+ from __future__ import annotations
+ 
++import os
++import tempfile
+ from pathlib import Path
+ from typing import Any
+ 
++os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "matplotlib"))
++
+ import matplotlib
+ 
+ matplotlib.use("Agg")
+@@ -232,28 +236,23 @@
+ 
+ 
+ def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+-    pick = dict(payload.get("pick") or {})
++    report_payload = _normalize_best_stock_payload(payload, as_of=as_of)
++    pick = dict(report_payload.get("pick") or {})
+     code = str(pick.get("code") or "unknown")
+     root = ensure_dir(Path(config["project"]["report_dir"]) / as_of / "best_stock")
+     markdown_path = root / f"{code}_best_stock_report.md"
+     json_path = root / f"{code}_best_stock_report.json"
+-    report_payload = {
+-        "as_of": as_of,
+-        "strategy_style": str(payload.get("strategy_style") or (pick.get("metadata") or {}).get("strategy_style") or "general"),
+-        "pick": pick,
+-        "backtest": dict(payload.get("backtest") or {}),
+-        "market_view": dict(payload.get("market_view") or {}),
+-    }
+     write_text(markdown_path, render_best_stock_report(report_payload))
+     write_json(json_path, report_payload)
+     return {"markdown": str(markdown_path), "json": str(json_path)}
+ 
+ 
+ def render_best_stock_report(payload: dict[str, Any]) -> str:
+-    as_of = str(payload.get("as_of") or "")
+-    pick = dict(payload.get("pick") or {})
+-    backtest = dict(payload.get("backtest") or {})
+-    market_view = dict(payload.get("market_view") or {})
++    normalized = _normalize_best_stock_payload(payload, as_of=str(payload.get("as_of") or ""))
++    as_of = str(normalized.get("as_of") or "")
++    pick = dict(normalized.get("pick") or {})
++    backtest = dict(normalized.get("backtest") or {})
++    market_view = dict(normalized.get("market_view") or {})
+     metadata = dict(pick.get("metadata") or {})
+     selection_score = _coerce_float(
+         metadata.get("selection_score"),
+@@ -261,10 +260,12 @@
+         pick.get("priority_score"),
+         backtest.get("selection_score"),
+     )
+-    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or pick.get("action_label") or "待确认")
+     lines = [
+         "# 明日最优标的报告",
+         "",
++        "## 明日最优标的",
++        "",
+         f"- 截止日期: `{as_of}`",
+         f"- 策略风格: `{payload.get('strategy_style') or metadata.get('strategy_style') or 'general'}`",
+         f"- 最优标的: {pick.get('name') or pick.get('code') or '未知标的'}({pick.get('code') or 'unknown'})",
+@@ -298,14 +299,46 @@
+         lines.extend(["", "### 最近样本", ""])
+         for row in trades[:10]:
+             trade_score = _coerce_float(row.get("selection_score"), (row.get("metadata") or {}).get("selection_score"))
++            trade_action = str(row.get("trade_action") or row.get("decision") or "待确认")
+             lines.append(
+-                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
++                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 动作 `{trade_action}` | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
+             )
+     else:
+         lines.append("- 暂无可展示的历史样本。")
+     return "\n".join(lines) + "\n"
+ 
+ 
++def _normalize_best_stock_payload(payload: dict[str, Any], *, as_of: str) -> dict[str, Any]:
++    pick = dict(payload.get("pick") or {})
++    pick_metadata = dict(pick.get("metadata") or {})
++    strategy_style = str(payload.get("strategy_style") or pick.get("strategy_style") or pick_metadata.get("strategy_style") or "general")
++    selection_score = _coerce_float(
++        pick.get("selection_score"),
++        pick_metadata.get("selection_score"),
++        pick.get("priority_score"),
++        pick.get("total_score"),
++    )
++    pick_metadata["strategy_style"] = strategy_style
++    pick_metadata["selection_score"] = round(selection_score, 2)
++    normalized_pick = {
++        **pick,
++        "name": str(pick.get("name") or pick.get("code") or ""),
++        "selection_score": round(selection_score, 2),
++        "strategy_style": strategy_style,
++        "metadata": pick_metadata,
++    }
++    backtest = dict(payload.get("backtest") or {})
++    trades = [dict(item) for item in (backtest.get("trades") or [])]
++    normalized_backtest = {**backtest, "trades": trades}
++    return {
++        "as_of": str(as_of or payload.get("as_of") or ""),
++        "strategy_style": strategy_style,
++        "pick": normalized_pick,
++        "backtest": normalized_backtest,
++        "market_view": dict(payload.get("market_view") or {}),
++    }
++
++
+ def _coerce_float(*values: Any) -> float:
+     for value in values:
+         if value in (None, ""):
+
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+index dd74055e8f1371f4793a65ab999f9a90fa04f250..9a22232fec3bb4a930a769b6c1436d3e31b2f200
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+@@ -1,8 +1,12 @@
+ from __future__ import annotations
+ 
++import os
++import tempfile
+ from pathlib import Path
+ from typing import Any
+ 
++os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "matplotlib"))
++
+ import matplotlib
+ 
+ matplotlib.use("Agg")
+@@ -232,28 +236,23 @@
+ 
+ 
+ def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+-    pick = dict(payload.get("pick") or {})
++    report_payload = _normalize_best_stock_payload(payload, as_of=as_of)
++    pick = dict(report_payload.get("pick") or {})
+     code = str(pick.get("code") or "unknown")
+     root = ensure_dir(Path(config["project"]["report_dir"]) / as_of / "best_stock")
+     markdown_path = root / f"{code}_best_stock_report.md"
+     json_path = root / f"{code}_best_stock_report.json"
+-    report_payload = {
+-        "as_of": as_of,
+-        "strategy_style": str(payload.get("strategy_style") or (pick.get("metadata") or {}).get("strategy_style") or "general"),
+-        "pick": pick,
+-        "backtest": dict(payload.get("backtest") or {}),
+-        "market_view": dict(payload.get("market_view") or {}),
+-    }
+     write_text(markdown_path, render_best_stock_report(report_payload))
+     write_json(json_path, report_payload)
+     return {"markdown": str(markdown_path), "json": str(json_path)}
+ 
+ 
+ def render_best_stock_report(payload: dict[str, Any]) -> str:
+-    as_of = str(payload.get("as_of") or "")
+-    pick = dict(payload.get("pick") or {})
+-    backtest = dict(payload.get("backtest") or {})
+-    market_view = dict(payload.get("market_view") or {})
++    normalized = _normalize_best_stock_payload(payload, as_of=str(payload.get("as_of") or ""))
++    as_of = str(normalized.get("as_of") or "")
++    pick = dict(normalized.get("pick") or {})
++    backtest = dict(normalized.get("backtest") or {})
++    market_view = dict(normalized.get("market_view") or {})
+     metadata = dict(pick.get("metadata") or {})
+     selection_score = _coerce_float(
+         metadata.get("selection_score"),
+@@ -261,10 +260,12 @@
+         pick.get("priority_score"),
+         backtest.get("selection_score"),
+     )
+-    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or pick.get("action_label") or "待确认")
+     lines = [
+         "# 明日最优标的报告",
+         "",
++        "## 明日最优标的",
++        "",
+         f"- 截止日期: `{as_of}`",
+         f"- 策略风格: `{payload.get('strategy_style') or metadata.get('strategy_style') or 'general'}`",
+         f"- 最优标的: {pick.get('name') or pick.get('code') or '未知标的'}({pick.get('code') or 'unknown'})",
+@@ -298,14 +299,46 @@
+         lines.extend(["", "### 最近样本", ""])
+         for row in trades[:10]:
+             trade_score = _coerce_float(row.get("selection_score"), (row.get("metadata") or {}).get("selection_score"))
++            trade_action = str(row.get("trade_action") or row.get("decision") or "待确认")
+             lines.append(
+-                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
++                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 动作 `{trade_action}` | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
+             )
+     else:
+         lines.append("- 暂无可展示的历史样本。")
+     return "\n".join(lines) + "\n"
+ 
+ 
++def _normalize_best_stock_payload(payload: dict[str, Any], *, as_of: str) -> dict[str, Any]:
++    pick = dict(payload.get("pick") or {})
++    pick_metadata = dict(pick.get("metadata") or {})
++    strategy_style = str(payload.get("strategy_style") or pick.get("strategy_style") or pick_metadata.get("strategy_style") or "general")
++    selection_score = _coerce_float(
++        pick.get("selection_score"),
++        pick_metadata.get("selection_score"),
++        pick.get("priority_score"),
++        pick.get("total_score"),
++    )
++    pick_metadata["strategy_style"] = strategy_style
++    pick_metadata["selection_score"] = round(selection_score, 2)
++    normalized_pick = {
++        **pick,
++        "name": str(pick.get("name") or pick.get("code") or ""),
++        "selection_score": round(selection_score, 2),
++        "strategy_style": strategy_style,
++        "metadata": pick_metadata,
++    }
++    backtest = dict(payload.get("backtest") or {})
++    trades = [dict(item) for item in (backtest.get("trades") or [])]
++    normalized_backtest = {**backtest, "trades": trades}
++    return {
++        "as_of": str(as_of or payload.get("as_of") or ""),
++        "strategy_style": strategy_style,
++        "pick": normalized_pick,
++        "backtest": normalized_backtest,
++        "market_view": dict(payload.get("market_view") or {}),
++    }
++
++
+ def _coerce_float(*values: Any) -> float:
+     for value in values:
+         if value in (None, ""):
+
+exec
+/bin/zsh -lc "sed -n '1,360p' src/ashare_harness_v2/skill_harness/trading_reports.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+import os
+import tempfile
+from pathlib import Path
+from typing import Any
+
+os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "matplotlib"))
+
+import matplotlib
+
+matplotlib.use("Agg")
+
+import matplotlib.pyplot as plt
+
+from ..decision_harness.display import build_analysis_snapshot, canonical_action_label
+from ..utils import ensure_dir, write_json, write_text
+
+
+def build_investment_report(
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+index dd74055e8f1371f4793a65ab999f9a90fa04f250..9a22232fec3bb4a930a769b6c1436d3e31b2f200
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+@@ -1,8 +1,12 @@
+ from __future__ import annotations
+ 
++import os
++import tempfile
+ from pathlib import Path
+ from typing import Any
+ 
++os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "matplotlib"))
++
+ import matplotlib
+ 
+ matplotlib.use("Agg")
+@@ -232,28 +236,23 @@
+ 
+ 
+ def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+-    pick = dict(payload.get("pick") or {})
++    report_payload = _normalize_best_stock_payload(payload, as_of=as_of)
++    pick = dict(report_payload.get("pick") or {})
+     code = str(pick.get("code") or "unknown")
+     root = ensure_dir(Path(config["project"]["report_dir"]) / as_of / "best_stock")
+     markdown_path = root / f"{code}_best_stock_report.md"
+     json_path = root / f"{code}_best_stock_report.json"
+-    report_payload = {
+-        "as_of": as_of,
+-        "strategy_style": str(payload.get("strategy_style") or (pick.get("metadata") or {}).get("strategy_style") or "general"),
+-        "pick": pick,
+-        "backtest": dict(payload.get("backtest") or {}),
+-        "market_view": dict(payload.get("market_view") or {}),
+-    }
+     write_text(markdown_path, render_best_stock_report(report_payload))
+     write_json(json_path, report_payload)
+     return {"markdown": str(markdown_path), "json": str(json_path)}
+ 
+ 
+ def render_best_stock_report(payload: dict[str, Any]) -> str:
+-    as_of = str(payload.get("as_of") or "")
+-    pick = dict(payload.get("pick") or {})
+-    backtest = dict(payload.get("backtest") or {})
+-    market_view = dict(payload.get("market_view") or {})
++    normalized = _normalize_best_stock_payload(payload, as_of=str(payload.get("as_of") or ""))
++    as_of = str(normalized.get("as_of") or "")
++    pick = dict(normalized.get("pick") or {})
++    backtest = dict(normalized.get("backtest") or {})
++    market_view = dict(normalized.get("market_view") or {})
+     metadata = dict(pick.get("metadata") or {})
+     selection_score = _coerce_float(
+         metadata.get("selection_score"),
+@@ -261,10 +260,12 @@
+         pick.get("priority_score"),
+         backtest.get("selection_score"),
+     )
+-    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or pick.get("action_label") or "待确认")
+     lines = [
+         "# 明日最优标的报告",
+         "",
++        "## 明日最优标的",
++        "",
+         f"- 截止日期: `{as_of}`",
+         f"- 策略风格: `{payload.get('strategy_style') or metadata.get('strategy_style') or 'general'}`",
+         f"- 最优标的: {pick.get('name') or pick.get('code') or '未知标的'}({pick.get('code') or 'unknown'})",
+@@ -298,14 +299,46 @@
+         lines.extend(["", "### 最近样本", ""])
+         for row in trades[:10]:
+             trade_score = _coerce_float(row.get("selection_score"), (row.get("metadata") or {}).get("selection_score"))
++            trade_action = str(row.get("trade_action") or row.get("decision") or "待确认")
+             lines.append(
+-                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
++                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 动作 `{trade_action}` | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
+             )
+     else:
+         lines.append("- 暂无可展示的历史样本。")
+     return "\n".join(lines) + "\n"
+ 
+ 
++def _normalize_best_stock_payload(payload: dict[str, Any], *, as_of: str) -> dict[str, Any]:
++    pick = dict(payload.get("pick") or {})
++    pick_metadata = dict(pick.get("metadata") or {})
++    strategy_style = str(payload.get("strategy_style") or pick.get("strategy_style") or pick_metadata.get("strategy_style") or "general")
++    selection_score = _coerce_float(
++        pick.get("selection_score"),
++        pick_metadata.get("selection_score"),
++        pick.get("priority_score"),
++        pick.get("total_score"),
++    )
++    pick_metadata["strategy_style"] = strategy_style
++    pick_metadata["selection_score"] = round(selection_score, 2)
++    normalized_pick = {
++        **pick,
++        "name": str(pick.get("name") or pick.get("code") or ""),
++        "selection_score": round(selection_score, 2),
++        "strategy_style": strategy_style,
++        "metadata": pick_metadata,
++    }
++    backtest = dict(payload.get("backtest") or {})
++    trades = [dict(item) for item in (backtest.get("trades") or [])]
++    normalized_backtest = {**backtest, "trades": trades}
++    return {
++        "as_of": str(as_of or payload.get("as_of") or ""),
++        "strategy_style": strategy_style,
++        "pick": normalized_pick,
++        "backtest": normalized_backtest,
++        "market_view": dict(payload.get("market_view") or {}),
++    }
++
++
+ def _coerce_float(*values: Any) -> float:
+     for value in values:
+         if value in (None, ""):
+
+Plan update
+Scoped code changes are in place. Next I’m running the requested acceptance path directly; the workspace still does not contain the specified test file, so this step is mainly to capture the exact failure state.
+  ✓ Inspect current report implementation and acceptance test expectations
+  ✓ Implement best-stock artifact generation within scoped files only
+  → Run acceptance test and capture raw results
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+index dd74055e8f1371f4793a65ab999f9a90fa04f250..9a22232fec3bb4a930a769b6c1436d3e31b2f200
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+@@ -1,8 +1,12 @@
+ from __future__ import annotations
+ 
++import os
++import tempfile
+ from pathlib import Path
+ from typing import Any
+ 
++os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "matplotlib"))
++
+ import matplotlib
+ 
+ matplotlib.use("Agg")
+@@ -232,28 +236,23 @@
+ 
+ 
+ def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+-    pick = dict(payload.get("pick") or {})
++    report_payload = _normalize_best_stock_payload(payload, as_of=as_of)
++    pick = dict(report_payload.get("pick") or {})
+     code = str(pick.get("code") or "unknown")
+     root = ensure_dir(Path(config["project"]["report_dir"]) / as_of / "best_stock")
+     markdown_path = root / f"{code}_best_stock_report.md"
+     json_path = root / f"{code}_best_stock_report.json"
+-    report_payload = {
+-        "as_of": as_of,
+-        "strategy_style": str(payload.get("strategy_style") or (pick.get("metadata") or {}).get("strategy_style") or "general"),
+-        "pick": pick,
+-        "backtest": dict(payload.get("backtest") or {}),
+-        "market_view": dict(payload.get("market_view") or {}),
+-    }
+     write_text(markdown_path, render_best_stock_report(report_payload))
+     write_json(json_path, report_payload)
+     return {"markdown": str(markdown_path), "json": str(json_path)}
+ 
+ 
+ def render_best_stock_report(payload: dict[str, Any]) -> str:
+-    as_of = str(payload.get("as_of") or "")
+-    pick = dict(payload.get("pick") or {})
+-    backtest = dict(payload.get("backtest") or {})
+-    market_view = dict(payload.get("market_view") or {})
++    normalized = _normalize_best_stock_payload(payload, as_of=str(payload.get("as_of") or ""))
++    as_of = str(normalized.get("as_of") or "")
++    pick = dict(normalized.get("pick") or {})
++    backtest = dict(normalized.get("backtest") or {})
++    market_view = dict(normalized.get("market_view") or {})
+     metadata = dict(pick.get("metadata") or {})
+     selection_score = _coerce_float(
+         metadata.get("selection_score"),
+@@ -261,10 +260,12 @@
+         pick.get("priority_score"),
+         backtest.get("selection_score"),
+     )
+-    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or pick.get("action_label") or "待确认")
+     lines = [
+         "# 明日最优标的报告",
+         "",
++        "## 明日最优标的",
++        "",
+         f"- 截止日期: `{as_of}`",
+         f"- 策略风格: `{payload.get('strategy_style') or metadata.get('strategy_style') or 'general'}`",
+         f"- 最优标的: {pick.get('name') or pick.get('code') or '未知标的'}({pick.get('code') or 'unknown'})",
+@@ -298,14 +299,46 @@
+         lines.extend(["", "### 最近样本", ""])
+         for row in trades[:10]:
+             trade_score = _coerce_float(row.get("selection_score"), (row.get("metadata") or {}).get("selection_score"))
++            trade_action = str(row.get("trade_action") or row.get("decision") or "待确认")
+             lines.append(
+-                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
++                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 动作 `{trade_action}` | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
+             )
+     else:
+         lines.append("- 暂无可展示的历史样本。")
+     return "\n".join(lines) + "\n"
+ 
+ 
++def _normalize_best_stock_payload(payload: dict[str, Any], *, as_of: str) -> dict[str, Any]:
++    pick = dict(payload.get("pick") or {})
++    pick_metadata = dict(pick.get("metadata") or {})
++    strategy_style = str(payload.get("strategy_style") or pick.get("strategy_style") or pick_metadata.get("strategy_style") or "general")
++    selection_score = _coerce_float(
++        pick.get("selection_score"),
++        pick_metadata.get("selection_score"),
++        pick.get("priority_score"),
++        pick.get("total_score"),
++    )
++    pick_metadata["strategy_style"] = strategy_style
++    pick_metadata["selection_score"] = round(selection_score, 2)
++    normalized_pick = {
++        **pick,
++        "name": str(pick.get("name") or pick.get("code") or ""),
++        "selection_score": round(selection_score, 2),
++        "strategy_style": strategy_style,
++        "metadata": pick_metadata,
++    }
++    backtest = dict(payload.get("backtest") or {})
++    trades = [dict(item) for item in (backtest.get("trades") or [])]
++    normalized_backtest = {**backtest, "trades": trades}
++    return {
++        "as_of": str(as_of or payload.get("as_of") or ""),
++        "strategy_style": strategy_style,
++        "pick": normalized_pick,
++        "backtest": normalized_backtest,
++        "market_view": dict(payload.get("market_view") or {}),
++    }
++
++
+ def _coerce_float(*values: Any) -> float:
+     for value in values:
+         if value in (None, ""):
+
+exec
+/bin/zsh -lc 'PYTHONPATH=src python3 -m pytest tests/test_best_stock_report_artifact.py -v' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 exited 1 in 0ms:
+/Users/fqyuki/.pyenv/versions/3.11.0/bin/python3: No module named pytest
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+index dd74055e8f1371f4793a65ab999f9a90fa04f250..9a22232fec3bb4a930a769b6c1436d3e31b2f200
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+@@ -1,8 +1,12 @@
+ from __future__ import annotations
+ 
++import os
++import tempfile
+ from pathlib import Path
+ from typing import Any
+ 
++os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "matplotlib"))
++
+ import matplotlib
+ 
+ matplotlib.use("Agg")
+@@ -232,28 +236,23 @@
+ 
+ 
+ def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+-    pick = dict(payload.get("pick") or {})
++    report_payload = _normalize_best_stock_payload(payload, as_of=as_of)
++    pick = dict(report_payload.get("pick") or {})
+     code = str(pick.get("code") or "unknown")
+     root = ensure_dir(Path(config["project"]["report_dir"]) / as_of / "best_stock")
+     markdown_path = root / f"{code}_best_stock_report.md"
+     json_path = root / f"{code}_best_stock_report.json"
+-    report_payload = {
+-        "as_of": as_of,
+-        "strategy_style": str(payload.get("strategy_style") or (pick.get("metadata") or {}).get("strategy_style") or "general"),
+-        "pick": pick,
+-        "backtest": dict(payload.get("backtest") or {}),
+-        "market_view": dict(payload.get("market_view") or {}),
+-    }
+     write_text(markdown_path, render_best_stock_report(report_payload))
+     write_json(json_path, report_payload)
+     return {"markdown": str(markdown_path), "json": str(json_path)}
+ 
+ 
+ def render_best_stock_report(payload: dict[str, Any]) -> str:
+-    as_of = str(payload.get("as_of") or "")
+-    pick = dict(payload.get("pick") or {})
+-    backtest = dict(payload.get("backtest") or {})
+-    market_view = dict(payload.get("market_view") or {})
++    normalized = _normalize_best_stock_payload(payload, as_of=str(payload.get("as_of") or ""))
++    as_of = str(normalized.get("as_of") or "")
++    pick = dict(normalized.get("pick") or {})
++    backtest = dict(normalized.get("backtest") or {})
++    market_view = dict(normalized.get("market_view") or {})
+     metadata = dict(pick.get("metadata") or {})
+     selection_score = _coerce_float(
+         metadata.get("selection_score"),
+@@ -261,10 +260,12 @@
+         pick.get("priority_score"),
+         backtest.get("selection_score"),
+     )
+-    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or pick.get("action_label") or "待确认")
+     lines = [
+         "# 明日最优标的报告",
+         "",
++        "## 明日最优标的",
++        "",
+         f"- 截止日期: `{as_of}`",
+         f"- 策略风格: `{payload.get('strategy_style') or metadata.get('strategy_style') or 'general'}`",
+         f"- 最优标的: {pick.get('name') or pick.get('code') or '未知标的'}({pick.get('code') or 'unknown'})",
+@@ -298,14 +299,46 @@
+         lines.extend(["", "### 最近样本", ""])
+         for row in trades[:10]:
+             trade_score = _coerce_float(row.get("selection_score"), (row.get("metadata") or {}).get("selection_score"))
++            trade_action = str(row.get("trade_action") or row.get("decision") or "待确认")
+             lines.append(
+-                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
++                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 动作 `{trade_action}` | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
+             )
+     else:
+         lines.append("- 暂无可展示的历史样本。")
+     return "\n".join(lines) + "\n"
+ 
+ 
++def _normalize_best_stock_payload(payload: dict[str, Any], *, as_of: str) -> dict[str, Any]:
++    pick = dict(payload.get("pick") or {})
++    pick_metadata = dict(pick.get("metadata") or {})
++    strategy_style = str(payload.get("strategy_style") or pick.get("strategy_style") or pick_metadata.get("strategy_style") or "general")
++    selection_score = _coerce_float(
++        pick.get("selection_score"),
++        pick_metadata.get("selection_score"),
++        pick.get("priority_score"),
++        pick.get("total_score"),
++    )
++    pick_metadata["strategy_style"] = strategy_style
++    pick_metadata["selection_score"] = round(selection_score, 2)
++    normalized_pick = {
++        **pick,
++        "name": str(pick.get("name") or pick.get("code") or ""),
++        "selection_score": round(selection_score, 2),
++        "strategy_style": strategy_style,
++        "metadata": pick_metadata,
++    }
++    backtest = dict(payload.get("backtest") or {})
++    trades = [dict(item) for item in (backtest.get("trades") or [])]
++    normalized_backtest = {**backtest, "trades": trades}
++    return {
++        "as_of": str(as_of or payload.get("as_of") or ""),
++        "strategy_style": strategy_style,
++        "pick": normalized_pick,
++        "backtest": normalized_backtest,
++        "market_view": dict(payload.get("market_view") or {}),
++    }
++
++
+ def _coerce_float(*values: Any) -> float:
+     for value in values:
+         if value in (None, ""):
+
+exec
+/bin/zsh -lc "find tests -name 'test_best_stock_report_artifact.py' -print" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+
+exec
+/bin/zsh -lc 'PYTHONPATH=src python3 -m unittest discover -s tests -v' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+index dd74055e8f1371f4793a65ab999f9a90fa04f250..9a22232fec3bb4a930a769b6c1436d3e31b2f200
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+@@ -1,8 +1,12 @@
+ from __future__ import annotations
+ 
++import os
++import tempfile
+ from pathlib import Path
+ from typing import Any
+ 
++os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "matplotlib"))
++
+ import matplotlib
+ 
+ matplotlib.use("Agg")
+@@ -232,28 +236,23 @@
+ 
+ 
+ def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+-    pick = dict(payload.get("pick") or {})
++    report_payload = _normalize_best_stock_payload(payload, as_of=as_of)
++    pick = dict(report_payload.get("pick") or {})
+     code = str(pick.get("code") or "unknown")
+     root = ensure_dir(Path(config["project"]["report_dir"]) / as_of / "best_stock")
+     markdown_path = root / f"{code}_best_stock_report.md"
+     json_path = root / f"{code}_best_stock_report.json"
+-    report_payload = {
+-        "as_of": as_of,
+-        "strategy_style": str(payload.get("strategy_style") or (pick.get("metadata") or {}).get("strategy_style") or "general"),
+-        "pick": pick,
+-        "backtest": dict(payload.get("backtest") or {}),
+-        "market_view": dict(payload.get("market_view") or {}),
+-    }
+     write_text(markdown_path, render_best_stock_report(report_payload))
+     write_json(json_path, report_payload)
+     return {"markdown": str(markdown_path), "json": str(json_path)}
+ 
+ 
+ def render_best_stock_report(payload: dict[str, Any]) -> str:
+-    as_of = str(payload.get("as_of") or "")
+-    pick = dict(payload.get("pick") or {})
+-    backtest = dict(payload.get("backtest") or {})
+-    market_view = dict(payload.get("market_view") or {})
++    normalized = _normalize_best_stock_payload(payload, as_of=str(payload.get("as_of") or ""))
++    as_of = str(normalized.get("as_of") or "")
++    pick = dict(normalized.get("pick") or {})
++    backtest = dict(normalized.get("backtest") or {})
++    market_view = dict(normalized.get("market_view") or {})
+     metadata = dict(pick.get("metadata") or {})
+     selection_score = _coerce_float(
+         metadata.get("selection_score"),
+@@ -261,10 +260,12 @@
+         pick.get("priority_score"),
+         backtest.get("selection_score"),
+     )
+-    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or pick.get("action_label") or "待确认")
+     lines = [
+         "# 明日最优标的报告",
+         "",
++        "## 明日最优标的",
++        "",
+         f"- 截止日期: `{as_of}`",
+         f"- 策略风格: `{payload.get('strategy_style') or metadata.get('strategy_style') or 'general'}`",
+         f"- 最优标的: {pick.get('name') or pick.get('code') or '未知标的'}({pick.get('code') or 'unknown'})",
+@@ -298,14 +299,46 @@
+         lines.extend(["", "### 最近样本", ""])
+         for row in trades[:10]:
+             trade_score = _coerce_float(row.get("selection_score"), (row.get("metadata") or {}).get("selection_score"))
++            trade_action = str(row.get("trade_action") or row.get("decision") or "待确认")
+             lines.append(
+-                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
++                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 动作 `{trade_action}` | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
+             )
+     else:
+         lines.append("- 暂无可展示的历史样本。")
+     return "\n".join(lines) + "\n"
+ 
+ 
++def _normalize_best_stock_payload(payload: dict[str, Any], *, as_of: str) -> dict[str, Any]:
++    pick = dict(payload.get("pick") or {})
++    pick_metadata = dict(pick.get("metadata") or {})
++    strategy_style = str(payload.get("strategy_style") or pick.get("strategy_style") or pick_metadata.get("strategy_style") or "general")
++    selection_score = _coerce_float(
++        pick.get("selection_score"),
++        pick_metadata.get("selection_score"),
++        pick.get("priority_score"),
++        pick.get("total_score"),
++    )
++    pick_metadata["strategy_style"] = strategy_style
++    pick_metadata["selection_score"] = round(selection_score, 2)
++    normalized_pick = {
++        **pick,
++        "name": str(pick.get("name") or pick.get("code") or ""),
++        "selection_score": round(selection_score, 2),
++        "strategy_style": strategy_style,
++        "metadata": pick_metadata,
++    }
++    backtest = dict(payload.get("backtest") or {})
++    trades = [dict(item) for item in (backtest.get("trades") or [])]
++    normalized_backtest = {**backtest, "trades": trades}
++    return {
++        "as_of": str(as_of or payload.get("as_of") or ""),
++        "strategy_style": strategy_style,
++        "pick": normalized_pick,
++        "backtest": normalized_backtest,
++        "market_view": dict(payload.get("market_view") or {}),
++    }
++
++
+ def _coerce_float(*values: Any) -> float:
+     for value in values:
+         if value in (None, ""):
+
+ exited 1 in 10.07s:
+Fontconfig error: No writable cache directories
+2026-03-26 14:11:20.046 system_profiler[22471:132675] XType: Using static font registry.
+Matplotlib is building the font cache; this may take a moment.
+test_api_exposes_advice_and_discovery (test_advice_api.AdviceApiTests.test_api_exposes_advice_and_discovery) ... ERROR
+test_add_position_colloquial_query_resolves_security (test_advice_harness.AdviceHarnessTests.test_add_position_colloquial_query_resolves_security) ... ok
+test_add_position_query_returns_position_context (test_advice_harness.AdviceHarnessTests.test_add_position_query_returns_position_context) ... ok
+test_answer_user_query_returns_structured_decision (test_advice_harness.AdviceHarnessTests.test_answer_user_query_returns_structured_decision) ... ERROR
+test_discover_top_ideas_respects_strategy_style (test_advice_harness.AdviceHarnessTests.test_discover_top_ideas_respects_strategy_style) ... ok
+test_discover_top_ideas_returns_candidates (test_advice_harness.AdviceHarnessTests.test_discover_top_ideas_returns_candidates) ... ok
+test_holding_query_without_explicit_add_still_uses_position_mode (test_advice_harness.AdviceHarnessTests.test_holding_query_without_explicit_add_still_uses_position_mode) ... ok
+test_query_parser_detects_strategy_style (test_advice_harness.AdviceHarnessTests.test_query_parser_detects_strategy_style) ... ok
+test_query_parser_extracts_code (test_advice_harness.AdviceHarnessTests.test_query_parser_extracts_code) ... ok
+test_query_parser_extracts_name_and_horizon (test_advice_harness.AdviceHarnessTests.test_query_parser_extracts_name_and_horizon) ... ok
+test_query_parser_handles_colloquial_add_position_sentence (test_advice_harness.AdviceHarnessTests.test_query_parser_handles_colloquial_add_position_sentence) ... ok
+test_query_parser_supports_plain_name_and_add_position (test_advice_harness.AdviceHarnessTests.test_query_parser_supports_plain_name_and_add_position) ... ok
+test_query_parser_trims_colloquial_suffix (test_advice_harness.AdviceHarnessTests.test_query_parser_trims_colloquial_suffix) ... ok
+test_style_based_query_returns_strategy_profile (test_advice_harness.AdviceHarnessTests.test_style_based_query_returns_strategy_profile) ... ok
+test_action_summary_prefers_live_priorities (test_decision_bundle.DecisionBundleTests.test_action_summary_prefers_live_priorities) ... ok
+test_action_summary_watch_section_prefers_alternative_hint (test_decision_bundle.DecisionBundleTests.test_action_summary_watch_section_prefers_alternative_hint) ... ok
+test_daily_report_prefers_realtime_market_state_probability (test_decision_bundle.DecisionBundleTests.test_daily_report_prefers_realtime_market_state_probability) ... ok
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+index dd74055e8f1371f4793a65ab999f9a90fa04f250..9a22232fec3bb4a930a769b6c1436d3e31b2f200
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+@@ -1,8 +1,12 @@
+ from __future__ import annotations
+ 
++import os
++import tempfile
+ from pathlib import Path
+ from typing import Any
+ 
++os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "matplotlib"))
++
+ import matplotlib
+ 
+ matplotlib.use("Agg")
+@@ -232,28 +236,23 @@
+ 
+ 
+ def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+-    pick = dict(payload.get("pick") or {})
++    report_payload = _normalize_best_stock_payload(payload, as_of=as_of)
++    pick = dict(report_payload.get("pick") or {})
+     code = str(pick.get("code") or "unknown")
+     root = ensure_dir(Path(config["project"]["report_dir"]) / as_of / "best_stock")
+     markdown_path = root / f"{code}_best_stock_report.md"
+     json_path = root / f"{code}_best_stock_report.json"
+-    report_payload = {
+-        "as_of": as_of,
+-        "strategy_style": str(payload.get("strategy_style") or (pick.get("metadata") or {}).get("strategy_style") or "general"),
+-        "pick": pick,
+-        "backtest": dict(payload.get("backtest") or {}),
+-        "market_view": dict(payload.get("market_view") or {}),
+-    }
+     write_text(markdown_path, render_best_stock_report(report_payload))
+     write_json(json_path, report_payload)
+     return {"markdown": str(markdown_path), "json": str(json_path)}
+ 
+ 
+ def render_best_stock_report(payload: dict[str, Any]) -> str:
+-    as_of = str(payload.get("as_of") or "")
+-    pick = dict(payload.get("pick") or {})
+-    backtest = dict(payload.get("backtest") or {})
+-    market_view = dict(payload.get("market_view") or {})
++    normalized = _normalize_best_stock_payload(payload, as_of=str(payload.get("as_of") or ""))
++    as_of = str(normalized.get("as_of") or "")
++    pick = dict(normalized.get("pick") or {})
++    backtest = dict(normalized.get("backtest") or {})
++    market_view = dict(normalized.get("market_view") or {})
+     metadata = dict(pick.get("metadata") or {})
+     selection_score = _coerce_float(
+         metadata.get("selection_score"),
+@@ -261,10 +260,12 @@
+         pick.get("priority_score"),
+         backtest.get("selection_score"),
+     )
+-    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or pick.get("action_label") or "待确认")
+     lines = [
+         "# 明日最优标的报告",
+         "",
++        "## 明日最优标的",
++        "",
+         f"- 截止日期: `{as_of}`",
+         f"- 策略风格: `{payload.get('strategy_style') or metadata.get('strategy_style') or 'general'}`",
+         f"- 最优标的: {pick.get('name') or pick.get('code') or '未知标的'}({pick.get('code') or 'unknown'})",
+@@ -298,14 +299,46 @@
+         lines.extend(["", "### 最近样本", ""])
+         for row in trades[:10]:
+             trade_score = _coerce_float(row.get("selection_score"), (row.get("metadata") or {}).get("selection_score"))
++            trade_action = str(row.get("trade_action") or row.get("decision") or "待确认")
+             lines.append(
+-                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
++                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 动作 `{trade_action}` | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
+             )
+     else:
+         lines.append("- 暂无可展示的历史样本。")
+     return "\n".join(lines) + "\n"
+ 
+ 
++def _normalize_best_stock_payload(payload: dict[str, Any], *, as_of: str) -> dict[str, Any]:
++    pick = dict(payload.get("pick") or {})
++    pick_metadata = dict(pick.get("metadata") or {})
++    strategy_style = str(payload.get("strategy_style") or pick.get("strategy_style") or pick_metadata.get("strategy_style") or "general")
++    selection_score = _coerce_float(
++        pick.get("selection_score"),
++        pick_metadata.get("selection_score"),
++        pick.get("priority_score"),
++        pick.get("total_score"),
++    )
++    pick_metadata["strategy_style"] = strategy_style
++    pick_metadata["selection_score"] = round(selection_score, 2)
++    normalized_pick = {
++        **pick,
++        "name": str(pick.get("name") or pick.get("code") or ""),
++        "selection_score": round(selection_score, 2),
++        "strategy_style": strategy_style,
++        "metadata": pick_metadata,
++    }
++    backtest = dict(payload.get("backtest") or {})
++    trades = [dict(item) for item in (backtest.get("trades") or [])]
++    normalized_backtest = {**backtest, "trades": trades}
++    return {
++        "as_of": str(as_of or payload.get("as_of") or ""),
++        "strategy_style": strategy_style,
++        "pick": normalized_pick,
++        "backtest": normalized_backtest,
++        "market_view": dict(payload.get("market_view") or {}),
++    }
++
++
+ def _coerce_float(*values: Any) -> float:
+     for value in values:
+         if value in (None, ""):
+
+exec
+/bin/zsh -lc "PYTHONPATH=src python3 - <<'PY'
+from pathlib import Path
+from tempfile import TemporaryDirectory
+import json
+from ashare_harness_v2.skill_harness import build_best_stock_report, render_best_stock_report
+payload = {
+    'strategy_style': 'pullback_accumulation',
+    'pick': {
+        'code': '300750',
+        'name': '测试股份',
+        'trade_action': 'buy',
+        'selection_score': 91.2,
+        'total_score': 88.8,
+        'coverage_score': 77.7,
+        'market_score': 66.6,
+        'summary': '摘要',
+        'thesis': '主线',
+        'position_guidance': '三成试仓',
+        'metadata': {'strategy_style': 'pullback_accumulation'},
+    },
+    'backtest': {
+        'trade_count': 2,
+        'win_rate': 0.5,
+        'average_return': 0.0123,
+        'median_return': 0.01,
+        'cumulative_return': 0.0247,
+        'max_drawdown': -0.03,
+        'trades': [
+            {'as_of': '2026-03-20', 'code': '300750', 'name': '测试股份', 'trade_action': 'buy', 'selection_score': 90, 'next_day_return': 0.02},
+            {'as_of': '2026-03-21', 'code': '300750', 'name': '测试股份', 'trade_action': 'hold', 'selection_score': 85, 'next_day_return': -0.01},
+        ],
+    },
+    'market_view': {'reason': ['市场原因']},
+}
+with TemporaryDirectory() as td:
+    artifacts = build_best_stock_report({'project': {'report_dir': td}}, as_of='2026-03-25', payload=payload)
+    markdown = Path(artifacts['markdown']).read_text(encoding='utf-8')
+    saved = json.loads(Path(artifacts['json']).read_text(encoding='utf-8'))
+    print('artifacts_exist', Path(artifacts['markdown']).exists(), Path(artifacts['json']).exists())
+    print('json_pick_code', saved['pick']['code'])
+    print('json_trade_count', saved['backtest']['trade_count'])
+    print('markdown_has_title', '## 明日最优标的' in markdown)
+    print('markdown_has_stock', '测试股份(300750)' in markdown)
+    print('markdown_has_backtest', '交易数 "'`2` | 胜率 `50.00%`'"' in markdown)
+    print('render_has_title', '## 明日最优标的' in render_best_stock_report(payload))
+PY" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 498ms:
+artifacts_exist True True
+json_pick_code 300750
+json_trade_count 2
+markdown_has_title True
+markdown_has_stock True
+markdown_has_backtest True
+render_has_title True
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+index dd74055e8f1371f4793a65ab999f9a90fa04f250..9a22232fec3bb4a930a769b6c1436d3e31b2f200
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+@@ -1,8 +1,12 @@
+ from __future__ import annotations
+ 
++import os
++import tempfile
+ from pathlib import Path
+ from typing import Any
+ 
++os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "matplotlib"))
++
+ import matplotlib
+ 
+ matplotlib.use("Agg")
+@@ -232,28 +236,23 @@
+ 
+ 
+ def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+-    pick = dict(payload.get("pick") or {})
++    report_payload = _normalize_best_stock_payload(payload, as_of=as_of)
++    pick = dict(report_payload.get("pick") or {})
+     code = str(pick.get("code") or "unknown")
+     root = ensure_dir(Path(config["project"]["report_dir"]) / as_of / "best_stock")
+     markdown_path = root / f"{code}_best_stock_report.md"
+     json_path = root / f"{code}_best_stock_report.json"
+-    report_payload = {
+-        "as_of": as_of,
+-        "strategy_style": str(payload.get("strategy_style") or (pick.get("metadata") or {}).get("strategy_style") or "general"),
+-        "pick": pick,
+-        "backtest": dict(payload.get("backtest") or {}),
+-        "market_view": dict(payload.get("market_view") or {}),
+-    }
+     write_text(markdown_path, render_best_stock_report(report_payload))
+     write_json(json_path, report_payload)
+     return {"markdown": str(markdown_path), "json": str(json_path)}
+ 
+ 
+ def render_best_stock_report(payload: dict[str, Any]) -> str:
+-    as_of = str(payload.get("as_of") or "")
+-    pick = dict(payload.get("pick") or {})
+-    backtest = dict(payload.get("backtest") or {})
+-    market_view = dict(payload.get("market_view") or {})
++    normalized = _normalize_best_stock_payload(payload, as_of=str(payload.get("as_of") or ""))
++    as_of = str(normalized.get("as_of") or "")
++    pick = dict(normalized.get("pick") or {})
++    backtest = dict(normalized.get("backtest") or {})
++    market_view = dict(normalized.get("market_view") or {})
+     metadata = dict(pick.get("metadata") or {})
+     selection_score = _coerce_float(
+         metadata.get("selection_score"),
+@@ -261,10 +260,12 @@
+         pick.get("priority_score"),
+         backtest.get("selection_score"),
+     )
+-    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or pick.get("action_label") or "待确认")
+     lines = [
+         "# 明日最优标的报告",
+         "",
++        "## 明日最优标的",
++        "",
+         f"- 截止日期: `{as_of}`",
+         f"- 策略风格: `{payload.get('strategy_style') or metadata.get('strategy_style') or 'general'}`",
+         f"- 最优标的: {pick.get('name') or pick.get('code') or '未知标的'}({pick.get('code') or 'unknown'})",
+@@ -298,14 +299,46 @@
+         lines.extend(["", "### 最近样本", ""])
+         for row in trades[:10]:
+             trade_score = _coerce_float(row.get("selection_score"), (row.get("metadata") or {}).get("selection_score"))
++            trade_action = str(row.get("trade_action") or row.get("decision") or "待确认")
+             lines.append(
+-                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
++                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 动作 `{trade_action}` | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
+             )
+     else:
+         lines.append("- 暂无可展示的历史样本。")
+     return "\n".join(lines) + "\n"
+ 
+ 
++def _normalize_best_stock_payload(payload: dict[str, Any], *, as_of: str) -> dict[str, Any]:
++    pick = dict(payload.get("pick") or {})
++    pick_metadata = dict(pick.get("metadata") or {})
++    strategy_style = str(payload.get("strategy_style") or pick.get("strategy_style") or pick_metadata.get("strategy_style") or "general")
++    selection_score = _coerce_float(
++        pick.get("selection_score"),
++        pick_metadata.get("selection_score"),
++        pick.get("priority_score"),
++        pick.get("total_score"),
++    )
++    pick_metadata["strategy_style"] = strategy_style
++    pick_metadata["selection_score"] = round(selection_score, 2)
++    normalized_pick = {
++        **pick,
++        "name": str(pick.get("name") or pick.get("code") or ""),
++        "selection_score": round(selection_score, 2),
++        "strategy_style": strategy_style,
++        "metadata": pick_metadata,
++    }
++    backtest = dict(payload.get("backtest") or {})
++    trades = [dict(item) for item in (backtest.get("trades") or [])]
++    normalized_backtest = {**backtest, "trades": trades}
++    return {
++        "as_of": str(as_of or payload.get("as_of") or ""),
++        "strategy_style": strategy_style,
++        "pick": normalized_pick,
++        "backtest": normalized_backtest,
++        "market_view": dict(payload.get("market_view") or {}),
++    }
++
++
+ def _coerce_float(*values: Any) -> float:
+     for value in values:
+         if value in (None, ""):
+
+exec
+/bin/zsh -lc 'git diff -- src/ashare_harness_v2/skill_harness/trading_reports.py src/ashare_harness_v2/skill_harness/__init__.py' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 exited 1 in 0ms:
+diff --git a/src/ashare_harness_v2/skill_harness/trading_reports.py b/src/ashare_harness_v2/skill_harness/__init__.py
+index 9a22232..d80f5fd 100644
+--- a/src/ashare_harness_v2/skill_harness/trading_reports.py
++++ b/src/ashare_harness_v2/skill_harness/__init__.py
+@@ -1,350 +1,13 @@
+-from __future__ import annotations
+-
+-import os
+-import tempfile
+-from pathlib import Path
+-from typing import Any
+-
+-os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "matplotlib"))
+-
+-import matplotlib
+-
+-matplotlib.use("Agg")
+-
+-import matplotlib.pyplot as plt
+-
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+index dd74055e8f1371f4793a65ab999f9a90fa04f250..9a22232fec3bb4a930a769b6c1436d3e31b2f200
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+@@ -1,8 +1,12 @@
+ from __future__ import annotations
+ 
++import os
++import tempfile
+ from pathlib import Path
+ from typing import Any
+ 
++os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "matplotlib"))
++
+ import matplotlib
+ 
+ matplotlib.use("Agg")
+@@ -232,28 +236,23 @@
+ 
+ 
+ def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+-    pick = dict(payload.get("pick") or {})
++    report_payload = _normalize_best_stock_payload(payload, as_of=as_of)
++    pick = dict(report_payload.get("pick") or {})
+     code = str(pick.get("code") or "unknown")
+     root = ensure_dir(Path(config["project"]["report_dir"]) / as_of / "best_stock")
+     markdown_path = root / f"{code}_best_stock_report.md"
+     json_path = root / f"{code}_best_stock_report.json"
+-    report_payload = {
+-        "as_of": as_of,
+-        "strategy_style": str(payload.get("strategy_style") or (pick.get("metadata") or {}).get("strategy_style") or "general"),
+-        "pick": pick,
+-        "backtest": dict(payload.get("backtest") or {}),
+-        "market_view": dict(payload.get("market_view") or {}),
+-    }
+     write_text(markdown_path, render_best_stock_report(report_payload))
+     write_json(json_path, report_payload)
+     return {"markdown": str(markdown_path), "json": str(json_path)}
+ 
+ 
+ def render_best_stock_report(payload: dict[str, Any]) -> str:
+-    as_of = str(payload.get("as_of") or "")
+-    pick = dict(payload.get("pick") or {})
+-    backtest = dict(payload.get("backtest") or {})
+-    market_view = dict(payload.get("market_view") or {})
++    normalized = _normalize_best_stock_payload(payload, as_of=str(payload.get("as_of") or ""))
++    as_of = str(normalized.get("as_of") or "")
++    pick = dict(normalized.get("pick") or {})
++    backtest = dict(normalized.get("backtest") or {})
++    market_view = dict(normalized.get("market_view") or {})
+     metadata = dict(pick.get("metadata") or {})
+     selection_score = _coerce_float(
+         metadata.get("selection_score"),
+@@ -261,10 +260,12 @@
+         pick.get("priority_score"),
+         backtest.get("selection_score"),
+     )
+-    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or pick.get("action_label") or "待确认")
+     lines = [
+         "# 明日最优标的报告",
+         "",
++        "## 明日最优标的",
++        "",
+         f"- 截止日期: `{as_of}`",
+         f"- 策略风格: `{payload.get('strategy_style') or metadata.get('strategy_style') or 'general'}`",
+         f"- 最优标的: {pick.get('name') or pick.get('code') or '未知标的'}({pick.get('code') or 'unknown'})",
+@@ -298,14 +299,46 @@
+         lines.extend(["", "### 最近样本", ""])
+         for row in trades[:10]:
+             trade_score = _coerce_float(row.get("selection_score"), (row.get("metadata") or {}).get("selection_score"))
++            trade_action = str(row.get("trade_action") or row.get("decision") or "待确认")
+             lines.append(
+-                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
++                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 动作 `{trade_action}` | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
+             )
+     else:
+         lines.append("- 暂无可展示的历史样本。")
+     return "\n".join(lines) + "\n"
+ 
+ 
++def _normalize_best_stock_payload(payload: dict[str, Any], *, as_of: str) -> dict[str, Any]:
++    pick = dict(payload.get("pick") or {})
++    pick_metadata = dict(pick.get("metadata") or {})
++    strategy_style = str(payload.get("strategy_style") or pick.get("strategy_style") or pick_metadata.get("strategy_style") or "general")
++    selection_score = _coerce_float(
++        pick.get("selection_score"),
++        pick_metadata.get("selection_score"),
++        pick.get("priority_score"),
++        pick.get("total_score"),
++    )
++    pick_metadata["strategy_style"] = strategy_style
++    pick_metadata["selection_score"] = round(selection_score, 2)
++    normalized_pick = {
++        **pick,
++        "name": str(pick.get("name") or pick.get("code") or ""),
++        "selection_score": round(selection_score, 2),
++        "strategy_style": strategy_style,
++        "metadata": pick_metadata,
++    }
++    backtest = dict(payload.get("backtest") or {})
++    trades = [dict(item) for item in (backtest.get("trades") or [])]
++    normalized_backtest = {**backtest, "trades": trades}
++    return {
++        "as_of": str(as_of or payload.get("as_of") or ""),
++        "strategy_style": strategy_style,
++        "pick": normalized_pick,
++        "backtest": normalized_backtest,
++        "market_view": dict(payload.get("market_view") or {}),
++    }
++
++
+ def _coerce_float(*values: Any) -> float:
+     for value in values:
+         if value in (None, ""):
+
+Plan update
+Captured the requested acceptance command failure and a broader unittest run. The specific acceptance file is absent, pytest is not installed, and the broader suite also has unrelated environment failures.
+  ✓ Inspect current report implementation and acceptance test expectations
+  ✓ Implement best-stock artifact generation within scoped files only
+  ✓ Run acceptance test and capture raw results
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+index dd74055e8f1371f4793a65ab999f9a90fa04f250..9a22232fec3bb4a930a769b6c1436d3e31b2f200
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+@@ -1,8 +1,12 @@
+ from __future__ import annotations
+ 
++import os
++import tempfile
+ from pathlib import Path
+ from typing import Any
+ 
++os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "matplotlib"))
++
+ import matplotlib
+ 
+ matplotlib.use("Agg")
+@@ -232,28 +236,23 @@
+ 
+ 
+ def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+-    pick = dict(payload.get("pick") or {})
++    report_payload = _normalize_best_stock_payload(payload, as_of=as_of)
++    pick = dict(report_payload.get("pick") or {})
+     code = str(pick.get("code") or "unknown")
+     root = ensure_dir(Path(config["project"]["report_dir"]) / as_of / "best_stock")
+     markdown_path = root / f"{code}_best_stock_report.md"
+     json_path = root / f"{code}_best_stock_report.json"
+-    report_payload = {
+-        "as_of": as_of,
+-        "strategy_style": str(payload.get("strategy_style") or (pick.get("metadata") or {}).get("strategy_style") or "general"),
+-        "pick": pick,
+-        "backtest": dict(payload.get("backtest") or {}),
+-        "market_view": dict(payload.get("market_view") or {}),
+-    }
+     write_text(markdown_path, render_best_stock_report(report_payload))
+     write_json(json_path, report_payload)
+     return {"markdown": str(markdown_path), "json": str(json_path)}
+ 
+ 
+ def render_best_stock_report(payload: dict[str, Any]) -> str:
+-    as_of = str(payload.get("as_of") or "")
+-    pick = dict(payload.get("pick") or {})
+-    backtest = dict(payload.get("backtest") or {})
+-    market_view = dict(payload.get("market_view") or {})
++    normalized = _normalize_best_stock_payload(payload, as_of=str(payload.get("as_of") or ""))
++    as_of = str(normalized.get("as_of") or "")
++    pick = dict(normalized.get("pick") or {})
++    backtest = dict(normalized.get("backtest") or {})
++    market_view = dict(normalized.get("market_view") or {})
+     metadata = dict(pick.get("metadata") or {})
+     selection_score = _coerce_float(
+         metadata.get("selection_score"),
+@@ -261,10 +260,12 @@
+         pick.get("priority_score"),
+         backtest.get("selection_score"),
+     )
+-    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or pick.get("action_label") or "待确认")
+     lines = [
+         "# 明日最优标的报告",
+         "",
++        "## 明日最优标的",
++        "",
+         f"- 截止日期: `{as_of}`",
+         f"- 策略风格: `{payload.get('strategy_style') or metadata.get('strategy_style') or 'general'}`",
+         f"- 最优标的: {pick.get('name') or pick.get('code') or '未知标的'}({pick.get('code') or 'unknown'})",
+@@ -298,14 +299,46 @@
+         lines.extend(["", "### 最近样本", ""])
+         for row in trades[:10]:
+             trade_score = _coerce_float(row.get("selection_score"), (row.get("metadata") or {}).get("selection_score"))
++            trade_action = str(row.get("trade_action") or row.get("decision") or "待确认")
+             lines.append(
+-                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
++                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 动作 `{trade_action}` | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
+             )
+     else:
+         lines.append("- 暂无可展示的历史样本。")
+     return "\n".join(lines) + "\n"
+ 
+ 
++def _normalize_best_stock_payload(payload: dict[str, Any], *, as_of: str) -> dict[str, Any]:
++    pick = dict(payload.get("pick") or {})
++    pick_metadata = dict(pick.get("metadata") or {})
++    strategy_style = str(payload.get("strategy_style") or pick.get("strategy_style") or pick_metadata.get("strategy_style") or "general")
++    selection_score = _coerce_float(
++        pick.get("selection_score"),
++        pick_metadata.get("selection_score"),
++        pick.get("priority_score"),
++        pick.get("total_score"),
++    )
++    pick_metadata["strategy_style"] = strategy_style
++    pick_metadata["selection_score"] = round(selection_score, 2)
++    normalized_pick = {
++        **pick,
++        "name": str(pick.get("name") or pick.get("code") or ""),
++        "selection_score": round(selection_score, 2),
++        "strategy_style": strategy_style,
++        "metadata": pick_metadata,
++    }
++    backtest = dict(payload.get("backtest") or {})
++    trades = [dict(item) for item in (backtest.get("trades") or [])]
++    normalized_backtest = {**backtest, "trades": trades}
++    return {
++        "as_of": str(as_of or payload.get("as_of") or ""),
++        "strategy_style": strategy_style,
++        "pick": normalized_pick,
++        "backtest": normalized_backtest,
++        "market_view": dict(payload.get("market_view") or {}),
++    }
++
++
+ def _coerce_float(*values: Any) -> float:
+     for value in values:
+         if value in (None, ""):
+
+codex
+{"status":"blocked","changed_files":["src/ashare_harness_v2/skill_harness/trading_reports.py"],"test_results":[{"name":"PYTHONPATH=src python3 -m pytest tests/test_best_stock_report_artifact.py -v","passed":false,"output":"/Users/fqyuki/.pyenv/versions/3.11.0/bin/python3: No module named pytest"},{"name":"PYTHONPATH=src python3 -m unittest discover -s tests -v","passed":false,"output":"odule_from_name(name)\n    __import__(name)\n  File \"/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/tests/test_supplemental_bridge.py\", line 18, in <module>\n    SCRIPT_SPEC.loader.exec_module(SUPPLEMENTAL_SCRIPT)\n  File \"/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/scripts/fetch_akshare_supplemental.py\", line 11, in <module>\n    import akshare as ak\nModuleNotFoundError: No module named 'akshare'\n\n----------------------------------------------------------------------\nRan 45 tests in 1.927s\n\nFAILED (errors=3)"}],"evidence":["find tests -name 'test_best_stock_report_artifact.py' returned no matches in the workspace.","Manual smoke check passed for scoped functionality: artifacts_exist True True; json_pick_code 300750; json_trade_count 2; markdown_has_title True; markdown_has_stock True; markdown_has_backtest True; render_has_title True.","Broader unittest discover failures were unrelated to the scoped files: local HTTP bind permission denied, outbound name resolution failed, and optional dependency 'akshare' was missing."]}
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+index dd74055e8f1371f4793a65ab999f9a90fa04f250..9a22232fec3bb4a930a769b6c1436d3e31b2f200
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/skill_harness/trading_reports.py
+@@ -1,8 +1,12 @@
+ from __future__ import annotations
+ 
++import os
++import tempfile
+ from pathlib import Path
+ from typing import Any
+ 
++os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "matplotlib"))
++
+ import matplotlib
+ 
+ matplotlib.use("Agg")
+@@ -232,28 +236,23 @@
+ 
+ 
+ def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+-    pick = dict(payload.get("pick") or {})
++    report_payload = _normalize_best_stock_payload(payload, as_of=as_of)
++    pick = dict(report_payload.get("pick") or {})
+     code = str(pick.get("code") or "unknown")
+     root = ensure_dir(Path(config["project"]["report_dir"]) / as_of / "best_stock")
+     markdown_path = root / f"{code}_best_stock_report.md"
+     json_path = root / f"{code}_best_stock_report.json"
+-    report_payload = {
+-        "as_of": as_of,
+-        "strategy_style": str(payload.get("strategy_style") or (pick.get("metadata") or {}).get("strategy_style") or "general"),
+-        "pick": pick,
+-        "backtest": dict(payload.get("backtest") or {}),
+-        "market_view": dict(payload.get("market_view") or {}),
+-    }
+     write_text(markdown_path, render_best_stock_report(report_payload))
+     write_json(json_path, report_payload)
+     return {"markdown": str(markdown_path), "json": str(json_path)}
+ 
+ 
+ def render_best_stock_report(payload: dict[str, Any]) -> str:
+-    as_of = str(payload.get("as_of") or "")
+-    pick = dict(payload.get("pick") or {})
+-    backtest = dict(payload.get("backtest") or {})
+-    market_view = dict(payload.get("market_view") or {})
++    normalized = _normalize_best_stock_payload(payload, as_of=str(payload.get("as_of") or ""))
++    as_of = str(normalized.get("as_of") or "")
++    pick = dict(normalized.get("pick") or {})
++    backtest = dict(normalized.get("backtest") or {})
++    market_view = dict(normalized.get("market_view") or {})
+     metadata = dict(pick.get("metadata") or {})
+     selection_score = _coerce_float(
+         metadata.get("selection_score"),
+@@ -261,10 +260,12 @@
+         pick.get("priority_score"),
+         backtest.get("selection_score"),
+     )
+-    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or pick.get("action_label") or "待确认")
+     lines = [
+         "# 明日最优标的报告",
+         "",
++        "## 明日最优标的",
++        "",
+         f"- 截止日期: `{as_of}`",
+         f"- 策略风格: `{payload.get('strategy_style') or metadata.get('strategy_style') or 'general'}`",
+         f"- 最优标的: {pick.get('name') or pick.get('code') or '未知标的'}({pick.get('code') or 'unknown'})",
+@@ -298,14 +299,46 @@
+         lines.extend(["", "### 最近样本", ""])
+         for row in trades[:10]:
+             trade_score = _coerce_float(row.get("selection_score"), (row.get("metadata") or {}).get("selection_score"))
++            trade_action = str(row.get("trade_action") or row.get("decision") or "待确认")
+             lines.append(
+-                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
++                f"- {row.get('as_of') or 'unknown'} | {row.get('name') or row.get('code') or '未知'}({row.get('code') or 'unknown'}) | 动作 `{trade_action}` | 分数 `{trade_score:.2f}` | 次日 `{_coerce_float(row.get('next_day_return')):+.2%}`"
+             )
+     else:
+         lines.append("- 暂无可展示的历史样本。")
+     return "\n".join(lines) + "\n"
+ 
+ 
++def _normalize_best_stock_payload(payload: dict[str, Any], *, as_of: str) -> dict[str, Any]:
++    pick = dict(payload.get("pick") or {})
++    pick_metadata = dict(pick.get("metadata") or {})
++    strategy_style = str(payload.get("strategy_style") or pick.get("strategy_style") or pick_metadata.get("strategy_style") or "general")
++    selection_score = _coerce_float(
++        pick.get("selection_score"),
++        pick_metadata.get("selection_score"),
++        pick.get("priority_score"),
++        pick.get("total_score"),
++    )
++    pick_metadata["strategy_style"] = strategy_style
++    pick_metadata["selection_score"] = round(selection_score, 2)
++    normalized_pick = {
++        **pick,
++        "name": str(pick.get("name") or pick.get("code") or ""),
++        "selection_score": round(selection_score, 2),
++        "strategy_style": strategy_style,
++        "metadata": pick_metadata,
++    }
++    backtest = dict(payload.get("backtest") or {})
++    trades = [dict(item) for item in (backtest.get("trades") or [])]
++    normalized_backtest = {**backtest, "trades": trades}
++    return {
++        "as_of": str(as_of or payload.get("as_of") or ""),
++        "strategy_style": strategy_style,
++        "pick": normalized_pick,
++        "backtest": normalized_backtest,
++        "market_view": dict(payload.get("market_view") or {}),
++    }
++
++
+ def _coerce_float(*values: Any) -> float:
+     for value in values:
+         if value in (None, ""):
+
+tokens used
+171,980
+2026-03-26T06:13:13.037339Z ERROR rmcp::transport::streamable_http_client: fail to delete session: Client error: HTTP status client error (401 Unauthorized) for url (https://mcp.notion.com/mcp) session_id="9413375d344dbadfc89eea91b8dda002ba8a268001c12a95b1837cd2b481dae1"

@@ -1,0 +1,30 @@
+[
+  {
+    "packet_id": "wp1",
+    "title": "Smoke 模块与独立测试",
+    "result": {
+      "status": "completed",
+      "changed_files": [
+        "src/ashare_harness_v2/_delegate_smoke.py",
+        "tests/test_delegate_smoke.py"
+      ],
+      "test_results": [
+        {
+          "name": "PYTHONPATH=src python3 -m unittest tests.test_delegate_smoke -v",
+          "passed": true,
+          "output": "test_smoke_message_matches_expected_literal (tests.test_delegate_smoke.DelegateSmokeTests.test_smoke_message_matches_expected_literal) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+        },
+        {
+          "name": "PYTHONPATH=src python3 tests/test_delegate_smoke.py",
+          "passed": true,
+          "output": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+        }
+      ],
+      "evidence": []
+    },
+    "artifact": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_160027/workers/iteration_1/wp1/response.json",
+    "stdout": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_160027/workers/iteration_1/wp1/stdout.log",
+    "stderr": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_160027/workers/iteration_1/wp1/stderr.log",
+    "session_id": null
+  }
+]

@@ -1,0 +1,715 @@
+{
+  "as_of": "2026-03-25",
+  "question": {
+    "raw_query": "三花智控趋势跟随现在能买吗",
+    "normalized_query": "三花智控趋势跟随现在能买吗",
+    "question_type": "should_buy",
+    "horizon": "swing",
+    "risk_profile": "balanced",
+    "wants_discovery": false,
+    "strategy_style": "trend_following",
+    "symbol_hint": null,
+    "stock_name_hint": "三花智控",
+    "has_position_hint": null
+  },
+  "security": {
+    "code": "002050",
+    "name": "三花智控",
+    "category": "query",
+    "sector": "通用设备"
+  },
+  "plan": {
+    "use_market": true,
+    "use_sector": true,
+    "use_stock": true,
+    "use_timing": true,
+    "use_discovery": false,
+    "need_announcements": true,
+    "need_supplemental": true,
+    "need_sector_proxy": false
+  },
+  "decision": "watch",
+  "confidence": 0.1717,
+  "summary": "三花智控 当前策略为“替代更优标的”。 综合分 24.0，市场分 28.6，覆盖度 98.0。",
+  "thesis": "三花智控 的主逻辑是 营收同比 +10.97%；利润同比 +31.10%，但 20日收益 -19.27%，中期趋势仍弱，所以当前策略是“替代更优标的”。",
+  "scorecard": {
+    "market_score": 28.64,
+    "sector_score": 67.7,
+    "stock_score": 51.93,
+    "timing_score": 38.98,
+    "risk_penalty": 23.0,
+    "missing_data_penalty": 0.0,
+    "coverage_score": 98.0,
+    "total_score": 24.04
+  },
+  "positive_factors": [
+    "营收同比 +10.97%。",
+    "利润同比 +31.10%。",
+    "ROE 15.8%。",
+    "毛利率 28.8%。",
+    "ROIC 13.3%。",
+    "量比 1.28x，量能有确认。"
+  ],
+  "negative_factors": [
+    "20日收益 -19.27%，中期趋势仍弱。",
+    "相对强弱 -14.15%，弱于基准。",
+    "近5日主力资金净流出。",
+    "主力净占比 -9.06%。",
+    "5日收益 -7.23%，短期仍在走弱。",
+    "距20日高点 -18.37%，位置仍偏弱。"
+  ],
+  "counter_evidence": [
+    "20日收益 -19.27%，中期趋势仍弱。",
+    "相对强弱 -14.15%，弱于基准。",
+    "近5日主力资金净流出。",
+    "主力净占比 -9.06%。",
+    "5日收益 -7.23%，短期仍在走弱。",
+    "距20日高点 -18.37%，位置仍偏弱。"
+  ],
+  "missing_information": [],
+  "next_checks": [
+    "先等指数和市场广度修复，再看个股确认。",
+    "先观察是否回到20日高点附近，再评估右侧买点。"
+  ],
+  "trigger_conditions": [
+    "若必须在同类标的里选一只，优先看 迪森股份 的触发条件。",
+    "先等指数和市场广度修复，再看个股确认。"
+  ],
+  "invalidation_conditions": [
+    "只有当 三花智控 重新强于 迪森股份，才恢复优先级。",
+    "若跌破 42.57，从候选名单降级。"
+  ],
+  "action_plan": {
+    "action": "switch_to_better_alternative",
+    "label": "替代更优标的",
+    "rationale": "三花智控 当前不是最优资金去处，优先关注 迪森股份。",
+    "position_guidance": "当前不分配仓位给 三花智控，把候选额度留给 迪森股份。",
+    "urgency": "low",
+    "urgency_score": 66.0,
+    "levels": {},
+    "trigger_conditions": [
+      "若必须在同类标的里选一只，优先看 迪森股份 的触发条件。",
+      "先等指数和市场广度修复，再看个股确认。"
+    ],
+    "invalidation_conditions": [
+      "只有当 三花智控 重新强于 迪森股份，才恢复优先级。",
+      "若跌破 42.57，从候选名单降级。"
+    ],
+    "do_not": [
+      "不要在没有触发条件前提前追单。",
+      "不要把单票仓位一次性打满。",
+      "不要忽略市场状态对个股执行的影响。"
+    ],
+    "monitoring_focus": [
+      "对比 三花智控 与 迪森股份 的相对强弱。",
+      "观察价格相对 52.15 / 42.57 的反应。"
+    ]
+  },
+  "strategy_profile": {
+    "style": "trend_following",
+    "label": "趋势跟随",
+    "policy_summary": "趋势跟随视角下，当前不是先猜低点，而是等趋势确认后再执行“替代更优标的”。",
+    "regime_overlay": "当前市场偏弱，趋势策略只保留右侧确认后的轻仓试错。",
+    "checklist": [
+      "只在放量突破或相对强弱修复后执行。",
+      "仓位随确认程度递增，先试后放大。",
+      "跌破关键支撑时不做左侧摊低。"
+    ],
+    "do_not": [
+      "不要把回踩猜测当成趋势确认。",
+      "不要在弱市场里用趋势策略重仓抢反弹。"
+    ],
+    "preferred_actions": [
+      "等放量突破",
+      "试仓",
+      "正常仓",
+      "趋势加仓"
+    ]
+  },
+  "position_guidance": "当前不分配仓位给 三花智控，把候选额度留给 迪森股份。",
+  "evidence_used": [
+    {
+      "category": "market",
+      "signal": "negative",
+      "strength": 28.64,
+      "summary": "沪深300 5日收益 -5.35%，20日收益 -5.12%。",
+      "source": "decision_bundle.market_view",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "action": "risk_off",
+        "label": "偏空"
+      }
+    },
+    {
+      "category": "technical",
+      "signal": "negative",
+      "strength": 50.0,
+      "summary": "趋势分 50.0，20日相对强弱 -14.15%。",
+      "source": "daily_features",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "code": "002050"
+      }
+    },
+    {
+      "category": "timing",
+      "signal": "negative",
+      "strength": 24.76098044105904,
+      "summary": "距20日高点 -18.37%，5日量比 1.28x。",
+      "source": "daily_features",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "code": "002050"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-24 公告：2026年3月24日投资者关系活动记录表",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-24/1225027462.PDF"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-24 公告：中信证券股份有限公司关于浙江三花智能控制股份有限公司2025年度募集资金存放与使用情况的核查意见",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-24/1225026549.PDF"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-24 公告：关于续聘2026年度审计机构的公告",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-24/1225026548.PDF"
+      }
+    },
+    {
+      "category": "pdf_insight",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-24 PDF 深读：2026年3月24日投资者关系活动记录表。提炼结论：本公告以常规披露为主，未形成明确交易催化。",
+      "source": "pdf_skill",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "title": "2026年3月24日投资者关系活动记录表",
+        "pdf_path": "data/output/pdf/2026-03-25/002050/065963178778.pdf",
+        "text_path": "data/output/pdf/2026-03-25/002050/065963178778.txt"
+      }
+    },
+    {
+      "category": "pdf_insight",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-24 PDF 深读：中信证券股份有限公司关于浙江三花智能控制股份有限公司2025年度募集资金存放与使用情况的核查意见。提炼结论：本公告信息中性，主要用于更新事实背景，不改变当前交易计划。",
+      "source": "pdf_skill",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "title": "中信证券股份有限公司关于浙江三花智能控制股份有限公司2025年度募集资金存放与使用情况的核查意见",
+        "pdf_path": "data/output/pdf/2026-03-25/002050/dad6e95db825.pdf",
+        "text_path": "data/output/pdf/2026-03-25/002050/dad6e95db825.txt"
+      }
+    },
+    {
+      "category": "fundamental",
+      "signal": "positive",
+      "strength": 65.0,
+      "summary": "营收同比 +10.97%，利润同比 +31.10%，ROE 15.8%。",
+      "source": "supplemental.fundamentals",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "keys": [
+          "bps",
+          "debt_to_asset",
+          "eps",
+          "gross_margin",
+          "net_margin",
+          "notice_date",
+          "operating_cashflow_margin",
+          "operating_cashflow_yoy",
+          "profit_growth_yoy",
+          "report_date",
+          "revenue_growth_yoy",
+          "roe",
+          "roic"
+        ]
+      }
+    },
+    {
+      "category": "valuation",
+      "signal": "neutral",
+      "strength": 55.0,
+      "summary": "PE 41.3x，PB 5.64x。",
+      "source": "supplemental.valuation",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "keys": [
+          "industry_name",
+          "pb",
+          "pe_ttm"
+        ]
+      }
+    },
+    {
+      "category": "capital_flow",
+      "signal": "neutral",
+      "strength": 55.0,
+      "summary": "5日主力净流入 -16.34 亿，5日主力净占比 -9.06%。",
+      "source": "supplemental.capital_flow",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "keys": [
+          "close_price",
+          "latest_date",
+          "main_net_flow_1d",
+          "main_net_flow_5d",
+          "main_net_ratio_1d",
+          "main_net_ratio_5d",
+          "pct_change_1d"
+        ]
+      }
+    },
+    {
+      "category": "company",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "所属行业 通用设备制造业，主营 冷热转换、智能控制的环境热管理解决方案开发，建筑暖通、电器设备和汽车热管理领域的专业化经营。。",
+      "source": "supplemental.company_info",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "keys": [
+          "business",
+          "business_outline",
+          "business_scope",
+          "code",
+          "company_name",
+          "industry_changed_at",
+          "industry_large",
+          "industry_medium",
+          "industry_name",
+          "industry_root",
+          "industry_small",
+          "industry_standard",
+          "listing_date",
+          "market",
+          "name",
+          "product_types",
+          "products",
+          "sector_match",
+          "sector_match_source",
+          "selected_indexes",
+          "website"
+        ]
+      }
+    }
+  ],
+  "better_candidates": [
+    {
+      "code": "300335",
+      "name": "迪森股份",
+      "decision": "watch",
+      "trade_action": "只观察",
+      "total_score": 60.23,
+      "coverage_score": 85.0,
+      "market_score": 28.64,
+      "summary": "迪森股份 当前策略为“只观察”。 综合分 60.2，市场分 28.6，覆盖度 85.0。",
+      "thesis": "迪森股份 的主逻辑是 20日收益 +32.91%，趋势延续性较强；相对强弱 +38.03%，强于基准，但 ROE 3.5%，所以当前策略是“只观察”。",
+      "catalysts": [
+        "20日收益 +32.91%，趋势延续性较强。",
+        "相对强弱 +38.03%，强于基准。",
+        "经营现金流同比 +11.14%。"
+      ],
+      "risks": [
+        "ROE 3.5%。",
+        "PE 60.0x。",
+        "20日波动率 5.72% 偏高。"
+      ],
+      "trigger_conditions": [
+        "等指数修复后，再看是否放量突破 8.40。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若相对强弱转负或跌破 7.00，降出重点观察名单。"
+      ],
+      "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+      "priority_score": 65.0,
+      "action_plan": {
+        "action": "watch_market_turn",
+        "label": "只观察",
+        "rationale": "迪森股份 自身质量不差，但当前更大的约束来自市场而不是个股。",
+        "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+        "urgency": "low",
+        "urgency_score": 57.0,
+        "levels": {
+          "breakout_price": 8.4,
+          "support_price": 7.0,
+          "pullback_price": 7.492,
+          "retest_price": 8.4
+        },
+        "trigger_conditions": [
+          "等指数修复后，再看是否放量突破 8.40。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若相对强弱转负或跌破 7.00，降出重点观察名单。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 8.40 / 7.00 的反应。",
+          "20日收益 +32.91%，趋势延续性较强。",
+          "ROE 3.5%。"
+        ]
+      },
+      "metadata": {
+        "sector": "电力",
+        "sector_proxy": false,
+        "style_fit_score": 8.0,
+        "selection_score": 65.0,
+        "strategy_style": "trend_following"
+      }
+    },
+    {
+      "code": "002565",
+      "name": "顺灏股份",
+      "decision": "watch",
+      "trade_action": "只观察",
+      "total_score": 58.02,
+      "coverage_score": 85.0,
+      "market_score": 28.64,
+      "summary": "顺灏股份 当前策略为“只观察”。 综合分 58.0，市场分 28.6，覆盖度 85.0。",
+      "thesis": "顺灏股份 的主逻辑是 相对强弱 +13.01%，强于基准；利润同比 +20.29%，但 营收同比 -20.57%，所以当前策略是“只观察”。",
+      "catalysts": [
+        "相对强弱 +13.01%，强于基准。",
+        "利润同比 +20.29%。",
+        "毛利率 27.0%。"
+      ],
+      "risks": [
+        "营收同比 -20.57%。",
+        "ROE 3.6%。",
+        "经营现金流同比 -33.79%。"
+      ],
+      "trigger_conditions": [
+        "等指数修复后，再看是否放量突破 16.97。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若相对强弱转负或跌破 13.19，降出重点观察名单。"
+      ],
+      "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+      "priority_score": 65.0,
+      "action_plan": {
+        "action": "watch_market_turn",
+        "label": "只观察",
+        "rationale": "顺灏股份 自身质量不差，但当前更大的约束来自市场而不是个股。",
+        "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+        "urgency": "low",
+        "urgency_score": 57.0,
+        "levels": {
+          "breakout_price": 16.97,
+          "support_price": 13.19,
+          "pullback_price": 14.902,
+          "retest_price": 16.97
+        },
+        "trigger_conditions": [
+          "等指数修复后，再看是否放量突破 16.97。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若相对强弱转负或跌破 13.19，降出重点观察名单。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 16.97 / 13.19 的反应。",
+          "相对强弱 +13.01%，强于基准。",
+          "营收同比 -20.57%。"
+        ]
+      },
+      "metadata": {
+        "sector": "包装印刷",
+        "sector_proxy": false,
+        "style_fit_score": 8.0,
+        "selection_score": 65.0,
+        "strategy_style": "trend_following"
+      }
+    },
+    {
+      "code": "002594",
+      "name": "比亚迪",
+      "decision": "watch",
+      "trade_action": "只观察",
+      "total_score": 55.45,
+      "coverage_score": 85.0,
+      "market_score": 28.64,
+      "summary": "比亚迪 当前策略为“只观察”。 综合分 55.5，市场分 28.6，覆盖度 85.0。",
+      "thesis": "比亚迪 的主逻辑是 20日收益 +20.95%，趋势延续性较强；相对强弱 +26.07%，强于基准，但 经营现金流同比 -76.84%，所以当前策略是“只观察”。",
+      "catalysts": [
+        "20日收益 +20.95%，趋势延续性较强。",
+        "相对强弱 +26.07%，强于基准。",
+        "营收同比 +12.75%。"
+      ],
+      "risks": [
+        "经营现金流同比 -76.84%。",
+        "资产负债率 71.4% 偏高。",
+        "市场环境偏空，新开仓需要明显折价。"
+      ],
+      "trigger_conditions": [
+        "等指数修复后，再看是否放量突破 109.18。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若相对强弱转负或跌破 96.60，降出重点观察名单。"
+      ],
+      "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+      "priority_score": 65.0,
+      "action_plan": {
+        "action": "watch_market_turn",
+        "label": "只观察",
+        "rationale": "比亚迪 自身质量不差，但当前更大的约束来自市场而不是个股。",
+        "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+        "urgency": "low",
+        "urgency_score": 57.0,
+        "levels": {
+          "breakout_price": 109.18,
+          "support_price": 96.6,
+          "pullback_price": 103.816,
+          "retest_price": 109.18
+        },
+        "trigger_conditions": [
+          "等指数修复后，再看是否放量突破 109.18。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若相对强弱转负或跌破 96.60，降出重点观察名单。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 109.18 / 96.60 的反应。",
+          "20日收益 +20.95%，趋势延续性较强。",
+          "经营现金流同比 -76.84%。"
+        ]
+      },
+      "metadata": {
+        "sector": "汽车整车",
+        "sector_proxy": false,
+        "style_fit_score": 8.0,
+        "selection_score": 65.0,
+        "strategy_style": "trend_following"
+      }
+    },
+    {
+      "code": "603026",
+      "name": "石大胜华",
+      "decision": "watch",
+      "trade_action": "只观察",
+      "total_score": 53.42,
+      "coverage_score": 80.0,
+      "market_score": 28.64,
+      "summary": "石大胜华 当前策略为“只观察”。 综合分 53.4，市场分 28.6，覆盖度 80.0。",
+      "thesis": "石大胜华 的主逻辑是 20日收益 +16.73%，趋势延续性较强；相对强弱 +21.85%，强于基准，但 利润同比 -652.16%，所以当前策略是“只观察”。",
+      "catalysts": [
+        "20日收益 +16.73%，趋势延续性较强。",
+        "相对强弱 +21.85%，强于基准。",
+        "营收同比 +11.41%。"
+      ],
+      "risks": [
+        "利润同比 -652.16%。",
+        "ROE -1.5%。",
+        "市场环境偏空，新开仓需要明显折价。"
+      ],
+      "trigger_conditions": [
+        "等指数修复后，再看是否放量突破 77.37。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若相对强弱转负或跌破 64.71，降出重点观察名单。"
+      ],
+      "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+      "priority_score": 64.62,
+      "action_plan": {
+        "action": "watch_market_turn",
+        "label": "只观察",
+        "rationale": "石大胜华 自身质量不差，但当前更大的约束来自市场而不是个股。",
+        "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+        "urgency": "low",
+        "urgency_score": 57.0,
+        "levels": {
+          "breakout_price": 77.37,
+          "support_price": 64.71,
+          "pullback_price": 73.336,
+          "retest_price": 77.37
+        },
+        "trigger_conditions": [
+          "等指数修复后，再看是否放量突破 77.37。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若相对强弱转负或跌破 64.71，降出重点观察名单。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 77.37 / 64.71 的反应。",
+          "20日收益 +16.73%，趋势延续性较强。",
+          "利润同比 -652.16%。"
+        ]
+      },
+      "metadata": {
+        "sector": "电池",
+        "sector_proxy": false,
+        "style_fit_score": 7.62,
+        "selection_score": 64.62,
+        "strategy_style": "trend_following"
+      }
+    },
+    {
+      "code": "601985",
+      "name": "中国核电",
+      "decision": "watch",
+      "trade_action": "只观察",
+      "total_score": 58.75,
+      "coverage_score": 85.0,
+      "market_score": 28.64,
+      "summary": "中国核电 当前策略为“只观察”。 综合分 58.8，市场分 28.6，覆盖度 85.0。",
+      "thesis": "中国核电 的主逻辑是 相对强弱 +12.75%，强于基准；毛利率 44.0%，但 利润同比 -10.42%，所以当前策略是“只观察”。",
+      "catalysts": [
+        "相对强弱 +12.75%，强于基准。",
+        "毛利率 44.0%。",
+        "距20日高点 -0.76%，接近突破位。"
+      ],
+      "risks": [
+        "利润同比 -10.42%。",
+        "ROE 7.1%。",
+        "经营现金流同比 -15.40%。"
+      ],
+      "trigger_conditions": [
+        "等指数修复后，再看是否放量突破 9.24。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若相对强弱转负或跌破 8.85，降出重点观察名单。"
+      ],
+      "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+      "priority_score": 63.99,
+      "action_plan": {
+        "action": "watch_market_turn",
+        "label": "只观察",
+        "rationale": "中国核电 自身质量不差，但当前更大的约束来自市场而不是个股。",
+        "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+        "urgency": "low",
+        "urgency_score": 57.0,
+        "levels": {
+          "breakout_price": 9.24,
+          "support_price": 8.85,
+          "pullback_price": 8.938,
+          "retest_price": 9.17
+        },
+        "trigger_conditions": [
+          "等指数修复后，再看是否放量突破 9.24。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若相对强弱转负或跌破 8.85，降出重点观察名单。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 9.24 / 8.85 的反应。",
+          "相对强弱 +12.75%，强于基准。",
+          "利润同比 -10.42%。"
+        ]
+      },
+      "metadata": {
+        "sector": "电力",
+        "sector_proxy": false,
+        "style_fit_score": 6.99,
+        "selection_score": 63.99,
+        "strategy_style": "trend_following"
+      }
+    }
+  ],
+  "position_context": {
+    "is_holding": false,
+    "market_value": 0.0,
+    "position_weight": 0.0,
+    "sector_weight": 0.0,
+    "pnl_pct": null,
+    "cost_price": null,
+    "last_price": null,
+    "total_equity": 10000.0,
+    "exposure_ratio": 1.0,
+    "effective_sector": "通用设备"
+  },
+  "pdf_insights": [
+    {
+      "published_at": "2026-03-24",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-24 PDF 深读：2026年3月24日投资者关系活动记录表。提炼结论：本公告以常规披露为主，未形成明确交易催化。",
+      "key_lines": [],
+      "pdf_path": "data/output/pdf/2026-03-25/002050/065963178778.pdf",
+      "text_path": "data/output/pdf/2026-03-25/002050/065963178778.txt",
+      "verified": true,
+      "title": "2026年3月24日投资者关系活动记录表",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-24/1225027462.PDF"
+    },
+    {
+      "published_at": "2026-03-24",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-24 PDF 深读：中信证券股份有限公司关于浙江三花智能控制股份有限公司2025年度募集资金存放与使用情况的核查意见。提炼结论：本公告信息中性，主要用于更新事实背景，不改变当前交易计划。",
+      "key_lines": [],
+      "pdf_path": "data/output/pdf/2026-03-25/002050/dad6e95db825.pdf",
+      "text_path": "data/output/pdf/2026-03-25/002050/dad6e95db825.txt",
+      "verified": true,
+      "title": "中信证券股份有限公司关于浙江三花智能控制股份有限公司2025年度募集资金存放与使用情况的核查意见",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-24/1225026549.PDF"
+    }
+  ],
+  "artifacts": {
+    "markdown": "data/output/reports/2026-03-25/advice/002050_investment_report.md",
+    "json": "data/output/reports/2026-03-25/advice/002050_investment_report.json",
+    "price_chart": "data/output/reports/2026-03-25/advice/charts/002050_price_chart.png",
+    "momentum_chart": "data/output/reports/2026-03-25/advice/charts/002050_momentum_chart.png"
+  }
+}

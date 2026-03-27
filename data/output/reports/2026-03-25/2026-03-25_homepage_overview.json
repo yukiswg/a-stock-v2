@@ -1,0 +1,2910 @@
+{
+  "as_of": "2026-03-25",
+  "today_action": "防守期，今天先处理：先处理 潞安环能 的破位减仓；先处理 科创50 的破位减仓。",
+  "market_state": {
+    "label": "偏空",
+    "regime": "防守期",
+    "score": 39.47,
+    "probability": 0.3947,
+    "baseline_regime": "防守期",
+    "baseline_score": 39.47,
+    "baseline_probability": 0.3947,
+    "summary": "防守期下，当前更适合执行“新开仓从严控制”而不是平均分配火力。",
+    "policy": [
+      "新开仓从严控制",
+      "优先处理弱持仓和破位风险",
+      "只保留少量观察名单"
+    ]
+  },
+  "market_label": "偏空",
+  "market_probability": 0.3947,
+  "price_mode": "reference_close",
+  "price_section_title": "参考收盘价（非实时）",
+  "price_note": "未运行实时会话；以下为最近可用收盘价，仅供盘前或离线参考。",
+  "current_prices": [
+    {
+      "code": "601699",
+      "name": "潞安环能",
+      "last_price": "13.87",
+      "ret_day": "-5.32%",
+      "timestamp": "2026-03-25 close",
+      "freshness": "eod"
+    },
+    {
+      "code": "588000",
+      "name": "科创50",
+      "last_price": "1.392",
+      "ret_day": "+2.43%",
+      "timestamp": "2026-03-25 close",
+      "freshness": "eod"
+    },
+    {
+      "code": "000978",
+      "name": "桂林旅游",
+      "last_price": "7.38",
+      "ret_day": "+9.99%",
+      "timestamp": "2026-03-25 close",
+      "freshness": "eod"
+    },
+    {
+      "code": "513310",
+      "name": "中韩芯片",
+      "last_price": "3.888",
+      "ret_day": "+2.53%",
+      "timestamp": "2026-03-25 close",
+      "freshness": "eod"
+    },
+    {
+      "code": "600988",
+      "name": "赤峰黄金",
+      "last_price": "38.69",
+      "ret_day": "+7.12%",
+      "timestamp": "2026-03-25 close",
+      "freshness": "eod"
+    }
+  ],
+  "latest_alerts": [],
+  "priority_actions": [
+    {
+      "bucket": "holding_risk",
+      "headline": "先处理 潞安环能 的破位减仓",
+      "code": "601699",
+      "name": "潞安环能",
+      "action": "cut_on_breakdown",
+      "action_label": "破位减仓",
+      "priority_score": 105.0,
+      "score": 24.52,
+      "reason": "潞安环能 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+      "thesis": "潞安环能 的主逻辑是 毛利率 34.1%；近5日主力资金净流入，但 营收同比 -20.82%，所以当前策略是“破位减仓”。",
+      "trigger": "若跌破 13.87 且相对强弱继续走弱，立即执行减仓。",
+      "invalidation": "若 13.87 一带止跌并重新收回 14.55，先降级为观察，不急着继续减仓。",
+      "strategy_style": "",
+      "strategy_label": "",
+      "positive_factors": [
+        "毛利率 34.1%。",
+        "近5日主力资金净流入。",
+        "5日收益 -2.87%，短期节奏中性偏稳。"
+      ],
+      "negative_factors": [
+        "营收同比 -20.82%。",
+        "利润同比 -44.45%。",
+        "ROE 3.3%。"
+      ],
+      "counterpoints": [
+        "营收同比 -20.82%。",
+        "利润同比 -44.45%。",
+        "ROE 3.3%。"
+      ],
+      "risk": [
+        "若 13.87 一带止跌并重新收回 14.55，先降级为观察，不急着继续减仓。"
+      ],
+      "coverage_score": 98.0,
+      "position_context": {
+        "is_holding": true,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 3500.0,
+        "position_weight": 0.35,
+        "sector_weight": 0.35,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": 13.87,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "能源金属",
+        "holding_sector": "煤炭",
+        "sector_weight_basis": "煤炭",
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {},
+      "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+      "levels": {
+        "breakout_price": 15.4,
+        "support_price": 13.87,
+        "pullback_price": 14.55,
+        "retest_price": 14.92,
+        "stop_price": 13.454,
+        "entry_reward_risk": 3.68,
+        "entry_upside_pct": 11.03,
+        "entry_downside_pct": 3.0,
+        "box_position_pct": 0.0
+      },
+      "technical_action_label": "破位减仓",
+      "display_action_label": "先别加仓，跌破再减一点",
+      "canonical_action_label": "破位减仓",
+      "display_reason": "潞安环能 现在先别加仓。 重点盯住 13.87 这条防线，跌破再减一点。 只有重新回到 14.55 上方，才先改回观察。",
+      "display_trigger": "只有跌破 13.87，才执行减一点。",
+      "display_invalidation": "如果重新回到 14.55 上方，就先别继续减。",
+      "analysis_summary": "潞安环能先做风险处理，不把反弹当默认剧本。",
+      "analysis_core_reason": "潞安环能先做风险处理，不把反弹当默认剧本。 毛利率 34.1%。 执行位在 13.87 一带，重点是先守住风控。",
+      "analysis_risk": "营收同比 -20.82%。；利润同比 -44.45%。",
+      "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 35.0%；同主题合计约 35.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+      "analysis_comparison": ""
+    },
+    {
+      "bucket": "holding_risk",
+      "headline": "先处理 科创50 的破位减仓",
+      "code": "588000",
+      "name": "科创50",
+      "action": "cut_on_breakdown",
+      "action_label": "破位减仓",
+      "priority_score": 105.0,
+      "score": 0.0,
+      "reason": "科创50 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+      "thesis": "科创50 的主逻辑是 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）；距20日高点 -11.11%，处于中部偏低区域，赔率尚可，但 20日收益 -10.31%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+      "trigger": "若跌破 1.33 且相对强弱继续走弱，立即执行减仓。",
+      "invalidation": "若重新站回 1.41 且成交恢复，可转回观察。",
+      "strategy_style": "",
+      "strategy_label": "",
+      "positive_factors": [
+        "5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。",
+        "距20日高点 -11.11%，处于中部偏低区域，赔率尚可。"
+      ],
+      "negative_factors": [
+        "20日收益 -10.31%，中期趋势仍弱。",
+        "相对强弱 -6.04%，弱于基准。",
+        "量比 0.52x，量能严重不足。"
+      ],
+      "counterpoints": [
+        "20日收益 -10.31%，中期趋势仍弱。",
+        "相对强弱 -6.04%，弱于基准。",
+        "量比 0.52x，量能严重不足。"
+      ],
+      "risk": [
+        "若重新站回 1.41 且成交恢复，可转回观察。"
+      ],
+      "coverage_score": 42.0,
+      "position_context": {
+        "is_holding": true,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 5000.0,
+        "position_weight": 0.5,
+        "sector_weight": 0.5,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": 1.392,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "宽基ETF",
+        "holding_sector": "宽基ETF",
+        "sector_weight_basis": "宽基ETF",
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {},
+      "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+      "levels": {
+        "breakout_price": 1.566,
+        "support_price": 1.329,
+        "pullback_price": 1.376,
+        "retest_price": 1.411,
+        "stop_price": 1.289,
+        "entry_reward_risk": 1.69,
+        "entry_upside_pct": 12.5,
+        "entry_downside_pct": 7.4,
+        "box_position_pct": 26.58
+      },
+      "technical_action_label": "破位减仓",
+      "display_action_label": "先别加仓，跌破再减一点",
+      "canonical_action_label": "破位减仓",
+      "display_reason": "科创50 现在先别加仓。 重点盯住 1.329 这条防线，跌破再减一点。 只有重新回到 1.376 上方，才先改回观察。",
+      "display_trigger": "只有跌破 1.329，才执行减一点。",
+      "display_invalidation": "如果重新回到 1.376 上方，就先别继续减。",
+      "analysis_summary": "科创50先做风险处理，不把反弹当默认剧本。",
+      "analysis_core_reason": "科创50先做风险处理，不把反弹当默认剧本。 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。 执行位在 1.329 一带，重点是先守住风控。",
+      "analysis_risk": "20日收益 -10.31%，中期趋势仍弱。；相对强弱 -6.04%，弱于基准。",
+      "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 50.0%；同主题合计约 50.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+      "analysis_comparison": ""
+    },
+    {
+      "bucket": "watch_opportunity",
+      "headline": "观察 桂林旅游 的等放量突破触发",
+      "code": "000978",
+      "name": "桂林旅游",
+      "action": "wait_for_breakout",
+      "action_label": "等放量突破",
+      "priority_score": 65.84,
+      "score": 58.37,
+      "reason": "桂林旅游 接近关键位，但还没给出值得执行的确认。",
+      "thesis": "桂林旅游 的主逻辑是 相对强弱 +7.92%，强于基准；利润同比 +425.76%，但 ROE 3.3%，所以当前策略是“等放量突破”。",
+      "trigger": "只有放量突破 7.43，才升级为试仓。",
+      "invalidation": "若回落跌破 6.42，取消突破预案。",
+      "strategy_style": "defensive_quality",
+      "strategy_label": "防守质量",
+      "positive_factors": [
+        "相对强弱 +7.92%，强于基准。",
+        "利润同比 +425.76%。",
+        "经营现金流同比 +74.62%。"
+      ],
+      "negative_factors": [
+        "ROE 3.3%。",
+        "PE 97.1x。",
+        "近5日主力资金净流出。"
+      ],
+      "counterpoints": [
+        "ROE 3.3%。",
+        "PE 97.1x。",
+        "近5日主力资金净流出。"
+      ],
+      "risk": [
+        "若回落跌破 6.42，取消突破预案。"
+      ],
+      "coverage_score": 85.0,
+      "position_context": {
+        "is_holding": false,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 0.0,
+        "position_weight": 0.0,
+        "sector_weight": 0.0,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": null,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "旅游及酒店",
+        "holding_sector": null,
+        "sector_weight_basis": null,
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {},
+      "position_guidance": "先观察，不提前追价。",
+      "levels": {
+        "breakout_price": 7.43,
+        "support_price": 6.42,
+        "pullback_price": 6.956,
+        "retest_price": 7.38,
+        "stop_price": 6.227,
+        "entry_reward_risk": 0.04,
+        "entry_upside_pct": 0.68,
+        "entry_downside_pct": 15.62,
+        "box_position_pct": 95.05
+      },
+      "technical_action_label": "等放量突破",
+      "display_action_label": "先观察，站上再看",
+      "canonical_action_label": "突破跟随",
+      "display_reason": "桂林旅游 现在先观察。 只有站上关键价 7.43 且量能放大，才考虑买。",
+      "display_trigger": "只在站上 7.43 且量能放大时再考虑。",
+      "display_invalidation": "如果没站上关键价前先跌破 6.42，就继续观察。",
+      "analysis_summary": "桂林旅游不是因为涨了才买，而是等 7.43 的确认再执行。",
+      "analysis_core_reason": "桂林旅游不是因为涨了才买，而是等 7.43 的确认再执行。 相对强弱 +7.92%，强于基准。 利润同比 +425.76%。",
+      "analysis_risk": "ROE 3.3%。；PE 97.1x。",
+      "analysis_position": "先观察，不提前追价。",
+      "analysis_comparison": ""
+    }
+  ],
+  "holdings_risks": [
+    {
+      "code": "601699",
+      "name": "潞安环能",
+      "action": "cut_on_breakdown",
+      "action_label": "破位减仓",
+      "score": 24.52,
+      "priority_score": 97.0,
+      "reason": "潞安环能 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+      "thesis": "潞安环能 的主逻辑是 毛利率 34.1%；近5日主力资金净流入，但 营收同比 -20.82%，所以当前策略是“破位减仓”。",
+      "trigger": "若跌破 13.87 且相对强弱继续走弱，立即执行减仓。",
+      "invalidation": "若 13.87 一带止跌并重新收回 14.55，先降级为观察，不急着继续减仓。",
+      "strategy_style": "",
+      "strategy_label": "",
+      "positive_factors": [
+        "毛利率 34.1%。",
+        "近5日主力资金净流入。",
+        "5日收益 -2.87%，短期节奏中性偏稳。"
+      ],
+      "negative_factors": [
+        "营收同比 -20.82%。",
+        "利润同比 -44.45%。",
+        "ROE 3.3%。"
+      ],
+      "counterpoints": [
+        "营收同比 -20.82%。",
+        "利润同比 -44.45%。",
+        "ROE 3.3%。"
+      ],
+      "risk": [
+        "若 13.87 一带止跌并重新收回 14.55，先降级为观察，不急着继续减仓。"
+      ],
+      "coverage_score": 98.0,
+      "position_context": {
+        "is_holding": true,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 3500.0,
+        "position_weight": 0.35,
+        "sector_weight": 0.35,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": 13.87,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "能源金属",
+        "holding_sector": "煤炭",
+        "sector_weight_basis": "煤炭",
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {},
+      "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+      "levels": {
+        "breakout_price": 15.4,
+        "support_price": 13.87,
+        "pullback_price": 14.55,
+        "retest_price": 14.92,
+        "stop_price": 13.454,
+        "entry_reward_risk": 3.68,
+        "entry_upside_pct": 11.03,
+        "entry_downside_pct": 3.0,
+        "box_position_pct": 0.0
+      },
+      "prediction_bundle": {
+        "code": "601699",
+        "name": "潞安环能",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 13.87,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 14.0,
+          "predicted_return": 0.009347,
+          "confidence": 0.65,
+          "confidence_band_upper": 14.258,
+          "confidence_band_lower": 13.742,
+          "method": "mean_reversion",
+          "reasoning": [
+            "当前价偏离5日均线 -4.67%，剩余 50% 交易时间，均值回归修正预期 0.93%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 13.87,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 14.269,
+          "predicted_return": 0.028788,
+          "confidence": 0.55,
+          "confidence_band_upper": 14.58,
+          "confidence_band_lower": 13.958,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 1.0042（日均漂移 +0.424%）。",
+            "当前价偏离20日均线 -4.97%（BB位置 1%），偏低，有回归压力。",
+            "今日振幅 4.33% 较大，下方支撑较强。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 13.87,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 13.889,
+          "predicted_return": 0.001342,
+          "confidence": 0.478,
+          "confidence_band_upper": 14.222,
+          "confidence_band_lower": 13.556,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日跌幅 -5.32% 属于大跌日，历史次日平均收益 -0.266%，次日有反弹修复可能。",
+            "当前处于20日低位（0%），历史上此类位置次日反弹概率偏高。",
+            "历史样本 121 天，胜率约 39%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 13.87,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 14.105,
+          "predicted_return": 0.016911,
+          "confidence": 0.424,
+          "confidence_band_upper": 14.504,
+          "confidence_band_lower": 13.706,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 -0.0276%，10日预期偏移 +1.69%（上涨）。",
+            "历史10日正收益概率 40%（样本 526 个区间）。",
+            "当前趋势得分 34，中长期偏弱。",
+            "相对强弱 +0.79%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 13.87,
+          "source_data_quality": "full"
+        }
+      },
+      "technical_action_label": "破位减仓",
+      "display_action_label": "先别加仓，跌破再减一点",
+      "canonical_action_label": "破位减仓",
+      "display_reason": "潞安环能 现在先别加仓。 重点盯住 13.87 这条防线，跌破再减一点。 只有重新回到 14.55 上方，才先改回观察。",
+      "display_trigger": "只有跌破 13.87，才执行减一点。",
+      "display_invalidation": "如果重新回到 14.55 上方，就先别继续减。",
+      "analysis_summary": "潞安环能先做风险处理，不把反弹当默认剧本。",
+      "analysis_core_reason": "潞安环能先做风险处理，不把反弹当默认剧本。 毛利率 34.1%。 执行位在 13.87 一带，重点是先守住风控。",
+      "analysis_risk": "营收同比 -20.82%。；利润同比 -44.45%。",
+      "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 35.0%；同主题合计约 35.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+      "analysis_comparison": ""
+    },
+    {
+      "code": "588000",
+      "name": "科创50",
+      "action": "cut_on_breakdown",
+      "action_label": "破位减仓",
+      "score": 0.0,
+      "priority_score": 97.0,
+      "reason": "科创50 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+      "thesis": "科创50 的主逻辑是 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）；距20日高点 -11.11%，处于中部偏低区域，赔率尚可，但 20日收益 -10.31%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+      "trigger": "若跌破 1.33 且相对强弱继续走弱，立即执行减仓。",
+      "invalidation": "若重新站回 1.41 且成交恢复，可转回观察。",
+      "strategy_style": "",
+      "strategy_label": "",
+      "positive_factors": [
+        "5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。",
+        "距20日高点 -11.11%，处于中部偏低区域，赔率尚可。"
+      ],
+      "negative_factors": [
+        "20日收益 -10.31%，中期趋势仍弱。",
+        "相对强弱 -6.04%，弱于基准。",
+        "量比 0.52x，量能严重不足。"
+      ],
+      "counterpoints": [
+        "20日收益 -10.31%，中期趋势仍弱。",
+        "相对强弱 -6.04%，弱于基准。",
+        "量比 0.52x，量能严重不足。"
+      ],
+      "risk": [
+        "若重新站回 1.41 且成交恢复，可转回观察。"
+      ],
+      "coverage_score": 42.0,
+      "position_context": {
+        "is_holding": true,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 5000.0,
+        "position_weight": 0.5,
+        "sector_weight": 0.5,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": 1.392,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "宽基ETF",
+        "holding_sector": "宽基ETF",
+        "sector_weight_basis": "宽基ETF",
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {},
+      "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+      "levels": {
+        "breakout_price": 1.566,
+        "support_price": 1.329,
+        "pullback_price": 1.376,
+        "retest_price": 1.411,
+        "stop_price": 1.289,
+        "entry_reward_risk": 1.69,
+        "entry_upside_pct": 12.5,
+        "entry_downside_pct": 7.4,
+        "box_position_pct": 26.58
+      },
+      "prediction_bundle": {
+        "code": "588000",
+        "name": "科创50",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 1.392,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 1.392,
+          "predicted_return": 0.0,
+          "confidence": 0.509,
+          "confidence_band_upper": 1.425,
+          "confidence_band_lower": 1.359,
+          "method": "mean_reversion",
+          "reasoning": [
+            "价格贴近均线，均值回归效应不明显，预期偏中性。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 1.392,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 1.426,
+          "predicted_return": 0.024293,
+          "confidence": 0.55,
+          "confidence_band_upper": 1.457,
+          "confidence_band_lower": 1.395,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 1.0003（日均漂移 +0.025%）。",
+            "当前价偏离20日均线 -4.41%（BB位置 23%），偏低，有回归压力。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 1.392,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 1.397,
+          "predicted_return": 0.003641,
+          "confidence": 0.491,
+          "confidence_band_upper": 1.431,
+          "confidence_band_lower": 1.363,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨幅 +2.43% 属于大涨日，历史数据次日平均收益 +0.364%，次日倾向于继续走强。",
+            "历史样本 88 天，胜率约 45%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 1.392,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 1.225,
+          "predicted_return": -0.12,
+          "confidence": 0.497,
+          "confidence_band_upper": 1.255,
+          "confidence_band_lower": 1.195,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 -0.6451%，10日预期偏移 -21.56%（下跌）。",
+            "历史10日正收益概率 50%（样本 526 个区间）。",
+            "当前趋势得分 10，中长期偏弱。",
+            "相对强弱 -6.04%，弱于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 1.392,
+          "source_data_quality": "full"
+        }
+      },
+      "technical_action_label": "破位减仓",
+      "display_action_label": "先别加仓，跌破再减一点",
+      "canonical_action_label": "破位减仓",
+      "display_reason": "科创50 现在先别加仓。 重点盯住 1.329 这条防线，跌破再减一点。 只有重新回到 1.376 上方，才先改回观察。",
+      "display_trigger": "只有跌破 1.329，才执行减一点。",
+      "display_invalidation": "如果重新回到 1.376 上方，就先别继续减。",
+      "analysis_summary": "科创50先做风险处理，不把反弹当默认剧本。",
+      "analysis_core_reason": "科创50先做风险处理，不把反弹当默认剧本。 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。 执行位在 1.329 一带，重点是先守住风控。",
+      "analysis_risk": "20日收益 -10.31%，中期趋势仍弱。；相对强弱 -6.04%，弱于基准。",
+      "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 50.0%；同主题合计约 50.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+      "analysis_comparison": ""
+    }
+  ],
+  "watch_opportunities": [
+    {
+      "code": "000978",
+      "name": "桂林旅游",
+      "action": "wait_for_breakout",
+      "action_label": "等放量突破",
+      "score": 58.37,
+      "priority_score": 65.84,
+      "reason": "桂林旅游 接近关键位，但还没给出值得执行的确认。",
+      "thesis": "桂林旅游 的主逻辑是 相对强弱 +7.92%，强于基准；利润同比 +425.76%，但 ROE 3.3%，所以当前策略是“等放量突破”。",
+      "trigger": "只有放量突破 7.43，才升级为试仓。",
+      "invalidation": "若回落跌破 6.42，取消突破预案。",
+      "strategy_style": "defensive_quality",
+      "strategy_label": "防守质量",
+      "positive_factors": [
+        "相对强弱 +7.92%，强于基准。",
+        "利润同比 +425.76%。",
+        "经营现金流同比 +74.62%。"
+      ],
+      "negative_factors": [
+        "ROE 3.3%。",
+        "PE 97.1x。",
+        "近5日主力资金净流出。"
+      ],
+      "counterpoints": [
+        "ROE 3.3%。",
+        "PE 97.1x。",
+        "近5日主力资金净流出。"
+      ],
+      "risk": [
+        "若回落跌破 6.42，取消突破预案。"
+      ],
+      "coverage_score": 85.0,
+      "position_context": {
+        "is_holding": false,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 0.0,
+        "position_weight": 0.0,
+        "sector_weight": 0.0,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": null,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "旅游及酒店",
+        "holding_sector": null,
+        "sector_weight_basis": null,
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {},
+      "position_guidance": "先观察，不提前追价。",
+      "levels": {
+        "breakout_price": 7.43,
+        "support_price": 6.42,
+        "pullback_price": 6.956,
+        "retest_price": 7.38,
+        "stop_price": 6.227,
+        "entry_reward_risk": 0.04,
+        "entry_upside_pct": 0.68,
+        "entry_downside_pct": 15.62,
+        "box_position_pct": 95.05
+      },
+      "prediction_bundle": {
+        "code": "000978",
+        "name": "桂林旅游",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 7.38,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 7.29,
+          "predicted_return": -0.012191,
+          "confidence": 0.65,
+          "confidence_band_upper": 7.425,
+          "confidence_band_lower": 7.155,
+          "method": "mean_reversion",
+          "reasoning": [
+            "当前价偏离5日均线 +6.10%，剩余 50% 交易时间，均值回归修正预期 1.22%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 7.38,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 7.213,
+          "predicted_return": -0.022652,
+          "confidence": 0.55,
+          "confidence_band_upper": 7.37,
+          "confidence_band_lower": 7.056,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 0.9995（日均漂移 -0.047%）。",
+            "当前价偏离20日均线 +4.15%（BB位置 80%），偏高，有回归压力。",
+            "今日振幅 8.94% 较大，收盘偏回归压力。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 7.38,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 7.368,
+          "predicted_return": -0.001692,
+          "confidence": 0.506,
+          "confidence_band_upper": 7.545,
+          "confidence_band_lower": 7.191,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨幅 +9.99% 属于大涨日，历史数据次日平均收益 +0.231%，次日略有均值回归压力。",
+            "当前处于20日高位（95%），历史上此类位置次日胜率偏低。",
+            "历史样本 89 天，胜率约 53%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 7.38,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 8.487,
+          "predicted_return": 0.15,
+          "confidence": 0.53,
+          "confidence_band_upper": 8.679,
+          "confidence_band_lower": 8.295,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 +0.0518%，10日预期偏移 +20.99%（上涨）。",
+            "历史10日正收益概率 54%（样本 526 个区间）。",
+            "当前趋势得分 67，支撑中长期方向。",
+            "相对强弱 +7.92%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 7.38,
+          "source_data_quality": "full"
+        }
+      },
+      "technical_action_label": "等放量突破",
+      "display_action_label": "先观察，站上再看",
+      "canonical_action_label": "突破跟随",
+      "display_reason": "桂林旅游 现在先观察。 只有站上关键价 7.43 且量能放大，才考虑买。",
+      "display_trigger": "只在站上 7.43 且量能放大时再考虑。",
+      "display_invalidation": "如果没站上关键价前先跌破 6.42，就继续观察。",
+      "analysis_summary": "桂林旅游不是因为涨了才买，而是等 7.43 的确认再执行。",
+      "analysis_core_reason": "桂林旅游不是因为涨了才买，而是等 7.43 的确认再执行。 相对强弱 +7.92%，强于基准。 利润同比 +425.76%。",
+      "analysis_risk": "ROE 3.3%。；PE 97.1x。",
+      "analysis_position": "先观察，不提前追价。",
+      "analysis_comparison": ""
+    },
+    {
+      "code": "600988",
+      "name": "赤峰黄金",
+      "action": "switch_to_better_alternative",
+      "action_label": "替代标的",
+      "score": 60.3,
+      "priority_score": 55.0,
+      "reason": "赤峰黄金 当前不是最优资金去处，优先看 桂林旅游。",
+      "thesis": "赤峰黄金 不是完全不能做，但当前执行位和资金效率都弱于 桂林旅游。",
+      "trigger": "若同梯队必须选一只，先等 桂林旅游 满足“等放量突破”条件。",
+      "invalidation": "只有当 赤峰黄金 重新强于 桂林旅游，才恢复优先级。",
+      "strategy_style": "defensive_quality",
+      "strategy_label": "防守质量",
+      "positive_factors": [
+        "相对强弱 +7.99%，强于基准。",
+        "营收同比 +40.03%。",
+        "利润同比 +74.70%。"
+      ],
+      "negative_factors": [
+        "主力净占比 -5.02%。",
+        "20日波动率 4.20% 略高。",
+        "市场环境偏谨慎，买入阈值应提高。"
+      ],
+      "counterpoints": [
+        "与 桂林旅游 相比，当前更缺少马上执行的理由。",
+        "主力净占比 -5.02%。",
+        "20日波动率 4.20% 略高。"
+      ],
+      "risk": [
+        "若跌破 36.12，从候选名单降级。"
+      ],
+      "coverage_score": 85.0,
+      "position_context": {
+        "is_holding": false,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 0.0,
+        "position_weight": 0.0,
+        "sector_weight": 0.0,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": null,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "贵金属",
+        "holding_sector": null,
+        "sector_weight_basis": null,
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {
+        "code": "000978",
+        "name": "桂林旅游",
+        "action_label": "等放量突破",
+        "priority_gap": 10.84
+      },
+      "position_guidance": "不给 赤峰黄金 分配新仓，候选额度优先留给 桂林旅游。",
+      "levels": {
+        "breakout_price": 43.91,
+        "support_price": 36.12,
+        "pullback_price": 38.476,
+        "retest_price": 40.82,
+        "stop_price": 35.036,
+        "entry_reward_risk": 1.43,
+        "entry_upside_pct": 13.49,
+        "entry_downside_pct": 9.44,
+        "box_position_pct": 32.99
+      },
+      "prediction_bundle": {
+        "code": "600988",
+        "name": "赤峰黄金",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 38.69,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 38.69,
+          "predicted_return": 0.0,
+          "confidence": 0.478,
+          "confidence_band_upper": 39.662,
+          "confidence_band_lower": 37.718,
+          "method": "mean_reversion",
+          "reasoning": [
+            "价格贴近均线，均值回归效应不明显，预期偏中性。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 38.69,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 39.591,
+          "predicted_return": 0.023287,
+          "confidence": 0.55,
+          "confidence_band_upper": 40.455,
+          "confidence_band_lower": 38.727,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 1.0094（日均漂移 +0.939%）。",
+            "当前价偏离20日均线 -3.76%（BB位置 29%），偏低，有回归压力。",
+            "今日振幅 4.94% 较大，下方支撑较强。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 38.69,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 38.758,
+          "predicted_return": 0.001764,
+          "confidence": 0.493,
+          "confidence_band_upper": 39.688,
+          "confidence_band_lower": 37.828,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨幅 +7.12% 属于大涨日，历史数据次日平均收益 +0.176%，次日略有均值回归压力。",
+            "历史样本 140 天，胜率约 46%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 38.69,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 44.493,
+          "predicted_return": 0.15,
+          "confidence": 0.521,
+          "confidence_band_upper": 45.517,
+          "confidence_band_lower": 43.469,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 -0.2675%，10日预期偏移 +17.99%（上涨）。",
+            "历史10日正收益概率 53%（样本 524 个区间）。",
+            "当前趋势得分 67，支撑中长期方向。",
+            "相对强弱 +7.99%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 38.69,
+          "source_data_quality": "full"
+        }
+      },
+      "technical_action_label": "替代标的",
+      "display_action_label": "先看更强的替代标的",
+      "canonical_action_label": "替代标的",
+      "display_reason": "赤峰黄金 不是当前最优先的选择，先看更强的替代标的。",
+      "display_trigger": "若同梯队必须选一只，先等 桂林旅游 满足“等放量突破”条件。",
+      "display_invalidation": "只有当 赤峰黄金 重新强于 桂林旅游，才恢复优先级。",
+      "analysis_summary": "赤峰黄金不是完全没逻辑，但当前资金效率不如 桂林旅游。",
+      "analysis_core_reason": "赤峰黄金不是完全没逻辑，但当前资金效率不如 桂林旅游。 同阶段先把候选额度留给 桂林旅游。 相对强弱 +7.99%，强于基准。",
+      "analysis_risk": "与 桂林旅游 相比，当前更缺少马上执行的理由。；主力净占比 -5.02%。",
+      "analysis_position": "不给 赤峰黄金 分配新仓，候选额度优先留给 桂林旅游。",
+      "analysis_comparison": "同梯队更值得先看的标的是 桂林旅游，当前优先级高出 10.8 分。"
+    },
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "action": "switch_to_better_alternative",
+      "action_label": "替代标的",
+      "score": 55.43,
+      "priority_score": 55.0,
+      "reason": "宁德时代 当前不是最优资金去处，优先看 桂林旅游。",
+      "thesis": "宁德时代 不是完全不能做，但当前执行位和资金效率都弱于 桂林旅游。",
+      "trigger": "若同梯队必须选一只，先等 桂林旅游 满足“等放量突破”条件。",
+      "invalidation": "只有当 宁德时代 重新强于 桂林旅游，才恢复优先级。",
+      "strategy_style": "defensive_quality",
+      "strategy_label": "防守质量",
+      "positive_factors": [
+        "20日收益 +8.64%，趋势延续性较强。",
+        "相对强弱 +12.90%，强于基准。",
+        "营收同比 +17.04%。"
+      ],
+      "negative_factors": [
+        "近5日主力资金净流出。",
+        "主力净占比 -2.45%。",
+        "量比 0.34x，量能严重不足。"
+      ],
+      "counterpoints": [
+        "与 桂林旅游 相比，当前更缺少马上执行的理由。",
+        "近5日主力资金净流出。",
+        "主力净占比 -2.45%。"
+      ],
+      "risk": [
+        "若跌破 393.46，从候选名单降级。"
+      ],
+      "coverage_score": 85.0,
+      "position_context": {
+        "is_holding": false,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 0.0,
+        "position_weight": 0.0,
+        "sector_weight": 0.0,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": null,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "电池",
+        "holding_sector": null,
+        "sector_weight_basis": null,
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {
+        "code": "000978",
+        "name": "桂林旅游",
+        "action_label": "等放量突破",
+        "priority_gap": 10.84
+      },
+      "position_guidance": "不给 宁德时代 分配新仓，候选额度优先留给 桂林旅游。",
+      "levels": {
+        "breakout_price": 413.0,
+        "support_price": 393.46,
+        "pullback_price": 401.188,
+        "retest_price": 413.0,
+        "stop_price": 381.656,
+        "entry_reward_risk": 1.66,
+        "entry_upside_pct": 4.97,
+        "entry_downside_pct": 3.0,
+        "box_position_pct": 0.0
+      },
+      "prediction_bundle": {
+        "code": "300750",
+        "name": "宁德时代",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 393.46,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 393.46,
+          "predicted_return": 0.0,
+          "confidence": 0.546,
+          "confidence_band_upper": 402.103,
+          "confidence_band_lower": 384.817,
+          "method": "mean_reversion",
+          "reasoning": [
+            "价格贴近均线，均值回归效应不明显，预期偏中性。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 393.46,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 384.358,
+          "predicted_return": -0.023133,
+          "confidence": 0.55,
+          "confidence_band_upper": 392.744,
+          "confidence_band_lower": 375.972,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 0.9972（日均漂移 -0.276%）。",
+            "当前价偏离20日均线 +4.08%（BB位置 64%），偏高，有回归压力。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 393.46,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 394.508,
+          "predicted_return": 0.002664,
+          "confidence": 0.489,
+          "confidence_band_upper": 403.976,
+          "confidence_band_lower": 385.04,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨跌幅 -0.89% 属于震荡日，历史次日平均收益 +0.266%，无明显方向偏向。",
+            "历史样本 311 天，胜率约 44%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 393.46,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 452.479,
+          "predicted_return": 0.15,
+          "confidence": 0.558,
+          "confidence_band_upper": 462.213,
+          "confidence_band_lower": 442.745,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 +1.0878%，10日预期偏移 +44.26%（上涨）。",
+            "历史10日正收益概率 57%（样本 526 个区间）。",
+            "当前趋势得分 78，支撑中长期方向。",
+            "相对强弱 +12.90%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 393.46,
+          "source_data_quality": "full"
+        }
+      },
+      "technical_action_label": "替代标的",
+      "display_action_label": "先看更强的替代标的",
+      "canonical_action_label": "替代标的",
+      "display_reason": "宁德时代 不是当前最优先的选择，先看更强的替代标的。",
+      "display_trigger": "若同梯队必须选一只，先等 桂林旅游 满足“等放量突破”条件。",
+      "display_invalidation": "只有当 宁德时代 重新强于 桂林旅游，才恢复优先级。",
+      "analysis_summary": "宁德时代不是完全没逻辑，但当前资金效率不如 桂林旅游。",
+      "analysis_core_reason": "宁德时代不是完全没逻辑，但当前资金效率不如 桂林旅游。 同阶段先把候选额度留给 桂林旅游。 20日收益 +8.64%，趋势延续性较强。",
+      "analysis_risk": "与 桂林旅游 相比，当前更缺少马上执行的理由。；近5日主力资金净流出。",
+      "analysis_position": "不给 宁德时代 分配新仓，候选额度优先留给 桂林旅游。",
+      "analysis_comparison": "同梯队更值得先看的标的是 桂林旅游，当前优先级高出 10.8 分。"
+    },
+    {
+      "code": "301419",
+      "name": "阿莱德",
+      "action": "switch_to_better_alternative",
+      "action_label": "替代标的",
+      "score": 50.1,
+      "priority_score": 42.0,
+      "reason": "阿莱德 当前不是最优资金去处，优先看 桂林旅游。",
+      "thesis": "阿莱德 不是完全不能做，但当前执行位和资金效率都弱于 桂林旅游。",
+      "trigger": "若同梯队必须选一只，先等 桂林旅游 满足“等放量突破”条件。",
+      "invalidation": "只有当 阿莱德 重新强于 桂林旅游，才恢复优先级。",
+      "strategy_style": "defensive_quality",
+      "strategy_label": "防守质量",
+      "positive_factors": [
+        "20日收益 +20.97%，趋势延续性较强。",
+        "相对强弱 +25.23%，强于基准。",
+        "营收同比 +25.11%。"
+      ],
+      "negative_factors": [
+        "ROE 5.5%。",
+        "PE 100.6x。",
+        "近期5日涨幅 +12.72%，需等待确认，勿追高。"
+      ],
+      "counterpoints": [
+        "与 桂林旅游 相比，当前更缺少马上执行的理由。",
+        "ROE 5.5%。",
+        "PE 100.6x。"
+      ],
+      "risk": [
+        "若继续跌破 35.07，维持回避。"
+      ],
+      "coverage_score": 85.0,
+      "position_context": {
+        "is_holding": false,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 0.0,
+        "position_weight": 0.0,
+        "sector_weight": 0.0,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": null,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "消费电子",
+        "holding_sector": null,
+        "sector_weight_basis": null,
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {
+        "code": "000978",
+        "name": "桂林旅游",
+        "action_label": "等放量突破",
+        "priority_gap": 23.84
+      },
+      "position_guidance": "不给 阿莱德 分配新仓，候选额度优先留给 桂林旅游。",
+      "levels": {
+        "breakout_price": 43.79,
+        "support_price": 35.07,
+        "pullback_price": 38.478,
+        "retest_price": 43.79,
+        "stop_price": 34.018,
+        "entry_reward_risk": 0.0,
+        "entry_upside_pct": 0.0,
+        "entry_downside_pct": 22.32,
+        "box_position_pct": 100.0
+      },
+      "prediction_bundle": {
+        "code": "301419",
+        "name": "阿莱德",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 43.79,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 42.581,
+          "predicted_return": -0.027611,
+          "confidence": 0.65,
+          "confidence_band_upper": 43.367,
+          "confidence_band_lower": 41.795,
+          "method": "mean_reversion",
+          "reasoning": [
+            "当前价偏离5日均线 +13.81%，剩余 50% 交易时间，均值回归修正预期 2.76%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 43.79,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 42.038,
+          "predicted_return": -0.04,
+          "confidence": 0.55,
+          "confidence_band_upper": 42.955,
+          "confidence_band_lower": 41.121,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 1.0030（日均漂移 +0.304%）。",
+            "当前价偏离20日均线 +17.59%（BB位置 132%），偏高，有回归压力。",
+            "今日振幅 14.34% 较大，收盘偏回归压力。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 43.79,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 43.901,
+          "predicted_return": 0.002544,
+          "confidence": 0.503,
+          "confidence_band_upper": 44.955,
+          "confidence_band_lower": 42.847,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨幅 +20.01% 属于大涨日，历史数据次日平均收益 +0.654%，次日倾向于继续走强。",
+            "当前处于20日高位（100%），历史上此类位置次日胜率偏低。",
+            "历史样本 149 天，胜率约 52%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 43.79,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 50.358,
+          "predicted_return": 0.15,
+          "confidence": 0.549,
+          "confidence_band_upper": 51.459,
+          "confidence_band_lower": 49.257,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 +0.4981%，10日预期偏移 +69.94%（上涨）。",
+            "历史10日正收益概率 56%（样本 526 个区间）。",
+            "当前趋势得分 97，支撑中长期方向。",
+            "相对强弱 +25.23%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 43.79,
+          "source_data_quality": "full"
+        }
+      },
+      "technical_action_label": "替代标的",
+      "display_action_label": "先看更强的替代标的",
+      "canonical_action_label": "替代标的",
+      "display_reason": "阿莱德 不是当前最优先的选择，先看更强的替代标的。",
+      "display_trigger": "若同梯队必须选一只，先等 桂林旅游 满足“等放量突破”条件。",
+      "display_invalidation": "只有当 阿莱德 重新强于 桂林旅游，才恢复优先级。",
+      "analysis_summary": "阿莱德不是完全没逻辑，但当前资金效率不如 桂林旅游。",
+      "analysis_core_reason": "阿莱德不是完全没逻辑，但当前资金效率不如 桂林旅游。 同阶段先把候选额度留给 桂林旅游。 20日收益 +20.97%，趋势延续性较强。",
+      "analysis_risk": "与 桂林旅游 相比，当前更缺少马上执行的理由。；ROE 5.5%。",
+      "analysis_position": "不给 阿莱德 分配新仓，候选额度优先留给 桂林旅游。",
+      "analysis_comparison": "同梯队更值得先看的标的是 桂林旅游，当前优先级高出 23.8 分。"
+    }
+  ],
+  "holdings_actions": [
+    {
+      "code": "601699",
+      "name": "潞安环能",
+      "action": "cut_on_breakdown",
+      "action_label": "破位减仓",
+      "score": 24.52,
+      "priority_score": 97.0,
+      "reason": "潞安环能 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+      "thesis": "潞安环能 的主逻辑是 毛利率 34.1%；近5日主力资金净流入，但 营收同比 -20.82%，所以当前策略是“破位减仓”。",
+      "trigger": "若跌破 13.87 且相对强弱继续走弱，立即执行减仓。",
+      "invalidation": "若 13.87 一带止跌并重新收回 14.55，先降级为观察，不急着继续减仓。",
+      "strategy_style": "",
+      "strategy_label": "",
+      "positive_factors": [
+        "毛利率 34.1%。",
+        "近5日主力资金净流入。",
+        "5日收益 -2.87%，短期节奏中性偏稳。"
+      ],
+      "negative_factors": [
+        "营收同比 -20.82%。",
+        "利润同比 -44.45%。",
+        "ROE 3.3%。"
+      ],
+      "counterpoints": [
+        "营收同比 -20.82%。",
+        "利润同比 -44.45%。",
+        "ROE 3.3%。"
+      ],
+      "risk": [
+        "若 13.87 一带止跌并重新收回 14.55，先降级为观察，不急着继续减仓。"
+      ],
+      "coverage_score": 98.0,
+      "position_context": {
+        "is_holding": true,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 3500.0,
+        "position_weight": 0.35,
+        "sector_weight": 0.35,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": 13.87,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "能源金属",
+        "holding_sector": "煤炭",
+        "sector_weight_basis": "煤炭",
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {},
+      "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+      "levels": {
+        "breakout_price": 15.4,
+        "support_price": 13.87,
+        "pullback_price": 14.55,
+        "retest_price": 14.92,
+        "stop_price": 13.454,
+        "entry_reward_risk": 3.68,
+        "entry_upside_pct": 11.03,
+        "entry_downside_pct": 3.0,
+        "box_position_pct": 0.0
+      },
+      "prediction_bundle": {
+        "code": "601699",
+        "name": "潞安环能",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 13.87,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 14.0,
+          "predicted_return": 0.009347,
+          "confidence": 0.65,
+          "confidence_band_upper": 14.258,
+          "confidence_band_lower": 13.742,
+          "method": "mean_reversion",
+          "reasoning": [
+            "当前价偏离5日均线 -4.67%，剩余 50% 交易时间，均值回归修正预期 0.93%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 13.87,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 14.269,
+          "predicted_return": 0.028788,
+          "confidence": 0.55,
+          "confidence_band_upper": 14.58,
+          "confidence_band_lower": 13.958,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 1.0042（日均漂移 +0.424%）。",
+            "当前价偏离20日均线 -4.97%（BB位置 1%），偏低，有回归压力。",
+            "今日振幅 4.33% 较大，下方支撑较强。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 13.87,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 13.889,
+          "predicted_return": 0.001342,
+          "confidence": 0.478,
+          "confidence_band_upper": 14.222,
+          "confidence_band_lower": 13.556,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日跌幅 -5.32% 属于大跌日，历史次日平均收益 -0.266%，次日有反弹修复可能。",
+            "当前处于20日低位（0%），历史上此类位置次日反弹概率偏高。",
+            "历史样本 121 天，胜率约 39%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 13.87,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 14.105,
+          "predicted_return": 0.016911,
+          "confidence": 0.424,
+          "confidence_band_upper": 14.504,
+          "confidence_band_lower": 13.706,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 -0.0276%，10日预期偏移 +1.69%（上涨）。",
+            "历史10日正收益概率 40%（样本 526 个区间）。",
+            "当前趋势得分 34，中长期偏弱。",
+            "相对强弱 +0.79%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 13.87,
+          "source_data_quality": "full"
+        }
+      },
+      "technical_action_label": "破位减仓",
+      "display_action_label": "先别加仓，跌破再减一点",
+      "canonical_action_label": "破位减仓",
+      "display_reason": "潞安环能 现在先别加仓。 重点盯住 13.87 这条防线，跌破再减一点。 只有重新回到 14.55 上方，才先改回观察。",
+      "display_trigger": "只有跌破 13.87，才执行减一点。",
+      "display_invalidation": "如果重新回到 14.55 上方，就先别继续减。",
+      "analysis_summary": "潞安环能先做风险处理，不把反弹当默认剧本。",
+      "analysis_core_reason": "潞安环能先做风险处理，不把反弹当默认剧本。 毛利率 34.1%。 执行位在 13.87 一带，重点是先守住风控。",
+      "analysis_risk": "营收同比 -20.82%。；利润同比 -44.45%。",
+      "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 35.0%；同主题合计约 35.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+      "analysis_comparison": ""
+    },
+    {
+      "code": "588000",
+      "name": "科创50",
+      "action": "cut_on_breakdown",
+      "action_label": "破位减仓",
+      "score": 0.0,
+      "priority_score": 97.0,
+      "reason": "科创50 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+      "thesis": "科创50 的主逻辑是 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）；距20日高点 -11.11%，处于中部偏低区域，赔率尚可，但 20日收益 -10.31%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+      "trigger": "若跌破 1.33 且相对强弱继续走弱，立即执行减仓。",
+      "invalidation": "若重新站回 1.41 且成交恢复，可转回观察。",
+      "strategy_style": "",
+      "strategy_label": "",
+      "positive_factors": [
+        "5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。",
+        "距20日高点 -11.11%，处于中部偏低区域，赔率尚可。"
+      ],
+      "negative_factors": [
+        "20日收益 -10.31%，中期趋势仍弱。",
+        "相对强弱 -6.04%，弱于基准。",
+        "量比 0.52x，量能严重不足。"
+      ],
+      "counterpoints": [
+        "20日收益 -10.31%，中期趋势仍弱。",
+        "相对强弱 -6.04%，弱于基准。",
+        "量比 0.52x，量能严重不足。"
+      ],
+      "risk": [
+        "若重新站回 1.41 且成交恢复，可转回观察。"
+      ],
+      "coverage_score": 42.0,
+      "position_context": {
+        "is_holding": true,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 5000.0,
+        "position_weight": 0.5,
+        "sector_weight": 0.5,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": 1.392,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "宽基ETF",
+        "holding_sector": "宽基ETF",
+        "sector_weight_basis": "宽基ETF",
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {},
+      "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+      "levels": {
+        "breakout_price": 1.566,
+        "support_price": 1.329,
+        "pullback_price": 1.376,
+        "retest_price": 1.411,
+        "stop_price": 1.289,
+        "entry_reward_risk": 1.69,
+        "entry_upside_pct": 12.5,
+        "entry_downside_pct": 7.4,
+        "box_position_pct": 26.58
+      },
+      "prediction_bundle": {
+        "code": "588000",
+        "name": "科创50",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 1.392,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 1.392,
+          "predicted_return": 0.0,
+          "confidence": 0.509,
+          "confidence_band_upper": 1.425,
+          "confidence_band_lower": 1.359,
+          "method": "mean_reversion",
+          "reasoning": [
+            "价格贴近均线，均值回归效应不明显，预期偏中性。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 1.392,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 1.426,
+          "predicted_return": 0.024293,
+          "confidence": 0.55,
+          "confidence_band_upper": 1.457,
+          "confidence_band_lower": 1.395,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 1.0003（日均漂移 +0.025%）。",
+            "当前价偏离20日均线 -4.41%（BB位置 23%），偏低，有回归压力。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 1.392,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 1.397,
+          "predicted_return": 0.003641,
+          "confidence": 0.491,
+          "confidence_band_upper": 1.431,
+          "confidence_band_lower": 1.363,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨幅 +2.43% 属于大涨日，历史数据次日平均收益 +0.364%，次日倾向于继续走强。",
+            "历史样本 88 天，胜率约 45%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 1.392,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 1.225,
+          "predicted_return": -0.12,
+          "confidence": 0.497,
+          "confidence_band_upper": 1.255,
+          "confidence_band_lower": 1.195,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 -0.6451%，10日预期偏移 -21.56%（下跌）。",
+            "历史10日正收益概率 50%（样本 526 个区间）。",
+            "当前趋势得分 10，中长期偏弱。",
+            "相对强弱 -6.04%，弱于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 1.392,
+          "source_data_quality": "full"
+        }
+      },
+      "technical_action_label": "破位减仓",
+      "display_action_label": "先别加仓，跌破再减一点",
+      "canonical_action_label": "破位减仓",
+      "display_reason": "科创50 现在先别加仓。 重点盯住 1.329 这条防线，跌破再减一点。 只有重新回到 1.376 上方，才先改回观察。",
+      "display_trigger": "只有跌破 1.329，才执行减一点。",
+      "display_invalidation": "如果重新回到 1.376 上方，就先别继续减。",
+      "analysis_summary": "科创50先做风险处理，不把反弹当默认剧本。",
+      "analysis_core_reason": "科创50先做风险处理，不把反弹当默认剧本。 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。 执行位在 1.329 一带，重点是先守住风控。",
+      "analysis_risk": "20日收益 -10.31%，中期趋势仍弱。；相对强弱 -6.04%，弱于基准。",
+      "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 50.0%；同主题合计约 50.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+      "analysis_comparison": ""
+    },
+    {
+      "code": "513310",
+      "name": "中韩芯片",
+      "action": "hold_core",
+      "action_label": "继续持有",
+      "score": 20.82,
+      "priority_score": 50.0,
+      "reason": "中韩芯片 当前更像持有型仓位，而不是主动进攻型仓位。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+      "thesis": "中韩芯片 的主逻辑是 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）；距20日高点 -10.02%，处于中部偏低区域，赔率尚可，但 20日波动率 4.41% 略高，所以当前策略是“继续持有”。",
+      "trigger": "先等指数和市场广度修复，再看个股确认。",
+      "invalidation": "若连续走弱并跌破 3.66，转入减仓。",
+      "strategy_style": "",
+      "strategy_label": "",
+      "positive_factors": [
+        "5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。",
+        "距20日高点 -10.02%，处于中部偏低区域，赔率尚可。"
+      ],
+      "negative_factors": [
+        "20日波动率 4.41% 略高。",
+        "市场环境偏谨慎，买入阈值应提高。",
+        "当前总仓位 100.0%，现金缓冲偏低。"
+      ],
+      "counterpoints": [
+        "20日波动率 4.41% 略高。",
+        "市场环境偏谨慎，买入阈值应提高。",
+        "当前总仓位 100.0%，现金缓冲偏低。"
+      ],
+      "risk": [
+        "若连续走弱并跌破 3.66，转入减仓。"
+      ],
+      "coverage_score": 42.0,
+      "position_context": {
+        "is_holding": true,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 1500.0,
+        "position_weight": 0.15,
+        "sector_weight": 0.15,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": 3.888,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "半导体ETF",
+        "holding_sector": "半导体ETF",
+        "sector_weight_basis": "半导体ETF",
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {},
+      "position_guidance": "维持原仓位，等待更清晰信号。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+      "levels": {
+        "breakout_price": 4.321,
+        "support_price": 3.663,
+        "pullback_price": 3.873,
+        "retest_price": 4.047,
+        "stop_price": 3.553,
+        "entry_reward_risk": 1.29,
+        "entry_upside_pct": 11.14,
+        "entry_downside_pct": 8.62,
+        "box_position_pct": 34.19
+      },
+      "prediction_bundle": {
+        "code": "513310",
+        "name": "中韩芯片",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 3.888,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 3.888,
+          "predicted_return": 0.0,
+          "confidence": 0.47,
+          "confidence_band_upper": 3.987,
+          "confidence_band_lower": 3.789,
+          "method": "mean_reversion",
+          "reasoning": [
+            "价格贴近均线，均值回归效应不明显，预期偏中性。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 3.888,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 3.957,
+          "predicted_return": 0.017635,
+          "confidence": 0.55,
+          "confidence_band_upper": 4.043,
+          "confidence_band_lower": 3.871,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 1.0031（日均漂移 +0.310%）。",
+            "当前价偏离20日均线 -3.04%（BB位置 31%），偏低，有回归压力。",
+            "今日振幅 7.74% 较大，下方支撑较强。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 3.888,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 3.909,
+          "predicted_return": 0.005284,
+          "confidence": 0.514,
+          "confidence_band_upper": 4.003,
+          "confidence_band_lower": 3.815,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨幅 +2.53% 属于大涨日，历史数据次日平均收益 +0.528%，次日倾向于继续走强。",
+            "历史样本 114 天，胜率约 57%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 3.888,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 4.04,
+          "predicted_return": 0.03911,
+          "confidence": 0.614,
+          "confidence_band_upper": 4.119,
+          "confidence_band_lower": 3.961,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 -0.3393%，10日预期偏移 +3.91%（上涨）。",
+            "历史10日正收益概率 64%（样本 526 个区间）。",
+            "当前趋势得分 45，中长期方向不明。",
+            "相对强弱 +2.92%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 3.888,
+          "source_data_quality": "full"
+        }
+      },
+      "technical_action_label": "继续持有",
+      "display_action_label": "继续拿着",
+      "canonical_action_label": "观察",
+      "display_reason": "中韩芯片 现在先继续拿着，不需要立刻动作。",
+      "display_trigger": "现在先观察，不主动加仓。",
+      "display_invalidation": "若连续走弱并跌破 3.66，转入减仓。",
+      "analysis_summary": "中韩芯片当前以观察为主，暂时没有必须立刻执行的理由。",
+      "analysis_core_reason": "中韩芯片当前以观察为主，暂时没有必须立刻执行的理由。 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。 先看 3.663 附近是否出现新的确认信号。",
+      "analysis_risk": "20日波动率 4.41% 略高。；市场环境偏谨慎，买入阈值应提高。",
+      "analysis_position": "维持原仓位，等待更清晰信号。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 15.0%；同主题合计约 15.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+      "analysis_comparison": ""
+    }
+  ],
+  "watchlist": [
+    {
+      "code": "000978",
+      "name": "桂林旅游",
+      "action": "wait_for_breakout",
+      "action_label": "等放量突破",
+      "score": 58.37,
+      "priority_score": 65.84,
+      "reason": "桂林旅游 接近关键位，但还没给出值得执行的确认。",
+      "thesis": "桂林旅游 的主逻辑是 相对强弱 +7.92%，强于基准；利润同比 +425.76%，但 ROE 3.3%，所以当前策略是“等放量突破”。",
+      "trigger": "只有放量突破 7.43，才升级为试仓。",
+      "invalidation": "若回落跌破 6.42，取消突破预案。",
+      "strategy_style": "defensive_quality",
+      "strategy_label": "防守质量",
+      "positive_factors": [
+        "相对强弱 +7.92%，强于基准。",
+        "利润同比 +425.76%。",
+        "经营现金流同比 +74.62%。"
+      ],
+      "negative_factors": [
+        "ROE 3.3%。",
+        "PE 97.1x。",
+        "近5日主力资金净流出。"
+      ],
+      "counterpoints": [
+        "ROE 3.3%。",
+        "PE 97.1x。",
+        "近5日主力资金净流出。"
+      ],
+      "risk": [
+        "若回落跌破 6.42，取消突破预案。"
+      ],
+      "coverage_score": 85.0,
+      "position_context": {
+        "is_holding": false,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 0.0,
+        "position_weight": 0.0,
+        "sector_weight": 0.0,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": null,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "旅游及酒店",
+        "holding_sector": null,
+        "sector_weight_basis": null,
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {},
+      "position_guidance": "先观察，不提前追价。",
+      "levels": {
+        "breakout_price": 7.43,
+        "support_price": 6.42,
+        "pullback_price": 6.956,
+        "retest_price": 7.38,
+        "stop_price": 6.227,
+        "entry_reward_risk": 0.04,
+        "entry_upside_pct": 0.68,
+        "entry_downside_pct": 15.62,
+        "box_position_pct": 95.05
+      },
+      "prediction_bundle": {
+        "code": "000978",
+        "name": "桂林旅游",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 7.38,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 7.29,
+          "predicted_return": -0.012191,
+          "confidence": 0.65,
+          "confidence_band_upper": 7.425,
+          "confidence_band_lower": 7.155,
+          "method": "mean_reversion",
+          "reasoning": [
+            "当前价偏离5日均线 +6.10%，剩余 50% 交易时间，均值回归修正预期 1.22%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 7.38,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 7.213,
+          "predicted_return": -0.022652,
+          "confidence": 0.55,
+          "confidence_band_upper": 7.37,
+          "confidence_band_lower": 7.056,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 0.9995（日均漂移 -0.047%）。",
+            "当前价偏离20日均线 +4.15%（BB位置 80%），偏高，有回归压力。",
+            "今日振幅 8.94% 较大，收盘偏回归压力。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 7.38,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 7.368,
+          "predicted_return": -0.001692,
+          "confidence": 0.506,
+          "confidence_band_upper": 7.545,
+          "confidence_band_lower": 7.191,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨幅 +9.99% 属于大涨日，历史数据次日平均收益 +0.231%，次日略有均值回归压力。",
+            "当前处于20日高位（95%），历史上此类位置次日胜率偏低。",
+            "历史样本 89 天，胜率约 53%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 7.38,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 8.487,
+          "predicted_return": 0.15,
+          "confidence": 0.53,
+          "confidence_band_upper": 8.679,
+          "confidence_band_lower": 8.295,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 +0.0518%，10日预期偏移 +20.99%（上涨）。",
+            "历史10日正收益概率 54%（样本 526 个区间）。",
+            "当前趋势得分 67，支撑中长期方向。",
+            "相对强弱 +7.92%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 7.38,
+          "source_data_quality": "full"
+        }
+      },
+      "technical_action_label": "等放量突破",
+      "display_action_label": "先观察，站上再看",
+      "canonical_action_label": "突破跟随",
+      "display_reason": "桂林旅游 现在先观察。 只有站上关键价 7.43 且量能放大，才考虑买。",
+      "display_trigger": "只在站上 7.43 且量能放大时再考虑。",
+      "display_invalidation": "如果没站上关键价前先跌破 6.42，就继续观察。",
+      "analysis_summary": "桂林旅游不是因为涨了才买，而是等 7.43 的确认再执行。",
+      "analysis_core_reason": "桂林旅游不是因为涨了才买，而是等 7.43 的确认再执行。 相对强弱 +7.92%，强于基准。 利润同比 +425.76%。",
+      "analysis_risk": "ROE 3.3%。；PE 97.1x。",
+      "analysis_position": "先观察，不提前追价。",
+      "analysis_comparison": ""
+    },
+    {
+      "code": "600988",
+      "name": "赤峰黄金",
+      "action": "switch_to_better_alternative",
+      "action_label": "替代标的",
+      "score": 60.3,
+      "priority_score": 55.0,
+      "reason": "赤峰黄金 当前不是最优资金去处，优先看 桂林旅游。",
+      "thesis": "赤峰黄金 不是完全不能做，但当前执行位和资金效率都弱于 桂林旅游。",
+      "trigger": "若同梯队必须选一只，先等 桂林旅游 满足“等放量突破”条件。",
+      "invalidation": "只有当 赤峰黄金 重新强于 桂林旅游，才恢复优先级。",
+      "strategy_style": "defensive_quality",
+      "strategy_label": "防守质量",
+      "positive_factors": [
+        "相对强弱 +7.99%，强于基准。",
+        "营收同比 +40.03%。",
+        "利润同比 +74.70%。"
+      ],
+      "negative_factors": [
+        "主力净占比 -5.02%。",
+        "20日波动率 4.20% 略高。",
+        "市场环境偏谨慎，买入阈值应提高。"
+      ],
+      "counterpoints": [
+        "与 桂林旅游 相比，当前更缺少马上执行的理由。",
+        "主力净占比 -5.02%。",
+        "20日波动率 4.20% 略高。"
+      ],
+      "risk": [
+        "若跌破 36.12，从候选名单降级。"
+      ],
+      "coverage_score": 85.0,
+      "position_context": {
+        "is_holding": false,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 0.0,
+        "position_weight": 0.0,
+        "sector_weight": 0.0,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": null,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "贵金属",
+        "holding_sector": null,
+        "sector_weight_basis": null,
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {
+        "code": "000978",
+        "name": "桂林旅游",
+        "action_label": "等放量突破",
+        "priority_gap": 10.84
+      },
+      "position_guidance": "不给 赤峰黄金 分配新仓，候选额度优先留给 桂林旅游。",
+      "levels": {
+        "breakout_price": 43.91,
+        "support_price": 36.12,
+        "pullback_price": 38.476,
+        "retest_price": 40.82,
+        "stop_price": 35.036,
+        "entry_reward_risk": 1.43,
+        "entry_upside_pct": 13.49,
+        "entry_downside_pct": 9.44,
+        "box_position_pct": 32.99
+      },
+      "prediction_bundle": {
+        "code": "600988",
+        "name": "赤峰黄金",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 38.69,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 38.69,
+          "predicted_return": 0.0,
+          "confidence": 0.478,
+          "confidence_band_upper": 39.662,
+          "confidence_band_lower": 37.718,
+          "method": "mean_reversion",
+          "reasoning": [
+            "价格贴近均线，均值回归效应不明显，预期偏中性。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 38.69,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 39.591,
+          "predicted_return": 0.023287,
+          "confidence": 0.55,
+          "confidence_band_upper": 40.455,
+          "confidence_band_lower": 38.727,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 1.0094（日均漂移 +0.939%）。",
+            "当前价偏离20日均线 -3.76%（BB位置 29%），偏低，有回归压力。",
+            "今日振幅 4.94% 较大，下方支撑较强。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 38.69,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 38.758,
+          "predicted_return": 0.001764,
+          "confidence": 0.493,
+          "confidence_band_upper": 39.688,
+          "confidence_band_lower": 37.828,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨幅 +7.12% 属于大涨日，历史数据次日平均收益 +0.176%，次日略有均值回归压力。",
+            "历史样本 140 天，胜率约 46%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 38.69,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 44.493,
+          "predicted_return": 0.15,
+          "confidence": 0.521,
+          "confidence_band_upper": 45.517,
+          "confidence_band_lower": 43.469,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 -0.2675%，10日预期偏移 +17.99%（上涨）。",
+            "历史10日正收益概率 53%（样本 524 个区间）。",
+            "当前趋势得分 67，支撑中长期方向。",
+            "相对强弱 +7.99%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 38.69,
+          "source_data_quality": "full"
+        }
+      },
+      "technical_action_label": "替代标的",
+      "display_action_label": "先看更强的替代标的",
+      "canonical_action_label": "替代标的",
+      "display_reason": "赤峰黄金 不是当前最优先的选择，先看更强的替代标的。",
+      "display_trigger": "若同梯队必须选一只，先等 桂林旅游 满足“等放量突破”条件。",
+      "display_invalidation": "只有当 赤峰黄金 重新强于 桂林旅游，才恢复优先级。",
+      "analysis_summary": "赤峰黄金不是完全没逻辑，但当前资金效率不如 桂林旅游。",
+      "analysis_core_reason": "赤峰黄金不是完全没逻辑，但当前资金效率不如 桂林旅游。 同阶段先把候选额度留给 桂林旅游。 相对强弱 +7.99%，强于基准。",
+      "analysis_risk": "与 桂林旅游 相比，当前更缺少马上执行的理由。；主力净占比 -5.02%。",
+      "analysis_position": "不给 赤峰黄金 分配新仓，候选额度优先留给 桂林旅游。",
+      "analysis_comparison": "同梯队更值得先看的标的是 桂林旅游，当前优先级高出 10.8 分。"
+    },
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "action": "switch_to_better_alternative",
+      "action_label": "替代标的",
+      "score": 55.43,
+      "priority_score": 55.0,
+      "reason": "宁德时代 当前不是最优资金去处，优先看 桂林旅游。",
+      "thesis": "宁德时代 不是完全不能做，但当前执行位和资金效率都弱于 桂林旅游。",
+      "trigger": "若同梯队必须选一只，先等 桂林旅游 满足“等放量突破”条件。",
+      "invalidation": "只有当 宁德时代 重新强于 桂林旅游，才恢复优先级。",
+      "strategy_style": "defensive_quality",
+      "strategy_label": "防守质量",
+      "positive_factors": [
+        "20日收益 +8.64%，趋势延续性较强。",
+        "相对强弱 +12.90%，强于基准。",
+        "营收同比 +17.04%。"
+      ],
+      "negative_factors": [
+        "近5日主力资金净流出。",
+        "主力净占比 -2.45%。",
+        "量比 0.34x，量能严重不足。"
+      ],
+      "counterpoints": [
+        "与 桂林旅游 相比，当前更缺少马上执行的理由。",
+        "近5日主力资金净流出。",
+        "主力净占比 -2.45%。"
+      ],
+      "risk": [
+        "若跌破 393.46，从候选名单降级。"
+      ],
+      "coverage_score": 85.0,
+      "position_context": {
+        "is_holding": false,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 0.0,
+        "position_weight": 0.0,
+        "sector_weight": 0.0,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": null,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "电池",
+        "holding_sector": null,
+        "sector_weight_basis": null,
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {
+        "code": "000978",
+        "name": "桂林旅游",
+        "action_label": "等放量突破",
+        "priority_gap": 10.84
+      },
+      "position_guidance": "不给 宁德时代 分配新仓，候选额度优先留给 桂林旅游。",
+      "levels": {
+        "breakout_price": 413.0,
+        "support_price": 393.46,
+        "pullback_price": 401.188,
+        "retest_price": 413.0,
+        "stop_price": 381.656,
+        "entry_reward_risk": 1.66,
+        "entry_upside_pct": 4.97,
+        "entry_downside_pct": 3.0,
+        "box_position_pct": 0.0
+      },
+      "prediction_bundle": {
+        "code": "300750",
+        "name": "宁德时代",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 393.46,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 393.46,
+          "predicted_return": 0.0,
+          "confidence": 0.546,
+          "confidence_band_upper": 402.103,
+          "confidence_band_lower": 384.817,
+          "method": "mean_reversion",
+          "reasoning": [
+            "价格贴近均线，均值回归效应不明显，预期偏中性。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 393.46,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 384.358,
+          "predicted_return": -0.023133,
+          "confidence": 0.55,
+          "confidence_band_upper": 392.744,
+          "confidence_band_lower": 375.972,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 0.9972（日均漂移 -0.276%）。",
+            "当前价偏离20日均线 +4.08%（BB位置 64%），偏高，有回归压力。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 393.46,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 394.508,
+          "predicted_return": 0.002664,
+          "confidence": 0.489,
+          "confidence_band_upper": 403.976,
+          "confidence_band_lower": 385.04,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨跌幅 -0.89% 属于震荡日，历史次日平均收益 +0.266%，无明显方向偏向。",
+            "历史样本 311 天，胜率约 44%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 393.46,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 452.479,
+          "predicted_return": 0.15,
+          "confidence": 0.558,
+          "confidence_band_upper": 462.213,
+          "confidence_band_lower": 442.745,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 +1.0878%，10日预期偏移 +44.26%（上涨）。",
+            "历史10日正收益概率 57%（样本 526 个区间）。",
+            "当前趋势得分 78，支撑中长期方向。",
+            "相对强弱 +12.90%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 393.46,
+          "source_data_quality": "full"
+        }
+      },
+      "technical_action_label": "替代标的",
+      "display_action_label": "先看更强的替代标的",
+      "canonical_action_label": "替代标的",
+      "display_reason": "宁德时代 不是当前最优先的选择，先看更强的替代标的。",
+      "display_trigger": "若同梯队必须选一只，先等 桂林旅游 满足“等放量突破”条件。",
+      "display_invalidation": "只有当 宁德时代 重新强于 桂林旅游，才恢复优先级。",
+      "analysis_summary": "宁德时代不是完全没逻辑，但当前资金效率不如 桂林旅游。",
+      "analysis_core_reason": "宁德时代不是完全没逻辑，但当前资金效率不如 桂林旅游。 同阶段先把候选额度留给 桂林旅游。 20日收益 +8.64%，趋势延续性较强。",
+      "analysis_risk": "与 桂林旅游 相比，当前更缺少马上执行的理由。；近5日主力资金净流出。",
+      "analysis_position": "不给 宁德时代 分配新仓，候选额度优先留给 桂林旅游。",
+      "analysis_comparison": "同梯队更值得先看的标的是 桂林旅游，当前优先级高出 10.8 分。"
+    },
+    {
+      "code": "301419",
+      "name": "阿莱德",
+      "action": "switch_to_better_alternative",
+      "action_label": "替代标的",
+      "score": 50.1,
+      "priority_score": 42.0,
+      "reason": "阿莱德 当前不是最优资金去处，优先看 桂林旅游。",
+      "thesis": "阿莱德 不是完全不能做，但当前执行位和资金效率都弱于 桂林旅游。",
+      "trigger": "若同梯队必须选一只，先等 桂林旅游 满足“等放量突破”条件。",
+      "invalidation": "只有当 阿莱德 重新强于 桂林旅游，才恢复优先级。",
+      "strategy_style": "defensive_quality",
+      "strategy_label": "防守质量",
+      "positive_factors": [
+        "20日收益 +20.97%，趋势延续性较强。",
+        "相对强弱 +25.23%，强于基准。",
+        "营收同比 +25.11%。"
+      ],
+      "negative_factors": [
+        "ROE 5.5%。",
+        "PE 100.6x。",
+        "近期5日涨幅 +12.72%，需等待确认，勿追高。"
+      ],
+      "counterpoints": [
+        "与 桂林旅游 相比，当前更缺少马上执行的理由。",
+        "ROE 5.5%。",
+        "PE 100.6x。"
+      ],
+      "risk": [
+        "若继续跌破 35.07，维持回避。"
+      ],
+      "coverage_score": 85.0,
+      "position_context": {
+        "is_holding": false,
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 0.0,
+        "position_weight": 0.0,
+        "sector_weight": 0.0,
+        "pnl_pct": null,
+        "cost_price": null,
+        "last_price": null,
+        "total_equity": 10000.0,
+        "exposure_ratio": 1.0,
+        "effective_sector": "消费电子",
+        "holding_sector": null,
+        "sector_weight_basis": null,
+        "position_pricing_complete": false,
+        "position_size_complete": false,
+        "position_execution_complete": false
+      },
+      "preferred_alternative": {
+        "code": "000978",
+        "name": "桂林旅游",
+        "action_label": "等放量突破",
+        "priority_gap": 23.84
+      },
+      "position_guidance": "不给 阿莱德 分配新仓，候选额度优先留给 桂林旅游。",
+      "levels": {
+        "breakout_price": 43.79,
+        "support_price": 35.07,
+        "pullback_price": 38.478,
+        "retest_price": 43.79,
+        "stop_price": 34.018,
+        "entry_reward_risk": 0.0,
+        "entry_upside_pct": 0.0,
+        "entry_downside_pct": 22.32,
+        "box_position_pct": 100.0
+      },
+      "prediction_bundle": {
+        "code": "301419",
+        "name": "阿莱德",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 43.79,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 42.581,
+          "predicted_return": -0.027611,
+          "confidence": 0.65,
+          "confidence_band_upper": 43.367,
+          "confidence_band_lower": 41.795,
+          "method": "mean_reversion",
+          "reasoning": [
+            "当前价偏离5日均线 +13.81%，剩余 50% 交易时间，均值回归修正预期 2.76%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 43.79,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 42.038,
+          "predicted_return": -0.04,
+          "confidence": 0.55,
+          "confidence_band_upper": 42.955,
+          "confidence_band_lower": 41.121,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 1.0030（日均漂移 +0.304%）。",
+            "当前价偏离20日均线 +17.59%（BB位置 132%），偏高，有回归压力。",
+            "今日振幅 14.34% 较大，收盘偏回归压力。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 43.79,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 43.901,
+          "predicted_return": 0.002544,
+          "confidence": 0.503,
+          "confidence_band_upper": 44.955,
+          "confidence_band_lower": 42.847,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨幅 +20.01% 属于大涨日，历史数据次日平均收益 +0.654%，次日倾向于继续走强。",
+            "当前处于20日高位（100%），历史上此类位置次日胜率偏低。",
+            "历史样本 149 天，胜率约 52%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 43.79,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 50.358,
+          "predicted_return": 0.15,
+          "confidence": 0.549,
+          "confidence_band_upper": 51.459,
+          "confidence_band_lower": 49.257,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 +0.4981%，10日预期偏移 +69.94%（上涨）。",
+            "历史10日正收益概率 56%（样本 526 个区间）。",
+            "当前趋势得分 97，支撑中长期方向。",
+            "相对强弱 +25.23%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 43.79,
+          "source_data_quality": "full"
+        }
+      },
+      "technical_action_label": "替代标的",
+      "display_action_label": "先看更强的替代标的",
+      "canonical_action_label": "替代标的",
+      "display_reason": "阿莱德 不是当前最优先的选择，先看更强的替代标的。",
+      "display_trigger": "若同梯队必须选一只，先等 桂林旅游 满足“等放量突破”条件。",
+      "display_invalidation": "只有当 阿莱德 重新强于 桂林旅游，才恢复优先级。",
+      "analysis_summary": "阿莱德不是完全没逻辑，但当前资金效率不如 桂林旅游。",
+      "analysis_core_reason": "阿莱德不是完全没逻辑，但当前资金效率不如 桂林旅游。 同阶段先把候选额度留给 桂林旅游。 20日收益 +20.97%，趋势延续性较强。",
+      "analysis_risk": "与 桂林旅游 相比，当前更缺少马上执行的理由。；ROE 5.5%。",
+      "analysis_position": "不给 阿莱德 分配新仓，候选额度优先留给 桂林旅游。",
+      "analysis_comparison": "同梯队更值得先看的标的是 桂林旅游，当前优先级高出 23.8 分。"
+    }
+  ],
+  "predictions": [
+    {
+      "code": "601699",
+      "name": "潞安环能",
+      "bundle": {
+        "code": "601699",
+        "name": "潞安环能",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 13.87,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 14.0,
+          "predicted_return": 0.009347,
+          "confidence": 0.65,
+          "confidence_band_upper": 14.258,
+          "confidence_band_lower": 13.742,
+          "method": "mean_reversion",
+          "reasoning": [
+            "当前价偏离5日均线 -4.67%，剩余 50% 交易时间，均值回归修正预期 0.93%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 13.87,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 14.269,
+          "predicted_return": 0.028788,
+          "confidence": 0.55,
+          "confidence_band_upper": 14.58,
+          "confidence_band_lower": 13.958,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 1.0042（日均漂移 +0.424%）。",
+            "当前价偏离20日均线 -4.97%（BB位置 1%），偏低，有回归压力。",
+            "今日振幅 4.33% 较大，下方支撑较强。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 13.87,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 13.889,
+          "predicted_return": 0.001342,
+          "confidence": 0.478,
+          "confidence_band_upper": 14.222,
+          "confidence_band_lower": 13.556,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日跌幅 -5.32% 属于大跌日，历史次日平均收益 -0.266%，次日有反弹修复可能。",
+            "当前处于20日低位（0%），历史上此类位置次日反弹概率偏高。",
+            "历史样本 121 天，胜率约 39%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 13.87,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 14.105,
+          "predicted_return": 0.016911,
+          "confidence": 0.424,
+          "confidence_band_upper": 14.504,
+          "confidence_band_lower": 13.706,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 -0.0276%，10日预期偏移 +1.69%（上涨）。",
+            "历史10日正收益概率 40%（样本 526 个区间）。",
+            "当前趋势得分 34，中长期偏弱。",
+            "相对强弱 +0.79%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 13.87,
+          "source_data_quality": "full"
+        }
+      }
+    },
+    {
+      "code": "588000",
+      "name": "科创50",
+      "bundle": {
+        "code": "588000",
+        "name": "科创50",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 1.392,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 1.392,
+          "predicted_return": 0.0,
+          "confidence": 0.509,
+          "confidence_band_upper": 1.425,
+          "confidence_band_lower": 1.359,
+          "method": "mean_reversion",
+          "reasoning": [
+            "价格贴近均线，均值回归效应不明显，预期偏中性。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 1.392,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 1.426,
+          "predicted_return": 0.024293,
+          "confidence": 0.55,
+          "confidence_band_upper": 1.457,
+          "confidence_band_lower": 1.395,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 1.0003（日均漂移 +0.025%）。",
+            "当前价偏离20日均线 -4.41%（BB位置 23%），偏低，有回归压力。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 1.392,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 1.397,
+          "predicted_return": 0.003641,
+          "confidence": 0.491,
+          "confidence_band_upper": 1.431,
+          "confidence_band_lower": 1.363,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨幅 +2.43% 属于大涨日，历史数据次日平均收益 +0.364%，次日倾向于继续走强。",
+            "历史样本 88 天，胜率约 45%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 1.392,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 1.225,
+          "predicted_return": -0.12,
+          "confidence": 0.497,
+          "confidence_band_upper": 1.255,
+          "confidence_band_lower": 1.195,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 -0.6451%，10日预期偏移 -21.56%（下跌）。",
+            "历史10日正收益概率 50%（样本 526 个区间）。",
+            "当前趋势得分 10，中长期偏弱。",
+            "相对强弱 -6.04%，弱于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 1.392,
+          "source_data_quality": "full"
+        }
+      }
+    },
+    {
+      "code": "513310",
+      "name": "中韩芯片",
+      "bundle": {
+        "code": "513310",
+        "name": "中韩芯片",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 3.888,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 3.888,
+          "predicted_return": 0.0,
+          "confidence": 0.47,
+          "confidence_band_upper": 3.987,
+          "confidence_band_lower": 3.789,
+          "method": "mean_reversion",
+          "reasoning": [
+            "价格贴近均线，均值回归效应不明显，预期偏中性。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 3.888,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 3.957,
+          "predicted_return": 0.017635,
+          "confidence": 0.55,
+          "confidence_band_upper": 4.043,
+          "confidence_band_lower": 3.871,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 1.0031（日均漂移 +0.310%）。",
+            "当前价偏离20日均线 -3.04%（BB位置 31%），偏低，有回归压力。",
+            "今日振幅 7.74% 较大，下方支撑较强。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 3.888,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 3.909,
+          "predicted_return": 0.005284,
+          "confidence": 0.514,
+          "confidence_band_upper": 4.003,
+          "confidence_band_lower": 3.815,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨幅 +2.53% 属于大涨日，历史数据次日平均收益 +0.528%，次日倾向于继续走强。",
+            "历史样本 114 天，胜率约 57%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 3.888,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 4.04,
+          "predicted_return": 0.03911,
+          "confidence": 0.614,
+          "confidence_band_upper": 4.119,
+          "confidence_band_lower": 3.961,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 -0.3393%，10日预期偏移 +3.91%（上涨）。",
+            "历史10日正收益概率 64%（样本 526 个区间）。",
+            "当前趋势得分 45，中长期方向不明。",
+            "相对强弱 +2.92%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 3.888,
+          "source_data_quality": "full"
+        }
+      }
+    },
+    {
+      "code": "000978",
+      "name": "桂林旅游",
+      "bundle": {
+        "code": "000978",
+        "name": "桂林旅游",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 7.38,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 7.29,
+          "predicted_return": -0.012191,
+          "confidence": 0.65,
+          "confidence_band_upper": 7.425,
+          "confidence_band_lower": 7.155,
+          "method": "mean_reversion",
+          "reasoning": [
+            "当前价偏离5日均线 +6.10%，剩余 50% 交易时间，均值回归修正预期 1.22%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 7.38,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 7.213,
+          "predicted_return": -0.022652,
+          "confidence": 0.55,
+          "confidence_band_upper": 7.37,
+          "confidence_band_lower": 7.056,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 0.9995（日均漂移 -0.047%）。",
+            "当前价偏离20日均线 +4.15%（BB位置 80%），偏高，有回归压力。",
+            "今日振幅 8.94% 较大，收盘偏回归压力。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 7.38,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 7.368,
+          "predicted_return": -0.001692,
+          "confidence": 0.506,
+          "confidence_band_upper": 7.545,
+          "confidence_band_lower": 7.191,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨幅 +9.99% 属于大涨日，历史数据次日平均收益 +0.231%，次日略有均值回归压力。",
+            "当前处于20日高位（95%），历史上此类位置次日胜率偏低。",
+            "历史样本 89 天，胜率约 53%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 7.38,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 8.487,
+          "predicted_return": 0.15,
+          "confidence": 0.53,
+          "confidence_band_upper": 8.679,
+          "confidence_band_lower": 8.295,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 +0.0518%，10日预期偏移 +20.99%（上涨）。",
+            "历史10日正收益概率 54%（样本 526 个区间）。",
+            "当前趋势得分 67，支撑中长期方向。",
+            "相对强弱 +7.92%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 7.38,
+          "source_data_quality": "full"
+        }
+      }
+    },
+    {
+      "code": "600988",
+      "name": "赤峰黄金",
+      "bundle": {
+        "code": "600988",
+        "name": "赤峰黄金",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 38.69,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 38.69,
+          "predicted_return": 0.0,
+          "confidence": 0.478,
+          "confidence_band_upper": 39.662,
+          "confidence_band_lower": 37.718,
+          "method": "mean_reversion",
+          "reasoning": [
+            "价格贴近均线，均值回归效应不明显，预期偏中性。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 38.69,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 39.591,
+          "predicted_return": 0.023287,
+          "confidence": 0.55,
+          "confidence_band_upper": 40.455,
+          "confidence_band_lower": 38.727,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 1.0094（日均漂移 +0.939%）。",
+            "当前价偏离20日均线 -3.76%（BB位置 29%），偏低，有回归压力。",
+            "今日振幅 4.94% 较大，下方支撑较强。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 38.69,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 38.758,
+          "predicted_return": 0.001764,
+          "confidence": 0.493,
+          "confidence_band_upper": 39.688,
+          "confidence_band_lower": 37.828,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨幅 +7.12% 属于大涨日，历史数据次日平均收益 +0.176%，次日略有均值回归压力。",
+            "历史样本 140 天，胜率约 46%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 38.69,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 44.493,
+          "predicted_return": 0.15,
+          "confidence": 0.521,
+          "confidence_band_upper": 45.517,
+          "confidence_band_lower": 43.469,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 -0.2675%，10日预期偏移 +17.99%（上涨）。",
+            "历史10日正收益概率 53%（样本 524 个区间）。",
+            "当前趋势得分 67，支撑中长期方向。",
+            "相对强弱 +7.99%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 38.69,
+          "source_data_quality": "full"
+        }
+      }
+    },
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "bundle": {
+        "code": "300750",
+        "name": "宁德时代",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 393.46,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 393.46,
+          "predicted_return": 0.0,
+          "confidence": 0.546,
+          "confidence_band_upper": 402.103,
+          "confidence_band_lower": 384.817,
+          "method": "mean_reversion",
+          "reasoning": [
+            "价格贴近均线，均值回归效应不明显，预期偏中性。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 393.46,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 384.358,
+          "predicted_return": -0.023133,
+          "confidence": 0.55,
+          "confidence_band_upper": 392.744,
+          "confidence_band_lower": 375.972,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 0.9972（日均漂移 -0.276%）。",
+            "当前价偏离20日均线 +4.08%（BB位置 64%），偏高，有回归压力。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 393.46,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 394.508,
+          "predicted_return": 0.002664,
+          "confidence": 0.489,
+          "confidence_band_upper": 403.976,
+          "confidence_band_lower": 385.04,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨跌幅 -0.89% 属于震荡日，历史次日平均收益 +0.266%，无明显方向偏向。",
+            "历史样本 311 天，胜率约 44%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 393.46,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 452.479,
+          "predicted_return": 0.15,
+          "confidence": 0.558,
+          "confidence_band_upper": 462.213,
+          "confidence_band_lower": 442.745,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 +1.0878%，10日预期偏移 +44.26%（上涨）。",
+            "历史10日正收益概率 57%（样本 526 个区间）。",
+            "当前趋势得分 78，支撑中长期方向。",
+            "相对强弱 +12.90%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 393.46,
+          "source_data_quality": "full"
+        }
+      }
+    },
+    {
+      "code": "301419",
+      "name": "阿莱德",
+      "bundle": {
+        "code": "301419",
+        "name": "阿莱德",
+        "as_of": "2026-03-26T12:47:07",
+        "reference_price": 43.79,
+        "intraday": {
+          "horizon": "intraday_close",
+          "predicted_price": 42.581,
+          "predicted_return": -0.027611,
+          "confidence": 0.65,
+          "confidence_band_upper": 43.367,
+          "confidence_band_lower": 41.795,
+          "method": "mean_reversion",
+          "reasoning": [
+            "当前价偏离5日均线 +13.81%，剩余 50% 交易时间，均值回归修正预期 2.76%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 43.79,
+          "source_data_quality": "degraded"
+        },
+        "dayend": {
+          "horizon": "dayend",
+          "predicted_price": 42.038,
+          "predicted_return": -0.04,
+          "confidence": 0.55,
+          "confidence_band_upper": 42.955,
+          "confidence_band_lower": 41.121,
+          "method": "combined",
+          "reasoning": [
+            "历史收盘/开盘比均值为 1.0030（日均漂移 +0.304%）。",
+            "当前价偏离20日均线 +17.59%（BB位置 132%），偏高，有回归压力。",
+            "今日振幅 14.34% 较大，收盘偏回归压力。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 43.79,
+          "source_data_quality": "degraded"
+        },
+        "nextday": {
+          "horizon": "nextday",
+          "predicted_price": 43.901,
+          "predicted_return": 0.002544,
+          "confidence": 0.503,
+          "confidence_band_upper": 44.955,
+          "confidence_band_lower": 42.847,
+          "method": "historical_dist",
+          "reasoning": [
+            "今日涨幅 +20.01% 属于大涨日，历史数据次日平均收益 +0.654%，次日倾向于继续走强。",
+            "当前处于20日高位（100%），历史上此类位置次日胜率偏低。",
+            "历史样本 149 天，胜率约 52%。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 43.79,
+          "source_data_quality": "degraded"
+        },
+        "longterm": {
+          "horizon": "longterm",
+          "predicted_price": 50.358,
+          "predicted_return": 0.15,
+          "confidence": 0.549,
+          "confidence_band_upper": 51.459,
+          "confidence_band_lower": 49.257,
+          "method": "linear_trend",
+          "reasoning": [
+            "近20日线性回归斜率对应日均漂移 +0.4981%，10日预期偏移 +69.94%（上涨）。",
+            "历史10日正收益概率 56%（样本 526 个区间）。",
+            "当前趋势得分 97，支撑中长期方向。",
+            "相对强弱 +25.23%，强于基准。"
+          ],
+          "as_of_time": "2026-03-26T12:47:07",
+          "reference_price": 43.79,
+          "source_data_quality": "full"
+        }
+      }
+    }
+  ],
+  "dynamic_universe": {
+    "selection_mode": "dynamic_sector_leaders",
+    "top_sectors": [
+      {
+        "sector": "电力",
+        "score": 85.4,
+        "pct_change": 0.0408,
+        "net_inflow": 60.7,
+        "leader": "中闽能源",
+        "leader_pct_change": 0.1007,
+        "rank_score": 94.15,
+        "rank": 1
+      },
+      {
+        "sector": "通信设备",
+        "score": 82.48,
+        "pct_change": 0.038599999999999995,
+        "net_inflow": 38.54,
+        "leader": "阿莱德",
+        "leader_pct_change": 0.20010000000000003,
+        "rank_score": 89.81,
+        "rank": 2
+      },
+      {
+        "sector": "贵金属",
+        "score": 80.49,
+        "pct_change": 0.04,
+        "net_inflow": -3.69,
+        "leader": "赤峰黄金",
+        "leader_pct_change": 0.08220000000000001,
+        "rank_score": 85.91,
+        "rank": 3
+      },
+      {
+        "sector": "旅游及酒店",
+        "score": 78.12,
+        "pct_change": 0.0329,
+        "net_inflow": 3.59,
+        "leader": "桂林旅游",
+        "leader_pct_change": 0.0998,
+        "rank_score": 82.91,
+        "rank": 4
+      },
+      {
+        "sector": "通信服务",
+        "score": 77.73,
+        "pct_change": 0.0355,
+        "net_inflow": 1.49,
+        "leader": "广脉科技",
+        "leader_pct_change": 0.1884,
+        "rank_score": 82.77,
+        "rank": 5
+      }
+    ],
+    "leaders": [
+      {
+        "code": "600163",
+        "name": "中闽能源",
+        "sector": "电力",
+        "sector_score": 85.4,
+        "sector_pct_change": 0.0408,
+        "sector_net_inflow": 60.7,
+        "leader_name_raw": "中闽能源",
+        "rank": 1,
+        "rank_score": 94.15
+      },
+      {
+        "code": "301419",
+        "name": "阿莱德",
+        "sector": "通信设备",
+        "sector_score": 82.48,
+        "sector_pct_change": 0.038599999999999995,
+        "sector_net_inflow": 38.54,
+        "leader_name_raw": "阿莱德",
+        "rank": 2,
+        "rank_score": 89.81
+      },
+      {
+        "code": "600988",
+        "name": "赤峰黄金",
+        "sector": "贵金属",
+        "sector_score": 80.49,
+        "sector_pct_change": 0.04,
+        "sector_net_inflow": -3.69,
+        "leader_name_raw": "赤峰黄金",
+        "rank": 3,
+        "rank_score": 85.91
+      },
+      {
+        "code": "000978",
+        "name": "桂林旅游",
+        "sector": "旅游及酒店",
+        "sector_score": 78.12,
+        "sector_pct_change": 0.0329,
+        "sector_net_inflow": 3.59,
+        "leader_name_raw": "桂林旅游",
+        "rank": 4,
+        "rank_score": 82.91
+      },
+      {
+        "code": "838924",
+        "name": "广脉科技",
+        "sector": "通信服务",
+        "sector_score": 77.73,
+        "sector_pct_change": 0.0355,
+        "sector_net_inflow": 1.49,
+        "leader_name_raw": "广脉科技",
+        "rank": 5,
+        "rank_score": 82.77
+      }
+    ]
+  }
+}

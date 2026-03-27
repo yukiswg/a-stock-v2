@@ -1,0 +1,465 @@
+{
+  "as_of": "2026-03-27",
+  "question": {
+    "raw_query": "宁德时代现在能买吗",
+    "normalized_query": "宁德时代现在能买吗",
+    "question_type": "should_buy",
+    "horizon": "swing",
+    "risk_profile": "balanced",
+    "wants_discovery": false,
+    "strategy_style": "general",
+    "symbol_hint": null,
+    "stock_name_hint": "宁德时代",
+    "has_position_hint": null
+  },
+  "security": {
+    "code": "300750",
+    "name": "宁德时代",
+    "category": "watch",
+    "sector": "电池"
+  },
+  "plan": {
+    "use_market": true,
+    "use_sector": true,
+    "use_stock": true,
+    "use_timing": true,
+    "use_discovery": false,
+    "need_announcements": true,
+    "need_supplemental": true,
+    "need_sector_proxy": false
+  },
+  "decision": "watch",
+  "confidence": 0.3971,
+  "summary": "宁德时代 当前策略为“等放量突破”。 综合分 55.6，市场分 33.1，覆盖度 98.0。",
+  "thesis": "宁德时代 的主逻辑是 20日收益 +18.77%，趋势延续性较强；相对强弱 +23.63%，强于基准，但 量比 0.32x，量能严重不足，所以当前策略是“等放量突破”。",
+  "scorecard": {
+    "market_score": 33.09,
+    "sector_score": 75.07,
+    "stock_score": 100.0,
+    "timing_score": 45.18,
+    "risk_penalty": 12.0,
+    "missing_data_penalty": 0.0,
+    "coverage_score": 98.0,
+    "total_score": 55.59
+  },
+  "positive_factors": [
+    "20日收益 +18.77%，趋势延续性较强。",
+    "相对强弱 +23.63%，强于基准。",
+    "营收同比 +17.04%。",
+    "利润同比 +42.28%。",
+    "ROE 24.9%。",
+    "经营现金流同比 +32.53%。"
+  ],
+  "negative_factors": [
+    "量比 0.32x，量能严重不足。",
+    "市场环境偏空，新开仓需要明显折价。"
+  ],
+  "counter_evidence": [
+    "量比 0.32x，量能严重不足。",
+    "市场环境偏空，新开仓需要明显折价。",
+    "先等指数和市场广度修复，再看个股确认。",
+    "关注下一次放量是否能站稳关键价位。"
+  ],
+  "missing_information": [],
+  "next_checks": [
+    "先等指数和市场广度修复，再看个股确认。",
+    "关注下一次放量是否能站稳关键价位。"
+  ],
+  "trigger_conditions": [
+    "只有放量突破 413.00，才升级为试仓。",
+    "先等指数和市场广度修复，再看个股确认。"
+  ],
+  "invalidation_conditions": [
+    "若回落跌破 396.99，取消突破预案。"
+  ],
+  "action_plan": {
+    "action": "wait_for_breakout",
+    "label": "等放量突破",
+    "rationale": "宁德时代 接近关键位，但还没给出值得执行的确认。",
+    "position_guidance": "先观察，不提前追价。",
+    "urgency": "medium",
+    "urgency_score": 62.0,
+    "levels": {
+      "breakout_price": 413.0,
+      "support_price": 396.99,
+      "pullback_price": 401.096,
+      "retest_price": 406.19,
+      "stop_price": 385.08,
+      "entry_reward_risk": 0.32,
+      "entry_upside_pct": 1.68,
+      "entry_downside_pct": 5.2,
+      "box_position_pct": 57.46
+    },
+    "trigger_conditions": [
+      "只有放量突破 413.00，才升级为试仓。",
+      "先等指数和市场广度修复，再看个股确认。"
+    ],
+    "invalidation_conditions": [
+      "若回落跌破 396.99，取消突破预案。"
+    ],
+    "blockers": [
+      "市场分 33.1 低于 40，当前不支持主动进攻。",
+      "临近关键位但量比只有 0.32x，容易演变成追价。",
+      "当前位置赔率只有 0.32，还不够支持积极出手。"
+    ],
+    "execution_brief": [
+      "现在不提前开仓，只等确认信号。",
+      "只有放量突破 413.00，才升级为试仓。",
+      "若回落跌破 396.99，取消突破预案。"
+    ],
+    "do_not": [
+      "不要在没有触发条件前提前追单。",
+      "不要把单票仓位一次性打满。",
+      "不要忽略市场状态对个股执行的影响。"
+    ],
+    "monitoring_focus": [
+      "当前更像 支撑区，重点看价格相对 413.00 / 396.99 的反应。",
+      "20日收益 +18.77%，趋势延续性较强。",
+      "量比 0.32x，量能严重不足。"
+    ]
+  },
+  "strategy_profile": {
+    "style": "general",
+    "label": "综合决策",
+    "policy_summary": "综合决策视角下，当前建议执行“等放量突破”，同时绑定触发与失效条件。",
+    "regime_overlay": "当前市场偏弱，执行上先看风控与触发条件。",
+    "checklist": [
+      "先看市场状态，再看个股质量与时点。",
+      "动作必须和触发条件绑定，不凭主观感觉执行。",
+      "失效条件触发后，优先回到风险动作。"
+    ],
+    "do_not": [
+      "不要忽略仓位与市场环境约束。",
+      "不要脱离触发条件提前交易。"
+    ],
+    "preferred_actions": [
+      "等放量突破"
+    ]
+  },
+  "position_guidance": "先观察，不提前追价。",
+  "evidence_used": [
+    {
+      "category": "market",
+      "signal": "negative",
+      "strength": 33.09,
+      "summary": "沪深300 5日收益 -1.88%，20日收益 -4.87%。",
+      "source": "decision_bundle.market_view",
+      "verified": true,
+      "freshness": "2026-03-27",
+      "metadata": {
+        "action": "risk_off",
+        "label": "偏空"
+      }
+    },
+    {
+      "category": "technical",
+      "signal": "positive",
+      "strength": 100.0,
+      "summary": "趋势分 100.0，20日相对强弱 +23.63%。",
+      "source": "daily_features",
+      "verified": true,
+      "freshness": "2026-03-27",
+      "metadata": {
+        "code": "300750"
+      }
+    },
+    {
+      "category": "timing",
+      "signal": "negative",
+      "strength": 42.70217917675545,
+      "summary": "距20日高点 -1.65%，5日量比 0.32x。",
+      "source": "daily_features",
+      "verified": true,
+      "freshness": "2026-03-27",
+      "metadata": {
+        "code": "300750"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-10 公告：2026年3月9日投资者关系活动记录表",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-10",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-10/1225002708.PDF"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-10 公告：关于向金融机构申请2026年度综合授信额度的公告",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-10",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-10/1225002248.PDF"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-10 公告：《2025年度董事会工作报告》",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-10",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-10/1225002247.PDF"
+      }
+    },
+    {
+      "category": "pdf_insight",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-10 PDF 深读：2026年3月9日投资者关系活动记录表。提炼结论：本公告以常规披露为主，未形成明确交易催化。",
+      "source": "pdf_skill",
+      "verified": true,
+      "freshness": "2026-03-10",
+      "metadata": {
+        "title": "2026年3月9日投资者关系活动记录表",
+        "pdf_path": "data/output/pdf/2026-03-27/300750/8f09612a086d.pdf",
+        "text_path": "data/output/pdf/2026-03-27/300750/8f09612a086d.txt"
+      }
+    },
+    {
+      "category": "pdf_insight",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-10 PDF 深读：关于向金融机构申请2026年度综合授信额度的公告。提炼结论：本公告以常规披露为主，未形成明确交易催化。",
+      "source": "pdf_skill",
+      "verified": true,
+      "freshness": "2026-03-10",
+      "metadata": {
+        "title": "关于向金融机构申请2026年度综合授信额度的公告",
+        "pdf_path": "data/output/pdf/2026-03-27/300750/3ed958add1ec.pdf",
+        "text_path": "data/output/pdf/2026-03-27/300750/3ed958add1ec.txt"
+      }
+    },
+    {
+      "category": "fundamental",
+      "signal": "positive",
+      "strength": 65.0,
+      "summary": "营收同比 +17.04%，利润同比 +42.28%，ROE 24.9%。",
+      "source": "supplemental.fundamentals",
+      "verified": true,
+      "freshness": "2026-03-27",
+      "metadata": {
+        "keys": [
+          "bps",
+          "debt_to_asset",
+          "eps",
+          "gross_margin",
+          "net_margin",
+          "notice_date",
+          "operating_cashflow_margin",
+          "operating_cashflow_yoy",
+          "profit_growth_yoy",
+          "report_date",
+          "revenue_growth_yoy",
+          "roe",
+          "roic"
+        ]
+      }
+    },
+    {
+      "category": "valuation",
+      "signal": "neutral",
+      "strength": 55.0,
+      "summary": "PE 25.2x，PB 5.50x。",
+      "source": "supplemental.valuation",
+      "verified": true,
+      "freshness": "2026-03-27",
+      "metadata": {
+        "keys": [
+          "industry_name",
+          "pb",
+          "pe_ttm"
+        ]
+      }
+    },
+    {
+      "category": "capital_flow",
+      "signal": "neutral",
+      "strength": 55.0,
+      "summary": "已加载资金行为数据，可用于验证是否有增量资金。",
+      "source": "supplemental.capital_flow",
+      "verified": true,
+      "freshness": "2026-03-27",
+      "metadata": {
+        "keys": [
+          "concept_names",
+          "industry_name",
+          "northbound_add_marketcap_10d",
+          "northbound_add_marketcap_1d",
+          "northbound_add_marketcap_5d",
+          "northbound_free_float_ratio",
+          "northbound_hold_marketcap_change_10d",
+          "northbound_hold_marketcap_change_1d",
+          "northbound_hold_marketcap_change_5d",
+          "northbound_hold_ratio",
+          "northbound_net_flow_5d",
+          "northbound_proxy_basis",
+          "provider"
+        ]
+      }
+    },
+    {
+      "category": "external_analysis",
+      "signal": "neutral",
+      "strength": 58.0,
+      "summary": "资金行为 `neutral`，信号强度 +0.15，外部适配 capitalfarmer。",
+      "source": "supplemental.external_analysis",
+      "verified": true,
+      "freshness": "2026-03-27",
+      "metadata": {
+        "keys": [
+          "capital_flow_conviction",
+          "capital_flow_style",
+          "longhu_activity_90d",
+          "northbound_net_flow_5d",
+          "provider_fields",
+          "provider_status"
+        ]
+      }
+    }
+  ],
+  "factor_analysis": {
+    "provider": "jqfactor_analyzer_adapted",
+    "style_box": "质量 / 动量",
+    "dominant_factor": "质量",
+    "factor_summary": "正向贡献主要来自 质量(+3.4)、动量(+2.9)、相对排名(+0.2)。 拖累主要来自 估值(-3.3)、风险(-3.1)、资金(-0.1)。",
+    "factor_focus": [
+      "ROE 24.9%，ROIC 15.3%，毛利率 26.3%",
+      "PE 25.2x，PB 5.5x",
+      "20日波动率 2.1%，市场分 33.1"
+    ],
+    "attribution": {
+      "style": 3.15,
+      "industry": 0.04,
+      "capital": -0.08,
+      "risk": -3.12,
+      "specific": 0.0,
+      "headline": "风格 +3.1 | 行业 +0.0 | 资金 -0.1 | 风险 -3.1"
+    },
+    "selection_overlay": {
+      "rps_proxy_20d": 88.89,
+      "trend_template_score": 80.0,
+      "capital_conviction": 0.15,
+      "factor_total_contribution": -0.01
+    },
+    "factors": [
+      {
+        "name": "质量",
+        "exposure": 0.84,
+        "contribution": 3.35,
+        "signal": "positive",
+        "reason": "ROE 24.9%，ROIC 15.3%，毛利率 26.3%"
+      },
+      {
+        "name": "估值",
+        "exposure": 0.218,
+        "contribution": -3.31,
+        "signal": "negative",
+        "reason": "PE 25.2x，PB 5.5x"
+      },
+      {
+        "name": "动量",
+        "exposure": 0.793,
+        "contribution": 2.88,
+        "signal": "positive",
+        "reason": "20日收益 +18.8%，相对强弱 +23.6%，5日收益 -1.6%"
+      },
+      {
+        "name": "资金",
+        "exposure": 0.415,
+        "contribution": -0.08,
+        "signal": "neutral",
+        "reason": "北向净流 +3854487763.68，外部信号 neutral +0.15"
+      },
+      {
+        "name": "相对排名",
+        "exposure": 0.527,
+        "contribution": 0.23,
+        "signal": "neutral",
+        "reason": "20日 RPS 代理 88.9"
+      },
+      {
+        "name": "行业",
+        "exposure": 0.457,
+        "contribution": 0.04,
+        "signal": "neutral",
+        "reason": "电池 强度 75.1"
+      },
+      {
+        "name": "风险",
+        "exposure": 0.649,
+        "contribution": -3.12,
+        "signal": "negative",
+        "reason": "20日波动率 2.1%，市场分 33.1"
+      }
+    ]
+  },
+  "better_candidates": [],
+  "position_context": {
+    "is_holding": false,
+    "quantity": 0.0,
+    "available_quantity": 0.0,
+    "market_value": 0.0,
+    "position_weight": 0.0,
+    "sector_weight": 0.0,
+    "pnl_pct": null,
+    "cost_price": null,
+    "last_price": null,
+    "total_equity": 10000.0,
+    "exposure_ratio": 1.0,
+    "effective_sector": "电池",
+    "holding_sector": null,
+    "sector_weight_basis": null,
+    "position_pricing_complete": false,
+    "position_size_complete": false,
+    "position_execution_complete": false
+  },
+  "pdf_insights": [
+    {
+      "published_at": "2026-03-10",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-10 PDF 深读：2026年3月9日投资者关系活动记录表。提炼结论：本公告以常规披露为主，未形成明确交易催化。",
+      "key_lines": [
+        "证券代码：300750 证券简称：宁德时代 宁德时代新能源科技股份有限公司 投资者关系活动记录表 编号：202…",
+        "归母净利润 722 亿元，同比增长 42.3%",
+        "经营性现 金流净额 1,332 亿元，同比增长 37.4%",
+        "上实现显著突破，获得了车企客户的高度认可，长安汽车 旗下阿维塔等多品牌将搭载宁德时代钠新电池，另有多家 车企的…"
+      ],
+      "pdf_path": "data/output/pdf/2026-03-27/300750/8f09612a086d.pdf",
+      "text_path": "data/output/pdf/2026-03-27/300750/8f09612a086d.txt",
+      "verified": true,
+      "title": "2026年3月9日投资者关系活动记录表",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-10/1225002708.PDF"
+    },
+    {
+      "published_at": "2026-03-10",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-10 PDF 深读：关于向金融机构申请2026年度综合授信额度的公告。提炼结论：本公告以常规披露为主，未形成明确交易催化。",
+      "key_lines": [
+        "为办理上述金融机构综合授信额度申请及后续相关借款、担保等事项，拟授 权公司总经理或其授权人士代表公司在上述授信…"
+      ],
+      "pdf_path": "data/output/pdf/2026-03-27/300750/3ed958add1ec.pdf",
+      "text_path": "data/output/pdf/2026-03-27/300750/3ed958add1ec.txt",
+      "verified": true,
+      "title": "关于向金融机构申请2026年度综合授信额度的公告",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-10/1225002248.PDF"
+    }
+  ],
+  "artifacts": {
+    "markdown": "data/output/reports/2026-03-27/advice/300750_investment_report.md",
+    "json": "data/output/reports/2026-03-27/advice/300750_investment_report.json",
+    "price_chart": "data/output/reports/2026-03-27/advice/charts/300750_price_chart.png",
+    "momentum_chart": "data/output/reports/2026-03-27/advice/charts/300750_momentum_chart.png"
+  }
+}

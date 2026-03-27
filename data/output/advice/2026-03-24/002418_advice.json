@@ -1,0 +1,347 @@
+{
+  "as_of": "2026-03-24",
+  "question": {
+    "raw_query": "康盛股份现在能买吗",
+    "normalized_query": "康盛股份现在能买吗",
+    "question_type": "should_buy",
+    "horizon": "swing",
+    "risk_profile": "balanced",
+    "wants_discovery": false,
+    "symbol_hint": null,
+    "stock_name_hint": "康盛股份",
+    "has_position_hint": null
+  },
+  "security": {
+    "code": "002418",
+    "name": "康盛股份",
+    "category": "query",
+    "sector": "通用设备"
+  },
+  "plan": {
+    "use_market": true,
+    "use_sector": true,
+    "use_stock": true,
+    "use_timing": true,
+    "use_discovery": true,
+    "need_announcements": true,
+    "need_supplemental": true,
+    "need_sector_proxy": false
+  },
+  "decision": "watch",
+  "confidence": 0.0866,
+  "summary": "康盛股份 更适合先观察，不建议立刻追买。综合分 12.1，市场分 18.5，覆盖度 98.0。",
+  "scorecard": {
+    "market_score": 18.53,
+    "sector_score": 70.46,
+    "stock_score": 35.69,
+    "timing_score": 19.6,
+    "risk_penalty": 23.0,
+    "missing_data_penalty": 0.0,
+    "coverage_score": 98.0,
+    "total_score": 12.12
+  },
+  "positive_factors": [
+    "营收同比 +12.43%。",
+    "利润同比 +240.21%。"
+  ],
+  "negative_factors": [
+    "20日收益 -15.90%，中期趋势仍弱。",
+    "相对强弱 -10.77%，弱于基准。",
+    "ROE 1.0%。",
+    "经营现金流同比 -863.36%。",
+    "PE 342.6x。"
+  ],
+  "missing_information": [],
+  "next_checks": [
+    "先等指数和市场广度修复，再看个股确认。",
+    "关注下一次放量是否能站稳关键价位。",
+    "先观察是否回到20日高点附近，再评估右侧买点。"
+  ],
+  "evidence_used": [
+    {
+      "category": "market",
+      "signal": "negative",
+      "strength": 18.53,
+      "summary": "沪深300 5日收益 -5.35%，20日收益 -5.12%。",
+      "source": "decision_bundle.market_view",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "action": "risk_off",
+        "label": "偏空"
+      }
+    },
+    {
+      "category": "technical",
+      "signal": "negative",
+      "strength": 50.0,
+      "summary": "趋势分 50.0，20日相对强弱 -10.77%。",
+      "source": "daily_features",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "code": "002418"
+      }
+    },
+    {
+      "category": "timing",
+      "signal": "negative",
+      "strength": 15.429034287530571,
+      "summary": "距20日高点 -18.52%，5日量比 0.82x。",
+      "source": "daily_features",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "code": "002418"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-21 公告：关于中植一客成都汽车有限公司股权转让及增资扩股引入战略投资者的进展公告（三）",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-21",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-21/1225021795.PDF"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-21 公告：关于为子公司申请银行贷款提供担保的公告",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-21",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-21/1225021794.PDF"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-21 公告：关于召开2026年第一次临时股东会的通知",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-21",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-21/1225021793.PDF"
+      }
+    },
+    {
+      "category": "fundamental",
+      "signal": "positive",
+      "strength": 65.0,
+      "summary": "营收同比 +12.43%，利润同比 +240.21%，ROE 1.0%。",
+      "source": "supplemental.fundamentals",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "keys": [
+          "bps",
+          "debt_to_asset",
+          "eps",
+          "gross_margin",
+          "net_margin",
+          "notice_date",
+          "operating_cashflow_margin",
+          "operating_cashflow_yoy",
+          "profit_growth_yoy",
+          "report_date",
+          "revenue_growth_yoy",
+          "roe",
+          "roic"
+        ]
+      }
+    },
+    {
+      "category": "valuation",
+      "signal": "neutral",
+      "strength": 55.0,
+      "summary": "PE 342.6x，PB 3.30x。",
+      "source": "supplemental.valuation",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "keys": [
+          "industry_name",
+          "pb",
+          "pe_ttm"
+        ]
+      }
+    },
+    {
+      "category": "capital_flow",
+      "signal": "neutral",
+      "strength": 55.0,
+      "summary": "5日主力净流入 -0.75 亿，5日主力净占比 -5.73%。",
+      "source": "supplemental.capital_flow",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "keys": [
+          "close_price",
+          "latest_date",
+          "main_net_flow_1d",
+          "main_net_flow_5d",
+          "main_net_ratio_1d",
+          "main_net_ratio_5d",
+          "pct_change_1d"
+        ]
+      }
+    },
+    {
+      "category": "company",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "所属行业 通用设备制造业，主营 家电制冷配件和新能源汽车。",
+      "source": "supplemental.company_info",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "keys": [
+          "business",
+          "business_outline",
+          "business_scope",
+          "code",
+          "company_name",
+          "industry_changed_at",
+          "industry_large",
+          "industry_medium",
+          "industry_name",
+          "industry_root",
+          "industry_small",
+          "industry_standard",
+          "listing_date",
+          "market",
+          "name",
+          "product_types",
+          "products",
+          "sector_match",
+          "sector_match_source",
+          "selected_indexes",
+          "website"
+        ]
+      }
+    }
+  ],
+  "better_candidates": [
+    {
+      "code": "002565",
+      "name": "顺灏股份",
+      "decision": "watch",
+      "total_score": 58.21,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "顺灏股份 更适合先观察，不建议立刻追买。综合分 58.2，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "相对强弱 +13.01%，强于基准。",
+        "利润同比 +20.29%。",
+        "毛利率 27.0%。"
+      ],
+      "risks": [
+        "营收同比 -20.57%。",
+        "ROE 3.6%。",
+        "经营现金流同比 -33.79%。"
+      ],
+      "metadata": {
+        "sector": "包装印刷",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "601985",
+      "name": "中国核电",
+      "decision": "watch",
+      "total_score": 57.68,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "中国核电 更适合先观察，不建议立刻追买。综合分 57.7，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "相对强弱 +12.75%，强于基准。",
+        "毛利率 44.0%。",
+        "距20日高点 -0.76%，接近突破位。"
+      ],
+      "risks": [
+        "利润同比 -10.42%。",
+        "ROE 7.1%。",
+        "经营现金流同比 -15.40%。"
+      ],
+      "metadata": {
+        "sector": "电力",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "002594",
+      "name": "比亚迪",
+      "decision": "watch",
+      "total_score": 56.8,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "比亚迪 更适合先观察，不建议立刻追买。综合分 56.8，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "20日收益 +20.95%，趋势延续性较强。",
+        "相对强弱 +26.07%，强于基准。",
+        "营收同比 +12.75%。"
+      ],
+      "risks": [
+        "经营现金流同比 -76.84%。",
+        "资产负债率 71.4% 偏高。",
+        "市场环境偏空，新开仓需要明显折价。"
+      ],
+      "metadata": {
+        "sector": "汽车整车",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "603026",
+      "name": "石大胜华",
+      "decision": "watch",
+      "total_score": 56.2,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "石大胜华 更适合先观察，不建议立刻追买。综合分 56.2，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "20日收益 +16.73%，趋势延续性较强。",
+        "相对强弱 +21.85%，强于基准。",
+        "营收同比 +11.41%。"
+      ],
+      "risks": [
+        "利润同比 -652.16%。",
+        "ROE -1.5%。",
+        "市场环境偏空，新开仓需要明显折价。"
+      ],
+      "metadata": {
+        "sector": "电池",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "300207",
+      "name": "欣旺达",
+      "decision": "watch",
+      "total_score": 56.1,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "欣旺达 更适合先观察，不建议立刻追买。综合分 56.1，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "20日收益 +9.73%，趋势延续性较强。",
+        "相对强弱 +14.86%，强于基准。",
+        "营收同比 +13.73%。"
+      ],
+      "risks": [
+        "ROE 5.8%。",
+        "市场环境偏空，新开仓需要明显折价。"
+      ],
+      "metadata": {
+        "sector": "电池",
+        "sector_proxy": false
+      }
+    }
+  ]
+}

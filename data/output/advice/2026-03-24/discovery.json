@@ -1,0 +1,386 @@
+{
+  "as_of": "2026-03-24",
+  "idea_count": 79,
+  "ideas": [
+    {
+      "code": "300335",
+      "name": "迪森股份",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 68.3,
+      "coverage_score": 85.0,
+      "market_score": 36.35,
+      "summary": "迪森股份 当前策略为“等放量突破”。 综合分 68.3，市场分 36.4，覆盖度 85.0。",
+      "thesis": "迪森股份 的主逻辑是 20日收益 +32.91%，趋势延续性较强；相对强弱 +38.03%，强于基准，但 ROE 3.5%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "20日收益 +32.91%，趋势延续性较强。",
+        "相对强弱 +38.03%，强于基准。",
+        "经营现金流同比 +11.14%。"
+      ],
+      "risks": [
+        "ROE 3.5%。",
+        "PE 约为行业的 2.89x。",
+        "20日波动率 5.72% 偏高。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 8.40，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 7.00，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 62.0,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "迪森股份 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 8.4,
+          "support_price": 7.0,
+          "pullback_price": 7.492,
+          "retest_price": 8.4
+        },
+        "trigger_conditions": [
+          "只有放量突破 8.40，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 7.00，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 8.40 / 7.00 的反应。",
+          "20日收益 +32.91%，趋势延续性较强。",
+          "ROE 3.5%。"
+        ]
+      },
+      "metadata": {
+        "sector": "电力",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "601985",
+      "name": "中国核电",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 66.82,
+      "coverage_score": 85.0,
+      "market_score": 36.35,
+      "summary": "中国核电 当前策略为“等放量突破”。 综合分 66.8，市场分 36.4，覆盖度 85.0。",
+      "thesis": "中国核电 的主逻辑是 相对强弱 +12.75%，强于基准；毛利率 44.0%，但 利润同比 -10.42%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "相对强弱 +12.75%，强于基准。",
+        "毛利率 44.0%。",
+        "距20日高点 -0.76%，接近突破位。"
+      ],
+      "risks": [
+        "利润同比 -10.42%。",
+        "ROE 7.1%。",
+        "经营现金流同比 -15.40%。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 9.24，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 8.85，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 62.0,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "中国核电 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 9.24,
+          "support_price": 8.85,
+          "pullback_price": 8.938,
+          "retest_price": 9.17
+        },
+        "trigger_conditions": [
+          "只有放量突破 9.24，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 8.85，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 9.24 / 8.85 的反应。",
+          "相对强弱 +12.75%，强于基准。",
+          "利润同比 -10.42%。"
+        ]
+      },
+      "metadata": {
+        "sector": "电力",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "002565",
+      "name": "顺灏股份",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 66.65,
+      "coverage_score": 85.0,
+      "market_score": 36.35,
+      "summary": "顺灏股份 当前策略为“等放量突破”。 综合分 66.7，市场分 36.4，覆盖度 85.0。",
+      "thesis": "顺灏股份 的主逻辑是 相对强弱 +13.01%，强于基准；利润同比 +20.29%，但 营收同比 -20.57%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "相对强弱 +13.01%，强于基准。",
+        "利润同比 +20.29%。",
+        "毛利率 27.0%。"
+      ],
+      "risks": [
+        "营收同比 -20.57%。",
+        "ROE 3.6%。",
+        "经营现金流同比 -33.79%。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 16.97，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 13.19，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 62.0,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "顺灏股份 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 16.97,
+          "support_price": 13.19,
+          "pullback_price": 14.902,
+          "retest_price": 16.97
+        },
+        "trigger_conditions": [
+          "只有放量突破 16.97，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 13.19，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 16.97 / 13.19 的反应。",
+          "相对强弱 +13.01%，强于基准。",
+          "营收同比 -20.57%。"
+        ]
+      },
+      "metadata": {
+        "sector": "包装印刷",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "300207",
+      "name": "欣旺达",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 65.23,
+      "coverage_score": 85.0,
+      "market_score": 36.35,
+      "summary": "欣旺达 当前策略为“等放量突破”。 综合分 65.2，市场分 36.4，覆盖度 85.0。",
+      "thesis": "欣旺达 的主逻辑是 20日收益 +9.73%，趋势延续性较强；相对强弱 +14.86%，强于基准，但 ROE 5.8%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "20日收益 +9.73%，趋势延续性较强。",
+        "相对强弱 +14.86%，强于基准。",
+        "营收同比 +13.73%。"
+      ],
+      "risks": [
+        "ROE 5.8%。",
+        "市场环境偏谨慎，买入阈值应提高。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 28.07，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 25.46，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 62.0,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "欣旺达 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 28.07,
+          "support_price": 25.46,
+          "pullback_price": 26.894,
+          "retest_price": 28.07
+        },
+        "trigger_conditions": [
+          "只有放量突破 28.07，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 25.46，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 28.07 / 25.46 的反应。",
+          "20日收益 +9.73%，趋势延续性较强。",
+          "ROE 5.8%。"
+        ]
+      },
+      "metadata": {
+        "sector": "电池",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "000938",
+      "name": "紫光股份",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 65.16,
+      "coverage_score": 85.0,
+      "market_score": 36.35,
+      "summary": "紫光股份 当前策略为“等放量突破”。 综合分 65.2，市场分 36.4，覆盖度 85.0。",
+      "thesis": "紫光股份 的主逻辑是 相对强弱 +11.65%，强于基准；营收同比 +31.41%，但 利润同比 -11.24%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "相对强弱 +11.65%，强于基准。",
+        "营收同比 +31.41%。",
+        "经营现金流同比 +111.35%。"
+      ],
+      "risks": [
+        "利润同比 -11.24%。",
+        "资产负债率 81.6% 偏高。",
+        "PE 54.5x。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 26.77，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 24.13，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 62.0,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "紫光股份 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 26.77,
+          "support_price": 24.13,
+          "pullback_price": 25.742,
+          "retest_price": 26.77
+        },
+        "trigger_conditions": [
+          "只有放量突破 26.77，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 24.13，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 26.77 / 24.13 的反应。",
+          "相对强弱 +11.65%，强于基准。",
+          "利润同比 -11.24%。"
+        ]
+      },
+      "metadata": {
+        "sector": "IT服务",
+        "sector_proxy": false
+      }
+    }
+  ],
+  "market_view": {
+    "object_type": "market",
+    "object_id": "000300",
+    "object_name": "偏空市场",
+    "at": "2026-03-24",
+    "action": "risk_off",
+    "score": 36.35,
+    "probability": 0.3635,
+    "reason": [
+      "沪深300 5日收益 -5.35%，20日收益 -5.12%。",
+      "候选池平均趋势分 50.4。",
+      "强势候选 6 个，明显走弱对象 7 个。",
+      "新闻偏移 +0.00，公告偏移 +0.00。"
+    ],
+    "risk": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "sources": [
+      "benchmark_daily_bars",
+      "official_news",
+      "cninfo_announcements"
+    ],
+    "thesis": "防守期下，当前更适合执行“新开仓从严控制”而不是平均分配火力。",
+    "counterpoints": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "trigger_conditions": [
+      "新开仓从严控制",
+      "优先处理弱持仓和破位风险"
+    ],
+    "invalidation_conditions": [
+      "若指数与广度快速修复，需上调风险预算。",
+      "若强势股同步失去相对强度，继续收缩进攻动作。"
+    ],
+    "priority_score": 98.17,
+    "metadata": {
+      "label": "偏空",
+      "regime": "防守期",
+      "policy": [
+        "新开仓从严控制",
+        "优先处理弱持仓和破位风险",
+        "只保留少量观察名单"
+      ],
+      "benchmark_code": "000300",
+      "benchmark_ret_5d": -0.053485345366430126,
+      "benchmark_ret_20d": -0.05122081533598977,
+      "breadth_score": 50.404999999999994,
+      "leadership_count": 6,
+      "breakdown_count": 7
+    }
+  },
+  "artifacts": {
+    "workbook": "data/output/spreadsheet/2026-03-24/2026-03-24_portfolio_candidates.xlsx"
+  }
+}

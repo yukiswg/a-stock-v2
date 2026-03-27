@@ -1,0 +1,113 @@
+{
+  "selection_mode": "dynamic_sector_leaders",
+  "top_sectors": [
+    {
+      "sector": "能源金属",
+      "score": 83.91,
+      "pct_change": 0.051399999999999994,
+      "net_inflow": 22.88,
+      "leader": "盛新锂能",
+      "leader_pct_change": 0.1,
+      "rank_score": 92.25,
+      "rank": 1
+    },
+    {
+      "sector": "化学制药",
+      "score": 80.41,
+      "pct_change": 0.0319,
+      "net_inflow": 40.41,
+      "leader": "华纳药厂",
+      "leader_pct_change": 0.12560000000000002,
+      "rank_score": 86.9,
+      "rank": 2
+    },
+    {
+      "sector": "农化制品",
+      "score": 79.04,
+      "pct_change": 0.0315,
+      "net_inflow": 21.76,
+      "leader": "赤天化",
+      "leader_pct_change": 0.1005,
+      "rank_score": 84.54,
+      "rank": 3
+    },
+    {
+      "sector": "小金属",
+      "score": 78.4,
+      "pct_change": 0.030899999999999997,
+      "net_inflow": 29.02,
+      "leader": "云南锗业",
+      "leader_pct_change": 0.1,
+      "rank_score": 84.18,
+      "rank": 4
+    },
+    {
+      "sector": "医疗服务",
+      "score": 76.1,
+      "pct_change": 0.0281,
+      "net_inflow": 9.76,
+      "leader": "益诺思",
+      "leader_pct_change": 0.14859999999999998,
+      "rank_score": 80.52,
+      "rank": 5
+    }
+  ],
+  "leaders": [
+    {
+      "code": "002240",
+      "name": "盛新锂能",
+      "sector": "能源金属",
+      "sector_score": 83.91,
+      "sector_pct_change": 0.051399999999999994,
+      "sector_net_inflow": 22.88,
+      "leader_name_raw": "盛新锂能",
+      "rank": 1,
+      "rank_score": 92.25
+    },
+    {
+      "code": "688799",
+      "name": "华纳药厂",
+      "sector": "化学制药",
+      "sector_score": 80.41,
+      "sector_pct_change": 0.0319,
+      "sector_net_inflow": 40.41,
+      "leader_name_raw": "华纳药厂",
+      "rank": 2,
+      "rank_score": 86.9
+    },
+    {
+      "code": "600227",
+      "name": "赤天化",
+      "sector": "农化制品",
+      "sector_score": 79.04,
+      "sector_pct_change": 0.0315,
+      "sector_net_inflow": 21.76,
+      "leader_name_raw": "赤天化",
+      "rank": 3,
+      "rank_score": 84.54
+    },
+    {
+      "code": "002428",
+      "name": "云南锗业",
+      "sector": "小金属",
+      "sector_score": 78.4,
+      "sector_pct_change": 0.030899999999999997,
+      "sector_net_inflow": 29.02,
+      "leader_name_raw": "云南锗业",
+      "rank": 4,
+      "rank_score": 84.18
+    },
+    {
+      "code": "688710",
+      "name": "益诺思",
+      "sector": "医疗服务",
+      "sector_score": 76.1,
+      "sector_pct_change": 0.0281,
+      "sector_net_inflow": 9.76,
+      "leader_name_raw": "益诺思",
+      "rank": 5,
+      "rank_score": 80.52
+    }
+  ],
+  "resolver_failures": []
+}

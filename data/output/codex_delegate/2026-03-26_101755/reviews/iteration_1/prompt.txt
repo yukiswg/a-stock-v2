@@ -1,0 +1,78 @@
+You are the acceptance gate for a Claude-managed Codex delivery loop.
+
+Project root: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+Run directory: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_101755
+Review iteration: 1
+Business task: Audit README.md and STARTUP_README.md for consistency. Only edit files if you find a concrete inconsistency. Keep changes minimal. Return pass only if the docs are aligned.
+
+Original plan:
+{
+  "outcome": "Verify that README.md and STARTUP_README.md are aligned on shared product claims, commands, and API entrypoints; make no edit unless repo-backed verification shows a concrete mismatch.",
+  "done_means": [
+    "README.md and STARTUP_README.md are compared only on overlapping claims, not on completeness.",
+    "Any disputed claim is checked against the current implementation in src/ashare_harness_v2/cli.py, src/ashare_harness_v2/runtime_harness/web.py, and the referenced scripts.",
+    "If a concrete inconsistency is found, the fix is minimal and limited to README.md and/or STARTUP_README.md.",
+    "If no concrete inconsistency is found, no files are changed and the result is a documented pass.",
+    "Non-goal: expanding, rewriting, or modernizing examples that are merely more detailed or date-stamped without contradicting the other doc or the repo."
+  ],
+  "review_checks": [
+    "Read README.md, STARTUP_README.md, and .claude/skills/ceo-delegation-loop/SKILL.md before deciding scope.",
+    "Enumerate the shared claims: ask-stock, discover-ideas, advice/discovery APIs, primary entry guidance, and any overlapping run/serve commands.",
+    "Verify those claims against src/ashare_harness_v2/cli.py, src/ashare_harness_v2/runtime_harness/web.py, and scripts/ before editing.",
+    "Pass only if there is either no diff in the two docs or a minimal diff that resolves a proven mismatch and nothing else."
+  ],
+  "risks": [
+    "README.md is a high-level summary and STARTUP_README.md is an operator guide, so extra detail in STARTUP_README.md is not by itself an inconsistency.",
+    "Hardcoded example dates and session paths may look stale but are not automatically inconsistent unless they contradict shared claims or current entrypoints.",
+    "Generated artifacts under data/output/codex_delegate may contain prior plans for the same task and should not be treated as source of truth."
+  ],
+  "work_packets": [
+    {
+      "packet_id": "wp1",
+      "title": "Audit Shared Doc Claims",
+      "objective": "Audit the two docs on their shared claims, verify each against the current repo, and apply the smallest possible doc correction only if a concrete inconsistency is confirmed.",
+      "scope": [
+        "Compare README.md and STARTUP_README.md on overlapping claims only.",
+        "Check referenced CLI commands, API routes, and shell entrypoints against the implementation.",
+        "Edit only README.md and/or STARTUP_README.md if a mismatch is proven.",
+        "Do not broaden wording, refresh examples, or rewrite structure without a concrete inconsistency."
+      ],
+      "files": [
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/README.md",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/STARTUP_README.md",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/.claude/skills/ceo-delegation-loop/SKILL.md",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/cli.py",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/runtime_harness/web.py",
+        "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/scripts"
+      ],
+      "commands": [
+        "sed -n '1,220p' README.md",
+        "sed -n '1,260p' STARTUP_README.md",
+        "sed -n '1,260p' .claude/skills/ceo-delegation-loop/SKILL.md",
+        "sed -n '1,260p' src/ashare_harness_v2/cli.py",
+        "sed -n '1,220p' src/ashare_harness_v2/runtime_harness/web.py",
+        "rg -n \"ask-stock|discover-ideas|delegate-codex|/api/(status|homepage|advice|discovery)|run_trading_day|run_realtime_session|run_post_close|serve_dashboard|serve_api\" README.md STARTUP_README.md src scripts",
+        "git diff -- README.md STARTUP_README.md"
+      ],
+      "deliverables": [
+        "A short pass/fail audit note that names any concrete inconsistency found, or states that the docs are aligned.",
+        "If needed, a minimal patch touching only README.md and/or STARTUP_README.md.",
+        "Verification evidence mapping each changed claim to the current CLI, API handler, or shell script."
+      ]
+    }
+  ]
+}
+
+Your job:
+1. Inspect the repository state.
+2. Read the worker result artifacts under:
+   - /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_101755/workers/iteration_1
+3. Judge the repository against the original done criteria.
+4. Return PASS only if the requested outcome is materially complete.
+5. If failed, emit compact retry packets for the missing work only.
+
+Important constraints:
+- Return valid JSON only matching the schema.
+- Do not include markdown fences.
+- Be strict. Nearly finished is still fail.
+- Prefer precise retry packets over vague criticism.

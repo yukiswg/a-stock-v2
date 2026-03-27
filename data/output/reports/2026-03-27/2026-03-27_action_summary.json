@@ -1,0 +1,5130 @@
+{
+  "as_of": "2026-03-27",
+  "market_view": {
+    "object_type": "market",
+    "object_id": "000300",
+    "object_name": "偏空市场",
+    "at": "2026-03-27",
+    "action": "risk_off",
+    "score": 33.09,
+    "probability": 0.3309,
+    "reason": [
+      "沪深300 5日收益 -1.88%，20日收益 -4.87%。",
+      "候选池平均趋势分 36.1。",
+      "强势候选 2 个，明显走弱对象 7 个。",
+      "新闻偏移 +0.00，公告偏移 +0.00。"
+    ],
+    "risk": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "sources": [
+      "benchmark_daily_bars",
+      "official_news",
+      "cninfo_announcements"
+    ],
+    "thesis": "防守期下，当前更适合执行“新开仓从严控制”而不是平均分配火力。",
+    "counterpoints": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "trigger_conditions": [
+      "新开仓从严控制",
+      "优先处理弱持仓和破位风险"
+    ],
+    "invalidation_conditions": [
+      "若指数与广度快速修复，需上调风险预算。",
+      "若强势股同步失去相对强度，继续收缩进攻动作。"
+    ],
+    "priority_score": 96.55,
+    "metadata": {
+      "label": "偏空",
+      "regime": "防守期",
+      "policy": [
+        "新开仓从严控制",
+        "优先处理弱持仓和破位风险",
+        "只保留少量观察名单"
+      ],
+      "benchmark_code": "000300",
+      "benchmark_ret_5d": -0.018760592246147456,
+      "benchmark_ret_20d": -0.04867905703034603,
+      "breadth_score": 36.080714285714286,
+      "leadership_count": 2,
+      "breakdown_count": 7
+    }
+  },
+  "holdings_actions": [
+    {
+      "object_type": "holding",
+      "object_id": "601699",
+      "object_name": "潞安环能",
+      "at": "2026-03-27",
+      "action": "cut_on_breakdown",
+      "score": 13.66,
+      "probability": 0.5396,
+      "reason": [
+        "潞安环能 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+        "毛利率 34.1%。"
+      ],
+      "risk": [
+        "若重新站回 14.92 且成交恢复，可转回观察。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "cninfo",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "潞安环能 的主逻辑是 毛利率 34.1%；5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨），但 20日收益 -5.91%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+      "counterpoints": [
+        "20日收益 -5.91%，中期趋势仍弱。",
+        "营收同比 -20.82%。",
+        "利润同比 -44.45%。"
+      ],
+      "trigger_conditions": [
+        "若跌破 13.95 且相对强弱继续走弱，立即执行减仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若重新站回 14.92 且成交恢复，可转回观察。"
+      ],
+      "priority_score": 97.0,
+      "metadata": {
+        "sector": "能源金属",
+        "market_value": 3500.0,
+        "decision": "trim",
+        "coverage_score": 93.0,
+        "positive_factors": [
+          "毛利率 34.1%。",
+          "5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。",
+          "距20日高点 -9.03%，处于中部偏低区域，赔率尚可。"
+        ],
+        "negative_factors": [
+          "20日收益 -5.91%，中期趋势仍弱。",
+          "营收同比 -20.82%。",
+          "利润同比 -44.45%。"
+        ],
+        "position_context": {
+          "is_holding": true,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 3500.0,
+          "position_weight": 0.35,
+          "sector_weight": 0.35,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": 14.01,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "能源金属",
+          "holding_sector": "煤炭",
+          "sector_weight_basis": "煤炭",
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "action_plan": {
+          "action": "cut_on_breakdown",
+          "label": "破位减仓",
+          "rationale": "潞安环能 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+          "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+          "urgency": "high",
+          "urgency_score": 97.0,
+          "levels": {
+            "breakout_price": 15.4,
+            "support_price": 13.95,
+            "pullback_price": 14.358,
+            "retest_price": 14.92,
+            "stop_price": 13.531,
+            "entry_reward_risk": 2.9,
+            "entry_upside_pct": 9.92,
+            "entry_downside_pct": 3.42,
+            "box_position_pct": 4.14
+          },
+          "trigger_conditions": [
+            "若跌破 13.95 且相对强弱继续走弱，立即执行减仓。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若重新站回 14.92 且成交恢复，可转回观察。"
+          ],
+          "blockers": [
+            "市场分 33.1 低于 40，当前不支持主动进攻。",
+            "中期趋势或相对强弱还没修复，先别把反弹当主剧本。",
+            "单票仓位 35.0% 已偏高，继续加仓容错率下降。"
+          ],
+          "execution_brief": [
+            "现在先做风险控制，不做主动加仓。",
+            "若跌破 13.95 且相对强弱继续走弱，立即执行减仓。",
+            "若重新站回 14.92 且成交恢复，可转回观察。"
+          ],
+          "do_not": [
+            "持仓数量或可卖数量缺失时，不给精确手数。",
+            "持仓成本未知时，不把摊低成本当成默认动作。",
+            "不要在没有触发条件前提前追单。"
+          ],
+          "monitoring_focus": [
+            "当前更像 支撑区，重点看价格相对 15.40 / 13.95 的反应。",
+            "毛利率 34.1%。",
+            "20日收益 -5.91%，中期趋势仍弱。"
+          ]
+        },
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+        "prediction_bundle": {
+          "code": "601699",
+          "name": "潞安环能",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 14.01,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 14.078,
+            "predicted_return": 0.004847,
+            "confidence": 0.571,
+            "confidence_band_upper": 14.374,
+            "confidence_band_lower": 13.782,
+            "method": "mean_reversion",
+            "reasoning": [
+              "当前价偏离5日均线 -2.42%，剩余 50% 交易时间，均值回归修正预期 0.48%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 14.319,
+            "predicted_return": 0.022059,
+            "confidence": 0.55,
+            "confidence_band_upper": 14.631,
+            "confidence_band_lower": 14.007,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0042（日均漂移 +0.419%）。",
+              "当前价偏离20日均线 -3.78%（BB位置 13%），偏低，有回归压力。",
+              "今日振幅 3.07% 较大，下方支撑较强。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 14.044,
+            "predicted_return": 0.002444,
+            "confidence": 0.472,
+            "confidence_band_upper": 14.381,
+            "confidence_band_lower": 13.707,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日跌幅 -1.75% 属于大跌日，历史次日平均收益 -0.156%，次日有反弹修复可能。",
+              "当前处于20日低位（4%），历史上此类位置次日反弹概率偏高。",
+              "历史样本 61 天，胜率约 36%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 13.466,
+            "predicted_return": -0.038849,
+            "confidence": 0.438,
+            "confidence_band_upper": 13.835,
+            "confidence_band_lower": 13.097,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.1280%，10日预期偏移 -3.88%（下跌）。",
+              "历史10日正收益概率 42%（样本 310 个区间）。",
+              "当前趋势得分 29，中长期偏弱。",
+              "相对强弱 -1.04%，弱于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "full"
+          }
+        }
+      }
+    },
+    {
+      "object_type": "holding",
+      "object_id": "513310",
+      "object_name": "中韩芯片",
+      "at": "2026-03-27",
+      "action": "cut_on_breakdown",
+      "score": 5.88,
+      "probability": 0.42,
+      "reason": [
+        "中韩芯片 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+        "5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。"
+      ],
+      "risk": [
+        "若重新站回 3.97 且成交恢复，可转回观察。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "sector_context"
+      ],
+      "thesis": "中韩芯片 的主逻辑是 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）；距20日高点 -11.40%，处于中部偏低区域，赔率尚可，但 20日收益 -12.73%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+      "counterpoints": [
+        "20日收益 -12.73%，中期趋势仍弱。",
+        "相对强弱 -7.86%，弱于基准。",
+        "量比 0.18x，量能严重不足。"
+      ],
+      "trigger_conditions": [
+        "若跌破 3.66 且相对强弱继续走弱，立即执行减仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若重新站回 3.97 且成交恢复，可转回观察。"
+      ],
+      "priority_score": 94.0,
+      "metadata": {
+        "sector": "半导体ETF",
+        "market_value": 1500.0,
+        "decision": "insufficient_evidence",
+        "coverage_score": 42.0,
+        "positive_factors": [
+          "5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。",
+          "距20日高点 -11.40%，处于中部偏低区域，赔率尚可。"
+        ],
+        "negative_factors": [
+          "20日收益 -12.73%，中期趋势仍弱。",
+          "相对强弱 -7.86%，弱于基准。",
+          "量比 0.18x，量能严重不足。"
+        ],
+        "position_context": {
+          "is_holding": true,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 1500.0,
+          "position_weight": 0.15,
+          "sector_weight": 0.15,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": 3.771,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "半导体ETF",
+          "holding_sector": "半导体ETF",
+          "sector_weight_basis": "半导体ETF",
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "action_plan": {
+          "action": "cut_on_breakdown",
+          "label": "破位减仓",
+          "rationale": "中韩芯片 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+          "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+          "urgency": "high",
+          "urgency_score": 94.0,
+          "levels": {
+            "breakout_price": 4.256,
+            "support_price": 3.663,
+            "pullback_price": 3.817,
+            "retest_price": 3.973,
+            "stop_price": 3.553,
+            "entry_reward_risk": 2.22,
+            "entry_upside_pct": 12.86,
+            "entry_downside_pct": 5.78,
+            "box_position_pct": 18.21
+          },
+          "trigger_conditions": [
+            "若跌破 3.66 且相对强弱继续走弱，立即执行减仓。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若重新站回 3.97 且成交恢复，可转回观察。"
+          ],
+          "blockers": [
+            "覆盖度只有 42.0，证据还不够完整。",
+            "市场分 33.1 低于 40，当前不支持主动进攻。",
+            "中期趋势或相对强弱还没修复，先别把反弹当主剧本。"
+          ],
+          "execution_brief": [
+            "现在先做风险控制，不做主动加仓。",
+            "若跌破 3.66 且相对强弱继续走弱，立即执行减仓。",
+            "若重新站回 3.97 且成交恢复，可转回观察。"
+          ],
+          "do_not": [
+            "持仓数量或可卖数量缺失时，不给精确手数。",
+            "持仓成本未知时，不把摊低成本当成默认动作。",
+            "不要在没有触发条件前提前追单。"
+          ],
+          "monitoring_focus": [
+            "当前更像 箱体下沿，重点看价格相对 4.26 / 3.66 的反应。",
+            "5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。",
+            "20日收益 -12.73%，中期趋势仍弱。"
+          ]
+        },
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+        "prediction_bundle": {
+          "code": "513310",
+          "name": "中韩芯片",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 3.771,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 3.771,
+            "predicted_return": 0.0,
+            "confidence": 0.511,
+            "confidence_band_upper": 3.86,
+            "confidence_band_lower": 3.682,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 3.883,
+            "predicted_return": 0.029711,
+            "confidence": 0.55,
+            "confidence_band_upper": 3.968,
+            "confidence_band_lower": 3.798,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0021（日均漂移 +0.211%）。",
+              "当前价偏离20日均线 -5.31%（BB位置 15%），偏低，有回归压力。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 3.782,
+            "predicted_return": 0.002939,
+            "confidence": 0.512,
+            "confidence_band_upper": 3.873,
+            "confidence_band_lower": 3.691,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日跌幅 -3.01% 属于大跌日，历史次日平均收益 +0.294%，次日有反弹修复可能。",
+              "历史样本 82 天，胜率约 56%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 3.318,
+            "predicted_return": -0.12,
+            "confidence": 0.613,
+            "confidence_band_upper": 3.383,
+            "confidence_band_lower": 3.253,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.3039%，10日预期偏移 -22.69%（下跌）。",
+              "历史10日正收益概率 64%（样本 527 个区间）。",
+              "当前趋势得分 50，中长期方向不明。",
+              "相对强弱 -7.86%，弱于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "full"
+          }
+        }
+      }
+    },
+    {
+      "object_type": "holding",
+      "object_id": "588000",
+      "object_name": "科创50",
+      "at": "2026-03-27",
+      "action": "cut_on_breakdown",
+      "score": 5.34,
+      "probability": 0.42,
+      "reason": [
+        "科创50 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+        "5日收益 -2.02%，短期节奏中性偏稳。"
+      ],
+      "risk": [
+        "若重新站回 1.39 且成交恢复，可转回观察。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "sector_context"
+      ],
+      "thesis": "科创50 的主逻辑是 5日收益 -2.02%，短期节奏中性偏稳；距20日高点 -11.92%，处于中部偏低区域，赔率尚可，但 20日收益 -13.15%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+      "counterpoints": [
+        "20日收益 -13.15%，中期趋势仍弱。",
+        "相对强弱 -8.29%，弱于基准。",
+        "量比 0.37x，量能严重不足。"
+      ],
+      "trigger_conditions": [
+        "若跌破 1.33 且相对强弱继续走弱，立即执行减仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若重新站回 1.39 且成交恢复，可转回观察。"
+      ],
+      "priority_score": 94.0,
+      "metadata": {
+        "sector": "宽基ETF",
+        "market_value": 5000.0,
+        "decision": "insufficient_evidence",
+        "coverage_score": 42.0,
+        "positive_factors": [
+          "5日收益 -2.02%，短期节奏中性偏稳。",
+          "距20日高点 -11.92%，处于中部偏低区域，赔率尚可。"
+        ],
+        "negative_factors": [
+          "20日收益 -13.15%，中期趋势仍弱。",
+          "相对强弱 -8.29%，弱于基准。",
+          "量比 0.37x，量能严重不足。"
+        ],
+        "position_context": {
+          "is_holding": true,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 5000.0,
+          "position_weight": 0.5,
+          "sector_weight": 0.5,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": 1.36,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "宽基ETF",
+          "holding_sector": "宽基ETF",
+          "sector_weight_basis": "宽基ETF",
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "action_plan": {
+          "action": "cut_on_breakdown",
+          "label": "破位减仓",
+          "rationale": "科创50 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+          "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+          "urgency": "high",
+          "urgency_score": 94.0,
+          "levels": {
+            "breakout_price": 1.544,
+            "support_price": 1.329,
+            "pullback_price": 1.358,
+            "retest_price": 1.385,
+            "stop_price": 1.289,
+            "entry_reward_risk": 2.59,
+            "entry_upside_pct": 13.53,
+            "entry_downside_pct": 5.22,
+            "box_position_pct": 14.42
+          },
+          "trigger_conditions": [
+            "若跌破 1.33 且相对强弱继续走弱，立即执行减仓。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若重新站回 1.39 且成交恢复，可转回观察。"
+          ],
+          "blockers": [
+            "覆盖度只有 42.0，证据还不够完整。",
+            "市场分 33.1 低于 40，当前不支持主动进攻。",
+            "中期趋势或相对强弱还没修复，先别把反弹当主剧本。"
+          ],
+          "execution_brief": [
+            "现在先做风险控制，不做主动加仓。",
+            "若跌破 1.33 且相对强弱继续走弱，立即执行减仓。",
+            "若重新站回 1.39 且成交恢复，可转回观察。"
+          ],
+          "do_not": [
+            "持仓数量或可卖数量缺失时，不给精确手数。",
+            "持仓成本未知时，不把摊低成本当成默认动作。",
+            "不要在没有触发条件前提前追单。"
+          ],
+          "monitoring_focus": [
+            "当前更像 支撑区，重点看价格相对 1.54 / 1.33 的反应。",
+            "5日收益 -2.02%，短期节奏中性偏稳。",
+            "20日收益 -13.15%，中期趋势仍弱。"
+          ]
+        },
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+        "prediction_bundle": {
+          "code": "588000",
+          "name": "科创50",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 1.36,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 1.36,
+            "predicted_return": 0.0,
+            "confidence": 0.457,
+            "confidence_band_upper": 1.396,
+            "confidence_band_lower": 1.324,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 1.4,
+            "predicted_return": 0.02925,
+            "confidence": 0.55,
+            "confidence_band_upper": 1.431,
+            "confidence_band_lower": 1.369,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0000（日均漂移 -0.001%）。",
+              "当前价偏离20日均线 -5.24%（BB位置 16%），偏低，有回归压力。",
+              "今日振幅 2.94% 较大，下方支撑较强。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 1.367,
+            "predicted_return": 0.005025,
+            "confidence": 0.501,
+            "confidence_band_upper": 1.4,
+            "confidence_band_lower": 1.334,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 +0.22% 属于震荡日，历史次日平均收益 +0.103%，无明显方向偏向。",
+              "当前处于20日低位（14%），历史上此类位置次日反弹概率偏高。",
+              "历史样本 221 天，胜率约 51%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 1.197,
+            "predicted_return": -0.12,
+            "confidence": 0.521,
+            "confidence_band_upper": 1.225,
+            "confidence_band_lower": 1.169,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.5932%，10日预期偏移 -26.65%（下跌）。",
+              "历史10日正收益概率 53%（样本 310 个区间）。",
+              "当前趋势得分 50，中长期方向不明。",
+              "相对强弱 -8.29%，弱于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "full"
+          }
+        }
+      }
+    }
+  ],
+  "watchlist": [
+    {
+      "object_type": "watch",
+      "object_id": "300750",
+      "object_name": "宁德时代",
+      "at": "2026-03-27",
+      "action": "wait_for_breakout",
+      "score": 48.06,
+      "probability": 0.3433,
+      "reason": [
+        "宁德时代 接近关键位，但还没给出值得执行的确认。",
+        "20日收益 +18.77%，趋势延续性较强。"
+      ],
+      "risk": [
+        "若回落跌破 396.99，取消突破预案。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "宁德时代 的主逻辑是 20日收益 +18.77%，趋势延续性较强；相对强弱 +23.63%，强于基准，但 量比 0.32x，量能严重不足，所以当前策略是“等放量突破”。",
+      "counterpoints": [
+        "量比 0.32x，量能严重不足。",
+        "市场环境偏空，新开仓需要明显折价。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 413.00，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 396.99，取消突破预案。"
+      ],
+      "priority_score": 61.48,
+      "metadata": {
+        "category": "watch",
+        "decision": "watch",
+        "sector": "电池",
+        "strategy_style": "defensive_quality",
+        "strategy_label": "防守质量",
+        "style_fit_score": 4.0,
+        "selection_score": 61.48,
+        "coverage_score": 80.0,
+        "positive_factors": [
+          "20日收益 +18.77%，趋势延续性较强。",
+          "相对强弱 +23.63%，强于基准。",
+          "营收同比 +17.04%。"
+        ],
+        "negative_factors": [
+          "量比 0.32x，量能严重不足。",
+          "市场环境偏空，新开仓需要明显折价。"
+        ],
+        "position_context": {
+          "is_holding": false,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 0.0,
+          "position_weight": 0.0,
+          "sector_weight": 0.0,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": null,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "电池",
+          "holding_sector": null,
+          "sector_weight_basis": null,
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "action_plan": {
+          "action": "wait_for_breakout",
+          "label": "等放量突破",
+          "rationale": "宁德时代 接近关键位，但还没给出值得执行的确认。",
+          "position_guidance": "先观察，不提前追价。",
+          "urgency": "medium",
+          "urgency_score": 62.0,
+          "levels": {
+            "breakout_price": 413.0,
+            "support_price": 396.99,
+            "pullback_price": 401.096,
+            "retest_price": 406.19,
+            "stop_price": 385.08,
+            "entry_reward_risk": 0.32,
+            "entry_upside_pct": 1.68,
+            "entry_downside_pct": 5.2,
+            "box_position_pct": 57.46
+          },
+          "trigger_conditions": [
+            "只有放量突破 413.00，才升级为试仓。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若回落跌破 396.99，取消突破预案。"
+          ],
+          "blockers": [
+            "市场分 33.1 低于 40，当前不支持主动进攻。",
+            "临近关键位但量比只有 0.32x，容易演变成追价。",
+            "当前位置赔率只有 0.32，还不够支持积极出手。"
+          ],
+          "execution_brief": [
+            "现在不提前开仓，只等确认信号。",
+            "只有放量突破 413.00，才升级为试仓。",
+            "若回落跌破 396.99，取消突破预案。"
+          ],
+          "do_not": [
+            "不要在没有触发条件前提前追单。",
+            "不要把单票仓位一次性打满。",
+            "不要忽略市场状态对个股执行的影响。"
+          ],
+          "monitoring_focus": [
+            "当前更像 支撑区，重点看价格相对 413.00 / 396.99 的反应。",
+            "20日收益 +18.77%，趋势延续性较强。",
+            "量比 0.32x，量能严重不足。"
+          ]
+        },
+        "position_guidance": "先观察，不提前追价。",
+        "prediction_bundle": {
+          "code": "300750",
+          "name": "宁德时代",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 406.19,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 406.19,
+            "predicted_return": 0.0,
+            "confidence": 0.514,
+            "confidence_band_upper": 415.682,
+            "confidence_band_lower": 396.698,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 393.253,
+            "predicted_return": -0.031851,
+            "confidence": 0.55,
+            "confidence_band_upper": 401.833,
+            "confidence_band_lower": 384.673,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 0.9980（日均漂移 -0.200%）。",
+              "当前价偏离20日均线 +5.70%（BB位置 72%），偏高，有回归压力。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 406.02,
+            "predicted_return": -0.000418,
+            "confidence": 0.496,
+            "confidence_band_upper": 415.764,
+            "confidence_band_lower": 396.276,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 +0.92% 属于震荡日，历史次日平均收益 +0.358%，无明显方向偏向。",
+              "当前处于20日高位（91%），历史上此类位置次日胜率偏低。",
+              "历史样本 197 天，胜率约 48%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 467.118,
+            "predicted_return": 0.15,
+            "confidence": 0.536,
+            "confidence_band_upper": 477.573,
+            "confidence_band_lower": 456.663,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 +0.9768%，10日预期偏移 +70.85%（上涨）。",
+              "历史10日正收益概率 55%（样本 310 个区间）。",
+              "当前趋势得分 100，支撑中长期方向。",
+              "相对强弱 +23.63%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "full"
+          }
+        }
+      }
+    },
+    {
+      "object_type": "watch",
+      "object_id": "600227",
+      "object_name": "赤天化",
+      "at": "2026-03-27",
+      "action": "wait_for_pullback",
+      "score": 38.09,
+      "probability": 0.2721,
+      "reason": [
+        "赤天化 方向还在，但更优赔率不在当前位置。",
+        "20日收益 +48.26%，趋势延续性较强。"
+      ],
+      "risk": [
+        "若直接跌破 3.87，取消计划。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.capital_flow",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "赤天化 的主逻辑是 20日收益 +48.26%，趋势延续性较强；相对强弱 +53.13%，强于基准，但 营收同比 -7.96%，所以当前策略是“等回踩”。",
+      "counterpoints": [
+        "营收同比 -7.96%。",
+        "利润同比 -340.46%。",
+        "ROE -6.2%。"
+      ],
+      "trigger_conditions": [
+        "回踩 4.00 一带且量能不失真时，再考虑出手。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若直接跌破 3.87，取消计划。"
+      ],
+      "priority_score": 55.81,
+      "metadata": {
+        "category": "watch",
+        "decision": "watch",
+        "sector": "化学原料",
+        "strategy_style": "defensive_quality",
+        "strategy_label": "防守质量",
+        "style_fit_score": 3.84,
+        "selection_score": 55.81,
+        "coverage_score": 80.0,
+        "positive_factors": [
+          "20日收益 +48.26%，趋势延续性较强。",
+          "相对强弱 +53.13%，强于基准。",
+          "5日收益 +0.23%，短期节奏中性偏稳。"
+        ],
+        "negative_factors": [
+          "营收同比 -7.96%。",
+          "利润同比 -340.46%。",
+          "ROE -6.2%。"
+        ],
+        "position_context": {
+          "is_holding": false,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 0.0,
+          "position_weight": 0.0,
+          "sector_weight": 0.0,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": null,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "化学原料",
+          "holding_sector": null,
+          "sector_weight_basis": null,
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "action_plan": {
+          "action": "wait_for_pullback",
+          "label": "等回踩",
+          "rationale": "赤天化 方向还在，但更优赔率不在当前位置。",
+          "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+          "urgency": "medium",
+          "urgency_score": 60.0,
+          "levels": {
+            "breakout_price": 5.29,
+            "support_price": 3.87,
+            "pullback_price": 4.004,
+            "retest_price": 4.27,
+            "stop_price": 3.754,
+            "entry_reward_risk": 1.98,
+            "entry_upside_pct": 23.89,
+            "entry_downside_pct": 12.08,
+            "box_position_pct": 28.17
+          },
+          "trigger_conditions": [
+            "回踩 4.00 一带且量能不失真时，再考虑出手。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若直接跌破 3.87，取消计划。"
+          ],
+          "blockers": [
+            "市场分 33.1 低于 40，当前不支持主动进攻。",
+            "当前位置赔率只有 1.98，还不够支持积极出手。"
+          ],
+          "execution_brief": [
+            "现在不提前开仓，只等确认信号。",
+            "回踩 4.00 一带且量能不失真时，再考虑出手。",
+            "若直接跌破 3.87，取消计划。"
+          ],
+          "do_not": [
+            "不要在没有触发条件前提前追单。",
+            "不要把单票仓位一次性打满。",
+            "不要忽略市场状态对个股执行的影响。"
+          ],
+          "monitoring_focus": [
+            "当前更像 箱体下沿，重点看价格相对 5.29 / 3.87 的反应。",
+            "20日收益 +48.26%，趋势延续性较强。",
+            "营收同比 -7.96%。"
+          ]
+        },
+        "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+        "prediction_bundle": {
+          "code": "600227",
+          "name": "赤天化",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 4.27,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 4.213,
+            "predicted_return": -0.013287,
+            "confidence": 0.65,
+            "confidence_band_upper": 4.291,
+            "confidence_band_lower": 4.135,
+            "method": "mean_reversion",
+            "reasoning": [
+              "当前价偏离5日均线 +6.64%，剩余 50% 交易时间，均值回归修正预期 1.33%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 4.12,
+            "predicted_return": -0.035221,
+            "confidence": 0.55,
+            "confidence_band_upper": 4.21,
+            "confidence_band_lower": 4.03,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0086（日均漂移 +0.856%）。",
+              "当前价偏离20日均线 +6.94%（BB位置 61%），偏高，有回归压力。",
+              "今日振幅 11.71% 较大，收盘偏回归压力。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 4.295,
+            "predicted_return": 0.005746,
+            "confidence": 0.501,
+            "confidence_band_upper": 4.398,
+            "confidence_band_lower": 4.192,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨幅 +10.05% 属于大涨日，历史数据次日平均收益 +0.575%，次日倾向于继续走强。",
+              "历史样本 149 天，胜率约 50%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 4.91,
+            "predicted_return": 0.15,
+            "confidence": 0.52,
+            "confidence_band_upper": 5.023,
+            "confidence_band_lower": 4.797,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 +1.5569%，10日预期偏移 +150.40%（上涨）。",
+              "历史10日正收益概率 52%（样本 528 个区间）。",
+              "当前趋势得分 100，支撑中长期方向。",
+              "相对强弱 +53.13%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "full"
+          }
+        }
+      }
+    },
+    {
+      "object_type": "watch",
+      "object_id": "600036",
+      "object_name": "招商银行",
+      "at": "2026-03-27",
+      "action": "switch_to_better_alternative",
+      "score": 25.46,
+      "probability": 0.1819,
+      "reason": [
+        "招商银行 当前不是最优资金去处，优先看 宁德时代。",
+        "同梯队更强的是 宁德时代，当前优先级领先 14.7 分。"
+      ],
+      "risk": [
+        "若回落跌破 38.68，取消突破预案。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "招商银行 不是完全不能做，但当前执行位和资金效率都弱于 宁德时代。",
+      "counterpoints": [
+        "与 宁德时代 相比，当前更缺少马上执行的理由。",
+        "经营现金流同比 -38.68%。",
+        "资产负债率 89.9% 偏高。"
+      ],
+      "trigger_conditions": [
+        "若同梯队必须选一只，先等 宁德时代 满足“等放量突破”条件。",
+        "只有放量突破 40.12，才升级为试仓。"
+      ],
+      "invalidation_conditions": [
+        "只有当 招商银行 重新强于 宁德时代，才恢复优先级。",
+        "若回落跌破 38.68，取消突破预案。"
+      ],
+      "priority_score": 46.74,
+      "metadata": {
+        "category": "watch",
+        "decision": "watch",
+        "sector": "银行",
+        "strategy_style": "defensive_quality",
+        "strategy_label": "防守质量",
+        "style_fit_score": -0.23,
+        "selection_score": 46.74,
+        "coverage_score": 80.0,
+        "positive_factors": [
+          "相对强弱 +6.62%，强于基准。",
+          "PE 8.9x。",
+          "5日收益 -0.81%，短期节奏中性偏稳。"
+        ],
+        "negative_factors": [
+          "经营现金流同比 -38.68%。",
+          "资产负债率 89.9% 偏高。",
+          "量比 0.30x，量能严重不足。"
+        ],
+        "position_context": {
+          "is_holding": false,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 0.0,
+          "position_weight": 0.0,
+          "sector_weight": 0.0,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": null,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "银行",
+          "holding_sector": null,
+          "sector_weight_basis": null,
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "action_plan": {
+          "action": "switch_to_better_alternative",
+          "label": "替代标的",
+          "rationale": "招商银行 当前不是最优资金去处，优先看 宁德时代。",
+          "position_guidance": "不给 招商银行 分配新仓，候选额度优先留给 宁德时代。",
+          "urgency": "medium",
+          "urgency_score": 66.0,
+          "levels": {
+            "breakout_price": 40.12,
+            "support_price": 38.68,
+            "pullback_price": 39.236,
+            "retest_price": 39.56,
+            "stop_price": 37.52,
+            "entry_reward_risk": 0.36,
+            "entry_upside_pct": 1.75,
+            "entry_downside_pct": 4.84,
+            "box_position_pct": 52.08
+          },
+          "trigger_conditions": [
+            "若同梯队必须选一只，先等 宁德时代 满足“等放量突破”条件。",
+            "只有放量突破 40.12，才升级为试仓。"
+          ],
+          "invalidation_conditions": [
+            "只有当 招商银行 重新强于 宁德时代，才恢复优先级。",
+            "若回落跌破 38.68，取消突破预案。"
+          ],
+          "blockers": [
+            "市场分 33.1 低于 40，当前不支持主动进攻。",
+            "临近关键位但量比只有 0.30x，容易演变成追价。",
+            "当前位置赔率只有 0.36，还不够支持积极出手。"
+          ],
+          "execution_brief": [
+            "现在不提前开仓，只等确认信号。",
+            "只有放量突破 40.12，才升级为试仓。",
+            "若回落跌破 38.68，取消突破预案。"
+          ],
+          "do_not": [
+            "不要在没有触发条件前提前追单。",
+            "不要把单票仓位一次性打满。",
+            "不要忽略市场状态对个股执行的影响。"
+          ],
+          "monitoring_focus": [
+            "当前更像 支撑区，重点看价格相对 40.12 / 38.68 的反应。",
+            "相对强弱 +6.62%，强于基准。",
+            "经营现金流同比 -38.68%。"
+          ]
+        },
+        "position_guidance": "不给 招商银行 分配新仓，候选额度优先留给 宁德时代。",
+        "prediction_bundle": {
+          "code": "600036",
+          "name": "招商银行",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 39.43,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 39.43,
+            "predicted_return": 0.0,
+            "confidence": 0.475,
+            "confidence_band_upper": 40.427,
+            "confidence_band_lower": 38.433,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 39.38,
+            "predicted_return": -0.001267,
+            "confidence": 0.55,
+            "confidence_band_upper": 40.239,
+            "confidence_band_lower": 38.521,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 0.9988（日均漂移 -0.121%）。",
+              "当前价偏离20日均线 +0.18%（BB位置 54%），偏高，偏离不大。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 39.433,
+            "predicted_return": 7.5e-05,
+            "confidence": 0.495,
+            "confidence_band_upper": 40.379,
+            "confidence_band_lower": 38.487,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 -0.33% 属于震荡日，历史次日平均收益 +0.007%，无明显方向偏向。",
+              "历史样本 266 天，胜率约 48%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 45.344,
+            "predicted_return": 0.15,
+            "confidence": 0.549,
+            "confidence_band_upper": 46.335,
+            "confidence_band_lower": 44.353,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 +0.0821%，10日预期偏移 +17.38%（上涨）。",
+              "历史10日正收益概率 56%（样本 310 个区间）。",
+              "当前趋势得分 51，中长期方向不明。",
+              "相对强弱 +6.62%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "full"
+          }
+        },
+        "preferred_alternative": {
+          "code": "300750",
+          "name": "宁德时代",
+          "action_label": "等放量突破",
+          "priority_gap": 14.74
+        }
+      }
+    },
+    {
+      "object_type": "watch",
+      "object_id": "000858",
+      "object_name": "五粮液",
+      "at": "2026-03-27",
+      "action": "switch_to_better_alternative",
+      "score": 25.38,
+      "probability": 0.1813,
+      "reason": [
+        "五粮液 当前不是最优资金去处，优先看 宁德时代。",
+        "同梯队更强的是 宁德时代，当前优先级领先 17.1 分。"
+      ],
+      "risk": [
+        "若回落跌破 100.23，取消突破预案。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "五粮液 不是完全不能做，但当前执行位和资金效率都弱于 宁德时代。",
+      "counterpoints": [
+        "与 宁德时代 相比，当前更缺少马上执行的理由。",
+        "营收同比 -10.26%。",
+        "利润同比 -13.72%。"
+      ],
+      "trigger_conditions": [
+        "若同梯队必须选一只，先等 宁德时代 满足“等放量突破”条件。",
+        "只有放量突破 104.79，才升级为试仓。"
+      ],
+      "invalidation_conditions": [
+        "只有当 五粮液 重新强于 宁德时代，才恢复优先级。",
+        "若回落跌破 100.23，取消突破预案。"
+      ],
+      "priority_score": 44.37,
+      "metadata": {
+        "category": "watch",
+        "decision": "watch",
+        "sector": "白酒",
+        "strategy_style": "defensive_quality",
+        "strategy_label": "防守质量",
+        "style_fit_score": -1.66,
+        "selection_score": 44.37,
+        "coverage_score": 80.0,
+        "positive_factors": [
+          "ROE 15.4%。",
+          "毛利率 74.9%。",
+          "ROIC 14.2%。"
+        ],
+        "negative_factors": [
+          "营收同比 -10.26%。",
+          "利润同比 -13.72%。",
+          "量比 0.41x，量能严重不足。"
+        ],
+        "position_context": {
+          "is_holding": false,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 0.0,
+          "position_weight": 0.0,
+          "sector_weight": 0.0,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": null,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "白酒",
+          "holding_sector": null,
+          "sector_weight_basis": null,
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "action_plan": {
+          "action": "switch_to_better_alternative",
+          "label": "替代标的",
+          "rationale": "五粮液 当前不是最优资金去处，优先看 宁德时代。",
+          "position_guidance": "不给 五粮液 分配新仓，候选额度优先留给 宁德时代。",
+          "urgency": "medium",
+          "urgency_score": 66.0,
+          "levels": {
+            "breakout_price": 104.79,
+            "support_price": 100.23,
+            "pullback_price": 101.538,
+            "retest_price": 102.45,
+            "stop_price": 97.223,
+            "entry_reward_risk": 0.46,
+            "entry_upside_pct": 2.34,
+            "entry_downside_pct": 5.05,
+            "box_position_pct": 47.37
+          },
+          "trigger_conditions": [
+            "若同梯队必须选一只，先等 宁德时代 满足“等放量突破”条件。",
+            "只有放量突破 104.79，才升级为试仓。"
+          ],
+          "invalidation_conditions": [
+            "只有当 五粮液 重新强于 宁德时代，才恢复优先级。",
+            "若回落跌破 100.23，取消突破预案。"
+          ],
+          "blockers": [
+            "市场分 33.1 低于 40，当前不支持主动进攻。",
+            "中期趋势或相对强弱还没修复，先别把反弹当主剧本。",
+            "临近关键位但量比只有 0.41x，容易演变成追价。"
+          ],
+          "execution_brief": [
+            "现在不提前开仓，只等确认信号。",
+            "只有放量突破 104.79，才升级为试仓。",
+            "若回落跌破 100.23，取消突破预案。"
+          ],
+          "do_not": [
+            "不要在没有触发条件前提前追单。",
+            "不要把单票仓位一次性打满。",
+            "不要忽略市场状态对个股执行的影响。"
+          ],
+          "monitoring_focus": [
+            "当前更像 支撑区，重点看价格相对 104.79 / 100.23 的反应。",
+            "ROE 15.4%。",
+            "营收同比 -10.26%。"
+          ]
+        },
+        "position_guidance": "不给 五粮液 分配新仓，候选额度优先留给 宁德时代。",
+        "prediction_bundle": {
+          "code": "000858",
+          "name": "五粮液",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 102.39,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 102.39,
+            "predicted_return": 0.0,
+            "confidence": 0.492,
+            "confidence_band_upper": 104.888,
+            "confidence_band_lower": 99.892,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 102.369,
+            "predicted_return": -0.000206,
+            "confidence": 0.55,
+            "confidence_band_upper": 104.603,
+            "confidence_band_lower": 100.135,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 0.9997（日均漂移 -0.027%）。",
+              "当前价偏离20日均线 +0.03%（BB位置 51%），偏高，偏离不大。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 102.324,
+            "predicted_return": -0.000642,
+            "confidence": 0.484,
+            "confidence_band_upper": 104.78,
+            "confidence_band_lower": 99.868,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 +1.10% 属于震荡日，历史次日平均收益 -0.064%，无明显方向偏向。",
+              "历史样本 398 天，胜率约 42%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 110.668,
+            "predicted_return": 0.080852,
+            "confidence": 0.442,
+            "confidence_band_upper": 113.67,
+            "confidence_band_lower": 107.666,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.0096%，10日预期偏移 +8.09%（上涨）。",
+              "历史10日正收益概率 43%（样本 528 个区间）。",
+              "当前趋势得分 39，中长期偏弱。",
+              "相对强弱 +3.27%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "full"
+          }
+        },
+        "preferred_alternative": {
+          "code": "300750",
+          "name": "宁德时代",
+          "action_label": "等放量突破",
+          "priority_gap": 17.11
+        }
+      }
+    }
+  ],
+  "monitor_plan": [
+    {
+      "object_type": "monitor",
+      "object_id": "000300",
+      "object_name": "沪深300",
+      "at": "2026-03-27",
+      "action": "monitor_index",
+      "score": 24.33,
+      "probability": 0.3309,
+      "reason": [
+        "作为风格和系统性风险锚点，跟踪 沪深300。"
+      ],
+      "risk": [
+        "指数转弱会降低个股告警价值。"
+      ],
+      "sources": [
+        "daily_bars"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "benchmark",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.015,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.01
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "000001",
+      "object_name": "上证指数",
+      "at": "2026-03-27",
+      "action": "monitor_index",
+      "score": 20.71,
+      "probability": 0.3309,
+      "reason": [
+        "作为风格和系统性风险锚点，跟踪 上证指数。"
+      ],
+      "risk": [
+        "指数转弱会降低个股告警价值。"
+      ],
+      "sources": [
+        "daily_bars"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "benchmark",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.015,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.01
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "399006",
+      "object_name": "创业板指",
+      "at": "2026-03-27",
+      "action": "monitor_index",
+      "score": 39.23,
+      "probability": 0.3309,
+      "reason": [
+        "作为风格和系统性风险锚点，跟踪 创业板指。"
+      ],
+      "risk": [
+        "指数转弱会降低个股告警价值。"
+      ],
+      "sources": [
+        "daily_bars"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "benchmark",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.015,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.01
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "601699",
+      "object_name": "潞安环能",
+      "at": "2026-03-27",
+      "action": "monitor_holding",
+      "score": 13.66,
+      "probability": 0.5396,
+      "reason": [
+        "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+        "潞安环能 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。"
+      ],
+      "risk": [
+        "若重新站回 14.92 且成交恢复，可转回观察。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "cninfo",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "holding",
+        "parent_action": "cut_on_breakdown",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.02,
+          "price_drop_threshold_5m": -0.02,
+          "relative_strength_threshold_5m": 0.012
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "513310",
+      "object_name": "中韩芯片",
+      "at": "2026-03-27",
+      "action": "monitor_holding",
+      "score": 5.88,
+      "probability": 0.42,
+      "reason": [
+        "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+        "中韩芯片 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。"
+      ],
+      "risk": [
+        "若重新站回 3.97 且成交恢复，可转回观察。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "sector_context"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "holding",
+        "parent_action": "cut_on_breakdown",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.02,
+          "price_drop_threshold_5m": -0.02,
+          "relative_strength_threshold_5m": 0.012
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "588000",
+      "object_name": "科创50",
+      "at": "2026-03-27",
+      "action": "monitor_holding",
+      "score": 5.34,
+      "probability": 0.42,
+      "reason": [
+        "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+        "科创50 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。"
+      ],
+      "risk": [
+        "若重新站回 1.39 且成交恢复，可转回观察。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "sector_context"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "holding",
+        "parent_action": "cut_on_breakdown",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.02,
+          "price_drop_threshold_5m": -0.02,
+          "relative_strength_threshold_5m": 0.012
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "300750",
+      "object_name": "宁德时代",
+      "at": "2026-03-27",
+      "action": "monitor_watch",
+      "score": 48.06,
+      "probability": 0.3433,
+      "reason": [
+        "观察动作 `wait_for_breakout`，盘中只在出现确认信号时提醒。",
+        "宁德时代 接近关键位，但还没给出值得执行的确认。"
+      ],
+      "risk": [
+        "若回落跌破 396.99，取消突破预案。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "watch",
+        "parent_action": "wait_for_breakout",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.018,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.014
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "600227",
+      "object_name": "赤天化",
+      "at": "2026-03-27",
+      "action": "monitor_watch",
+      "score": 38.09,
+      "probability": 0.2721,
+      "reason": [
+        "观察动作 `wait_for_pullback`，盘中只在出现确认信号时提醒。",
+        "赤天化 方向还在，但更优赔率不在当前位置。"
+      ],
+      "risk": [
+        "若直接跌破 3.87，取消计划。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.capital_flow",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "watch",
+        "parent_action": "wait_for_pullback",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.018,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.014
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "600036",
+      "object_name": "招商银行",
+      "at": "2026-03-27",
+      "action": "monitor_watch",
+      "score": 25.46,
+      "probability": 0.1819,
+      "reason": [
+        "观察动作 `switch_to_better_alternative`，盘中只在出现确认信号时提醒。",
+        "招商银行 当前不是最优资金去处，优先看 宁德时代。"
+      ],
+      "risk": [
+        "若回落跌破 38.68，取消突破预案。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "watch",
+        "parent_action": "switch_to_better_alternative",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.018,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.014
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "000858",
+      "object_name": "五粮液",
+      "at": "2026-03-27",
+      "action": "monitor_watch",
+      "score": 25.38,
+      "probability": 0.1813,
+      "reason": [
+        "观察动作 `switch_to_better_alternative`，盘中只在出现确认信号时提醒。",
+        "五粮液 当前不是最优资金去处，优先看 宁德时代。"
+      ],
+      "risk": [
+        "若回落跌破 100.23，取消突破预案。"
+      ],
+      "sources": [
+        "decision_bundle.market_view",
+        "daily_features",
+        "supplemental.fundamentals",
+        "supplemental.valuation",
+        "supplemental.company_info",
+        "sector_context"
+      ],
+      "thesis": "",
+      "counterpoints": [],
+      "trigger_conditions": [],
+      "invalidation_conditions": [],
+      "priority_score": 0.0,
+      "metadata": {
+        "category": "watch",
+        "parent_action": "switch_to_better_alternative",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.018,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.014
+        }
+      }
+    }
+  ],
+  "final_action_summary": "防守期，今天先处理：先处理 潞安环能 的破位减仓；先处理 中韩芯片 的破位减仓。",
+  "homepage_overview": {
+    "as_of": "2026-03-27",
+    "today_action": "防守期，今天先处理：先处理 潞安环能 的破位减仓；先处理 中韩芯片 的破位减仓。",
+    "market_state": {
+      "label": "偏空",
+      "regime": "盘中偏弱",
+      "score": 33.09,
+      "probability": 0.3309,
+      "baseline_regime": "防守期",
+      "baseline_score": 33.09,
+      "baseline_probability": 0.3309,
+      "summary": "盘中暂未推翻盘前结论。指数均值 +0.20% 重点标的均值 +1.54%。先按原计划执行。",
+      "policy": [
+        "新开仓从严控制",
+        "优先处理弱持仓和破位风险",
+        "只保留少量观察名单"
+      ],
+      "realtime_change_log": [],
+      "realtime_observation": {
+        "benchmark_average_return": 0.0019998682344017915,
+        "focus_average_return": 0.015367814496489687,
+        "advancing_count": 2,
+        "weakening_count": 1,
+        "breakout_alert_count": 0,
+        "breakdown_alert_count": 0,
+        "latest_priority_count": 3
+      }
+    },
+    "market_label": "偏空",
+    "market_probability": 0.3309,
+    "price_mode": "realtime",
+    "price_section_title": "当前最新价格",
+    "price_note": "盘前已拉取实时行情：10 条实时，0 条沿用最近收盘价；各标的以各自行情时间戳为准。",
+    "current_prices": [
+      {
+        "code": "601699",
+        "name": "潞安环能",
+        "last_price": "14.05",
+        "ret_day": "-1.47%",
+        "timestamp": "2026-03-27T11:07:32",
+        "freshness": "3s",
+        "source": "tencent_realtime"
+      },
+      {
+        "code": "513310",
+        "name": "中韩半导体ETF华泰柏瑞",
+        "last_price": "3.728",
+        "ret_day": "-0.29%",
+        "timestamp": "2026-03-27T11:07:33",
+        "freshness": "2s",
+        "source": "tencent_realtime"
+      },
+      {
+        "code": "588000",
+        "name": "科创50ETF华夏",
+        "last_price": "1.361",
+        "ret_day": "+0.29%",
+        "timestamp": "2026-03-27T11:07:33",
+        "freshness": "2s",
+        "source": "tencent_realtime"
+      },
+      {
+        "code": "300750",
+        "name": "宁德时代",
+        "last_price": "411.06",
+        "ret_day": "+2.13%",
+        "timestamp": "2026-03-27T11:07:33",
+        "freshness": "2s",
+        "source": "tencent_realtime"
+      },
+      {
+        "code": "600227",
+        "name": "赤天化",
+        "last_price": "4.27",
+        "ret_day": "+10.05%",
+        "timestamp": "2026-03-27T11:07:32",
+        "freshness": "3s",
+        "source": "tencent_realtime"
+      },
+      {
+        "code": "600036",
+        "name": "招商银行",
+        "last_price": "39.26",
+        "ret_day": "-0.76%",
+        "timestamp": "2026-03-27T11:07:31",
+        "freshness": "4s",
+        "source": "tencent_realtime"
+      },
+      {
+        "code": "000858",
+        "name": "五 粮 液",
+        "last_price": "102.1",
+        "ret_day": "+0.81%",
+        "timestamp": "2026-03-27T11:07:33",
+        "freshness": "2s",
+        "source": "tencent_realtime"
+      },
+      {
+        "code": "000300",
+        "name": "沪深300",
+        "last_price": "4485.09",
+        "ret_day": "+0.17%",
+        "timestamp": "2026-03-27T11:07:33",
+        "freshness": "2s",
+        "source": "tencent_realtime"
+      },
+      {
+        "code": "000001",
+        "name": "上证指数",
+        "last_price": "3891.74",
+        "ret_day": "+0.07%",
+        "timestamp": "2026-03-27T11:07:33",
+        "freshness": "2s",
+        "source": "tencent_realtime"
+      },
+      {
+        "code": "399006",
+        "name": "创业板指",
+        "last_price": "3284.36",
+        "ret_day": "+0.36%",
+        "timestamp": "2026-03-27T11:07:33",
+        "freshness": "2s",
+        "source": "tencent_realtime"
+      }
+    ],
+    "latest_alerts": [],
+    "priority_actions": [
+      {
+        "bucket": "holding_risk",
+        "headline": "先处理 潞安环能 的破位减仓",
+        "code": "601699",
+        "name": "潞安环能",
+        "action": "cut_on_breakdown",
+        "action_label": "破位减仓",
+        "priority_score": 105.0,
+        "score": 13.66,
+        "reason": "潞安环能 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+        "thesis": "潞安环能 的主逻辑是 毛利率 34.1%；5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨），但 20日收益 -5.91%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+        "trigger": "若跌破 13.95 且相对强弱继续走弱，立即执行减仓。",
+        "invalidation": "若重新站回 14.92 且成交恢复，可转回观察。",
+        "strategy_style": "",
+        "strategy_label": "",
+        "positive_factors": [
+          "毛利率 34.1%。",
+          "5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。",
+          "距20日高点 -9.03%，处于中部偏低区域，赔率尚可。"
+        ],
+        "negative_factors": [
+          "20日收益 -5.91%，中期趋势仍弱。",
+          "营收同比 -20.82%。",
+          "利润同比 -44.45%。"
+        ],
+        "counterpoints": [
+          "20日收益 -5.91%，中期趋势仍弱。",
+          "营收同比 -20.82%。",
+          "利润同比 -44.45%。"
+        ],
+        "risk": [
+          "若重新站回 14.92 且成交恢复，可转回观察。"
+        ],
+        "coverage_score": 93.0,
+        "position_context": {
+          "is_holding": true,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 3500.0,
+          "position_weight": 0.35,
+          "sector_weight": 0.35,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": 14.01,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "能源金属",
+          "holding_sector": "煤炭",
+          "sector_weight_basis": "煤炭",
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {},
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+        "levels": {
+          "breakout_price": 15.4,
+          "support_price": 13.95,
+          "pullback_price": 14.358,
+          "retest_price": 14.92,
+          "stop_price": 13.531,
+          "entry_reward_risk": 2.9,
+          "entry_upside_pct": 9.92,
+          "entry_downside_pct": 3.42,
+          "box_position_pct": 4.14
+        },
+        "technical_action_label": "破位减仓",
+        "display_action_label": "破位减仓",
+        "canonical_action_label": "破位减仓",
+        "display_reason": "潞安环能 现在先别加仓。 重点盯住 13.95 这条防线，跌破再减一点。 只有重新回到 14.92 上方，才先改回观察。",
+        "display_trigger": "只有跌破 13.95，才执行减一点。",
+        "display_invalidation": "如果重新回到 14.92 上方，就先别继续减。",
+        "analysis_summary": "潞安环能先做风险处理，不把反弹当默认剧本。",
+        "analysis_core_reason": "潞安环能先做风险处理，不把反弹当默认剧本。 毛利率 34.1%。 执行位在 13.95 一带，重点是先守住风控。",
+        "analysis_risk": "20日收益 -5.91%，中期趋势仍弱。；营收同比 -20.82%。",
+        "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 35.0%；同主题合计约 35.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+        "analysis_comparison": "",
+        "analysis_setup": "位置 `靠近支撑` | 上行空间 `9.92%` | 下行风险 `3.42%` | 赔率 `2.90` | 当前策略 `先看防守`",
+        "analysis_evidence_balance": "多头主证据: 毛利率 34.1%。 | 主要风险: 20日收益 -5.91%，中期趋势仍弱。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "持仓处理窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "现在不适合加仓，优先看风险控制或继续观察。",
+        "analysis_evidence_quality": "证据完整度尚可（覆盖度 93.0），但仍需按触发条件执行。",
+        "analysis_blockers": "当前没有额外阻断因素，但仍必须等触发条件。",
+        "analysis_execution_triplet": "现在: 现在先做风险控制，不做主动加仓。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      },
+      {
+        "bucket": "holding_risk",
+        "headline": "先处理 中韩芯片 的破位减仓",
+        "code": "513310",
+        "name": "中韩芯片",
+        "action": "cut_on_breakdown",
+        "action_label": "破位减仓",
+        "priority_score": 102.0,
+        "score": 5.88,
+        "reason": "中韩芯片 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+        "thesis": "中韩芯片 的主逻辑是 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）；距20日高点 -11.40%，处于中部偏低区域，赔率尚可，但 20日收益 -12.73%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+        "trigger": "若跌破 3.66 且相对强弱继续走弱，立即执行减仓。",
+        "invalidation": "若重新站回 3.97 且成交恢复，可转回观察。",
+        "strategy_style": "",
+        "strategy_label": "",
+        "positive_factors": [
+          "5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。",
+          "距20日高点 -11.40%，处于中部偏低区域，赔率尚可。"
+        ],
+        "negative_factors": [
+          "20日收益 -12.73%，中期趋势仍弱。",
+          "相对强弱 -7.86%，弱于基准。",
+          "量比 0.18x，量能严重不足。"
+        ],
+        "counterpoints": [
+          "20日收益 -12.73%，中期趋势仍弱。",
+          "相对强弱 -7.86%，弱于基准。",
+          "量比 0.18x，量能严重不足。"
+        ],
+        "risk": [
+          "若重新站回 3.97 且成交恢复，可转回观察。"
+        ],
+        "coverage_score": 42.0,
+        "position_context": {
+          "is_holding": true,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 1500.0,
+          "position_weight": 0.15,
+          "sector_weight": 0.15,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": 3.771,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "半导体ETF",
+          "holding_sector": "半导体ETF",
+          "sector_weight_basis": "半导体ETF",
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {},
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+        "levels": {
+          "breakout_price": 4.256,
+          "support_price": 3.663,
+          "pullback_price": 3.817,
+          "retest_price": 3.973,
+          "stop_price": 3.553,
+          "entry_reward_risk": 2.22,
+          "entry_upside_pct": 12.86,
+          "entry_downside_pct": 5.78,
+          "box_position_pct": 18.21
+        },
+        "technical_action_label": "破位减仓",
+        "display_action_label": "破位减仓",
+        "canonical_action_label": "破位减仓",
+        "display_reason": "中韩芯片 现在先别加仓。 重点盯住 3.663 这条防线，跌破再减一点。 只有重新回到 3.973 上方，才先改回观察。",
+        "display_trigger": "只有跌破 3.663，才执行减一点。",
+        "display_invalidation": "如果重新回到 3.973 上方，就先别继续减。",
+        "analysis_summary": "中韩芯片先做风险处理，不把反弹当默认剧本。",
+        "analysis_core_reason": "中韩芯片先做风险处理，不把反弹当默认剧本。 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。 执行位在 3.663 一带，重点是先守住风控。",
+        "analysis_risk": "20日收益 -12.73%，中期趋势仍弱。；相对强弱 -7.86%，弱于基准。",
+        "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 15.0%；同主题合计约 15.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+        "analysis_comparison": "",
+        "analysis_setup": "位置 `靠近支撑` | 上行空间 `12.86%` | 下行风险 `5.78%` | 赔率 `2.22` | 当前策略 `先看防守`",
+        "analysis_evidence_balance": "多头主证据: 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。 | 主要风险: 20日收益 -12.73%，中期趋势仍弱。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "持仓处理窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "现在不适合加仓，优先看风险控制或继续观察。",
+        "analysis_evidence_quality": "证据完整度一般（覆盖度 42.0），下决定前最好再补一轮验证；仍缺 0 项信息。",
+        "analysis_blockers": "证据覆盖不足，当前结论只能按防守口径理解。",
+        "analysis_execution_triplet": "现在: 现在先做风险控制，不做主动加仓。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      },
+      {
+        "bucket": "holding_risk",
+        "headline": "先处理 科创50 的破位减仓",
+        "code": "588000",
+        "name": "科创50",
+        "action": "cut_on_breakdown",
+        "action_label": "破位减仓",
+        "priority_score": 102.0,
+        "score": 5.34,
+        "reason": "科创50 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+        "thesis": "科创50 的主逻辑是 5日收益 -2.02%，短期节奏中性偏稳；距20日高点 -11.92%，处于中部偏低区域，赔率尚可，但 20日收益 -13.15%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+        "trigger": "若跌破 1.33 且相对强弱继续走弱，立即执行减仓。",
+        "invalidation": "若重新站回 1.39 且成交恢复，可转回观察。",
+        "strategy_style": "",
+        "strategy_label": "",
+        "positive_factors": [
+          "5日收益 -2.02%，短期节奏中性偏稳。",
+          "距20日高点 -11.92%，处于中部偏低区域，赔率尚可。"
+        ],
+        "negative_factors": [
+          "20日收益 -13.15%，中期趋势仍弱。",
+          "相对强弱 -8.29%，弱于基准。",
+          "量比 0.37x，量能严重不足。"
+        ],
+        "counterpoints": [
+          "20日收益 -13.15%，中期趋势仍弱。",
+          "相对强弱 -8.29%，弱于基准。",
+          "量比 0.37x，量能严重不足。"
+        ],
+        "risk": [
+          "若重新站回 1.39 且成交恢复，可转回观察。"
+        ],
+        "coverage_score": 42.0,
+        "position_context": {
+          "is_holding": true,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 5000.0,
+          "position_weight": 0.5,
+          "sector_weight": 0.5,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": 1.36,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "宽基ETF",
+          "holding_sector": "宽基ETF",
+          "sector_weight_basis": "宽基ETF",
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {},
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+        "levels": {
+          "breakout_price": 1.544,
+          "support_price": 1.329,
+          "pullback_price": 1.358,
+          "retest_price": 1.385,
+          "stop_price": 1.289,
+          "entry_reward_risk": 2.59,
+          "entry_upside_pct": 13.53,
+          "entry_downside_pct": 5.22,
+          "box_position_pct": 14.42
+        },
+        "technical_action_label": "破位减仓",
+        "display_action_label": "破位减仓",
+        "canonical_action_label": "破位减仓",
+        "display_reason": "科创50 现在先别加仓。 重点盯住 1.329 这条防线，跌破再减一点。 只有重新回到 1.385 上方，才先改回观察。",
+        "display_trigger": "只有跌破 1.329，才执行减一点。",
+        "display_invalidation": "如果重新回到 1.385 上方，就先别继续减。",
+        "analysis_summary": "科创50先做风险处理，不把反弹当默认剧本。",
+        "analysis_core_reason": "科创50先做风险处理，不把反弹当默认剧本。 5日收益 -2.02%，短期节奏中性偏稳。 执行位在 1.329 一带，重点是先守住风控。",
+        "analysis_risk": "20日收益 -13.15%，中期趋势仍弱。；相对强弱 -8.29%，弱于基准。",
+        "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 50.0%；同主题合计约 50.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+        "analysis_comparison": "",
+        "analysis_setup": "位置 `靠近支撑` | 上行空间 `13.53%` | 下行风险 `5.22%` | 赔率 `2.59` | 当前策略 `先看防守`",
+        "analysis_evidence_balance": "多头主证据: 5日收益 -2.02%，短期节奏中性偏稳。 | 主要风险: 20日收益 -13.15%，中期趋势仍弱。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "持仓处理窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "现在不适合加仓，优先看风险控制或继续观察。",
+        "analysis_evidence_quality": "证据完整度一般（覆盖度 42.0），下决定前最好再补一轮验证；仍缺 0 项信息。",
+        "analysis_blockers": "证据覆盖不足，当前结论只能按防守口径理解。",
+        "analysis_execution_triplet": "现在: 现在先做风险控制，不做主动加仓。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      }
+    ],
+    "holdings_risks": [
+      {
+        "code": "601699",
+        "name": "潞安环能",
+        "action": "cut_on_breakdown",
+        "action_label": "破位减仓",
+        "score": 13.66,
+        "priority_score": 97.0,
+        "reason": "潞安环能 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+        "thesis": "潞安环能 的主逻辑是 毛利率 34.1%；5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨），但 20日收益 -5.91%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+        "trigger": "若跌破 13.95 且相对强弱继续走弱，立即执行减仓。",
+        "invalidation": "若重新站回 14.92 且成交恢复，可转回观察。",
+        "strategy_style": "",
+        "strategy_label": "",
+        "positive_factors": [
+          "毛利率 34.1%。",
+          "5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。",
+          "距20日高点 -9.03%，处于中部偏低区域，赔率尚可。"
+        ],
+        "negative_factors": [
+          "20日收益 -5.91%，中期趋势仍弱。",
+          "营收同比 -20.82%。",
+          "利润同比 -44.45%。"
+        ],
+        "counterpoints": [
+          "20日收益 -5.91%，中期趋势仍弱。",
+          "营收同比 -20.82%。",
+          "利润同比 -44.45%。"
+        ],
+        "risk": [
+          "若重新站回 14.92 且成交恢复，可转回观察。"
+        ],
+        "coverage_score": 93.0,
+        "position_context": {
+          "is_holding": true,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 3500.0,
+          "position_weight": 0.35,
+          "sector_weight": 0.35,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": 14.01,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "能源金属",
+          "holding_sector": "煤炭",
+          "sector_weight_basis": "煤炭",
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {},
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+        "levels": {
+          "breakout_price": 15.4,
+          "support_price": 13.95,
+          "pullback_price": 14.358,
+          "retest_price": 14.92,
+          "stop_price": 13.531,
+          "entry_reward_risk": 2.9,
+          "entry_upside_pct": 9.92,
+          "entry_downside_pct": 3.42,
+          "box_position_pct": 4.14
+        },
+        "prediction_bundle": {
+          "code": "601699",
+          "name": "潞安环能",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 14.01,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 14.078,
+            "predicted_return": 0.004847,
+            "confidence": 0.571,
+            "confidence_band_upper": 14.374,
+            "confidence_band_lower": 13.782,
+            "method": "mean_reversion",
+            "reasoning": [
+              "当前价偏离5日均线 -2.42%，剩余 50% 交易时间，均值回归修正预期 0.48%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 14.319,
+            "predicted_return": 0.022059,
+            "confidence": 0.55,
+            "confidence_band_upper": 14.631,
+            "confidence_band_lower": 14.007,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0042（日均漂移 +0.419%）。",
+              "当前价偏离20日均线 -3.78%（BB位置 13%），偏低，有回归压力。",
+              "今日振幅 3.07% 较大，下方支撑较强。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 14.044,
+            "predicted_return": 0.002444,
+            "confidence": 0.472,
+            "confidence_band_upper": 14.381,
+            "confidence_band_lower": 13.707,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日跌幅 -1.75% 属于大跌日，历史次日平均收益 -0.156%，次日有反弹修复可能。",
+              "当前处于20日低位（4%），历史上此类位置次日反弹概率偏高。",
+              "历史样本 61 天，胜率约 36%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 13.466,
+            "predicted_return": -0.038849,
+            "confidence": 0.438,
+            "confidence_band_upper": 13.835,
+            "confidence_band_lower": 13.097,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.1280%，10日预期偏移 -3.88%（下跌）。",
+              "历史10日正收益概率 42%（样本 310 个区间）。",
+              "当前趋势得分 29，中长期偏弱。",
+              "相对强弱 -1.04%，弱于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "full"
+          }
+        },
+        "technical_action_label": "破位减仓",
+        "display_action_label": "破位减仓",
+        "canonical_action_label": "破位减仓",
+        "display_reason": "潞安环能 现在先别加仓。 重点盯住 13.95 这条防线，跌破再减一点。 只有重新回到 14.92 上方，才先改回观察。",
+        "display_trigger": "只有跌破 13.95，才执行减一点。",
+        "display_invalidation": "如果重新回到 14.92 上方，就先别继续减。",
+        "analysis_summary": "潞安环能先做风险处理，不把反弹当默认剧本。",
+        "analysis_core_reason": "潞安环能先做风险处理，不把反弹当默认剧本。 毛利率 34.1%。 执行位在 13.95 一带，重点是先守住风控。",
+        "analysis_risk": "20日收益 -5.91%，中期趋势仍弱。；营收同比 -20.82%。",
+        "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 35.0%；同主题合计约 35.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+        "analysis_comparison": "",
+        "analysis_setup": "位置 `靠近支撑` | 上行空间 `9.92%` | 下行风险 `3.42%` | 赔率 `2.90` | 当前策略 `先看防守`",
+        "analysis_evidence_balance": "多头主证据: 毛利率 34.1%。 | 主要风险: 20日收益 -5.91%，中期趋势仍弱。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "持仓处理窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "现在不适合加仓，优先看风险控制或继续观察。",
+        "analysis_evidence_quality": "证据完整度尚可（覆盖度 93.0），但仍需按触发条件执行。",
+        "analysis_blockers": "当前没有额外阻断因素，但仍必须等触发条件。",
+        "analysis_execution_triplet": "现在: 现在先做风险控制，不做主动加仓。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      },
+      {
+        "code": "513310",
+        "name": "中韩芯片",
+        "action": "cut_on_breakdown",
+        "action_label": "破位减仓",
+        "score": 5.88,
+        "priority_score": 94.0,
+        "reason": "中韩芯片 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+        "thesis": "中韩芯片 的主逻辑是 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）；距20日高点 -11.40%，处于中部偏低区域，赔率尚可，但 20日收益 -12.73%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+        "trigger": "若跌破 3.66 且相对强弱继续走弱，立即执行减仓。",
+        "invalidation": "若重新站回 3.97 且成交恢复，可转回观察。",
+        "strategy_style": "",
+        "strategy_label": "",
+        "positive_factors": [
+          "5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。",
+          "距20日高点 -11.40%，处于中部偏低区域，赔率尚可。"
+        ],
+        "negative_factors": [
+          "20日收益 -12.73%，中期趋势仍弱。",
+          "相对强弱 -7.86%，弱于基准。",
+          "量比 0.18x，量能严重不足。"
+        ],
+        "counterpoints": [
+          "20日收益 -12.73%，中期趋势仍弱。",
+          "相对强弱 -7.86%，弱于基准。",
+          "量比 0.18x，量能严重不足。"
+        ],
+        "risk": [
+          "若重新站回 3.97 且成交恢复，可转回观察。"
+        ],
+        "coverage_score": 42.0,
+        "position_context": {
+          "is_holding": true,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 1500.0,
+          "position_weight": 0.15,
+          "sector_weight": 0.15,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": 3.771,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "半导体ETF",
+          "holding_sector": "半导体ETF",
+          "sector_weight_basis": "半导体ETF",
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {},
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+        "levels": {
+          "breakout_price": 4.256,
+          "support_price": 3.663,
+          "pullback_price": 3.817,
+          "retest_price": 3.973,
+          "stop_price": 3.553,
+          "entry_reward_risk": 2.22,
+          "entry_upside_pct": 12.86,
+          "entry_downside_pct": 5.78,
+          "box_position_pct": 18.21
+        },
+        "prediction_bundle": {
+          "code": "513310",
+          "name": "中韩芯片",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 3.771,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 3.771,
+            "predicted_return": 0.0,
+            "confidence": 0.511,
+            "confidence_band_upper": 3.86,
+            "confidence_band_lower": 3.682,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 3.883,
+            "predicted_return": 0.029711,
+            "confidence": 0.55,
+            "confidence_band_upper": 3.968,
+            "confidence_band_lower": 3.798,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0021（日均漂移 +0.211%）。",
+              "当前价偏离20日均线 -5.31%（BB位置 15%），偏低，有回归压力。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 3.782,
+            "predicted_return": 0.002939,
+            "confidence": 0.512,
+            "confidence_band_upper": 3.873,
+            "confidence_band_lower": 3.691,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日跌幅 -3.01% 属于大跌日，历史次日平均收益 +0.294%，次日有反弹修复可能。",
+              "历史样本 82 天，胜率约 56%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 3.318,
+            "predicted_return": -0.12,
+            "confidence": 0.613,
+            "confidence_band_upper": 3.383,
+            "confidence_band_lower": 3.253,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.3039%，10日预期偏移 -22.69%（下跌）。",
+              "历史10日正收益概率 64%（样本 527 个区间）。",
+              "当前趋势得分 50，中长期方向不明。",
+              "相对强弱 -7.86%，弱于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "full"
+          }
+        },
+        "technical_action_label": "破位减仓",
+        "display_action_label": "破位减仓",
+        "canonical_action_label": "破位减仓",
+        "display_reason": "中韩芯片 现在先别加仓。 重点盯住 3.663 这条防线，跌破再减一点。 只有重新回到 3.973 上方，才先改回观察。",
+        "display_trigger": "只有跌破 3.663，才执行减一点。",
+        "display_invalidation": "如果重新回到 3.973 上方，就先别继续减。",
+        "analysis_summary": "中韩芯片先做风险处理，不把反弹当默认剧本。",
+        "analysis_core_reason": "中韩芯片先做风险处理，不把反弹当默认剧本。 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。 执行位在 3.663 一带，重点是先守住风控。",
+        "analysis_risk": "20日收益 -12.73%，中期趋势仍弱。；相对强弱 -7.86%，弱于基准。",
+        "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 15.0%；同主题合计约 15.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+        "analysis_comparison": "",
+        "analysis_setup": "位置 `靠近支撑` | 上行空间 `12.86%` | 下行风险 `5.78%` | 赔率 `2.22` | 当前策略 `先看防守`",
+        "analysis_evidence_balance": "多头主证据: 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。 | 主要风险: 20日收益 -12.73%，中期趋势仍弱。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "持仓处理窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "现在不适合加仓，优先看风险控制或继续观察。",
+        "analysis_evidence_quality": "证据完整度一般（覆盖度 42.0），下决定前最好再补一轮验证；仍缺 0 项信息。",
+        "analysis_blockers": "证据覆盖不足，当前结论只能按防守口径理解。",
+        "analysis_execution_triplet": "现在: 现在先做风险控制，不做主动加仓。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      },
+      {
+        "code": "588000",
+        "name": "科创50",
+        "action": "cut_on_breakdown",
+        "action_label": "破位减仓",
+        "score": 5.34,
+        "priority_score": 94.0,
+        "reason": "科创50 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+        "thesis": "科创50 的主逻辑是 5日收益 -2.02%，短期节奏中性偏稳；距20日高点 -11.92%，处于中部偏低区域，赔率尚可，但 20日收益 -13.15%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+        "trigger": "若跌破 1.33 且相对强弱继续走弱，立即执行减仓。",
+        "invalidation": "若重新站回 1.39 且成交恢复，可转回观察。",
+        "strategy_style": "",
+        "strategy_label": "",
+        "positive_factors": [
+          "5日收益 -2.02%，短期节奏中性偏稳。",
+          "距20日高点 -11.92%，处于中部偏低区域，赔率尚可。"
+        ],
+        "negative_factors": [
+          "20日收益 -13.15%，中期趋势仍弱。",
+          "相对强弱 -8.29%，弱于基准。",
+          "量比 0.37x，量能严重不足。"
+        ],
+        "counterpoints": [
+          "20日收益 -13.15%，中期趋势仍弱。",
+          "相对强弱 -8.29%，弱于基准。",
+          "量比 0.37x，量能严重不足。"
+        ],
+        "risk": [
+          "若重新站回 1.39 且成交恢复，可转回观察。"
+        ],
+        "coverage_score": 42.0,
+        "position_context": {
+          "is_holding": true,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 5000.0,
+          "position_weight": 0.5,
+          "sector_weight": 0.5,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": 1.36,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "宽基ETF",
+          "holding_sector": "宽基ETF",
+          "sector_weight_basis": "宽基ETF",
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {},
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+        "levels": {
+          "breakout_price": 1.544,
+          "support_price": 1.329,
+          "pullback_price": 1.358,
+          "retest_price": 1.385,
+          "stop_price": 1.289,
+          "entry_reward_risk": 2.59,
+          "entry_upside_pct": 13.53,
+          "entry_downside_pct": 5.22,
+          "box_position_pct": 14.42
+        },
+        "prediction_bundle": {
+          "code": "588000",
+          "name": "科创50",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 1.36,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 1.36,
+            "predicted_return": 0.0,
+            "confidence": 0.457,
+            "confidence_band_upper": 1.396,
+            "confidence_band_lower": 1.324,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 1.4,
+            "predicted_return": 0.02925,
+            "confidence": 0.55,
+            "confidence_band_upper": 1.431,
+            "confidence_band_lower": 1.369,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0000（日均漂移 -0.001%）。",
+              "当前价偏离20日均线 -5.24%（BB位置 16%），偏低，有回归压力。",
+              "今日振幅 2.94% 较大，下方支撑较强。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 1.367,
+            "predicted_return": 0.005025,
+            "confidence": 0.501,
+            "confidence_band_upper": 1.4,
+            "confidence_band_lower": 1.334,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 +0.22% 属于震荡日，历史次日平均收益 +0.103%，无明显方向偏向。",
+              "当前处于20日低位（14%），历史上此类位置次日反弹概率偏高。",
+              "历史样本 221 天，胜率约 51%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 1.197,
+            "predicted_return": -0.12,
+            "confidence": 0.521,
+            "confidence_band_upper": 1.225,
+            "confidence_band_lower": 1.169,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.5932%，10日预期偏移 -26.65%（下跌）。",
+              "历史10日正收益概率 53%（样本 310 个区间）。",
+              "当前趋势得分 50，中长期方向不明。",
+              "相对强弱 -8.29%，弱于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "full"
+          }
+        },
+        "technical_action_label": "破位减仓",
+        "display_action_label": "破位减仓",
+        "canonical_action_label": "破位减仓",
+        "display_reason": "科创50 现在先别加仓。 重点盯住 1.329 这条防线，跌破再减一点。 只有重新回到 1.385 上方，才先改回观察。",
+        "display_trigger": "只有跌破 1.329，才执行减一点。",
+        "display_invalidation": "如果重新回到 1.385 上方，就先别继续减。",
+        "analysis_summary": "科创50先做风险处理，不把反弹当默认剧本。",
+        "analysis_core_reason": "科创50先做风险处理，不把反弹当默认剧本。 5日收益 -2.02%，短期节奏中性偏稳。 执行位在 1.329 一带，重点是先守住风控。",
+        "analysis_risk": "20日收益 -13.15%，中期趋势仍弱。；相对强弱 -8.29%，弱于基准。",
+        "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 50.0%；同主题合计约 50.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+        "analysis_comparison": "",
+        "analysis_setup": "位置 `靠近支撑` | 上行空间 `13.53%` | 下行风险 `5.22%` | 赔率 `2.59` | 当前策略 `先看防守`",
+        "analysis_evidence_balance": "多头主证据: 5日收益 -2.02%，短期节奏中性偏稳。 | 主要风险: 20日收益 -13.15%，中期趋势仍弱。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "持仓处理窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "现在不适合加仓，优先看风险控制或继续观察。",
+        "analysis_evidence_quality": "证据完整度一般（覆盖度 42.0），下决定前最好再补一轮验证；仍缺 0 项信息。",
+        "analysis_blockers": "证据覆盖不足，当前结论只能按防守口径理解。",
+        "analysis_execution_triplet": "现在: 现在先做风险控制，不做主动加仓。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      }
+    ],
+    "watch_opportunities": [
+      {
+        "code": "300750",
+        "name": "宁德时代",
+        "action": "wait_for_breakout",
+        "action_label": "等放量突破",
+        "score": 48.06,
+        "priority_score": 61.48,
+        "reason": "宁德时代 接近关键位，但还没给出值得执行的确认。",
+        "thesis": "宁德时代 的主逻辑是 20日收益 +18.77%，趋势延续性较强；相对强弱 +23.63%，强于基准，但 量比 0.32x，量能严重不足，所以当前策略是“等放量突破”。",
+        "trigger": "只有放量突破 413.00，才升级为试仓。",
+        "invalidation": "若回落跌破 396.99，取消突破预案。",
+        "strategy_style": "defensive_quality",
+        "strategy_label": "防守质量",
+        "positive_factors": [
+          "20日收益 +18.77%，趋势延续性较强。",
+          "相对强弱 +23.63%，强于基准。",
+          "营收同比 +17.04%。"
+        ],
+        "negative_factors": [
+          "量比 0.32x，量能严重不足。",
+          "市场环境偏空，新开仓需要明显折价。"
+        ],
+        "counterpoints": [
+          "量比 0.32x，量能严重不足。",
+          "市场环境偏空，新开仓需要明显折价。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "risk": [
+          "若回落跌破 396.99，取消突破预案。"
+        ],
+        "coverage_score": 80.0,
+        "position_context": {
+          "is_holding": false,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 0.0,
+          "position_weight": 0.0,
+          "sector_weight": 0.0,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": null,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "电池",
+          "holding_sector": null,
+          "sector_weight_basis": null,
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {},
+        "position_guidance": "先观察，不提前追价。",
+        "levels": {
+          "breakout_price": 413.0,
+          "support_price": 396.99,
+          "pullback_price": 401.096,
+          "retest_price": 406.19,
+          "stop_price": 385.08,
+          "entry_reward_risk": 0.32,
+          "entry_upside_pct": 1.68,
+          "entry_downside_pct": 5.2,
+          "box_position_pct": 57.46
+        },
+        "prediction_bundle": {
+          "code": "300750",
+          "name": "宁德时代",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 406.19,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 406.19,
+            "predicted_return": 0.0,
+            "confidence": 0.514,
+            "confidence_band_upper": 415.682,
+            "confidence_band_lower": 396.698,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 393.253,
+            "predicted_return": -0.031851,
+            "confidence": 0.55,
+            "confidence_band_upper": 401.833,
+            "confidence_band_lower": 384.673,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 0.9980（日均漂移 -0.200%）。",
+              "当前价偏离20日均线 +5.70%（BB位置 72%），偏高，有回归压力。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 406.02,
+            "predicted_return": -0.000418,
+            "confidence": 0.496,
+            "confidence_band_upper": 415.764,
+            "confidence_band_lower": 396.276,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 +0.92% 属于震荡日，历史次日平均收益 +0.358%，无明显方向偏向。",
+              "当前处于20日高位（91%），历史上此类位置次日胜率偏低。",
+              "历史样本 197 天，胜率约 48%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 467.118,
+            "predicted_return": 0.15,
+            "confidence": 0.536,
+            "confidence_band_upper": 477.573,
+            "confidence_band_lower": 456.663,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 +0.9768%，10日预期偏移 +70.85%（上涨）。",
+              "历史10日正收益概率 55%（样本 310 个区间）。",
+              "当前趋势得分 100，支撑中长期方向。",
+              "相对强弱 +23.63%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "full"
+          }
+        },
+        "technical_action_label": "等放量突破",
+        "display_action_label": "等放量突破",
+        "canonical_action_label": "突破跟随",
+        "display_reason": "宁德时代 现在先观察。 只有站上关键价 413 且量能放大，才考虑买。",
+        "display_trigger": "只在站上 413 且量能放大时再考虑。",
+        "display_invalidation": "如果没站上关键价前先跌破 396.99，就继续观察。",
+        "analysis_summary": "宁德时代不是因为涨了才买，而是等 413 的确认再执行。",
+        "analysis_core_reason": "宁德时代不是因为涨了才买，而是等 413 的确认再执行。 20日收益 +18.77%，趋势延续性较强。 相对强弱 +23.63%，强于基准。",
+        "analysis_risk": "量比 0.32x，量能严重不足。；市场环境偏空，新开仓需要明显折价。",
+        "analysis_position": "先观察，不提前追价。",
+        "analysis_comparison": "",
+        "analysis_setup": "位置 `箱体中段` | 上行空间 `1.68%` | 下行风险 `5.20%` | 赔率 `0.32` | 当前策略 `等量价确认`",
+        "analysis_evidence_balance": "多头主证据: 20日收益 +18.77%，趋势延续性较强。 | 主要风险: 量比 0.32x，量能严重不足。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "新开/加仓窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "这是条件式加仓/开仓信号，未触发前不动手。",
+        "analysis_evidence_quality": "证据完整度尚可（覆盖度 80.0），但仍需按触发条件执行。",
+        "analysis_blockers": "当前没有额外阻断因素，但仍必须等触发条件。",
+        "analysis_execution_triplet": "现在: 现在先观察，不主动交易。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      },
+      {
+        "code": "600227",
+        "name": "赤天化",
+        "action": "wait_for_pullback",
+        "action_label": "等回踩",
+        "score": 38.09,
+        "priority_score": 55.81,
+        "reason": "赤天化 方向还在，但更优赔率不在当前位置。",
+        "thesis": "赤天化 的主逻辑是 20日收益 +48.26%，趋势延续性较强；相对强弱 +53.13%，强于基准，但 营收同比 -7.96%，所以当前策略是“等回踩”。",
+        "trigger": "回踩 4.00 一带且量能不失真时，再考虑出手。",
+        "invalidation": "若直接跌破 3.87，取消计划。",
+        "strategy_style": "defensive_quality",
+        "strategy_label": "防守质量",
+        "positive_factors": [
+          "20日收益 +48.26%，趋势延续性较强。",
+          "相对强弱 +53.13%，强于基准。",
+          "5日收益 +0.23%，短期节奏中性偏稳。"
+        ],
+        "negative_factors": [
+          "营收同比 -7.96%。",
+          "利润同比 -340.46%。",
+          "ROE -6.2%。"
+        ],
+        "counterpoints": [
+          "营收同比 -7.96%。",
+          "利润同比 -340.46%。",
+          "ROE -6.2%。"
+        ],
+        "risk": [
+          "若直接跌破 3.87，取消计划。"
+        ],
+        "coverage_score": 80.0,
+        "position_context": {
+          "is_holding": false,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 0.0,
+          "position_weight": 0.0,
+          "sector_weight": 0.0,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": null,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "化学原料",
+          "holding_sector": null,
+          "sector_weight_basis": null,
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {},
+        "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+        "levels": {
+          "breakout_price": 5.29,
+          "support_price": 3.87,
+          "pullback_price": 4.004,
+          "retest_price": 4.27,
+          "stop_price": 3.754,
+          "entry_reward_risk": 1.98,
+          "entry_upside_pct": 23.89,
+          "entry_downside_pct": 12.08,
+          "box_position_pct": 28.17
+        },
+        "prediction_bundle": {
+          "code": "600227",
+          "name": "赤天化",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 4.27,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 4.213,
+            "predicted_return": -0.013287,
+            "confidence": 0.65,
+            "confidence_band_upper": 4.291,
+            "confidence_band_lower": 4.135,
+            "method": "mean_reversion",
+            "reasoning": [
+              "当前价偏离5日均线 +6.64%，剩余 50% 交易时间，均值回归修正预期 1.33%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 4.12,
+            "predicted_return": -0.035221,
+            "confidence": 0.55,
+            "confidence_band_upper": 4.21,
+            "confidence_band_lower": 4.03,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0086（日均漂移 +0.856%）。",
+              "当前价偏离20日均线 +6.94%（BB位置 61%），偏高，有回归压力。",
+              "今日振幅 11.71% 较大，收盘偏回归压力。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 4.295,
+            "predicted_return": 0.005746,
+            "confidence": 0.501,
+            "confidence_band_upper": 4.398,
+            "confidence_band_lower": 4.192,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨幅 +10.05% 属于大涨日，历史数据次日平均收益 +0.575%，次日倾向于继续走强。",
+              "历史样本 149 天，胜率约 50%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 4.91,
+            "predicted_return": 0.15,
+            "confidence": 0.52,
+            "confidence_band_upper": 5.023,
+            "confidence_band_lower": 4.797,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 +1.5569%，10日预期偏移 +150.40%（上涨）。",
+              "历史10日正收益概率 52%（样本 528 个区间）。",
+              "当前趋势得分 100，支撑中长期方向。",
+              "相对强弱 +53.13%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "full"
+          }
+        },
+        "technical_action_label": "等回踩",
+        "display_action_label": "等回踩",
+        "canonical_action_label": "等回踩",
+        "display_reason": "赤天化 现在先观察，不追高。 只有回踩到 4.004 一带稳住了再考虑。",
+        "display_trigger": "只在 4.004 一带稳住时再考虑。",
+        "display_invalidation": "如果跌破 3.87，这次计划就取消。",
+        "analysis_summary": "赤天化逻辑可以继续跟，但更优赔率在 4.004，不在当前位置追价。",
+        "analysis_core_reason": "赤天化逻辑可以继续跟，但更优赔率在 4.004，不在当前位置追价。 20日收益 +48.26%，趋势延续性较强。 相对强弱 +53.13%，强于基准。",
+        "analysis_risk": "营收同比 -7.96%。；利润同比 -340.46%。",
+        "analysis_position": "等待更舒服的回踩位，再决定是否试仓。",
+        "analysis_comparison": "",
+        "analysis_setup": "位置 `偏下沿` | 上行空间 `23.89%` | 下行风险 `12.08%` | 赔率 `1.98` | 当前策略 `等更优赔率`",
+        "analysis_evidence_balance": "多头主证据: 20日收益 +48.26%，趋势延续性较强。 | 主要风险: 营收同比 -7.96%。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "新开/加仓窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "这是条件式加仓/开仓信号，未触发前不动手。",
+        "analysis_evidence_quality": "证据完整度尚可（覆盖度 80.0），但仍需按触发条件执行。",
+        "analysis_blockers": "当前没有额外阻断因素，但仍必须等触发条件。",
+        "analysis_execution_triplet": "现在: 现在先观察，不主动交易。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      },
+      {
+        "code": "600036",
+        "name": "招商银行",
+        "action": "switch_to_better_alternative",
+        "action_label": "替代标的",
+        "score": 25.46,
+        "priority_score": 46.74,
+        "reason": "招商银行 当前不是最优资金去处，优先看 宁德时代。",
+        "thesis": "招商银行 不是完全不能做，但当前执行位和资金效率都弱于 宁德时代。",
+        "trigger": "若同梯队必须选一只，先等 宁德时代 满足“等放量突破”条件。",
+        "invalidation": "只有当 招商银行 重新强于 宁德时代，才恢复优先级。",
+        "strategy_style": "defensive_quality",
+        "strategy_label": "防守质量",
+        "positive_factors": [
+          "相对强弱 +6.62%，强于基准。",
+          "PE 8.9x。",
+          "5日收益 -0.81%，短期节奏中性偏稳。"
+        ],
+        "negative_factors": [
+          "经营现金流同比 -38.68%。",
+          "资产负债率 89.9% 偏高。",
+          "量比 0.30x，量能严重不足。"
+        ],
+        "counterpoints": [
+          "与 宁德时代 相比，当前更缺少马上执行的理由。",
+          "经营现金流同比 -38.68%。",
+          "资产负债率 89.9% 偏高。"
+        ],
+        "risk": [
+          "若回落跌破 38.68，取消突破预案。"
+        ],
+        "coverage_score": 80.0,
+        "position_context": {
+          "is_holding": false,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 0.0,
+          "position_weight": 0.0,
+          "sector_weight": 0.0,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": null,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "银行",
+          "holding_sector": null,
+          "sector_weight_basis": null,
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {
+          "code": "300750",
+          "name": "宁德时代",
+          "action_label": "等放量突破",
+          "priority_gap": 14.74
+        },
+        "position_guidance": "不给 招商银行 分配新仓，候选额度优先留给 宁德时代。",
+        "levels": {
+          "breakout_price": 40.12,
+          "support_price": 38.68,
+          "pullback_price": 39.236,
+          "retest_price": 39.56,
+          "stop_price": 37.52,
+          "entry_reward_risk": 0.36,
+          "entry_upside_pct": 1.75,
+          "entry_downside_pct": 4.84,
+          "box_position_pct": 52.08
+        },
+        "prediction_bundle": {
+          "code": "600036",
+          "name": "招商银行",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 39.43,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 39.43,
+            "predicted_return": 0.0,
+            "confidence": 0.475,
+            "confidence_band_upper": 40.427,
+            "confidence_band_lower": 38.433,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 39.38,
+            "predicted_return": -0.001267,
+            "confidence": 0.55,
+            "confidence_band_upper": 40.239,
+            "confidence_band_lower": 38.521,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 0.9988（日均漂移 -0.121%）。",
+              "当前价偏离20日均线 +0.18%（BB位置 54%），偏高，偏离不大。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 39.433,
+            "predicted_return": 7.5e-05,
+            "confidence": 0.495,
+            "confidence_band_upper": 40.379,
+            "confidence_band_lower": 38.487,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 -0.33% 属于震荡日，历史次日平均收益 +0.007%，无明显方向偏向。",
+              "历史样本 266 天，胜率约 48%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 45.344,
+            "predicted_return": 0.15,
+            "confidence": 0.549,
+            "confidence_band_upper": 46.335,
+            "confidence_band_lower": 44.353,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 +0.0821%，10日预期偏移 +17.38%（上涨）。",
+              "历史10日正收益概率 56%（样本 310 个区间）。",
+              "当前趋势得分 51，中长期方向不明。",
+              "相对强弱 +6.62%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "full"
+          }
+        },
+        "technical_action_label": "替代标的",
+        "display_action_label": "替代标的",
+        "canonical_action_label": "替代标的",
+        "display_reason": "招商银行 不是当前最优先的选择，先看更强的替代标的。",
+        "display_trigger": "若同梯队必须选一只，先等 宁德时代 满足“等放量突破”条件。",
+        "display_invalidation": "只有当 招商银行 重新强于 宁德时代，才恢复优先级。",
+        "analysis_summary": "招商银行不是完全没逻辑，但当前资金效率不如 宁德时代。",
+        "analysis_core_reason": "招商银行不是完全没逻辑，但当前资金效率不如 宁德时代。 同阶段先把候选额度留给 宁德时代。 相对强弱 +6.62%，强于基准。",
+        "analysis_risk": "与 宁德时代 相比，当前更缺少马上执行的理由。；经营现金流同比 -38.68%。",
+        "analysis_position": "不给 招商银行 分配新仓，候选额度优先留给 宁德时代。",
+        "analysis_comparison": "同梯队更值得先看的标的是 宁德时代，当前优先级高出 14.7 分。",
+        "analysis_setup": "位置 `箱体中段` | 上行空间 `1.75%` | 下行风险 `4.84%` | 赔率 `0.36` | 当前策略 `先观察`",
+        "analysis_evidence_balance": "多头主证据: 相对强弱 +6.62%，强于基准。 | 主要风险: 与 宁德时代 相比，当前更缺少马上执行的理由。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "新开/加仓窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "先按触发条件执行，不做主观加仓。",
+        "analysis_evidence_quality": "证据完整度尚可（覆盖度 80.0），但仍需按触发条件执行。",
+        "analysis_blockers": "当前没有额外阻断因素，但仍必须等触发条件。",
+        "analysis_execution_triplet": "现在: 现在先观察，不主动交易。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      },
+      {
+        "code": "000858",
+        "name": "五粮液",
+        "action": "switch_to_better_alternative",
+        "action_label": "替代标的",
+        "score": 25.38,
+        "priority_score": 44.37,
+        "reason": "五粮液 当前不是最优资金去处，优先看 宁德时代。",
+        "thesis": "五粮液 不是完全不能做，但当前执行位和资金效率都弱于 宁德时代。",
+        "trigger": "若同梯队必须选一只，先等 宁德时代 满足“等放量突破”条件。",
+        "invalidation": "只有当 五粮液 重新强于 宁德时代，才恢复优先级。",
+        "strategy_style": "defensive_quality",
+        "strategy_label": "防守质量",
+        "positive_factors": [
+          "ROE 15.4%。",
+          "毛利率 74.9%。",
+          "ROIC 14.2%。"
+        ],
+        "negative_factors": [
+          "营收同比 -10.26%。",
+          "利润同比 -13.72%。",
+          "量比 0.41x，量能严重不足。"
+        ],
+        "counterpoints": [
+          "与 宁德时代 相比，当前更缺少马上执行的理由。",
+          "营收同比 -10.26%。",
+          "利润同比 -13.72%。"
+        ],
+        "risk": [
+          "若回落跌破 100.23，取消突破预案。"
+        ],
+        "coverage_score": 80.0,
+        "position_context": {
+          "is_holding": false,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 0.0,
+          "position_weight": 0.0,
+          "sector_weight": 0.0,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": null,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "白酒",
+          "holding_sector": null,
+          "sector_weight_basis": null,
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {
+          "code": "300750",
+          "name": "宁德时代",
+          "action_label": "等放量突破",
+          "priority_gap": 17.11
+        },
+        "position_guidance": "不给 五粮液 分配新仓，候选额度优先留给 宁德时代。",
+        "levels": {
+          "breakout_price": 104.79,
+          "support_price": 100.23,
+          "pullback_price": 101.538,
+          "retest_price": 102.45,
+          "stop_price": 97.223,
+          "entry_reward_risk": 0.46,
+          "entry_upside_pct": 2.34,
+          "entry_downside_pct": 5.05,
+          "box_position_pct": 47.37
+        },
+        "prediction_bundle": {
+          "code": "000858",
+          "name": "五粮液",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 102.39,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 102.39,
+            "predicted_return": 0.0,
+            "confidence": 0.492,
+            "confidence_band_upper": 104.888,
+            "confidence_band_lower": 99.892,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 102.369,
+            "predicted_return": -0.000206,
+            "confidence": 0.55,
+            "confidence_band_upper": 104.603,
+            "confidence_band_lower": 100.135,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 0.9997（日均漂移 -0.027%）。",
+              "当前价偏离20日均线 +0.03%（BB位置 51%），偏高，偏离不大。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 102.324,
+            "predicted_return": -0.000642,
+            "confidence": 0.484,
+            "confidence_band_upper": 104.78,
+            "confidence_band_lower": 99.868,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 +1.10% 属于震荡日，历史次日平均收益 -0.064%，无明显方向偏向。",
+              "历史样本 398 天，胜率约 42%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 110.668,
+            "predicted_return": 0.080852,
+            "confidence": 0.442,
+            "confidence_band_upper": 113.67,
+            "confidence_band_lower": 107.666,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.0096%，10日预期偏移 +8.09%（上涨）。",
+              "历史10日正收益概率 43%（样本 528 个区间）。",
+              "当前趋势得分 39，中长期偏弱。",
+              "相对强弱 +3.27%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "full"
+          }
+        },
+        "technical_action_label": "替代标的",
+        "display_action_label": "替代标的",
+        "canonical_action_label": "替代标的",
+        "display_reason": "五粮液 不是当前最优先的选择，先看更强的替代标的。",
+        "display_trigger": "若同梯队必须选一只，先等 宁德时代 满足“等放量突破”条件。",
+        "display_invalidation": "只有当 五粮液 重新强于 宁德时代，才恢复优先级。",
+        "analysis_summary": "五粮液不是完全没逻辑，但当前资金效率不如 宁德时代。",
+        "analysis_core_reason": "五粮液不是完全没逻辑，但当前资金效率不如 宁德时代。 同阶段先把候选额度留给 宁德时代。 ROE 15.4%。",
+        "analysis_risk": "与 宁德时代 相比，当前更缺少马上执行的理由。；营收同比 -10.26%。",
+        "analysis_position": "不给 五粮液 分配新仓，候选额度优先留给 宁德时代。",
+        "analysis_comparison": "同梯队更值得先看的标的是 宁德时代，当前优先级高出 17.1 分。",
+        "analysis_setup": "位置 `箱体中段` | 上行空间 `2.34%` | 下行风险 `5.05%` | 赔率 `0.46` | 当前策略 `先观察`",
+        "analysis_evidence_balance": "多头主证据: ROE 15.4%。 | 主要风险: 与 宁德时代 相比，当前更缺少马上执行的理由。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "新开/加仓窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "先按触发条件执行，不做主观加仓。",
+        "analysis_evidence_quality": "证据完整度尚可（覆盖度 80.0），但仍需按触发条件执行。",
+        "analysis_blockers": "当前没有额外阻断因素，但仍必须等触发条件。",
+        "analysis_execution_triplet": "现在: 现在先观察，不主动交易。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      }
+    ],
+    "holdings_actions": [
+      {
+        "code": "601699",
+        "name": "潞安环能",
+        "action": "cut_on_breakdown",
+        "action_label": "破位减仓",
+        "score": 13.66,
+        "priority_score": 97.0,
+        "reason": "潞安环能 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+        "thesis": "潞安环能 的主逻辑是 毛利率 34.1%；5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨），但 20日收益 -5.91%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+        "trigger": "若跌破 13.95 且相对强弱继续走弱，立即执行减仓。",
+        "invalidation": "若重新站回 14.92 且成交恢复，可转回观察。",
+        "strategy_style": "",
+        "strategy_label": "",
+        "positive_factors": [
+          "毛利率 34.1%。",
+          "5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。",
+          "距20日高点 -9.03%，处于中部偏低区域，赔率尚可。"
+        ],
+        "negative_factors": [
+          "20日收益 -5.91%，中期趋势仍弱。",
+          "营收同比 -20.82%。",
+          "利润同比 -44.45%。"
+        ],
+        "counterpoints": [
+          "20日收益 -5.91%，中期趋势仍弱。",
+          "营收同比 -20.82%。",
+          "利润同比 -44.45%。"
+        ],
+        "risk": [
+          "若重新站回 14.92 且成交恢复，可转回观察。"
+        ],
+        "coverage_score": 93.0,
+        "position_context": {
+          "is_holding": true,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 3500.0,
+          "position_weight": 0.35,
+          "sector_weight": 0.35,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": 14.01,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "能源金属",
+          "holding_sector": "煤炭",
+          "sector_weight_basis": "煤炭",
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {},
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+        "levels": {
+          "breakout_price": 15.4,
+          "support_price": 13.95,
+          "pullback_price": 14.358,
+          "retest_price": 14.92,
+          "stop_price": 13.531,
+          "entry_reward_risk": 2.9,
+          "entry_upside_pct": 9.92,
+          "entry_downside_pct": 3.42,
+          "box_position_pct": 4.14
+        },
+        "prediction_bundle": {
+          "code": "601699",
+          "name": "潞安环能",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 14.01,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 14.078,
+            "predicted_return": 0.004847,
+            "confidence": 0.571,
+            "confidence_band_upper": 14.374,
+            "confidence_band_lower": 13.782,
+            "method": "mean_reversion",
+            "reasoning": [
+              "当前价偏离5日均线 -2.42%，剩余 50% 交易时间，均值回归修正预期 0.48%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 14.319,
+            "predicted_return": 0.022059,
+            "confidence": 0.55,
+            "confidence_band_upper": 14.631,
+            "confidence_band_lower": 14.007,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0042（日均漂移 +0.419%）。",
+              "当前价偏离20日均线 -3.78%（BB位置 13%），偏低，有回归压力。",
+              "今日振幅 3.07% 较大，下方支撑较强。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 14.044,
+            "predicted_return": 0.002444,
+            "confidence": 0.472,
+            "confidence_band_upper": 14.381,
+            "confidence_band_lower": 13.707,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日跌幅 -1.75% 属于大跌日，历史次日平均收益 -0.156%，次日有反弹修复可能。",
+              "当前处于20日低位（4%），历史上此类位置次日反弹概率偏高。",
+              "历史样本 61 天，胜率约 36%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 13.466,
+            "predicted_return": -0.038849,
+            "confidence": 0.438,
+            "confidence_band_upper": 13.835,
+            "confidence_band_lower": 13.097,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.1280%，10日预期偏移 -3.88%（下跌）。",
+              "历史10日正收益概率 42%（样本 310 个区间）。",
+              "当前趋势得分 29，中长期偏弱。",
+              "相对强弱 -1.04%，弱于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "full"
+          }
+        },
+        "technical_action_label": "破位减仓",
+        "display_action_label": "破位减仓",
+        "canonical_action_label": "破位减仓",
+        "display_reason": "潞安环能 现在先别加仓。 重点盯住 13.95 这条防线，跌破再减一点。 只有重新回到 14.92 上方，才先改回观察。",
+        "display_trigger": "只有跌破 13.95，才执行减一点。",
+        "display_invalidation": "如果重新回到 14.92 上方，就先别继续减。",
+        "analysis_summary": "潞安环能先做风险处理，不把反弹当默认剧本。",
+        "analysis_core_reason": "潞安环能先做风险处理，不把反弹当默认剧本。 毛利率 34.1%。 执行位在 13.95 一带，重点是先守住风控。",
+        "analysis_risk": "20日收益 -5.91%，中期趋势仍弱。；营收同比 -20.82%。",
+        "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 35.0%；同主题合计约 35.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+        "analysis_comparison": "",
+        "analysis_setup": "位置 `靠近支撑` | 上行空间 `9.92%` | 下行风险 `3.42%` | 赔率 `2.90` | 当前策略 `先看防守`",
+        "analysis_evidence_balance": "多头主证据: 毛利率 34.1%。 | 主要风险: 20日收益 -5.91%，中期趋势仍弱。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "持仓处理窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "现在不适合加仓，优先看风险控制或继续观察。",
+        "analysis_evidence_quality": "证据完整度尚可（覆盖度 93.0），但仍需按触发条件执行。",
+        "analysis_blockers": "当前没有额外阻断因素，但仍必须等触发条件。",
+        "analysis_execution_triplet": "现在: 现在先做风险控制，不做主动加仓。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      },
+      {
+        "code": "513310",
+        "name": "中韩芯片",
+        "action": "cut_on_breakdown",
+        "action_label": "破位减仓",
+        "score": 5.88,
+        "priority_score": 94.0,
+        "reason": "中韩芯片 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+        "thesis": "中韩芯片 的主逻辑是 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）；距20日高点 -11.40%，处于中部偏低区域，赔率尚可，但 20日收益 -12.73%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+        "trigger": "若跌破 3.66 且相对强弱继续走弱，立即执行减仓。",
+        "invalidation": "若重新站回 3.97 且成交恢复，可转回观察。",
+        "strategy_style": "",
+        "strategy_label": "",
+        "positive_factors": [
+          "5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。",
+          "距20日高点 -11.40%，处于中部偏低区域，赔率尚可。"
+        ],
+        "negative_factors": [
+          "20日收益 -12.73%，中期趋势仍弱。",
+          "相对强弱 -7.86%，弱于基准。",
+          "量比 0.18x，量能严重不足。"
+        ],
+        "counterpoints": [
+          "20日收益 -12.73%，中期趋势仍弱。",
+          "相对强弱 -7.86%，弱于基准。",
+          "量比 0.18x，量能严重不足。"
+        ],
+        "risk": [
+          "若重新站回 3.97 且成交恢复，可转回观察。"
+        ],
+        "coverage_score": 42.0,
+        "position_context": {
+          "is_holding": true,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 1500.0,
+          "position_weight": 0.15,
+          "sector_weight": 0.15,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": 3.771,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "半导体ETF",
+          "holding_sector": "半导体ETF",
+          "sector_weight_basis": "半导体ETF",
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {},
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+        "levels": {
+          "breakout_price": 4.256,
+          "support_price": 3.663,
+          "pullback_price": 3.817,
+          "retest_price": 3.973,
+          "stop_price": 3.553,
+          "entry_reward_risk": 2.22,
+          "entry_upside_pct": 12.86,
+          "entry_downside_pct": 5.78,
+          "box_position_pct": 18.21
+        },
+        "prediction_bundle": {
+          "code": "513310",
+          "name": "中韩芯片",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 3.771,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 3.771,
+            "predicted_return": 0.0,
+            "confidence": 0.511,
+            "confidence_band_upper": 3.86,
+            "confidence_band_lower": 3.682,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 3.883,
+            "predicted_return": 0.029711,
+            "confidence": 0.55,
+            "confidence_band_upper": 3.968,
+            "confidence_band_lower": 3.798,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0021（日均漂移 +0.211%）。",
+              "当前价偏离20日均线 -5.31%（BB位置 15%），偏低，有回归压力。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 3.782,
+            "predicted_return": 0.002939,
+            "confidence": 0.512,
+            "confidence_band_upper": 3.873,
+            "confidence_band_lower": 3.691,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日跌幅 -3.01% 属于大跌日，历史次日平均收益 +0.294%，次日有反弹修复可能。",
+              "历史样本 82 天，胜率约 56%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 3.318,
+            "predicted_return": -0.12,
+            "confidence": 0.613,
+            "confidence_band_upper": 3.383,
+            "confidence_band_lower": 3.253,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.3039%，10日预期偏移 -22.69%（下跌）。",
+              "历史10日正收益概率 64%（样本 527 个区间）。",
+              "当前趋势得分 50，中长期方向不明。",
+              "相对强弱 -7.86%，弱于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "full"
+          }
+        },
+        "technical_action_label": "破位减仓",
+        "display_action_label": "破位减仓",
+        "canonical_action_label": "破位减仓",
+        "display_reason": "中韩芯片 现在先别加仓。 重点盯住 3.663 这条防线，跌破再减一点。 只有重新回到 3.973 上方，才先改回观察。",
+        "display_trigger": "只有跌破 3.663，才执行减一点。",
+        "display_invalidation": "如果重新回到 3.973 上方，就先别继续减。",
+        "analysis_summary": "中韩芯片先做风险处理，不把反弹当默认剧本。",
+        "analysis_core_reason": "中韩芯片先做风险处理，不把反弹当默认剧本。 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。 执行位在 3.663 一带，重点是先守住风控。",
+        "analysis_risk": "20日收益 -12.73%，中期趋势仍弱。；相对强弱 -7.86%，弱于基准。",
+        "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 15.0%；同主题合计约 15.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+        "analysis_comparison": "",
+        "analysis_setup": "位置 `靠近支撑` | 上行空间 `12.86%` | 下行风险 `5.78%` | 赔率 `2.22` | 当前策略 `先看防守`",
+        "analysis_evidence_balance": "多头主证据: 5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）。 | 主要风险: 20日收益 -12.73%，中期趋势仍弱。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "持仓处理窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "现在不适合加仓，优先看风险控制或继续观察。",
+        "analysis_evidence_quality": "证据完整度一般（覆盖度 42.0），下决定前最好再补一轮验证；仍缺 0 项信息。",
+        "analysis_blockers": "证据覆盖不足，当前结论只能按防守口径理解。",
+        "analysis_execution_triplet": "现在: 现在先做风险控制，不做主动加仓。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      },
+      {
+        "code": "588000",
+        "name": "科创50",
+        "action": "cut_on_breakdown",
+        "action_label": "破位减仓",
+        "score": 5.34,
+        "priority_score": 94.0,
+        "reason": "科创50 趋势明显转弱，先处理风险，再谈加仓。 持仓成本未知，本次只按结构与风险预算给出比例级建议。",
+        "thesis": "科创50 的主逻辑是 5日收益 -2.02%，短期节奏中性偏稳；距20日高点 -11.92%，处于中部偏低区域，赔率尚可，但 20日收益 -13.15%，中期趋势仍弱，所以当前策略是“破位减仓”。",
+        "trigger": "若跌破 1.33 且相对强弱继续走弱，立即执行减仓。",
+        "invalidation": "若重新站回 1.39 且成交恢复，可转回观察。",
+        "strategy_style": "",
+        "strategy_label": "",
+        "positive_factors": [
+          "5日收益 -2.02%，短期节奏中性偏稳。",
+          "距20日高点 -11.92%，处于中部偏低区域，赔率尚可。"
+        ],
+        "negative_factors": [
+          "20日收益 -13.15%，中期趋势仍弱。",
+          "相对强弱 -8.29%，弱于基准。",
+          "量比 0.37x，量能严重不足。"
+        ],
+        "counterpoints": [
+          "20日收益 -13.15%，中期趋势仍弱。",
+          "相对强弱 -8.29%，弱于基准。",
+          "量比 0.37x，量能严重不足。"
+        ],
+        "risk": [
+          "若重新站回 1.39 且成交恢复，可转回观察。"
+        ],
+        "coverage_score": 42.0,
+        "position_context": {
+          "is_holding": true,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 5000.0,
+          "position_weight": 0.5,
+          "sector_weight": 0.5,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": 1.36,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "宽基ETF",
+          "holding_sector": "宽基ETF",
+          "sector_weight_basis": "宽基ETF",
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {},
+        "position_guidance": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。",
+        "levels": {
+          "breakout_price": 1.544,
+          "support_price": 1.329,
+          "pullback_price": 1.358,
+          "retest_price": 1.385,
+          "stop_price": 1.289,
+          "entry_reward_risk": 2.59,
+          "entry_upside_pct": 13.53,
+          "entry_downside_pct": 5.22,
+          "box_position_pct": 14.42
+        },
+        "prediction_bundle": {
+          "code": "588000",
+          "name": "科创50",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 1.36,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 1.36,
+            "predicted_return": 0.0,
+            "confidence": 0.457,
+            "confidence_band_upper": 1.396,
+            "confidence_band_lower": 1.324,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 1.4,
+            "predicted_return": 0.02925,
+            "confidence": 0.55,
+            "confidence_band_upper": 1.431,
+            "confidence_band_lower": 1.369,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0000（日均漂移 -0.001%）。",
+              "当前价偏离20日均线 -5.24%（BB位置 16%），偏低，有回归压力。",
+              "今日振幅 2.94% 较大，下方支撑较强。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 1.367,
+            "predicted_return": 0.005025,
+            "confidence": 0.501,
+            "confidence_band_upper": 1.4,
+            "confidence_band_lower": 1.334,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 +0.22% 属于震荡日，历史次日平均收益 +0.103%，无明显方向偏向。",
+              "当前处于20日低位（14%），历史上此类位置次日反弹概率偏高。",
+              "历史样本 221 天，胜率约 51%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 1.197,
+            "predicted_return": -0.12,
+            "confidence": 0.521,
+            "confidence_band_upper": 1.225,
+            "confidence_band_lower": 1.169,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.5932%，10日预期偏移 -26.65%（下跌）。",
+              "历史10日正收益概率 53%（样本 310 个区间）。",
+              "当前趋势得分 50，中长期方向不明。",
+              "相对强弱 -8.29%，弱于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "full"
+          }
+        },
+        "technical_action_label": "破位减仓",
+        "display_action_label": "破位减仓",
+        "canonical_action_label": "破位减仓",
+        "display_reason": "科创50 现在先别加仓。 重点盯住 1.329 这条防线，跌破再减一点。 只有重新回到 1.385 上方，才先改回观察。",
+        "display_trigger": "只有跌破 1.329，才执行减一点。",
+        "display_invalidation": "如果重新回到 1.385 上方，就先别继续减。",
+        "analysis_summary": "科创50先做风险处理，不把反弹当默认剧本。",
+        "analysis_core_reason": "科创50先做风险处理，不把反弹当默认剧本。 5日收益 -2.02%，短期节奏中性偏稳。 执行位在 1.329 一带，重点是先守住风控。",
+        "analysis_risk": "20日收益 -13.15%，中期趋势仍弱。；相对强弱 -8.29%，弱于基准。",
+        "analysis_position": "先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 50.0%；同主题合计约 50.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数",
+        "analysis_comparison": "",
+        "analysis_setup": "位置 `靠近支撑` | 上行空间 `13.53%` | 下行风险 `5.22%` | 赔率 `2.59` | 当前策略 `先看防守`",
+        "analysis_evidence_balance": "多头主证据: 5日收益 -2.02%，短期节奏中性偏稳。 | 主要风险: 20日收益 -13.15%，中期趋势仍弱。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "持仓处理窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "现在不适合加仓，优先看风险控制或继续观察。",
+        "analysis_evidence_quality": "证据完整度一般（覆盖度 42.0），下决定前最好再补一轮验证；仍缺 0 项信息。",
+        "analysis_blockers": "证据覆盖不足，当前结论只能按防守口径理解。",
+        "analysis_execution_triplet": "现在: 现在先做风险控制，不做主动加仓。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      }
+    ],
+    "watchlist": [
+      {
+        "code": "300750",
+        "name": "宁德时代",
+        "action": "wait_for_breakout",
+        "action_label": "等放量突破",
+        "score": 48.06,
+        "priority_score": 61.48,
+        "reason": "宁德时代 接近关键位，但还没给出值得执行的确认。",
+        "thesis": "宁德时代 的主逻辑是 20日收益 +18.77%，趋势延续性较强；相对强弱 +23.63%，强于基准，但 量比 0.32x，量能严重不足，所以当前策略是“等放量突破”。",
+        "trigger": "只有放量突破 413.00，才升级为试仓。",
+        "invalidation": "若回落跌破 396.99，取消突破预案。",
+        "strategy_style": "defensive_quality",
+        "strategy_label": "防守质量",
+        "positive_factors": [
+          "20日收益 +18.77%，趋势延续性较强。",
+          "相对强弱 +23.63%，强于基准。",
+          "营收同比 +17.04%。"
+        ],
+        "negative_factors": [
+          "量比 0.32x，量能严重不足。",
+          "市场环境偏空，新开仓需要明显折价。"
+        ],
+        "counterpoints": [
+          "量比 0.32x，量能严重不足。",
+          "市场环境偏空，新开仓需要明显折价。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "risk": [
+          "若回落跌破 396.99，取消突破预案。"
+        ],
+        "coverage_score": 80.0,
+        "position_context": {
+          "is_holding": false,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 0.0,
+          "position_weight": 0.0,
+          "sector_weight": 0.0,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": null,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "电池",
+          "holding_sector": null,
+          "sector_weight_basis": null,
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {},
+        "position_guidance": "先观察，不提前追价。",
+        "levels": {
+          "breakout_price": 413.0,
+          "support_price": 396.99,
+          "pullback_price": 401.096,
+          "retest_price": 406.19,
+          "stop_price": 385.08,
+          "entry_reward_risk": 0.32,
+          "entry_upside_pct": 1.68,
+          "entry_downside_pct": 5.2,
+          "box_position_pct": 57.46
+        },
+        "prediction_bundle": {
+          "code": "300750",
+          "name": "宁德时代",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 406.19,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 406.19,
+            "predicted_return": 0.0,
+            "confidence": 0.514,
+            "confidence_band_upper": 415.682,
+            "confidence_band_lower": 396.698,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 393.253,
+            "predicted_return": -0.031851,
+            "confidence": 0.55,
+            "confidence_band_upper": 401.833,
+            "confidence_band_lower": 384.673,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 0.9980（日均漂移 -0.200%）。",
+              "当前价偏离20日均线 +5.70%（BB位置 72%），偏高，有回归压力。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 406.02,
+            "predicted_return": -0.000418,
+            "confidence": 0.496,
+            "confidence_band_upper": 415.764,
+            "confidence_band_lower": 396.276,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 +0.92% 属于震荡日，历史次日平均收益 +0.358%，无明显方向偏向。",
+              "当前处于20日高位（91%），历史上此类位置次日胜率偏低。",
+              "历史样本 197 天，胜率约 48%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 467.118,
+            "predicted_return": 0.15,
+            "confidence": 0.536,
+            "confidence_band_upper": 477.573,
+            "confidence_band_lower": 456.663,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 +0.9768%，10日预期偏移 +70.85%（上涨）。",
+              "历史10日正收益概率 55%（样本 310 个区间）。",
+              "当前趋势得分 100，支撑中长期方向。",
+              "相对强弱 +23.63%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "full"
+          }
+        },
+        "technical_action_label": "等放量突破",
+        "display_action_label": "等放量突破",
+        "canonical_action_label": "突破跟随",
+        "display_reason": "宁德时代 现在先观察。 只有站上关键价 413 且量能放大，才考虑买。",
+        "display_trigger": "只在站上 413 且量能放大时再考虑。",
+        "display_invalidation": "如果没站上关键价前先跌破 396.99，就继续观察。",
+        "analysis_summary": "宁德时代不是因为涨了才买，而是等 413 的确认再执行。",
+        "analysis_core_reason": "宁德时代不是因为涨了才买，而是等 413 的确认再执行。 20日收益 +18.77%，趋势延续性较强。 相对强弱 +23.63%，强于基准。",
+        "analysis_risk": "量比 0.32x，量能严重不足。；市场环境偏空，新开仓需要明显折价。",
+        "analysis_position": "先观察，不提前追价。",
+        "analysis_comparison": "",
+        "analysis_setup": "位置 `箱体中段` | 上行空间 `1.68%` | 下行风险 `5.20%` | 赔率 `0.32` | 当前策略 `等量价确认`",
+        "analysis_evidence_balance": "多头主证据: 20日收益 +18.77%，趋势延续性较强。 | 主要风险: 量比 0.32x，量能严重不足。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "新开/加仓窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "这是条件式加仓/开仓信号，未触发前不动手。",
+        "analysis_evidence_quality": "证据完整度尚可（覆盖度 80.0），但仍需按触发条件执行。",
+        "analysis_blockers": "当前没有额外阻断因素，但仍必须等触发条件。",
+        "analysis_execution_triplet": "现在: 现在先观察，不主动交易。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      },
+      {
+        "code": "600227",
+        "name": "赤天化",
+        "action": "wait_for_pullback",
+        "action_label": "等回踩",
+        "score": 38.09,
+        "priority_score": 55.81,
+        "reason": "赤天化 方向还在，但更优赔率不在当前位置。",
+        "thesis": "赤天化 的主逻辑是 20日收益 +48.26%，趋势延续性较强；相对强弱 +53.13%，强于基准，但 营收同比 -7.96%，所以当前策略是“等回踩”。",
+        "trigger": "回踩 4.00 一带且量能不失真时，再考虑出手。",
+        "invalidation": "若直接跌破 3.87，取消计划。",
+        "strategy_style": "defensive_quality",
+        "strategy_label": "防守质量",
+        "positive_factors": [
+          "20日收益 +48.26%，趋势延续性较强。",
+          "相对强弱 +53.13%，强于基准。",
+          "5日收益 +0.23%，短期节奏中性偏稳。"
+        ],
+        "negative_factors": [
+          "营收同比 -7.96%。",
+          "利润同比 -340.46%。",
+          "ROE -6.2%。"
+        ],
+        "counterpoints": [
+          "营收同比 -7.96%。",
+          "利润同比 -340.46%。",
+          "ROE -6.2%。"
+        ],
+        "risk": [
+          "若直接跌破 3.87，取消计划。"
+        ],
+        "coverage_score": 80.0,
+        "position_context": {
+          "is_holding": false,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 0.0,
+          "position_weight": 0.0,
+          "sector_weight": 0.0,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": null,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "化学原料",
+          "holding_sector": null,
+          "sector_weight_basis": null,
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {},
+        "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+        "levels": {
+          "breakout_price": 5.29,
+          "support_price": 3.87,
+          "pullback_price": 4.004,
+          "retest_price": 4.27,
+          "stop_price": 3.754,
+          "entry_reward_risk": 1.98,
+          "entry_upside_pct": 23.89,
+          "entry_downside_pct": 12.08,
+          "box_position_pct": 28.17
+        },
+        "prediction_bundle": {
+          "code": "600227",
+          "name": "赤天化",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 4.27,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 4.213,
+            "predicted_return": -0.013287,
+            "confidence": 0.65,
+            "confidence_band_upper": 4.291,
+            "confidence_band_lower": 4.135,
+            "method": "mean_reversion",
+            "reasoning": [
+              "当前价偏离5日均线 +6.64%，剩余 50% 交易时间，均值回归修正预期 1.33%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 4.12,
+            "predicted_return": -0.035221,
+            "confidence": 0.55,
+            "confidence_band_upper": 4.21,
+            "confidence_band_lower": 4.03,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0086（日均漂移 +0.856%）。",
+              "当前价偏离20日均线 +6.94%（BB位置 61%），偏高，有回归压力。",
+              "今日振幅 11.71% 较大，收盘偏回归压力。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 4.295,
+            "predicted_return": 0.005746,
+            "confidence": 0.501,
+            "confidence_band_upper": 4.398,
+            "confidence_band_lower": 4.192,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨幅 +10.05% 属于大涨日，历史数据次日平均收益 +0.575%，次日倾向于继续走强。",
+              "历史样本 149 天，胜率约 50%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 4.91,
+            "predicted_return": 0.15,
+            "confidence": 0.52,
+            "confidence_band_upper": 5.023,
+            "confidence_band_lower": 4.797,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 +1.5569%，10日预期偏移 +150.40%（上涨）。",
+              "历史10日正收益概率 52%（样本 528 个区间）。",
+              "当前趋势得分 100，支撑中长期方向。",
+              "相对强弱 +53.13%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "full"
+          }
+        },
+        "technical_action_label": "等回踩",
+        "display_action_label": "等回踩",
+        "canonical_action_label": "等回踩",
+        "display_reason": "赤天化 现在先观察，不追高。 只有回踩到 4.004 一带稳住了再考虑。",
+        "display_trigger": "只在 4.004 一带稳住时再考虑。",
+        "display_invalidation": "如果跌破 3.87，这次计划就取消。",
+        "analysis_summary": "赤天化逻辑可以继续跟，但更优赔率在 4.004，不在当前位置追价。",
+        "analysis_core_reason": "赤天化逻辑可以继续跟，但更优赔率在 4.004，不在当前位置追价。 20日收益 +48.26%，趋势延续性较强。 相对强弱 +53.13%，强于基准。",
+        "analysis_risk": "营收同比 -7.96%。；利润同比 -340.46%。",
+        "analysis_position": "等待更舒服的回踩位，再决定是否试仓。",
+        "analysis_comparison": "",
+        "analysis_setup": "位置 `偏下沿` | 上行空间 `23.89%` | 下行风险 `12.08%` | 赔率 `1.98` | 当前策略 `等更优赔率`",
+        "analysis_evidence_balance": "多头主证据: 20日收益 +48.26%，趋势延续性较强。 | 主要风险: 营收同比 -7.96%。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "新开/加仓窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "这是条件式加仓/开仓信号，未触发前不动手。",
+        "analysis_evidence_quality": "证据完整度尚可（覆盖度 80.0），但仍需按触发条件执行。",
+        "analysis_blockers": "当前没有额外阻断因素，但仍必须等触发条件。",
+        "analysis_execution_triplet": "现在: 现在先观察，不主动交易。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      },
+      {
+        "code": "600036",
+        "name": "招商银行",
+        "action": "switch_to_better_alternative",
+        "action_label": "替代标的",
+        "score": 25.46,
+        "priority_score": 46.74,
+        "reason": "招商银行 当前不是最优资金去处，优先看 宁德时代。",
+        "thesis": "招商银行 不是完全不能做，但当前执行位和资金效率都弱于 宁德时代。",
+        "trigger": "若同梯队必须选一只，先等 宁德时代 满足“等放量突破”条件。",
+        "invalidation": "只有当 招商银行 重新强于 宁德时代，才恢复优先级。",
+        "strategy_style": "defensive_quality",
+        "strategy_label": "防守质量",
+        "positive_factors": [
+          "相对强弱 +6.62%，强于基准。",
+          "PE 8.9x。",
+          "5日收益 -0.81%，短期节奏中性偏稳。"
+        ],
+        "negative_factors": [
+          "经营现金流同比 -38.68%。",
+          "资产负债率 89.9% 偏高。",
+          "量比 0.30x，量能严重不足。"
+        ],
+        "counterpoints": [
+          "与 宁德时代 相比，当前更缺少马上执行的理由。",
+          "经营现金流同比 -38.68%。",
+          "资产负债率 89.9% 偏高。"
+        ],
+        "risk": [
+          "若回落跌破 38.68，取消突破预案。"
+        ],
+        "coverage_score": 80.0,
+        "position_context": {
+          "is_holding": false,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 0.0,
+          "position_weight": 0.0,
+          "sector_weight": 0.0,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": null,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "银行",
+          "holding_sector": null,
+          "sector_weight_basis": null,
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {
+          "code": "300750",
+          "name": "宁德时代",
+          "action_label": "等放量突破",
+          "priority_gap": 14.74
+        },
+        "position_guidance": "不给 招商银行 分配新仓，候选额度优先留给 宁德时代。",
+        "levels": {
+          "breakout_price": 40.12,
+          "support_price": 38.68,
+          "pullback_price": 39.236,
+          "retest_price": 39.56,
+          "stop_price": 37.52,
+          "entry_reward_risk": 0.36,
+          "entry_upside_pct": 1.75,
+          "entry_downside_pct": 4.84,
+          "box_position_pct": 52.08
+        },
+        "prediction_bundle": {
+          "code": "600036",
+          "name": "招商银行",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 39.43,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 39.43,
+            "predicted_return": 0.0,
+            "confidence": 0.475,
+            "confidence_band_upper": 40.427,
+            "confidence_band_lower": 38.433,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 39.38,
+            "predicted_return": -0.001267,
+            "confidence": 0.55,
+            "confidence_band_upper": 40.239,
+            "confidence_band_lower": 38.521,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 0.9988（日均漂移 -0.121%）。",
+              "当前价偏离20日均线 +0.18%（BB位置 54%），偏高，偏离不大。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 39.433,
+            "predicted_return": 7.5e-05,
+            "confidence": 0.495,
+            "confidence_band_upper": 40.379,
+            "confidence_band_lower": 38.487,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 -0.33% 属于震荡日，历史次日平均收益 +0.007%，无明显方向偏向。",
+              "历史样本 266 天，胜率约 48%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 45.344,
+            "predicted_return": 0.15,
+            "confidence": 0.549,
+            "confidence_band_upper": 46.335,
+            "confidence_band_lower": 44.353,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 +0.0821%，10日预期偏移 +17.38%（上涨）。",
+              "历史10日正收益概率 56%（样本 310 个区间）。",
+              "当前趋势得分 51，中长期方向不明。",
+              "相对强弱 +6.62%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "full"
+          }
+        },
+        "technical_action_label": "替代标的",
+        "display_action_label": "替代标的",
+        "canonical_action_label": "替代标的",
+        "display_reason": "招商银行 不是当前最优先的选择，先看更强的替代标的。",
+        "display_trigger": "若同梯队必须选一只，先等 宁德时代 满足“等放量突破”条件。",
+        "display_invalidation": "只有当 招商银行 重新强于 宁德时代，才恢复优先级。",
+        "analysis_summary": "招商银行不是完全没逻辑，但当前资金效率不如 宁德时代。",
+        "analysis_core_reason": "招商银行不是完全没逻辑，但当前资金效率不如 宁德时代。 同阶段先把候选额度留给 宁德时代。 相对强弱 +6.62%，强于基准。",
+        "analysis_risk": "与 宁德时代 相比，当前更缺少马上执行的理由。；经营现金流同比 -38.68%。",
+        "analysis_position": "不给 招商银行 分配新仓，候选额度优先留给 宁德时代。",
+        "analysis_comparison": "同梯队更值得先看的标的是 宁德时代，当前优先级高出 14.7 分。",
+        "analysis_setup": "位置 `箱体中段` | 上行空间 `1.75%` | 下行风险 `4.84%` | 赔率 `0.36` | 当前策略 `先观察`",
+        "analysis_evidence_balance": "多头主证据: 相对强弱 +6.62%，强于基准。 | 主要风险: 与 宁德时代 相比，当前更缺少马上执行的理由。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "新开/加仓窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "先按触发条件执行，不做主观加仓。",
+        "analysis_evidence_quality": "证据完整度尚可（覆盖度 80.0），但仍需按触发条件执行。",
+        "analysis_blockers": "当前没有额外阻断因素，但仍必须等触发条件。",
+        "analysis_execution_triplet": "现在: 现在先观察，不主动交易。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      },
+      {
+        "code": "000858",
+        "name": "五粮液",
+        "action": "switch_to_better_alternative",
+        "action_label": "替代标的",
+        "score": 25.38,
+        "priority_score": 44.37,
+        "reason": "五粮液 当前不是最优资金去处，优先看 宁德时代。",
+        "thesis": "五粮液 不是完全不能做，但当前执行位和资金效率都弱于 宁德时代。",
+        "trigger": "若同梯队必须选一只，先等 宁德时代 满足“等放量突破”条件。",
+        "invalidation": "只有当 五粮液 重新强于 宁德时代，才恢复优先级。",
+        "strategy_style": "defensive_quality",
+        "strategy_label": "防守质量",
+        "positive_factors": [
+          "ROE 15.4%。",
+          "毛利率 74.9%。",
+          "ROIC 14.2%。"
+        ],
+        "negative_factors": [
+          "营收同比 -10.26%。",
+          "利润同比 -13.72%。",
+          "量比 0.41x，量能严重不足。"
+        ],
+        "counterpoints": [
+          "与 宁德时代 相比，当前更缺少马上执行的理由。",
+          "营收同比 -10.26%。",
+          "利润同比 -13.72%。"
+        ],
+        "risk": [
+          "若回落跌破 100.23，取消突破预案。"
+        ],
+        "coverage_score": 80.0,
+        "position_context": {
+          "is_holding": false,
+          "quantity": 0.0,
+          "available_quantity": 0.0,
+          "market_value": 0.0,
+          "position_weight": 0.0,
+          "sector_weight": 0.0,
+          "pnl_pct": null,
+          "cost_price": null,
+          "last_price": null,
+          "total_equity": 10000.0,
+          "exposure_ratio": 1.0,
+          "effective_sector": "白酒",
+          "holding_sector": null,
+          "sector_weight_basis": null,
+          "position_pricing_complete": false,
+          "position_size_complete": false,
+          "position_execution_complete": false
+        },
+        "preferred_alternative": {
+          "code": "300750",
+          "name": "宁德时代",
+          "action_label": "等放量突破",
+          "priority_gap": 17.11
+        },
+        "position_guidance": "不给 五粮液 分配新仓，候选额度优先留给 宁德时代。",
+        "levels": {
+          "breakout_price": 104.79,
+          "support_price": 100.23,
+          "pullback_price": 101.538,
+          "retest_price": 102.45,
+          "stop_price": 97.223,
+          "entry_reward_risk": 0.46,
+          "entry_upside_pct": 2.34,
+          "entry_downside_pct": 5.05,
+          "box_position_pct": 47.37
+        },
+        "prediction_bundle": {
+          "code": "000858",
+          "name": "五粮液",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 102.39,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 102.39,
+            "predicted_return": 0.0,
+            "confidence": 0.492,
+            "confidence_band_upper": 104.888,
+            "confidence_band_lower": 99.892,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 102.369,
+            "predicted_return": -0.000206,
+            "confidence": 0.55,
+            "confidence_band_upper": 104.603,
+            "confidence_band_lower": 100.135,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 0.9997（日均漂移 -0.027%）。",
+              "当前价偏离20日均线 +0.03%（BB位置 51%），偏高，偏离不大。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 102.324,
+            "predicted_return": -0.000642,
+            "confidence": 0.484,
+            "confidence_band_upper": 104.78,
+            "confidence_band_lower": 99.868,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 +1.10% 属于震荡日，历史次日平均收益 -0.064%，无明显方向偏向。",
+              "历史样本 398 天，胜率约 42%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 110.668,
+            "predicted_return": 0.080852,
+            "confidence": 0.442,
+            "confidence_band_upper": 113.67,
+            "confidence_band_lower": 107.666,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.0096%，10日预期偏移 +8.09%（上涨）。",
+              "历史10日正收益概率 43%（样本 528 个区间）。",
+              "当前趋势得分 39，中长期偏弱。",
+              "相对强弱 +3.27%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "full"
+          }
+        },
+        "technical_action_label": "替代标的",
+        "display_action_label": "替代标的",
+        "canonical_action_label": "替代标的",
+        "display_reason": "五粮液 不是当前最优先的选择，先看更强的替代标的。",
+        "display_trigger": "若同梯队必须选一只，先等 宁德时代 满足“等放量突破”条件。",
+        "display_invalidation": "只有当 五粮液 重新强于 宁德时代，才恢复优先级。",
+        "analysis_summary": "五粮液不是完全没逻辑，但当前资金效率不如 宁德时代。",
+        "analysis_core_reason": "五粮液不是完全没逻辑，但当前资金效率不如 宁德时代。 同阶段先把候选额度留给 宁德时代。 ROE 15.4%。",
+        "analysis_risk": "与 宁德时代 相比，当前更缺少马上执行的理由。；营收同比 -10.26%。",
+        "analysis_position": "不给 五粮液 分配新仓，候选额度优先留给 宁德时代。",
+        "analysis_comparison": "同梯队更值得先看的标的是 宁德时代，当前优先级高出 17.1 分。",
+        "analysis_setup": "位置 `箱体中段` | 上行空间 `2.34%` | 下行风险 `5.05%` | 赔率 `0.46` | 当前策略 `先观察`",
+        "analysis_evidence_balance": "多头主证据: ROE 15.4%。 | 主要风险: 与 宁德时代 相比，当前更缺少马上执行的理由。 | 下一验证: 等待下一次量价确认。",
+        "analysis_execution_window": "新开/加仓窗口: 条件未触发前不执行。 | 失效线: 若结构被破坏，先撤回计划。",
+        "analysis_capital_action": "先按触发条件执行，不做主观加仓。",
+        "analysis_evidence_quality": "证据完整度尚可（覆盖度 80.0），但仍需按触发条件执行。",
+        "analysis_blockers": "当前没有额外阻断因素，但仍必须等触发条件。",
+        "analysis_execution_triplet": "现在: 现在先观察，不主动交易。 | 升级: 只有触发条件成立，才升级动作。 | 取消: 若结构失效，当前计划自动取消。"
+      }
+    ],
+    "predictions": [
+      {
+        "code": "601699",
+        "name": "潞安环能",
+        "bundle": {
+          "code": "601699",
+          "name": "潞安环能",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 14.01,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 14.078,
+            "predicted_return": 0.004847,
+            "confidence": 0.571,
+            "confidence_band_upper": 14.374,
+            "confidence_band_lower": 13.782,
+            "method": "mean_reversion",
+            "reasoning": [
+              "当前价偏离5日均线 -2.42%，剩余 50% 交易时间，均值回归修正预期 0.48%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 14.319,
+            "predicted_return": 0.022059,
+            "confidence": 0.55,
+            "confidence_band_upper": 14.631,
+            "confidence_band_lower": 14.007,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0042（日均漂移 +0.419%）。",
+              "当前价偏离20日均线 -3.78%（BB位置 13%），偏低，有回归压力。",
+              "今日振幅 3.07% 较大，下方支撑较强。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 14.044,
+            "predicted_return": 0.002444,
+            "confidence": 0.472,
+            "confidence_band_upper": 14.381,
+            "confidence_band_lower": 13.707,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日跌幅 -1.75% 属于大跌日，历史次日平均收益 -0.156%，次日有反弹修复可能。",
+              "当前处于20日低位（4%），历史上此类位置次日反弹概率偏高。",
+              "历史样本 61 天，胜率约 36%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 13.466,
+            "predicted_return": -0.038849,
+            "confidence": 0.438,
+            "confidence_band_upper": 13.835,
+            "confidence_band_lower": 13.097,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.1280%，10日预期偏移 -3.88%（下跌）。",
+              "历史10日正收益概率 42%（样本 310 个区间）。",
+              "当前趋势得分 29，中长期偏弱。",
+              "相对强弱 -1.04%，弱于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 14.01,
+            "source_data_quality": "full"
+          }
+        }
+      },
+      {
+        "code": "513310",
+        "name": "中韩芯片",
+        "bundle": {
+          "code": "513310",
+          "name": "中韩芯片",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 3.771,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 3.771,
+            "predicted_return": 0.0,
+            "confidence": 0.511,
+            "confidence_band_upper": 3.86,
+            "confidence_band_lower": 3.682,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 3.883,
+            "predicted_return": 0.029711,
+            "confidence": 0.55,
+            "confidence_band_upper": 3.968,
+            "confidence_band_lower": 3.798,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0021（日均漂移 +0.211%）。",
+              "当前价偏离20日均线 -5.31%（BB位置 15%），偏低，有回归压力。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 3.782,
+            "predicted_return": 0.002939,
+            "confidence": 0.512,
+            "confidence_band_upper": 3.873,
+            "confidence_band_lower": 3.691,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日跌幅 -3.01% 属于大跌日，历史次日平均收益 +0.294%，次日有反弹修复可能。",
+              "历史样本 82 天，胜率约 56%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 3.318,
+            "predicted_return": -0.12,
+            "confidence": 0.613,
+            "confidence_band_upper": 3.383,
+            "confidence_band_lower": 3.253,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.3039%，10日预期偏移 -22.69%（下跌）。",
+              "历史10日正收益概率 64%（样本 527 个区间）。",
+              "当前趋势得分 50，中长期方向不明。",
+              "相对强弱 -7.86%，弱于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 3.771,
+            "source_data_quality": "full"
+          }
+        }
+      },
+      {
+        "code": "588000",
+        "name": "科创50",
+        "bundle": {
+          "code": "588000",
+          "name": "科创50",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 1.36,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 1.36,
+            "predicted_return": 0.0,
+            "confidence": 0.457,
+            "confidence_band_upper": 1.396,
+            "confidence_band_lower": 1.324,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 1.4,
+            "predicted_return": 0.02925,
+            "confidence": 0.55,
+            "confidence_band_upper": 1.431,
+            "confidence_band_lower": 1.369,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0000（日均漂移 -0.001%）。",
+              "当前价偏离20日均线 -5.24%（BB位置 16%），偏低，有回归压力。",
+              "今日振幅 2.94% 较大，下方支撑较强。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 1.367,
+            "predicted_return": 0.005025,
+            "confidence": 0.501,
+            "confidence_band_upper": 1.4,
+            "confidence_band_lower": 1.334,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 +0.22% 属于震荡日，历史次日平均收益 +0.103%，无明显方向偏向。",
+              "当前处于20日低位（14%），历史上此类位置次日反弹概率偏高。",
+              "历史样本 221 天，胜率约 51%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 1.197,
+            "predicted_return": -0.12,
+            "confidence": 0.521,
+            "confidence_band_upper": 1.225,
+            "confidence_band_lower": 1.169,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.5932%，10日预期偏移 -26.65%（下跌）。",
+              "历史10日正收益概率 53%（样本 310 个区间）。",
+              "当前趋势得分 50，中长期方向不明。",
+              "相对强弱 -8.29%，弱于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 1.36,
+            "source_data_quality": "full"
+          }
+        }
+      },
+      {
+        "code": "300750",
+        "name": "宁德时代",
+        "bundle": {
+          "code": "300750",
+          "name": "宁德时代",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 406.19,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 406.19,
+            "predicted_return": 0.0,
+            "confidence": 0.514,
+            "confidence_band_upper": 415.682,
+            "confidence_band_lower": 396.698,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 393.253,
+            "predicted_return": -0.031851,
+            "confidence": 0.55,
+            "confidence_band_upper": 401.833,
+            "confidence_band_lower": 384.673,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 0.9980（日均漂移 -0.200%）。",
+              "当前价偏离20日均线 +5.70%（BB位置 72%），偏高，有回归压力。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 406.02,
+            "predicted_return": -0.000418,
+            "confidence": 0.496,
+            "confidence_band_upper": 415.764,
+            "confidence_band_lower": 396.276,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 +0.92% 属于震荡日，历史次日平均收益 +0.358%，无明显方向偏向。",
+              "当前处于20日高位（91%），历史上此类位置次日胜率偏低。",
+              "历史样本 197 天，胜率约 48%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 467.118,
+            "predicted_return": 0.15,
+            "confidence": 0.536,
+            "confidence_band_upper": 477.573,
+            "confidence_band_lower": 456.663,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 +0.9768%，10日预期偏移 +70.85%（上涨）。",
+              "历史10日正收益概率 55%（样本 310 个区间）。",
+              "当前趋势得分 100，支撑中长期方向。",
+              "相对强弱 +23.63%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 406.19,
+            "source_data_quality": "full"
+          }
+        }
+      },
+      {
+        "code": "600227",
+        "name": "赤天化",
+        "bundle": {
+          "code": "600227",
+          "name": "赤天化",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 4.27,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 4.213,
+            "predicted_return": -0.013287,
+            "confidence": 0.65,
+            "confidence_band_upper": 4.291,
+            "confidence_band_lower": 4.135,
+            "method": "mean_reversion",
+            "reasoning": [
+              "当前价偏离5日均线 +6.64%，剩余 50% 交易时间，均值回归修正预期 1.33%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 4.12,
+            "predicted_return": -0.035221,
+            "confidence": 0.55,
+            "confidence_band_upper": 4.21,
+            "confidence_band_lower": 4.03,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 1.0086（日均漂移 +0.856%）。",
+              "当前价偏离20日均线 +6.94%（BB位置 61%），偏高，有回归压力。",
+              "今日振幅 11.71% 较大，收盘偏回归压力。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 4.295,
+            "predicted_return": 0.005746,
+            "confidence": 0.501,
+            "confidence_band_upper": 4.398,
+            "confidence_band_lower": 4.192,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨幅 +10.05% 属于大涨日，历史数据次日平均收益 +0.575%，次日倾向于继续走强。",
+              "历史样本 149 天，胜率约 50%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 4.91,
+            "predicted_return": 0.15,
+            "confidence": 0.52,
+            "confidence_band_upper": 5.023,
+            "confidence_band_lower": 4.797,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 +1.5569%，10日预期偏移 +150.40%（上涨）。",
+              "历史10日正收益概率 52%（样本 528 个区间）。",
+              "当前趋势得分 100，支撑中长期方向。",
+              "相对强弱 +53.13%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 4.27,
+            "source_data_quality": "full"
+          }
+        }
+      },
+      {
+        "code": "600036",
+        "name": "招商银行",
+        "bundle": {
+          "code": "600036",
+          "name": "招商银行",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 39.43,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 39.43,
+            "predicted_return": 0.0,
+            "confidence": 0.475,
+            "confidence_band_upper": 40.427,
+            "confidence_band_lower": 38.433,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 39.38,
+            "predicted_return": -0.001267,
+            "confidence": 0.55,
+            "confidence_band_upper": 40.239,
+            "confidence_band_lower": 38.521,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 0.9988（日均漂移 -0.121%）。",
+              "当前价偏离20日均线 +0.18%（BB位置 54%），偏高，偏离不大。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 39.433,
+            "predicted_return": 7.5e-05,
+            "confidence": 0.495,
+            "confidence_band_upper": 40.379,
+            "confidence_band_lower": 38.487,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 -0.33% 属于震荡日，历史次日平均收益 +0.007%，无明显方向偏向。",
+              "历史样本 266 天，胜率约 48%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 45.344,
+            "predicted_return": 0.15,
+            "confidence": 0.549,
+            "confidence_band_upper": 46.335,
+            "confidence_band_lower": 44.353,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 +0.0821%，10日预期偏移 +17.38%（上涨）。",
+              "历史10日正收益概率 56%（样本 310 个区间）。",
+              "当前趋势得分 51，中长期方向不明。",
+              "相对强弱 +6.62%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 39.43,
+            "source_data_quality": "full"
+          }
+        }
+      },
+      {
+        "code": "000858",
+        "name": "五粮液",
+        "bundle": {
+          "code": "000858",
+          "name": "五粮液",
+          "as_of": "2026-03-27T11:07:31",
+          "reference_price": 102.39,
+          "intraday": {
+            "horizon": "intraday_close",
+            "predicted_price": 102.39,
+            "predicted_return": 0.0,
+            "confidence": 0.492,
+            "confidence_band_upper": 104.888,
+            "confidence_band_lower": 99.892,
+            "method": "mean_reversion",
+            "reasoning": [
+              "价格贴近均线，均值回归效应不明显，预期偏中性。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "degraded"
+          },
+          "dayend": {
+            "horizon": "dayend",
+            "predicted_price": 102.369,
+            "predicted_return": -0.000206,
+            "confidence": 0.55,
+            "confidence_band_upper": 104.603,
+            "confidence_band_lower": 100.135,
+            "method": "combined",
+            "reasoning": [
+              "历史收盘/开盘比均值为 0.9997（日均漂移 -0.027%）。",
+              "当前价偏离20日均线 +0.03%（BB位置 51%），偏高，偏离不大。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "degraded"
+          },
+          "nextday": {
+            "horizon": "nextday",
+            "predicted_price": 102.324,
+            "predicted_return": -0.000642,
+            "confidence": 0.484,
+            "confidence_band_upper": 104.78,
+            "confidence_band_lower": 99.868,
+            "method": "historical_dist",
+            "reasoning": [
+              "今日涨跌幅 +1.10% 属于震荡日，历史次日平均收益 -0.064%，无明显方向偏向。",
+              "历史样本 398 天，胜率约 42%。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "degraded"
+          },
+          "longterm": {
+            "horizon": "longterm",
+            "predicted_price": 110.668,
+            "predicted_return": 0.080852,
+            "confidence": 0.442,
+            "confidence_band_upper": 113.67,
+            "confidence_band_lower": 107.666,
+            "method": "linear_trend",
+            "reasoning": [
+              "近20日线性回归斜率对应日均漂移 -0.0096%，10日预期偏移 +8.09%（上涨）。",
+              "历史10日正收益概率 43%（样本 528 个区间）。",
+              "当前趋势得分 39，中长期偏弱。",
+              "相对强弱 +3.27%，强于基准。"
+            ],
+            "as_of_time": "2026-03-27T11:07:31",
+            "reference_price": 102.39,
+            "source_data_quality": "full"
+          }
+        }
+      }
+    ],
+    "dynamic_universe": {
+      "selection_mode": "dynamic_sector_leaders",
+      "top_sectors": [
+        {
+          "sector": "能源金属",
+          "score": 83.91,
+          "pct_change": 0.051399999999999994,
+          "net_inflow": 22.88,
+          "leader": "盛新锂能",
+          "leader_pct_change": 0.1,
+          "rank_score": 92.25,
+          "rank": 1
+        },
+        {
+          "sector": "化学制药",
+          "score": 80.41,
+          "pct_change": 0.0319,
+          "net_inflow": 40.41,
+          "leader": "华纳药厂",
+          "leader_pct_change": 0.12560000000000002,
+          "rank_score": 86.9,
+          "rank": 2
+        },
+        {
+          "sector": "农化制品",
+          "score": 79.04,
+          "pct_change": 0.0315,
+          "net_inflow": 21.76,
+          "leader": "赤天化",
+          "leader_pct_change": 0.1005,
+          "rank_score": 84.54,
+          "rank": 3
+        },
+        {
+          "sector": "小金属",
+          "score": 78.4,
+          "pct_change": 0.030899999999999997,
+          "net_inflow": 29.02,
+          "leader": "云南锗业",
+          "leader_pct_change": 0.1,
+          "rank_score": 84.18,
+          "rank": 4
+        },
+        {
+          "sector": "医疗服务",
+          "score": 76.1,
+          "pct_change": 0.0281,
+          "net_inflow": 9.76,
+          "leader": "益诺思",
+          "leader_pct_change": 0.14859999999999998,
+          "rank_score": 80.52,
+          "rank": 5
+        }
+      ],
+      "leaders": [
+        {
+          "code": "002240",
+          "name": "盛新锂能",
+          "sector": "能源金属",
+          "sector_score": 83.91,
+          "sector_pct_change": 0.051399999999999994,
+          "sector_net_inflow": 22.88,
+          "leader_name_raw": "盛新锂能",
+          "rank": 1,
+          "rank_score": 92.25
+        },
+        {
+          "code": "688799",
+          "name": "华纳药厂",
+          "sector": "化学制药",
+          "sector_score": 80.41,
+          "sector_pct_change": 0.0319,
+          "sector_net_inflow": 40.41,
+          "leader_name_raw": "华纳药厂",
+          "rank": 2,
+          "rank_score": 86.9
+        },
+        {
+          "code": "600227",
+          "name": "赤天化",
+          "sector": "农化制品",
+          "sector_score": 79.04,
+          "sector_pct_change": 0.0315,
+          "sector_net_inflow": 21.76,
+          "leader_name_raw": "赤天化",
+          "rank": 3,
+          "rank_score": 84.54
+        },
+        {
+          "code": "002428",
+          "name": "云南锗业",
+          "sector": "小金属",
+          "sector_score": 78.4,
+          "sector_pct_change": 0.030899999999999997,
+          "sector_net_inflow": 29.02,
+          "leader_name_raw": "云南锗业",
+          "rank": 4,
+          "rank_score": 84.18
+        },
+        {
+          "code": "688710",
+          "name": "益诺思",
+          "sector": "医疗服务",
+          "sector_score": 76.1,
+          "sector_pct_change": 0.0281,
+          "sector_net_inflow": 9.76,
+          "leader_name_raw": "益诺思",
+          "rank": 5,
+          "rank_score": 80.52
+        }
+      ]
+    },
+    "best_stock": {
+      "code": "300750",
+      "name": "宁德时代",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 54.18,
+      "coverage_score": 80.0,
+      "market_score": 35.69,
+      "summary": "宁德时代 当前策略为“等放量突破”。 综合分 54.2，市场分 35.7，覆盖度 80.0。",
+      "thesis": "宁德时代 的主逻辑是 20日收益 +18.77%，趋势延续性较强；相对强弱 +23.63%，强于基准，但 量比 0.32x，量能严重不足，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "20日收益 +18.77%，趋势延续性较强。",
+        "相对强弱 +23.63%，强于基准。",
+        "营收同比 +17.04%。"
+      ],
+      "risks": [
+        "量比 0.32x，量能严重不足。",
+        "市场环境偏谨慎，买入阈值应提高。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 413.00，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 396.99，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 69.32,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "宁德时代 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 413.0,
+          "support_price": 396.99,
+          "pullback_price": 401.096,
+          "retest_price": 406.19,
+          "stop_price": 385.08,
+          "entry_reward_risk": 0.32,
+          "entry_upside_pct": 1.68,
+          "entry_downside_pct": 5.2,
+          "box_position_pct": 57.46
+        },
+        "trigger_conditions": [
+          "只有放量突破 413.00，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 396.99，取消突破预案。"
+        ],
+        "blockers": [
+          "市场分 35.7 低于 40，当前不支持主动进攻。",
+          "临近关键位但量比只有 0.32x，容易演变成追价。",
+          "当前位置赔率只有 0.32，还不够支持积极出手。"
+        ],
+        "execution_brief": [
+          "现在不提前开仓，只等确认信号。",
+          "只有放量突破 413.00，才升级为试仓。",
+          "若回落跌破 396.99，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 支撑区，重点看价格相对 413.00 / 396.99 的反应。",
+          "20日收益 +18.77%，趋势延续性较强。",
+          "量比 0.32x，量能严重不足。"
+        ]
+      },
+      "metadata": {
+        "sector": "电池",
+        "sector_proxy": false,
+        "strategy_label": "防守质量",
+        "style_fit_score": 4.0,
+        "selection_score": 69.32,
+        "strategy_style": "defensive_quality",
+        "is_actionable": false
+      },
+      "selection_score": 69.32,
+      "strategy_style": "defensive_quality",
+      "is_actionable": false,
+      "trade_count": 0,
+      "signal_count": 7,
+      "skipped_signal_count": 6,
+      "actionable_ratio": 0.0,
+      "win_rate": 0.0,
+      "average_return": 0.0,
+      "composite_score": 39.63,
+      "backtest": {
+        "as_of": "2026-03-27",
+        "strategy_style": "defensive_quality",
+        "benchmark_code": "000300",
+        "begin": null,
+        "end": "2026-03-27",
+        "candidate_code": "300750",
+        "candidate_name": "宁德时代",
+        "signal_count": 7,
+        "skipped_signal_count": 6,
+        "actionable_ratio": 0.0,
+        "trade_count": 0,
+        "win_rate": 0.0,
+        "average_return": 0.0,
+        "median_return": 0.0,
+        "cumulative_return": 0.0,
+        "max_drawdown": 0.0,
+        "trades": []
+      }
+    }
+  },
+  "llm_summary": {
+    "market_summary": "偏空环境下，优先执行既有仓位和观察名单，不扩大动作空间。",
+    "primary_focus": "先看 潞安环能 是否出现量价确认。",
+    "risk_flags": [
+      "新闻和公告只做增量信号，不替代正文核验。",
+      "盘中若指数转弱，单票告警价值需要折价。"
+    ],
+    "confidence_note": "当前为 harness 回退摘要，结构化字段仍可用于首页和复盘。",
+    "_meta": {
+      "provider": "fallback",
+      "model": "rules",
+      "validated": true,
+      "error": null
+    }
+  }
+}

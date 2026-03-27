@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/Users/fqyuki/.vscode/extensions/openai.chatgpt-26.323.20928-darwin-arm64/bin/macos-aarch64/codex",
+    "exec",
+    "--skip-git-repo-check",
+    "-C",
+    "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2",
+    "--sandbox",
+    "workspace-write",
+    "--color",
+    "never",
+    "--output-schema",
+    "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_135252/schemas/worker.schema.json",
+    "--output-last-message",
+    "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_135252/workers/iteration_1/wp1/response.json",
+    "你是这个交付循环的 Worker（执行者），负责完成分配给你的任务包。\n\nProject root: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2\nRun directory: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_135252\nIteration: 1\n\n## Leader 制定的大目标\n{\n  \"outcome\": \"生成一份可落盘的“明日最优标的”报告：只给出 1 支股票，并同时附带同口径历史次日回测摘要，且该结论可被日报/首页直接展示。\",\n  \"done_means\": [\n    \"调用 replay_daily(config=临时输出目录配置, as_of=\\\"2026-03-25\\\") 后，返回结果中的 decision_bundle.homepage_overview.best_stock 存在且包含非空的 code、name、strategy_style、selection_score。\",\n    \"在同一配置与日期下，decision_bundle.homepage_overview.best_stock.code 必须等于 discover_top_ideas(config, as_of=\\\"2026-03-25\\\", limit=1, strategy_style=best_stock.strategy_style, write_output=False)[\\\"ideas\\\"][0][\\\"code\\\"]。\",\n    \"decision_bundle.homepage_overview.best_stock.backtest 满足 trade_count >= 1、len(trades) == trade_count，且每条 trade 都包含非空 code、name、trade_action 以及数值型 next_day_return。\",\n    \"调用 build_best_stock_report(临时配置, as_of=\\\"2026-03-25\\\", payload=样例负载) 后，会在 <report_dir>/2026-03-25/best_stock/ 下生成 markdown/json 两个文件；json 中 pick.code == \\\"300750\\\" 且 backtest.trade_count == 2；render_daily_report(...) 与 render_homepage_overview(...) 在收到 best_stock 负载后都包含标题“## 明日最优标的”、字符串“测试股份(300750)”以及回测摘要中的交易数和胜率。\"\n  ],\n  \"risks\": [\n    \"历史状态快照和日线缓存并不是每个日期都完整，验收测试应固定使用仓库里已有状态的 2026-03-25。\",\n    \"best stock 不能重新发明一套排序逻辑；必须复用 discover_top_ideas 的第一名，否则会出现两个互相冲突的“最优标的”。\",\n    \"报告层可能因为 matplotlib/PDF 可选依赖的环境问题误伤测试；测试文件里应先把 MPLCONFIGDIR 指到临时目录，并沿用仓库现有的 pdfplumber/pypdf 兜底写法。\"\n  ]\n}\n\n## Leader 分配给你的包\n{\n  \"packet_id\": \"wp1\",\n  \"title\": \"唯一候选与回测摘要\",\n  \"objective\": \"让系统在历史回放和明日优选场景下稳定产出唯一推荐标的，并附上与该选股口径一致的历史次日收益回测摘要，供后续报告层直接消费。\",\n  \"scope\": [\n    \"src/ashare_harness_v2/advice_harness/tomorrow_pick.py\",\n    \"src/ashare_harness_v2/evaluation_harness/backtest.py\",\n    \"src/ashare_harness_v2/runtime_harness/orchestrator.py\"\n  ],\n  \"test_file\": \"tests/test_tomorrow_best_stock.py\"\n}\n\n## 你要做的事（按顺序执行）\n\n### 第一步：执行 objective\n- 严格在 scope 范围内改文件\n- 不要动其他 Worker 负责的文件\n- 不要做 scope 以外的改动\n\n### 第二步：运行 acceptance test\n- test_file: tests/test_tomorrow_best_stock.py\n- 运行命令（选合适的）：\n    PYTHONPATH=src python3 -m pytest tests/test_tomorrow_best_stock.py -v\n    PYTHONPATH=src python3 -m unittest discover -s tests -v\n- 把每条测试的 passed/output 填入 test_results\n\n### 第三步：返回原始结果\n- status: completed（全部通过）/ blocked（有障碍）/ failed（执行失败）\n- 不要写主观总结，只列 changed_files + test_results + evidence\n- 返回纯 JSON，符合 schema\n\n## 约束\n- 不要加 markdown fence\n- 只动 scope 里的文件\n- test_results 里每个条目：{\"name\": \"...\", \"passed\": bool, \"output\": \"...\"}\n- output 截取测试运行输出最后 500 字符即可"
+  ],
+  "phase": "worker",
+  "name": "wp1"
+}

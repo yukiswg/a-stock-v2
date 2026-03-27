@@ -1,0 +1,609 @@
+{
+  "as_of": "2026-03-12",
+  "market_view": {
+    "object_type": "market",
+    "object_id": "000300",
+    "object_name": "震荡市场",
+    "at": "2026-03-12",
+    "action": "balanced",
+    "score": 52.17,
+    "probability": 0.5217,
+    "reason": [
+      "沪深300 5日收益 +0.86%，20日收益 -0.24%。",
+      "候选池平均趋势分 49.9。",
+      "新闻偏移 +0.00，公告偏移 +0.00。"
+    ],
+    "risk": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "sources": [
+      "benchmark_daily_bars",
+      "official_news",
+      "cninfo_announcements"
+    ],
+    "metadata": {
+      "label": "震荡",
+      "benchmark_code": "000300",
+      "benchmark_ret_5d": 0.008578455103503302,
+      "benchmark_ret_20d": -0.0023666221151471545,
+      "breadth_score": 49.898888888888884
+    }
+  },
+  "holdings_actions": [
+    {
+      "object_type": "holding",
+      "object_id": "601699",
+      "object_name": "潞安环能",
+      "at": "2026-03-12",
+      "action": "hold_add_on_strength",
+      "score": 100.0,
+      "probability": 0.9043,
+      "reason": [
+        "趋势分 100.0，20日相对强弱 +10.47%。",
+        "20日高点距离 +0.00%，5日量比 1.16x。",
+        "最新公告：潞安环能2025年度业绩预告。"
+      ],
+      "risk": [
+        "只在盘中放量确认时做小幅加仓。"
+      ],
+      "sources": [
+        "holdings_snapshot",
+        "daily_bars",
+        "announcements"
+      ],
+      "metadata": {
+        "sector": "煤炭",
+        "market_value": 3500.0
+      }
+    },
+    {
+      "object_type": "holding",
+      "object_id": "513310",
+      "object_name": "中韩芯片",
+      "at": "2026-03-12",
+      "action": "hold_add_on_strength",
+      "score": 79.2,
+      "probability": 0.7379,
+      "reason": [
+        "趋势分 79.2，20日相对强弱 +10.87%。",
+        "20日高点距离 -7.52%，5日量比 0.63x。"
+      ],
+      "risk": [
+        "只在盘中放量确认时做小幅加仓。"
+      ],
+      "sources": [
+        "holdings_snapshot",
+        "daily_bars",
+        "announcements"
+      ],
+      "metadata": {
+        "sector": "半导体ETF",
+        "market_value": 1500.0
+      }
+    },
+    {
+      "object_type": "holding",
+      "object_id": "588000",
+      "object_name": "科创50",
+      "at": "2026-03-12",
+      "action": "trim",
+      "score": 8.63,
+      "probability": 0.1734,
+      "reason": [
+        "趋势分 8.6，20日相对强弱 -4.66%。",
+        "20日高点距离 -7.02%，5日量比 0.88x。"
+      ],
+      "risk": [
+        "趋势弱于基准或回撤过深，应先减风险。"
+      ],
+      "sources": [
+        "holdings_snapshot",
+        "daily_bars",
+        "announcements"
+      ],
+      "metadata": {
+        "sector": "宽基ETF",
+        "market_value": 5000.0
+      }
+    }
+  ],
+  "watchlist": [
+    {
+      "object_type": "watch",
+      "object_id": "300750",
+      "object_name": "宁德时代",
+      "at": "2026-03-12",
+      "action": "prepare_entry",
+      "score": 100.0,
+      "probability": 0.95,
+      "reason": [
+        "20日收益 +8.35%，相对强弱 +8.58%。",
+        "5日量比 0.77x，距20日高点 -0.33%。"
+      ],
+      "risk": [
+        "只有在放量确认时才考虑出手。",
+        "若市场情绪转弱，观察名单自动降级为跟踪。"
+      ],
+      "sources": [
+        "candidate_universe",
+        "daily_bars"
+      ],
+      "metadata": {
+        "category": "watch"
+      }
+    },
+    {
+      "object_type": "watch",
+      "object_id": "600036",
+      "object_name": "招商银行",
+      "at": "2026-03-12",
+      "action": "wait_breakout_confirmation",
+      "score": 62.16,
+      "probability": 0.6216,
+      "reason": [
+        "20日收益 +1.26%，相对强弱 +1.49%。",
+        "5日量比 0.86x，距20日高点 -0.53%。"
+      ],
+      "risk": [
+        "只有在放量确认时才考虑出手。",
+        "若市场情绪转弱，观察名单自动降级为跟踪。"
+      ],
+      "sources": [
+        "candidate_universe",
+        "daily_bars"
+      ],
+      "metadata": {
+        "category": "watch"
+      }
+    },
+    {
+      "object_type": "watch",
+      "object_id": "600089",
+      "object_name": "特变电工",
+      "at": "2026-03-12",
+      "action": "wait_breakout_confirmation",
+      "score": 41.23,
+      "probability": 0.4123,
+      "reason": [
+        "20日收益 +5.98%，相对强弱 +6.22%。",
+        "5日量比 0.62x，距20日高点 -5.92%。"
+      ],
+      "risk": [
+        "只有在放量确认时才考虑出手。",
+        "若市场情绪转弱，观察名单自动降级为跟踪。"
+      ],
+      "sources": [
+        "candidate_universe",
+        "daily_bars"
+      ],
+      "metadata": {
+        "category": "watch"
+      }
+    },
+    {
+      "object_type": "watch",
+      "object_id": "000333",
+      "object_name": "美的集团",
+      "at": "2026-03-12",
+      "action": "wait_breakout_confirmation",
+      "score": 38.85,
+      "probability": 0.3885,
+      "reason": [
+        "20日收益 -3.02%，相对强弱 -2.78%。",
+        "5日量比 0.86x，距20日高点 -3.79%。"
+      ],
+      "risk": [
+        "只有在放量确认时才考虑出手。",
+        "若市场情绪转弱，观察名单自动降级为跟踪。"
+      ],
+      "sources": [
+        "candidate_universe",
+        "daily_bars"
+      ],
+      "metadata": {
+        "category": "watch"
+      }
+    }
+  ],
+  "monitor_plan": [
+    {
+      "object_type": "monitor",
+      "object_id": "000300",
+      "object_name": "沪深300",
+      "at": "2026-03-12",
+      "action": "monitor_index",
+      "score": 56.0,
+      "probability": 0.5217,
+      "reason": [
+        "作为风格和系统性风险锚点，跟踪 沪深300。"
+      ],
+      "risk": [
+        "指数转弱会降低个股告警价值。"
+      ],
+      "sources": [
+        "daily_bars"
+      ],
+      "metadata": {
+        "category": "benchmark",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.015,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.01
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "000001",
+      "object_name": "上证指数",
+      "at": "2026-03-12",
+      "action": "monitor_index",
+      "score": 58.33,
+      "probability": 0.5217,
+      "reason": [
+        "作为风格和系统性风险锚点，跟踪 上证指数。"
+      ],
+      "risk": [
+        "指数转弱会降低个股告警价值。"
+      ],
+      "sources": [
+        "daily_bars"
+      ],
+      "metadata": {
+        "category": "benchmark",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.015,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.01
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "399006",
+      "object_name": "创业板指",
+      "at": "2026-03-12",
+      "action": "monitor_index",
+      "score": 68.06,
+      "probability": 0.5217,
+      "reason": [
+        "作为风格和系统性风险锚点，跟踪 创业板指。"
+      ],
+      "risk": [
+        "指数转弱会降低个股告警价值。"
+      ],
+      "sources": [
+        "daily_bars"
+      ],
+      "metadata": {
+        "category": "benchmark",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.015,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.01
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "601699",
+      "object_name": "潞安环能",
+      "at": "2026-03-12",
+      "action": "monitor_holding",
+      "score": 100.0,
+      "probability": 0.9043,
+      "reason": [
+        "持仓动作 `hold_add_on_strength`，盘中需要验证是否符合预期。",
+        "趋势分 100.0，20日相对强弱 +10.47%。"
+      ],
+      "risk": [
+        "只在盘中放量确认时做小幅加仓。"
+      ],
+      "sources": [
+        "holdings_snapshot",
+        "daily_bars",
+        "announcements"
+      ],
+      "metadata": {
+        "category": "holding",
+        "parent_action": "hold_add_on_strength",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.02,
+          "price_drop_threshold_5m": -0.02,
+          "relative_strength_threshold_5m": 0.012
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "513310",
+      "object_name": "中韩芯片",
+      "at": "2026-03-12",
+      "action": "monitor_holding",
+      "score": 79.2,
+      "probability": 0.7379,
+      "reason": [
+        "持仓动作 `hold_add_on_strength`，盘中需要验证是否符合预期。",
+        "趋势分 79.2，20日相对强弱 +10.87%。"
+      ],
+      "risk": [
+        "只在盘中放量确认时做小幅加仓。"
+      ],
+      "sources": [
+        "holdings_snapshot",
+        "daily_bars",
+        "announcements"
+      ],
+      "metadata": {
+        "category": "holding",
+        "parent_action": "hold_add_on_strength",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.02,
+          "price_drop_threshold_5m": -0.02,
+          "relative_strength_threshold_5m": 0.012
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "588000",
+      "object_name": "科创50",
+      "at": "2026-03-12",
+      "action": "monitor_holding",
+      "score": 8.63,
+      "probability": 0.1734,
+      "reason": [
+        "持仓动作 `trim`，盘中需要验证是否符合预期。",
+        "趋势分 8.6，20日相对强弱 -4.66%。"
+      ],
+      "risk": [
+        "趋势弱于基准或回撤过深，应先减风险。"
+      ],
+      "sources": [
+        "holdings_snapshot",
+        "daily_bars",
+        "announcements"
+      ],
+      "metadata": {
+        "category": "holding",
+        "parent_action": "trim",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.02,
+          "price_drop_threshold_5m": -0.02,
+          "relative_strength_threshold_5m": 0.012
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "300750",
+      "object_name": "宁德时代",
+      "at": "2026-03-12",
+      "action": "monitor_watch",
+      "score": 100.0,
+      "probability": 0.95,
+      "reason": [
+        "观察动作 `prepare_entry`，盘中只在出现确认信号时提醒。",
+        "20日收益 +8.35%，相对强弱 +8.58%。"
+      ],
+      "risk": [
+        "只有在放量确认时才考虑出手。"
+      ],
+      "sources": [
+        "candidate_universe",
+        "daily_bars"
+      ],
+      "metadata": {
+        "category": "watch",
+        "parent_action": "prepare_entry",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.018,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.014
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "600036",
+      "object_name": "招商银行",
+      "at": "2026-03-12",
+      "action": "monitor_watch",
+      "score": 62.16,
+      "probability": 0.6216,
+      "reason": [
+        "观察动作 `wait_breakout_confirmation`，盘中只在出现确认信号时提醒。",
+        "20日收益 +1.26%，相对强弱 +1.49%。"
+      ],
+      "risk": [
+        "只有在放量确认时才考虑出手。"
+      ],
+      "sources": [
+        "candidate_universe",
+        "daily_bars"
+      ],
+      "metadata": {
+        "category": "watch",
+        "parent_action": "wait_breakout_confirmation",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.018,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.014
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "600089",
+      "object_name": "特变电工",
+      "at": "2026-03-12",
+      "action": "monitor_watch",
+      "score": 41.23,
+      "probability": 0.4123,
+      "reason": [
+        "观察动作 `wait_breakout_confirmation`，盘中只在出现确认信号时提醒。",
+        "20日收益 +5.98%，相对强弱 +6.22%。"
+      ],
+      "risk": [
+        "只有在放量确认时才考虑出手。"
+      ],
+      "sources": [
+        "candidate_universe",
+        "daily_bars"
+      ],
+      "metadata": {
+        "category": "watch",
+        "parent_action": "wait_breakout_confirmation",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.018,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.014
+        }
+      }
+    },
+    {
+      "object_type": "monitor",
+      "object_id": "000333",
+      "object_name": "美的集团",
+      "at": "2026-03-12",
+      "action": "monitor_watch",
+      "score": 38.85,
+      "probability": 0.3885,
+      "reason": [
+        "观察动作 `wait_breakout_confirmation`，盘中只在出现确认信号时提醒。",
+        "20日收益 -3.02%，相对强弱 -2.78%。"
+      ],
+      "risk": [
+        "只有在放量确认时才考虑出手。"
+      ],
+      "sources": [
+        "candidate_universe",
+        "daily_bars"
+      ],
+      "metadata": {
+        "category": "watch",
+        "parent_action": "wait_breakout_confirmation",
+        "thresholds": {
+          "price_jump_threshold_5m": 0.018,
+          "price_drop_threshold_5m": -0.015,
+          "relative_strength_threshold_5m": 0.014
+        }
+      }
+    }
+  ],
+  "final_action_summary": "震荡环境下，先盯 宁德时代(300750) 的放量确认，再决定是否出手。",
+  "homepage_overview": {
+    "as_of": "2026-03-12",
+    "today_action": "震荡环境下，先盯 宁德时代(300750) 的放量确认，再决定是否出手。",
+    "market_label": "震荡",
+    "market_probability": 0.5217,
+    "current_prices": [
+      {
+        "code": "601699",
+        "name": "潞安环能",
+        "last_price": "15.4",
+        "ret_day": "+5.99%",
+        "timestamp": "2026-03-12 close",
+        "freshness": "eod"
+      },
+      {
+        "code": "513310",
+        "name": "中韩芯片",
+        "last_price": "3.996",
+        "ret_day": "-1.02%",
+        "timestamp": "2026-03-12 close",
+        "freshness": "eod"
+      },
+      {
+        "code": "588000",
+        "name": "科创50",
+        "last_price": "1.456",
+        "ret_day": "-1.42%",
+        "timestamp": "2026-03-12 close",
+        "freshness": "eod"
+      },
+      {
+        "code": "300750",
+        "name": "宁德时代",
+        "last_price": "395.5",
+        "ret_day": "-0.33%",
+        "timestamp": "2026-03-12 close",
+        "freshness": "eod"
+      },
+      {
+        "code": "600036",
+        "name": "招商银行",
+        "last_price": "39.5",
+        "ret_day": "+0.00%",
+        "timestamp": "2026-03-12 close",
+        "freshness": "eod"
+      }
+    ],
+    "latest_alerts": [],
+    "holdings_actions": [
+      {
+        "code": "601699",
+        "name": "潞安环能",
+        "action": "hold_add_on_strength",
+        "score": 100.0,
+        "reason": "趋势分 100.0，20日相对强弱 +10.47%。"
+      },
+      {
+        "code": "513310",
+        "name": "中韩芯片",
+        "action": "hold_add_on_strength",
+        "score": 79.2,
+        "reason": "趋势分 79.2，20日相对强弱 +10.87%。"
+      },
+      {
+        "code": "588000",
+        "name": "科创50",
+        "action": "trim",
+        "score": 8.63,
+        "reason": "趋势分 8.6，20日相对强弱 -4.66%。"
+      }
+    ],
+    "watchlist": [
+      {
+        "code": "300750",
+        "name": "宁德时代",
+        "action": "prepare_entry",
+        "score": 100.0
+      },
+      {
+        "code": "600036",
+        "name": "招商银行",
+        "action": "wait_breakout_confirmation",
+        "score": 62.16
+      },
+      {
+        "code": "600089",
+        "name": "特变电工",
+        "action": "wait_breakout_confirmation",
+        "score": 41.23
+      },
+      {
+        "code": "000333",
+        "name": "美的集团",
+        "action": "wait_breakout_confirmation",
+        "score": 38.85
+      }
+    ]
+  },
+  "llm_summary": {
+    "market_summary": "震荡环境下，优先执行既有仓位和观察名单，不扩大动作空间。",
+    "primary_focus": "先看 潞安环能 是否出现量价确认。",
+    "risk_flags": [
+      "新闻和公告只做增量信号，不替代正文核验。",
+      "盘中若指数转弱，单票告警价值需要折价。"
+    ],
+    "confidence_note": "当前为 harness 回退摘要，结构化字段仍可用于首页和复盘。",
+    "_meta": {
+      "provider": "fallback",
+      "model": "rules",
+      "validated": true,
+      "error": null
+    }
+  }
+}

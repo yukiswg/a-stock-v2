@@ -1,0 +1,139 @@
+{
+  "as_of": "2026-03-23",
+  "today_action": "偏空环境下，先处理 潞安环能(601699) 的仓位动作。",
+  "market_label": "偏空",
+  "market_probability": 0.1853,
+  "current_prices": [
+    {
+      "code": "601699",
+      "name": "潞安环能",
+      "last_price": "14.92",
+      "ret_day": "+1.91%",
+      "timestamp": "2026-03-23T16:14:21",
+      "freshness": "388s"
+    },
+    {
+      "code": "513310",
+      "name": "中韩芯片",
+      "last_price": "3.663",
+      "ret_day": "-7.80%",
+      "timestamp": "2026-03-23T16:14:54",
+      "freshness": "355s"
+    },
+    {
+      "code": "588000",
+      "name": "科创50",
+      "last_price": "1.329",
+      "ret_day": "-4.25%",
+      "timestamp": "2026-03-23T16:14:57",
+      "freshness": "352s"
+    },
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "last_price": "401.99",
+      "ret_day": "-2.67%",
+      "timestamp": "2026-03-23T16:14:21",
+      "freshness": "388s"
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "last_price": "38.68",
+      "ret_day": "-2.69%",
+      "timestamp": "2026-03-23T16:14:17",
+      "freshness": "392s"
+    },
+    {
+      "code": "600089",
+      "name": "特变电工",
+      "last_price": "28.15",
+      "ret_day": "+0.50%",
+      "timestamp": "2026-03-23T16:14:01",
+      "freshness": "408s"
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "last_price": "100.23",
+      "ret_day": "-2.12%",
+      "timestamp": "2026-03-23T16:14:06",
+      "freshness": "403s"
+    },
+    {
+      "code": "000300",
+      "name": "沪深300",
+      "last_price": "4418",
+      "ret_day": "-3.26%",
+      "timestamp": "2026-03-23T16:14:03",
+      "freshness": "406s"
+    },
+    {
+      "code": "000001",
+      "name": "上证指数",
+      "last_price": "3813.28",
+      "ret_day": "-3.63%",
+      "timestamp": "2026-03-23T16:14:15",
+      "freshness": "394s"
+    },
+    {
+      "code": "399006",
+      "name": "创业板指",
+      "last_price": "3235.22",
+      "ret_day": "-3.49%",
+      "timestamp": "2026-03-23T16:14:21",
+      "freshness": "388s"
+    }
+  ],
+  "latest_alerts": [],
+  "holdings_actions": [
+    {
+      "code": "601699",
+      "name": "潞安环能",
+      "action": "hold",
+      "score": 100.0,
+      "reason": "趋势分 100.0，20日相对强弱 +12.27%。"
+    },
+    {
+      "code": "513310",
+      "name": "中韩芯片",
+      "action": "trim",
+      "score": 18.59,
+      "reason": "趋势分 18.6，20日相对强弱 +8.98%。"
+    },
+    {
+      "code": "588000",
+      "name": "科创50",
+      "action": "trim",
+      "score": 0.0,
+      "reason": "趋势分 0.0，20日相对强弱 -8.70%。"
+    }
+  ],
+  "watchlist": [
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "action": "wait_breakout_confirmation",
+      "score": 100.0
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "action": "wait_breakout_confirmation",
+      "score": 47.98
+    },
+    {
+      "code": "600089",
+      "name": "特变电工",
+      "action": "wait_breakout_confirmation",
+      "score": 21.43
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "action": "wait_breakout_confirmation",
+      "score": 14.96
+    }
+  ],
+  "session_dir": "data/output/realtime/2026-03-23/session_162049"
+}

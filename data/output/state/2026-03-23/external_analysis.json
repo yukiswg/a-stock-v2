@@ -1,0 +1,28 @@
+{
+  "300750": {
+    "provider_status": {
+      "capitalfarmer": "available"
+    },
+    "provider_fields": {
+      "capitalfarmer": [
+        "concept_names",
+        "industry_name",
+        "northbound_add_marketcap_10d",
+        "northbound_add_marketcap_1d",
+        "northbound_add_marketcap_5d",
+        "northbound_free_float_ratio",
+        "northbound_hold_marketcap_change_10d",
+        "northbound_hold_marketcap_change_1d",
+        "northbound_hold_marketcap_change_5d",
+        "northbound_hold_ratio",
+        "northbound_net_flow_5d",
+        "northbound_proxy_basis",
+        "provider"
+      ]
+    },
+    "capital_flow_conviction": 0.15,
+    "capital_flow_style": "neutral",
+    "northbound_net_flow_5d": 3854487763.68,
+    "longhu_activity_90d": null
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "status": "blocked",
+  "pass": false,
+  "reason": "Worker 遇到阻塞",
+  "details": [
+    "[wp1] 被阻塞：`tests/test_tomorrow_best_pick.py` does not exist in the local workspace (`exists False`), so the assigned acceptance file could not be run directly. `unittest discover` is blocked by unrelated environment issues outside this packet's scope: `PermissionError: [Errno 1] Operation not permitted` when binding a local test HTTP server, `urllib.error.URLError` from announcement fetching without network, and `ModuleNotFoundError: No module named 'akshare'`. Local smoke assertions against `build_tomorrow_best_pick(load_config(\"config/default.toml\"), as_of=\"2026-03-26\")` passed: `candidate_rankings` length 8, required ranking fields present, sorted by `composite_score`, `best_stock.code == candidate_rankings[0].code`, and selected backtest has `trade_count == 3` with non-empty `trades`.",
+    "[wp2] 被阻塞：指定验收文件 `tests/test_best_stock_reporting.py` 在当前工作区不存在，且 `PYTHONPATH=src python3 -m pytest tests/test_best_stock_reporting.py -v` 失败：`No module named pytest`。 执行 `PYTHONPATH=src python3 -m unittest discover -s tests -v`：45 项中 42 项通过，3 项失败均为环境障碍而非本次 scope 改动：本地端口绑定被 sandbox 拒绝、外部网络/DNS 不可用、环境缺少 `akshare`。 与本次改动直接相关的现有渲染测试已单独通过：`tests.test_decision_bundle.DecisionBundleTests.test_daily_report_prefers_realtime_market_state_probability`、`tests.test_homepage_runtime.HomepageRuntimeTests.test_rendering_prefers_display_fields`、`tests.test_homepage_runtime.HomepageRuntimeTests.test_rendering_marks_reference_close_prices_as_non_realtime`。 手工 smoke check 通过：`render_best_stock_report(...)` 输出同时包含 `## 明日最优标的`、`## 候选对比`、`## 历史回测`，并包含 `铁龙物流(600125)`。",
+    "[wp3] 被阻塞：Smoke check passed: replay_daily(load_config('config/default.toml'), as_of='2026-03-26') produced artifacts ['best_stock_report_json', 'best_stock_report_markdown'], and homepage_code == report_code == 600125. Acceptance target tests/test_best_stock_runtime_outputs.py is not present in the workspace. The environment does not have pytest installed. unittest discover is blocked by issues outside this scope: local socket bind PermissionError, external name resolution failure during announcement fetch, and missing dependency 'akshare'."
+  ],
+  "leader_retry_task": null
+}

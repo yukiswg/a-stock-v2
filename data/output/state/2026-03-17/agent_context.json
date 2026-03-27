@@ -1,0 +1,377 @@
+{
+  "as_of": "2026-03-17",
+  "market": {
+    "object_type": "market",
+    "object_id": "000300",
+    "object_name": "震荡市场",
+    "at": "2026-03-17",
+    "action": "balanced",
+    "score": 46.13,
+    "probability": 0.4613,
+    "reason": [
+      "沪深300 5日收益 -0.80%，20日收益 -1.73%。",
+      "候选池平均趋势分 52.2。",
+      "新闻偏移 +0.00，公告偏移 +0.00。"
+    ],
+    "risk": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "sources": [
+      "benchmark_daily_bars",
+      "official_news",
+      "cninfo_announcements"
+    ],
+    "metadata": {
+      "label": "震荡",
+      "benchmark_code": "000300",
+      "benchmark_ret_5d": -0.00798329753826943,
+      "benchmark_ret_20d": -0.01729581738736119,
+      "breadth_score": 52.24333333333333
+    }
+  },
+  "holdings": {
+    "as_of": "2026-03-17",
+    "source_file": "data/input/holdings/default_holdings.csv",
+    "positions": [
+      {
+        "code": "601699",
+        "name": "潞安环能",
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 3500.0,
+        "cost_price": null,
+        "last_price": null,
+        "pnl_amount": null,
+        "pnl_pct": null,
+        "sector": "煤炭"
+      },
+      {
+        "code": "513310",
+        "name": "中韩芯片",
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 1500.0,
+        "cost_price": null,
+        "last_price": null,
+        "pnl_amount": null,
+        "pnl_pct": null,
+        "sector": "半导体ETF"
+      },
+      {
+        "code": "588000",
+        "name": "科创50",
+        "quantity": 0.0,
+        "available_quantity": 0.0,
+        "market_value": 5000.0,
+        "cost_price": null,
+        "last_price": null,
+        "pnl_amount": null,
+        "pnl_pct": null,
+        "sector": "宽基ETF"
+      }
+    ],
+    "total_market_value": 10000.0,
+    "total_equity": 10000.0,
+    "exposure_ratio": 1.0,
+    "alerts": [
+      "第一大持仓占比 50.0%，集中度偏高。",
+      "现金占比 0.0%，缓冲偏低。"
+    ],
+    "sector_weights": [
+      {
+        "sector": "宽基ETF",
+        "market_value": 5000.0,
+        "weight": 0.5
+      },
+      {
+        "sector": "煤炭",
+        "market_value": 3500.0,
+        "weight": 0.35
+      },
+      {
+        "sector": "半导体ETF",
+        "market_value": 1500.0,
+        "weight": 0.15
+      }
+    ]
+  },
+  "features": {
+    "601699": {
+      "code": "601699",
+      "name": "潞安环能",
+      "as_of": "2026-03-17",
+      "category": "holding",
+      "last_close": 14.35,
+      "ret_1d": -0.021813224267211995,
+      "ret_5d": 0.0,
+      "ret_20d": 0.08220211161387625,
+      "high_gap_20d": -0.06818181818181823,
+      "low_gap_20d": 0.049743964886612924,
+      "volume_ratio_5d": 0.5440624004819157,
+      "relative_strength_20d": 0.09949792900123744,
+      "volatility_20d": 0.028684198689497478,
+      "trend_score": 83.64,
+      "source": "cache"
+    },
+    "513310": {
+      "code": "513310",
+      "name": "中韩芯片",
+      "as_of": "2026-03-17",
+      "category": "holding",
+      "last_close": 3.97,
+      "ret_1d": -0.032886723507917215,
+      "ret_5d": -0.03850811334463533,
+      "ret_20d": 0.12369091423719225,
+      "high_gap_20d": -0.08123119648229571,
+      "low_gap_20d": 0.16014026884862664,
+      "volume_ratio_5d": 1.0498330490102659,
+      "relative_strength_20d": 0.14098673162455344,
+      "volatility_20d": 0.041821302097691665,
+      "trend_score": 88.23,
+      "source": "cache"
+    },
+    "588000": {
+      "code": "588000",
+      "name": "科创50",
+      "as_of": "2026-03-17",
+      "category": "holding",
+      "last_close": 1.428,
+      "ret_1d": -0.020576131687242816,
+      "ret_5d": -0.04481605351170581,
+      "ret_20d": -0.06970684039087949,
+      "high_gap_20d": -0.08812260536398475,
+      "low_gap_20d": 0.0,
+      "volume_ratio_5d": 1.061901784581245,
+      "relative_strength_20d": -0.0524110230035183,
+      "volatility_20d": 0.01602787464559605,
+      "trend_score": 0.0,
+      "source": "cache"
+    },
+    "600089": {
+      "code": "600089",
+      "name": "特变电工",
+      "as_of": "2026-03-17",
+      "category": "watch",
+      "last_close": 28.59,
+      "ret_1d": -0.024232081911262804,
+      "ret_5d": -0.10263653483992463,
+      "ret_20d": 0.01852511578197369,
+      "high_gap_20d": -0.1278218425869433,
+      "low_gap_20d": 0.030270270270270183,
+      "volume_ratio_5d": 0.8333792371987173,
+      "relative_strength_20d": 0.03582093316933488,
+      "volatility_20d": 0.029933655491470305,
+      "trend_score": 0.0,
+      "source": "cache"
+    },
+    "300750": {
+      "code": "300750",
+      "name": "宁德时代",
+      "as_of": "2026-03-17",
+      "category": "watch",
+      "last_close": 405.0,
+      "ret_1d": -0.008325171400587639,
+      "ret_5d": 0.07626893436088222,
+      "ret_20d": 0.0980966325036603,
+      "high_gap_20d": -0.008325171400587639,
+      "low_gap_20d": 0.19504278548244325,
+      "volume_ratio_5d": 0.9194488525000702,
+      "relative_strength_20d": 0.11539244989102149,
+      "volatility_20d": 0.02400120567759133,
+      "trend_score": 100.0,
+      "source": "cache"
+    },
+    "600036": {
+      "code": "600036",
+      "name": "招商银行",
+      "as_of": "2026-03-17",
+      "category": "watch",
+      "last_close": 40.12,
+      "ret_1d": 0.005261839138060553,
+      "ret_5d": 0.022947475777664428,
+      "ret_20d": 0.016210739614994862,
+      "high_gap_20d": 0.0,
+      "low_gap_20d": 0.03937823834196874,
+      "volume_ratio_5d": 1.0097132522623686,
+      "relative_strength_20d": 0.03350655700235605,
+      "volatility_20d": 0.007711834110649596,
+      "trend_score": 77.0,
+      "source": "cache"
+    },
+    "601127": {
+      "code": "601127",
+      "name": "赛力斯",
+      "as_of": "2026-03-17",
+      "category": "watch",
+      "last_close": 102.9,
+      "ret_1d": -0.0032932971716388426,
+      "ret_5d": 0.034066927946940107,
+      "ret_20d": -0.07280591097495037,
+      "high_gap_20d": -0.06835672249886826,
+      "low_gap_20d": 0.052147239263803824,
+      "volume_ratio_5d": 1.091014129173818,
+      "relative_strength_20d": -0.05551009358758918,
+      "volatility_20d": 0.01606065114848963,
+      "trend_score": 28.61,
+      "source": "cache"
+    },
+    "000333": {
+      "code": "000333",
+      "name": "美的集团",
+      "as_of": "2026-03-17",
+      "category": "watch",
+      "last_close": 76.6,
+      "ret_1d": -0.000521920668058562,
+      "ret_5d": 0.0,
+      "ret_20d": -0.03233956543708949,
+      "high_gap_20d": -0.04476867439830412,
+      "low_gap_20d": 0.015780400477390266,
+      "volume_ratio_5d": 1.0178237423582985,
+      "relative_strength_20d": -0.0150437480497283,
+      "volatility_20d": 0.00837399903947131,
+      "trend_score": 34.62,
+      "source": "cache"
+    },
+    "000858": {
+      "code": "000858",
+      "name": "五粮液",
+      "as_of": "2026-03-17",
+      "category": "watch",
+      "last_close": 104.79,
+      "ret_1d": 0.002391429118040911,
+      "ret_5d": 0.02684958353748179,
+      "ret_20d": -0.023938152011922398,
+      "high_gap_20d": -0.01605633802816897,
+      "low_gap_20d": 0.03731934270441517,
+      "volume_ratio_5d": 1.1716311533019583,
+      "relative_strength_20d": -0.006642334624561208,
+      "volatility_20d": 0.00858869609269563,
+      "trend_score": 58.09,
+      "source": "cache"
+    },
+    "510300": {
+      "code": "510300",
+      "name": "沪深300ETF",
+      "as_of": "2026-03-17",
+      "category": "benchmark",
+      "last_close": 4.646,
+      "ret_1d": -0.007264957264957239,
+      "ret_5d": -0.00790091821481953,
+      "ret_20d": -0.017135603977152636,
+      "high_gap_20d": -0.0218947368421053,
+      "low_gap_20d": 0.007809110629067195,
+      "volume_ratio_5d": 1.5136330149575474,
+      "relative_strength_20d": 0.00016021341020855395,
+      "volatility_20d": 0.007397615248790238,
+      "trend_score": 46.66,
+      "source": "cache"
+    },
+    "000300": {
+      "code": "000300",
+      "name": "沪深300",
+      "as_of": "2026-03-17",
+      "category": "benchmark",
+      "last_close": 4637.44,
+      "ret_1d": -0.007303770046836799,
+      "ret_5d": -0.00798329753826943,
+      "ret_20d": -0.01729581738736119,
+      "high_gap_20d": -0.02078806729041438,
+      "low_gap_20d": 0.0075652563105361725,
+      "volume_ratio_5d": 0.9112636938192445,
+      "relative_strength_20d": 0.0,
+      "volatility_20d": 0.007652155981949603,
+      "trend_score": 40.68,
+      "source": "cache"
+    },
+    "000001": {
+      "code": "000001",
+      "name": "上证指数",
+      "as_of": "2026-03-17",
+      "category": "benchmark",
+      "last_close": 4049.91,
+      "ret_1d": -0.00853899466068031,
+      "ret_5d": -0.017760735749938306,
+      "ret_20d": -0.017748824304102073,
+      "high_gap_20d": -0.03172197131442489,
+      "low_gap_20d": 0.0,
+      "volume_ratio_5d": 0.9180197625612606,
+      "relative_strength_20d": -0.00045300691674088345,
+      "volatility_20d": 0.006731727626241667,
+      "trend_score": 33.99,
+      "source": "cache"
+    },
+    "399006": {
+      "code": "399006",
+      "name": "创业板指",
+      "as_of": "2026-03-17",
+      "category": "benchmark",
+      "last_close": 3280.06,
+      "ret_1d": -0.022925094280045966,
+      "ret_5d": -0.00788835318528558,
+      "ret_20d": -0.015815672848711437,
+      "high_gap_20d": -0.022925094280045966,
+      "low_gap_20d": 0.03656019997661453,
+      "volume_ratio_5d": 0.9394974060081065,
+      "relative_strength_20d": 0.0014801445386497525,
+      "volatility_20d": 0.014286814522468926,
+      "trend_score": 41.43,
+      "source": "cache"
+    }
+  },
+  "news": [
+    {
+      "source_id": "csrc_xwfb",
+      "source_name": "证监会要闻",
+      "title": "吴清主席在十四届全国人大四次会议经济主题记者会上答记者问",
+      "url": "https://www.csrc.gov.cn/csrc/c106311/c7618555/content.shtml",
+      "published_at": "2026-03-06",
+      "tags": []
+    },
+    {
+      "source_id": "csrc_xwfb",
+      "source_name": "证监会要闻",
+      "title": "吴清主席会见英国金融行为监管局主席欧达礼",
+      "url": "https://www.csrc.gov.cn/csrc/c106311/c7613360/content.shtml",
+      "published_at": "2026-02-03",
+      "tags": []
+    },
+    {
+      "source_id": "csrc_xwfb",
+      "source_name": "证监会要闻",
+      "title": "中国证监会党委传达学习习近平总书记重要讲话精神和全国两会精神",
+      "url": "https://www.csrc.gov.cn/csrc/c100028/c7619894/content.shtml",
+      "published_at": "2026-03-13",
+      "tags": [
+        "监管"
+      ]
+    }
+  ],
+  "announcements": [
+    {
+      "code": "601699",
+      "name": "潞安环能",
+      "title": "潞安环能2026年2月主要运营数据公告",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-14/1225007835.PDF",
+      "published_at": "2026-03-14",
+      "source": "cninfo"
+    },
+    {
+      "code": "601699",
+      "name": "潞安环能",
+      "title": "潞安环能2026年1月主要运营数据公告",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-02-13/1224978479.PDF",
+      "published_at": "2026-02-13",
+      "source": "cninfo"
+    },
+    {
+      "code": "601699",
+      "name": "潞安环能",
+      "title": "潞安环能2025年度业绩预告",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-01-24/1224947992.PDF",
+      "published_at": "2026-01-24",
+      "source": "cninfo"
+    }
+  ],
+  "task": "在严格结构化约束下，给出今天的市场摘要、重点风险、最重要观察对象。不能扩展动作空间，不能输出散文式长文。"
+}

@@ -1,0 +1,40 @@
+{"ts": "2026-03-25T08:24:26.969584Z", "event": "premarket_start", "as_of": "2026-03-25"}
+{"ts": "2026-03-25T08:24:26.970040Z", "event": "ensure_sector_metrics_start"}
+{"ts": "2026-03-25T08:24:26.971826Z", "event": "ensure_sector_metrics_done", "sector_count": 90}
+{"ts": "2026-03-25T08:24:27.500530Z", "event": "dynamic_universe_built", "leader_count": 5, "top_sector_count": 5, "failure_count": 0}
+{"ts": "2026-03-25T08:24:27.501036Z", "event": "ensure_supplemental_payload_start", "code_count": 11}
+{"ts": "2026-03-25T08:24:27.504066Z", "event": "ensure_supplemental_payload_done", "fundamentals": 37, "sector_map": 36}
+{"ts": "2026-03-25T08:24:27.504274Z", "event": "fetch_daily_series", "code": "601699", "name": "潞安环能"}
+{"ts": "2026-03-25T08:24:27.510481Z", "event": "fetch_daily_series", "code": "513310", "name": "中韩芯片"}
+{"ts": "2026-03-25T08:24:27.517514Z", "event": "fetch_daily_series", "code": "588000", "name": "科创50"}
+{"ts": "2026-03-25T08:24:27.521904Z", "event": "fetch_daily_series", "code": "510300", "name": "沪深300ETF"}
+{"ts": "2026-03-25T08:24:27.529506Z", "event": "fetch_daily_series", "code": "000300", "name": "沪深300"}
+{"ts": "2026-03-25T08:24:27.533406Z", "event": "fetch_daily_series", "code": "000001", "name": "上证指数"}
+{"ts": "2026-03-25T08:24:27.536974Z", "event": "fetch_daily_series", "code": "399006", "name": "创业板指"}
+{"ts": "2026-03-25T08:24:27.540707Z", "event": "fetch_daily_series", "code": "600089", "name": "特变电工"}
+{"ts": "2026-03-25T08:24:27.544207Z", "event": "fetch_daily_series", "code": "300750", "name": "宁德时代"}
+{"ts": "2026-03-25T08:24:27.547273Z", "event": "fetch_daily_series", "code": "600036", "name": "招商银行"}
+{"ts": "2026-03-25T08:24:27.550269Z", "event": "fetch_daily_series", "code": "601127", "name": "赛力斯"}
+{"ts": "2026-03-25T08:24:27.553133Z", "event": "fetch_daily_series", "code": "000333", "name": "美的集团"}
+{"ts": "2026-03-25T08:24:27.556383Z", "event": "fetch_daily_series", "code": "000858", "name": "五粮液"}
+{"ts": "2026-03-25T08:24:27.559233Z", "event": "fetch_daily_series", "code": "600163", "name": "中闽能源"}
+{"ts": "2026-03-25T08:24:27.561851Z", "event": "fetch_daily_series", "code": "301419", "name": "阿莱德"}
+{"ts": "2026-03-25T08:24:27.564258Z", "event": "fetch_daily_series", "code": "600988", "name": "赤峰黄金"}
+{"ts": "2026-03-25T08:24:27.566609Z", "event": "fetch_daily_series", "code": "000978", "name": "桂林旅游"}
+{"ts": "2026-03-25T08:24:27.568722Z", "event": "fetch_daily_series", "code": "838924", "name": "广脉科技"}
+{"ts": "2026-03-25T08:24:28.316714Z", "event": "fetch_daily_series_done", "code_count": 18}
+{"ts": "2026-03-25T08:24:28.317138Z", "event": "collect_news_start"}
+{"ts": "2026-03-25T08:24:29.607752Z", "event": "collect_news_done", "item_count": 16}
+{"ts": "2026-03-25T08:24:29.608381Z", "event": "fetch_announcements_start", "holding_count": 3}
+{"ts": "2026-03-25T08:24:30.211699Z", "event": "fetch_announcements_done", "item_count": 4}
+{"ts": "2026-03-25T08:24:30.211987Z", "event": "build_decision_bundle_start"}
+{"ts": "2026-03-25T08:24:30.245372Z", "event": "build_decision_bundle_done", "feature_count": 18}
+{"ts": "2026-03-25T08:24:30.245789Z", "event": "run_structured_agent_start"}
+{"ts": "2026-03-25T08:24:30.245872Z", "event": "run_structured_agent_done", "key_count": 5}
+{"ts": "2026-03-25T08:24:30.521176Z", "event": "write_daily_outputs_start"}
+{"ts": "2026-03-25T08:24:30.530331Z", "event": "write_daily_outputs_done", "artifact_count": 8}
+{"ts": "2026-03-25T08:24:30.617465Z", "event": "write_homepage_assets_start"}
+{"ts": "2026-03-25T08:24:30.620262Z", "event": "write_homepage_assets_done", "artifact_count": 4}
+{"ts": "2026-03-25T08:24:30.620333Z", "event": "discover_top_ideas_start", "strategy_style": "defensive_quality"}
+{"ts": "2026-03-25T08:24:30.703926Z", "event": "discover_top_ideas_done", "artifact_count": 1}
+{"ts": "2026-03-25T08:24:30.705036Z", "event": "premarket_done", "artifact_count": 5}

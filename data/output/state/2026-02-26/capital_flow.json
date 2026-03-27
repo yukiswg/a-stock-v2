@@ -1,0 +1,29 @@
+{
+  "000858": {
+    "latest_date": "2026-03-26",
+    "main_net_flow_1d": -124796610.0,
+    "main_net_ratio_1d": -0.1276,
+    "main_net_flow_5d": -709971751.0,
+    "main_net_ratio_5d": -0.09644,
+    "close_price": 101.28,
+    "pct_change_1d": -0.011399999999999999
+  },
+  "688799": {
+    "latest_date": "2026-03-26",
+    "main_net_flow_1d": 16210574.0,
+    "main_net_ratio_1d": 0.0519,
+    "main_net_flow_5d": 6537552.0,
+    "main_net_ratio_5d": -0.00648,
+    "close_price": 49.06,
+    "pct_change_1d": 0.0359
+  },
+  "600227": {
+    "latest_date": "2026-03-26",
+    "main_net_flow_1d": -42045710.0,
+    "main_net_ratio_1d": -0.0336,
+    "main_net_flow_5d": -206034489.0,
+    "main_net_ratio_5d": -0.03394,
+    "close_price": 3.88,
+    "pct_change_1d": -0.025099999999999997
+  }
+}

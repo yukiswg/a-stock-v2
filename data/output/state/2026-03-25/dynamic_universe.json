@@ -1,0 +1,113 @@
+{
+  "selection_mode": "dynamic_sector_leaders",
+  "top_sectors": [
+    {
+      "sector": "电力",
+      "score": 85.4,
+      "pct_change": 0.0408,
+      "net_inflow": 60.7,
+      "leader": "中闽能源",
+      "leader_pct_change": 0.1007,
+      "rank_score": 94.15,
+      "rank": 1
+    },
+    {
+      "sector": "通信设备",
+      "score": 82.48,
+      "pct_change": 0.038599999999999995,
+      "net_inflow": 38.54,
+      "leader": "阿莱德",
+      "leader_pct_change": 0.20010000000000003,
+      "rank_score": 89.81,
+      "rank": 2
+    },
+    {
+      "sector": "贵金属",
+      "score": 80.49,
+      "pct_change": 0.04,
+      "net_inflow": -3.69,
+      "leader": "赤峰黄金",
+      "leader_pct_change": 0.08220000000000001,
+      "rank_score": 85.91,
+      "rank": 3
+    },
+    {
+      "sector": "旅游及酒店",
+      "score": 78.12,
+      "pct_change": 0.0329,
+      "net_inflow": 3.59,
+      "leader": "桂林旅游",
+      "leader_pct_change": 0.0998,
+      "rank_score": 82.91,
+      "rank": 4
+    },
+    {
+      "sector": "通信服务",
+      "score": 77.73,
+      "pct_change": 0.0355,
+      "net_inflow": 1.49,
+      "leader": "广脉科技",
+      "leader_pct_change": 0.1884,
+      "rank_score": 82.77,
+      "rank": 5
+    }
+  ],
+  "leaders": [
+    {
+      "code": "600163",
+      "name": "中闽能源",
+      "sector": "电力",
+      "sector_score": 85.4,
+      "sector_pct_change": 0.0408,
+      "sector_net_inflow": 60.7,
+      "leader_name_raw": "中闽能源",
+      "rank": 1,
+      "rank_score": 94.15
+    },
+    {
+      "code": "301419",
+      "name": "阿莱德",
+      "sector": "通信设备",
+      "sector_score": 82.48,
+      "sector_pct_change": 0.038599999999999995,
+      "sector_net_inflow": 38.54,
+      "leader_name_raw": "阿莱德",
+      "rank": 2,
+      "rank_score": 89.81
+    },
+    {
+      "code": "600988",
+      "name": "赤峰黄金",
+      "sector": "贵金属",
+      "sector_score": 80.49,
+      "sector_pct_change": 0.04,
+      "sector_net_inflow": -3.69,
+      "leader_name_raw": "赤峰黄金",
+      "rank": 3,
+      "rank_score": 85.91
+    },
+    {
+      "code": "000978",
+      "name": "桂林旅游",
+      "sector": "旅游及酒店",
+      "sector_score": 78.12,
+      "sector_pct_change": 0.0329,
+      "sector_net_inflow": 3.59,
+      "leader_name_raw": "桂林旅游",
+      "rank": 4,
+      "rank_score": 82.91
+    },
+    {
+      "code": "838924",
+      "name": "广脉科技",
+      "sector": "通信服务",
+      "sector_score": 77.73,
+      "sector_pct_change": 0.0355,
+      "sector_net_inflow": 1.49,
+      "leader_name_raw": "广脉科技",
+      "rank": 5,
+      "rank_score": 82.77
+    }
+  ],
+  "resolver_failures": []
+}

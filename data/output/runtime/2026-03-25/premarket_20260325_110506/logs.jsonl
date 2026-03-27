@@ -1,0 +1,5 @@
+{"ts": "2026-03-25T03:05:06.280211Z", "event": "premarket_start", "as_of": "2026-03-25"}
+{"ts": "2026-03-25T03:05:06.281029Z", "event": "ensure_sector_metrics_start"}
+{"ts": "2026-03-25T03:05:06.282739Z", "event": "ensure_sector_metrics_done", "sector_count": 90}
+{"ts": "2026-03-25T03:05:08.142540Z", "event": "dynamic_universe_built", "leader_count": 5, "top_sector_count": 5, "failure_count": 0}
+{"ts": "2026-03-25T03:05:08.142738Z", "event": "ensure_supplemental_payload_start", "code_count": 11}

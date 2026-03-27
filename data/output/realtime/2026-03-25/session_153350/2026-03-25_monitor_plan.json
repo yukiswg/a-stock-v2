@@ -1,0 +1,361 @@
+[
+  {
+    "object_type": "monitor",
+    "object_id": "000300",
+    "object_name": "沪深300",
+    "at": "2026-03-25",
+    "action": "monitor_index",
+    "score": 17.79,
+    "probability": 0.3768,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 沪深300。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "000001",
+    "object_name": "上证指数",
+    "at": "2026-03-25",
+    "action": "monitor_index",
+    "score": 4.84,
+    "probability": 0.3768,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 上证指数。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "399006",
+    "object_name": "创业板指",
+    "at": "2026-03-25",
+    "action": "monitor_index",
+    "score": 44.88,
+    "probability": 0.3768,
+    "reason": [
+      "作为风格和系统性风险锚点，跟踪 创业板指。"
+    ],
+    "risk": [
+      "指数转弱会降低个股告警价值。"
+    ],
+    "sources": [
+      "daily_bars"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "benchmark",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.015,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.01
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "601699",
+    "object_name": "潞安环能",
+    "at": "2026-03-25",
+    "action": "monitor_holding",
+    "score": 16.8,
+    "probability": 0.52,
+    "reason": [
+      "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+      "潞安环能 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 当前持仓成本未知，本次只按结构与风险预算判断。"
+    ],
+    "risk": [
+      "若 13.87 一带止跌并重新收回 14.55，先降级为观察，不急着继续减仓。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "cninfo",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "holding",
+      "parent_action": "cut_on_breakdown",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "588000",
+    "object_name": "科创50",
+    "at": "2026-03-25",
+    "action": "monitor_holding",
+    "score": 8.25,
+    "probability": 0.5734,
+    "reason": [
+      "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+      "科创50 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 当前持仓成本未知，本次只按结构与风险预算判断。"
+    ],
+    "risk": [
+      "若重新站回 1.41 且成交恢复，可转回观察。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "holding",
+      "parent_action": "cut_on_breakdown",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "513310",
+    "object_name": "中韩芯片",
+    "at": "2026-03-25",
+    "action": "monitor_holding",
+    "score": 1.0,
+    "probability": 0.6188,
+    "reason": [
+      "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+      "中韩芯片 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 当前持仓成本未知，本次只按结构与风险预算判断。"
+    ],
+    "risk": [
+      "若重新站回 4.13 且成交恢复，可转回观察。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "holding",
+      "parent_action": "cut_on_breakdown",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.02,
+        "price_drop_threshold_5m": -0.02,
+        "relative_strength_threshold_5m": 0.012
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "600163",
+    "object_name": "中闽能源",
+    "at": "2026-03-25",
+    "action": "monitor_watch",
+    "score": 67.42,
+    "probability": 0.7621,
+    "reason": [
+      "观察动作 `wait_for_breakout`，盘中只在出现确认信号时提醒。",
+      "中闽能源 接近关键位，但还没给出值得执行的确认。"
+    ],
+    "risk": [
+      "若回落跌破 6.44，取消突破预案。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_for_breakout",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "000978",
+    "object_name": "桂林旅游",
+    "at": "2026-03-25",
+    "action": "monitor_watch",
+    "score": 64.86,
+    "probability": 0.7493,
+    "reason": [
+      "观察动作 `wait_for_breakout`，盘中只在出现确认信号时提醒。",
+      "桂林旅游 接近关键位，但还没给出值得执行的确认。"
+    ],
+    "risk": [
+      "若回落跌破 6.42，取消突破预案。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_for_breakout",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "301419",
+    "object_name": "阿莱德",
+    "at": "2026-03-25",
+    "action": "monitor_watch",
+    "score": 62.58,
+    "probability": 0.7379,
+    "reason": [
+      "观察动作 `wait_for_breakout`，盘中只在出现确认信号时提醒。",
+      "阿莱德 接近关键位，但还没给出值得执行的确认。"
+    ],
+    "risk": [
+      "若回落跌破 35.07，取消突破预案。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "wait_for_breakout",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  },
+  {
+    "object_type": "monitor",
+    "object_id": "300750",
+    "object_name": "宁德时代",
+    "at": "2026-03-25",
+    "action": "monitor_watch",
+    "score": 54.05,
+    "probability": 0.6953,
+    "reason": [
+      "观察动作 `watch_only`，盘中只在出现确认信号时提醒。",
+      "宁德时代 还没有进入可交易区间，现在更适合跟踪，不适合执行。"
+    ],
+    "risk": [
+      "若跌破 393.46，从候选名单降级。"
+    ],
+    "sources": [
+      "decision_bundle.market_view",
+      "daily_features",
+      "supplemental.fundamentals",
+      "supplemental.valuation",
+      "supplemental.capital_flow",
+      "supplemental.company_info",
+      "sector_context"
+    ],
+    "thesis": "",
+    "counterpoints": [],
+    "trigger_conditions": [],
+    "invalidation_conditions": [],
+    "priority_score": 0.0,
+    "metadata": {
+      "category": "watch",
+      "parent_action": "watch_only",
+      "thresholds": {
+        "price_jump_threshold_5m": 0.018,
+        "price_drop_threshold_5m": -0.015,
+        "relative_strength_threshold_5m": 0.014
+      }
+    }
+  }
+]

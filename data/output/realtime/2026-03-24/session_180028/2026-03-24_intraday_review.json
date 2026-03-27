@@ -1,0 +1,40 @@
+{
+  "session_summary": {
+    "session_id": "session_180028",
+    "as_of": "2026-03-24",
+    "monitor_plan_path": "data/output/reports/2026-03-24/2026-03-24_monitor_plan.json",
+    "source_kind": "synthetic",
+    "quotes_path": "data/output/realtime/2026-03-24/session_180028/quotes.jsonl",
+    "features_path": "data/output/realtime/2026-03-24/session_180028/features.jsonl",
+    "alerts_path": "data/output/realtime/2026-03-24/session_180028/alerts.jsonl",
+    "alert_count": 0,
+    "iterations_executed": 1,
+    "latest_quote_timestamp": "2026-03-24T18:00:28",
+    "latest_fetched_at": "2026-03-24T18:00:28",
+    "max_freshness_seconds": 0.0,
+    "stale_quote_count": 0
+  },
+  "alert_evaluation": {
+    "session_dir": "data/output/realtime/2026-03-24/session_180028",
+    "alert_count": 0,
+    "evaluated_count": 0,
+    "useful_rate": 0.0,
+    "average_follow_return": 0.0,
+    "evaluations": [],
+    "severity_breakdown": {},
+    "event_breakdown": [],
+    "action_breakdown": [],
+    "diagnostics": {
+      "effective_rules": [],
+      "misleading_rules": [],
+      "unvalidated_rules": [],
+      "policy_feedback": [
+        "当前样本有限，先围绕 `unknown` 的触发条件做手工复核。"
+      ]
+    },
+    "risk_alert_count": 0,
+    "entry_alert_count": 0,
+    "sample_gap_count": 0
+  },
+  "headline": "今天样本不足，需延长回看窗口后再判断告警规则有效性。"
+}

@@ -1,0 +1,47 @@
+{
+  "outcome": "在 2026-03-26 的回放与报告产物中，系统会输出 1 支带历史回测证据的明日最优标的，并在日报、首页和独立报告里一致展示。",
+  "done_means": [
+    "`build_tomorrow_best_pick(load_config(\"config/default.toml\"), as_of=\"2026-03-26\")` 返回 `candidate_rankings`，长度 `>= 3`，且每一行都包含 `code`、`name`、`selection_score`、`trade_count`、`win_rate`、`average_return`、`composite_score`。",
+    "上述 `candidate_rankings` 按 `composite_score` 非升序排列，且 `best_stock[\"code\"] == candidate_rankings[0][\"code\"]`。",
+    "上述 `best_stock[\"backtest\"]` 中 `trade_count >= 3`、`0.0 <= win_rate <= 1.0`，并且 `trades` 非空。",
+    "`render_best_stock_report(payload)` 的结果同时包含 `## 明日最优标的`、`## 候选对比`、`## 历史回测` 三个小节，并包含 `best_stock` 的 `name(code)`。",
+    "`render_daily_report(...)` 与 `render_homepage_overview(...)` 的结果都包含 `## 明日最优标的`，并包含与 `best_stock[\"code\"]` 相同的代码字符串。",
+    "`replay_daily(load_config(\"config/default.toml\"), as_of=\"2026-03-26\")` 返回的 `artifacts` 同时包含 `best_stock_report_markdown` 与 `best_stock_report_json`；其中 JSON 文件里的 `pick.code` 与同次生成的 `data/output/reports/2026-03-26/2026-03-26_homepage_overview.json` 里的 `best_stock.code` 相等。"
+  ],
+  "risks": [
+    "历史 state 只覆盖少量交易日，回测样本可能偏少；验收阈值不应假设几十笔交易。",
+    "盘前全量流程会触发新闻/补数逻辑；验收测试应优先使用 `2026-03-26` 的本地 state 和 `replay_daily`，避免依赖外网。",
+    "在防守市况下，最优标的可能仍然是“观察型”结论；报告文案要把“最高胜率候选”与“立即买入建议”区分清楚。"
+  ],
+  "work_packets": [
+    {
+      "packet_id": "wp1",
+      "title": "候选回测选股器",
+      "objective": "让“明日最优标的”不再直接取当前第一名，而是对当前候选池输出带历史命中率、平均次日收益和综合排序分的候选对比，并据此选出最终标的。",
+      "scope": [
+        "src/ashare_harness_v2/advice_harness/tomorrow_pick.py",
+        "src/ashare_harness_v2/evaluation_harness/backtest.py"
+      ],
+      "test_file": "tests/test_tomorrow_best_pick.py"
+    },
+    {
+      "packet_id": "wp2",
+      "title": "最优标的报告展示",
+      "objective": "把“明日最优标的”的选择结果、候选对比和历史回测摘要写进日报、首页和独立 best stock 报告，确保用户在主要报告里直接看到同一结论。",
+      "scope": [
+        "src/ashare_harness_v2/decision_harness/rendering.py",
+        "src/ashare_harness_v2/skill_harness/trading_reports.py"
+      ],
+      "test_file": "tests/test_best_stock_reporting.py"
+    },
+    {
+      "packet_id": "wp3",
+      "title": "运行产物接线",
+      "objective": "让回放产物自动落盘 best stock 独立报告，并保证回放输出的报告 JSON、首页 JSON 和 artifact 清单中的最优标的一致可追溯。",
+      "scope": [
+        "src/ashare_harness_v2/runtime_harness/orchestrator.py"
+      ],
+      "test_file": "tests/test_best_stock_runtime_outputs.py"
+    }
+  ]
+}

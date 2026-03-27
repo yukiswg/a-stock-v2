@@ -1,0 +1,29 @@
+{
+  "601699": {
+    "latest_date": "2026-03-26",
+    "main_net_flow_1d": -12889489.0,
+    "main_net_ratio_1d": -0.021099999999999997,
+    "main_net_flow_5d": -92648300.0,
+    "main_net_ratio_5d": -0.027360000000000002,
+    "close_price": 14.26,
+    "pct_change_1d": 0.0222
+  },
+  "600089": {
+    "latest_date": "2026-03-26",
+    "main_net_flow_1d": -665726112.0,
+    "main_net_ratio_1d": -0.16940000000000002,
+    "main_net_flow_5d": -1103147376.0,
+    "main_net_ratio_5d": -0.049460000000000004,
+    "close_price": 28.32,
+    "pct_change_1d": -0.026099999999999998
+  },
+  "300750": {
+    "latest_date": "2026-03-26",
+    "main_net_flow_1d": 233267488.0,
+    "main_net_ratio_1d": 0.0216,
+    "main_net_flow_5d": -53395200.0,
+    "main_net_ratio_5d": -0.0043,
+    "close_price": 402.5,
+    "pct_change_1d": 0.0118
+  }
+}

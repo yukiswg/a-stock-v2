@@ -1,0 +1,432 @@
+{
+  "as_of": "2026-03-26",
+  "idea_count": 21,
+  "ideas": [
+    {
+      "code": "600125",
+      "name": "铁龙物流",
+      "decision": "watch",
+      "trade_action": "只观察",
+      "total_score": 51.38,
+      "coverage_score": 85.0,
+      "market_score": 24.32,
+      "summary": "铁龙物流 当前策略为“只观察”。 综合分 51.4，市场分 24.3，覆盖度 85.0。",
+      "thesis": "铁龙物流 的主逻辑是 20日收益 +9.08%，趋势延续性较强；相对强弱 +13.34%，强于基准，但 营收同比 -15.22%，所以当前策略是“只观察”。",
+      "catalysts": [
+        "20日收益 +9.08%，趋势延续性较强。",
+        "相对强弱 +13.34%，强于基准。",
+        "利润同比 +38.57%。"
+      ],
+      "risks": [
+        "营收同比 -15.22%。",
+        "ROE 7.3%。",
+        "近5日主力资金净流出。"
+      ],
+      "trigger_conditions": [
+        "等指数修复后，再看是否放量突破 6.97。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若相对强弱转负或跌破 6.18，降出重点观察名单。"
+      ],
+      "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+      "priority_score": 68.0,
+      "action_plan": {
+        "action": "watch_market_turn",
+        "label": "只观察",
+        "rationale": "铁龙物流 自身质量不差，但当前更大的约束来自市场而不是个股。",
+        "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+        "urgency": "low",
+        "urgency_score": 57.0,
+        "levels": {
+          "breakout_price": 6.97,
+          "support_price": 6.18,
+          "pullback_price": 6.526,
+          "retest_price": 6.97,
+          "stop_price": 5.995,
+          "entry_reward_risk": 0.0,
+          "entry_upside_pct": 0.0,
+          "entry_downside_pct": 13.99,
+          "box_position_pct": 100.0
+        },
+        "trigger_conditions": [
+          "等指数修复后，再看是否放量突破 6.97。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若相对强弱转负或跌破 6.18，降出重点观察名单。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 阻力/突破前沿，重点看价格相对 6.97 / 6.18 的反应。",
+          "20日收益 +9.08%，趋势延续性较强。",
+          "营收同比 -15.22%。"
+        ]
+      },
+      "metadata": {
+        "sector": "公路铁路运输",
+        "sector_proxy": false,
+        "strategy_label": "防守质量",
+        "style_fit_score": 11.0,
+        "selection_score": 68.0,
+        "strategy_style": "defensive_quality"
+      }
+    },
+    {
+      "code": "002015",
+      "name": "协鑫能科",
+      "decision": "watch",
+      "trade_action": "等回踩",
+      "total_score": 45.83,
+      "coverage_score": 85.0,
+      "market_score": 24.32,
+      "summary": "协鑫能科 当前策略为“等回踩”。 综合分 45.8，市场分 24.3，覆盖度 85.0。",
+      "thesis": "协鑫能科 的主逻辑是 20日收益 +63.69%，趋势延续性较强；相对强弱 +67.96%，强于基准，但 ROE 6.3%，所以当前策略是“等回踩”。",
+      "catalysts": [
+        "20日收益 +63.69%，趋势延续性较强。",
+        "相对强弱 +67.96%，强于基准。",
+        "利润同比 +25.78%。"
+      ],
+      "risks": [
+        "ROE 6.3%。",
+        "近5日主力资金净流出。",
+        "主力净占比 -2.13%。"
+      ],
+      "trigger_conditions": [
+        "回踩 20.88 一带且量能不失真时，再考虑出手。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若直接跌破 15.62，取消计划。"
+      ],
+      "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+      "priority_score": 64.0,
+      "action_plan": {
+        "action": "wait_for_pullback",
+        "label": "等回踩",
+        "rationale": "协鑫能科 方向还在，但更优赔率不在当前位置。",
+        "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+        "urgency": "medium",
+        "urgency_score": 60.0,
+        "levels": {
+          "breakout_price": 22.28,
+          "support_price": 15.62,
+          "pullback_price": 20.884,
+          "retest_price": 22.28,
+          "stop_price": 15.151,
+          "entry_reward_risk": 0.36,
+          "entry_upside_pct": 9.32,
+          "entry_downside_pct": 25.66,
+          "box_position_pct": 71.47
+        },
+        "trigger_conditions": [
+          "回踩 20.88 一带且量能不失真时，再考虑出手。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若直接跌破 15.62，取消计划。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 箱体上沿，重点看价格相对 22.28 / 15.62 的反应。",
+          "20日收益 +63.69%，趋势延续性较强。",
+          "ROE 6.3%。"
+        ]
+      },
+      "metadata": {
+        "sector": "电力",
+        "sector_proxy": false,
+        "strategy_label": "防守质量",
+        "style_fit_score": 4.0,
+        "selection_score": 64.0,
+        "strategy_style": "defensive_quality"
+      }
+    },
+    {
+      "code": "002192",
+      "name": "融捷股份",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 24.74,
+      "coverage_score": 85.0,
+      "market_score": 24.32,
+      "summary": "融捷股份 当前策略为“等放量突破”。 综合分 24.7，市场分 24.3，覆盖度 85.0。",
+      "thesis": "融捷股份 的主逻辑是 20日收益 +21.46%，趋势延续性较强；相对强弱 +25.73%，强于基准，但 经营现金流同比 -31.12%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "20日收益 +21.46%，趋势延续性较强。",
+        "相对强弱 +25.73%，强于基准。",
+        "营收同比 +49.71%。"
+      ],
+      "risks": [
+        "经营现金流同比 -31.12%。",
+        "PE 66.0x。",
+        "近期5日涨幅 +35.53%，需等待确认，勿追高。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 70.91，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 52.32，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 63.98,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "融捷股份 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 70.91,
+          "support_price": 52.32,
+          "pullback_price": 60.064,
+          "retest_price": 70.91,
+          "stop_price": 50.75,
+          "entry_reward_risk": 0.0,
+          "entry_upside_pct": 0.0,
+          "entry_downside_pct": 28.43,
+          "box_position_pct": 100.0
+        },
+        "trigger_conditions": [
+          "只有放量突破 70.91，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 52.32，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 阻力/突破前沿，重点看价格相对 70.91 / 52.32 的反应。",
+          "20日收益 +21.46%，趋势延续性较强。",
+          "经营现金流同比 -31.12%。"
+        ]
+      },
+      "metadata": {
+        "sector": "能源金属",
+        "sector_proxy": false,
+        "strategy_label": "防守质量",
+        "style_fit_score": 1.98,
+        "selection_score": 63.98,
+        "strategy_style": "defensive_quality"
+      }
+    },
+    {
+      "code": "002807",
+      "name": "江阴银行",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 30.97,
+      "coverage_score": 85.0,
+      "market_score": 24.32,
+      "summary": "江阴银行 当前策略为“等放量突破”。 综合分 31.0，市场分 24.3，覆盖度 85.0。",
+      "thesis": "江阴银行 的主逻辑是 相对强弱 +5.36%，强于基准；利润同比 +13.38%，但 ROE 6.8%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "相对强弱 +5.36%，强于基准。",
+        "利润同比 +13.38%。",
+        "PE 8.9x。"
+      ],
+      "risks": [
+        "ROE 6.8%。",
+        "经营现金流同比 -188.95%。",
+        "资产负债率 90.7% 偏高。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 4.71，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 4.33，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 62.19,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "江阴银行 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 4.71,
+          "support_price": 4.33,
+          "pullback_price": 4.5,
+          "retest_price": 4.62,
+          "stop_price": 4.2,
+          "entry_reward_risk": 0.21,
+          "entry_upside_pct": 1.95,
+          "entry_downside_pct": 9.09,
+          "box_position_pct": 76.32
+        },
+        "trigger_conditions": [
+          "只有放量突破 4.71，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 4.33，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 阻力/突破前沿，重点看价格相对 4.71 / 4.33 的反应。",
+          "相对强弱 +5.36%，强于基准。",
+          "ROE 6.8%。"
+        ]
+      },
+      "metadata": {
+        "sector": "银行",
+        "sector_proxy": false,
+        "strategy_label": "防守质量",
+        "style_fit_score": 0.19,
+        "selection_score": 62.19,
+        "strategy_style": "defensive_quality"
+      }
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "decision": "watch",
+      "trade_action": "等放量突破",
+      "total_score": 24.12,
+      "coverage_score": 85.0,
+      "market_score": 24.32,
+      "summary": "招商银行 当前策略为“等放量突破”。 综合分 24.1，市场分 24.3，覆盖度 85.0。",
+      "thesis": "招商银行 的主逻辑是 PE 8.8x；5日收益 -2.23%，短期节奏中性偏稳，但 经营现金流同比 -38.68%，所以当前策略是“等放量突破”。",
+      "catalysts": [
+        "PE 8.8x。",
+        "5日收益 -2.23%，短期节奏中性偏稳。",
+        "距20日高点 -2.72%，接近突破位，但注意追高风险。"
+      ],
+      "risks": [
+        "经营现金流同比 -38.68%。",
+        "资产负债率 89.9% 偏高。",
+        "近5日主力资金净流出。"
+      ],
+      "trigger_conditions": [
+        "只有放量突破 40.12，才升级为试仓。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若回落跌破 38.68，取消突破预案。"
+      ],
+      "position_guidance": "先观察，不提前追价。",
+      "priority_score": 59.84,
+      "action_plan": {
+        "action": "wait_for_breakout",
+        "label": "等放量突破",
+        "rationale": "招商银行 接近关键位，但还没给出值得执行的确认。",
+        "position_guidance": "先观察，不提前追价。",
+        "urgency": "medium",
+        "urgency_score": 62.0,
+        "levels": {
+          "breakout_price": 40.12,
+          "support_price": 38.68,
+          "pullback_price": 39.296,
+          "retest_price": 39.77,
+          "stop_price": 37.52,
+          "entry_reward_risk": 0.72,
+          "entry_upside_pct": 2.79,
+          "entry_downside_pct": 3.87,
+          "box_position_pct": 24.31
+        },
+        "trigger_conditions": [
+          "只有放量突破 40.12，才升级为试仓。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若回落跌破 38.68，取消突破预案。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "当前更像 支撑区，重点看价格相对 40.12 / 38.68 的反应。",
+          "PE 8.8x。",
+          "经营现金流同比 -38.68%。"
+        ]
+      },
+      "metadata": {
+        "sector": "银行",
+        "sector_proxy": false,
+        "strategy_label": "防守质量",
+        "style_fit_score": -2.16,
+        "selection_score": 59.84,
+        "strategy_style": "defensive_quality"
+      }
+    }
+  ],
+  "market_view": {
+    "object_type": "market",
+    "object_id": "000300",
+    "object_name": "偏空市场",
+    "at": "2026-03-26",
+    "action": "risk_off",
+    "score": 24.32,
+    "probability": 0.2432,
+    "reason": [
+      "沪深300 5日收益 -2.67%，20日收益 -4.27%。",
+      "候选池平均趋势分 33.9。",
+      "强势候选 2 个，明显走弱对象 8 个。",
+      "新闻偏移 +0.00，公告偏移 +0.00。"
+    ],
+    "risk": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "sources": [
+      "benchmark_daily_bars",
+      "official_news",
+      "cninfo_announcements"
+    ],
+    "thesis": "防守期下，当前更适合执行“新开仓从严控制”而不是平均分配火力。",
+    "counterpoints": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "trigger_conditions": [
+      "新开仓从严控制",
+      "优先处理弱持仓和破位风险"
+    ],
+    "invalidation_conditions": [
+      "若指数与广度快速修复，需上调风险预算。",
+      "若强势股同步失去相对强度，继续收缩进攻动作。"
+    ],
+    "priority_score": 92.16,
+    "metadata": {
+      "label": "偏空",
+      "regime": "防守期",
+      "policy": [
+        "新开仓从严控制",
+        "优先处理弱持仓和破位风险",
+        "只保留少量观察名单"
+      ],
+      "benchmark_code": "000300",
+      "benchmark_ret_5d": -0.02672416939117661,
+      "benchmark_ret_20d": -0.042663575378651175,
+      "breadth_score": 33.94642857142857,
+      "leadership_count": 2,
+      "breakdown_count": 8
+    }
+  },
+  "artifacts": {
+    "workbook": "data/output/spreadsheet/2026-03-26/2026-03-26_portfolio_candidates.xlsx"
+  }
+}

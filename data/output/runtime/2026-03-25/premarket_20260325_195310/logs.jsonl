@@ -1,0 +1,24 @@
+{"ts": "2026-03-25T11:53:10.396353Z", "event": "premarket_start", "as_of": "2026-03-25"}
+{"ts": "2026-03-25T11:53:10.397325Z", "event": "ensure_sector_metrics_start"}
+{"ts": "2026-03-25T11:53:10.399283Z", "event": "ensure_sector_metrics_done", "sector_count": 90}
+{"ts": "2026-03-25T11:53:11.010346Z", "event": "dynamic_universe_built", "leader_count": 5, "top_sector_count": 5, "failure_count": 0}
+{"ts": "2026-03-25T11:53:11.010792Z", "event": "ensure_supplemental_payload_start", "code_count": 11}
+{"ts": "2026-03-25T11:53:11.013607Z", "event": "ensure_supplemental_payload_done", "fundamentals": 37, "sector_map": 36}
+{"ts": "2026-03-25T11:53:11.013772Z", "event": "fetch_daily_series", "code": "601699", "name": "潞安环能"}
+{"ts": "2026-03-25T11:53:11.019483Z", "event": "fetch_daily_series", "code": "513310", "name": "中韩芯片"}
+{"ts": "2026-03-25T11:53:11.026627Z", "event": "fetch_daily_series", "code": "588000", "name": "科创50"}
+{"ts": "2026-03-25T11:53:11.031077Z", "event": "fetch_daily_series", "code": "510300", "name": "沪深300ETF"}
+{"ts": "2026-03-25T11:53:11.038110Z", "event": "fetch_daily_series", "code": "000300", "name": "沪深300"}
+{"ts": "2026-03-25T11:53:11.042262Z", "event": "fetch_daily_series", "code": "000001", "name": "上证指数"}
+{"ts": "2026-03-25T11:53:11.045725Z", "event": "fetch_daily_series", "code": "399006", "name": "创业板指"}
+{"ts": "2026-03-25T11:53:11.049161Z", "event": "fetch_daily_series", "code": "600089", "name": "特变电工"}
+{"ts": "2026-03-25T11:53:11.052364Z", "event": "fetch_daily_series", "code": "300750", "name": "宁德时代"}
+{"ts": "2026-03-25T11:53:11.055391Z", "event": "fetch_daily_series", "code": "600036", "name": "招商银行"}
+{"ts": "2026-03-25T11:53:11.058441Z", "event": "fetch_daily_series", "code": "601127", "name": "赛力斯"}
+{"ts": "2026-03-25T11:53:11.061580Z", "event": "fetch_daily_series", "code": "000333", "name": "美的集团"}
+{"ts": "2026-03-25T11:53:11.064114Z", "event": "fetch_daily_series", "code": "000858", "name": "五粮液"}
+{"ts": "2026-03-25T11:53:11.066756Z", "event": "fetch_daily_series", "code": "600163", "name": "中闽能源"}
+{"ts": "2026-03-25T11:53:11.069206Z", "event": "fetch_daily_series", "code": "301419", "name": "阿莱德"}
+{"ts": "2026-03-25T11:53:11.071650Z", "event": "fetch_daily_series", "code": "600988", "name": "赤峰黄金"}
+{"ts": "2026-03-25T11:53:11.074083Z", "event": "fetch_daily_series", "code": "000978", "name": "桂林旅游"}
+{"ts": "2026-03-25T11:53:11.076609Z", "event": "fetch_daily_series", "code": "838924", "name": "广脉科技"}

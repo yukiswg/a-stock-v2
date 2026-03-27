@@ -1,0 +1,113 @@
+{
+  "selection_mode": "dynamic_sector_leaders",
+  "top_sectors": [
+    {
+      "sector": "电力",
+      "score": 86.77,
+      "pct_change": 0.0537,
+      "net_inflow": 60.35,
+      "leader": "迪森股份",
+      "leader_pct_change": 0.2,
+      "rank_score": 97.31,
+      "rank": 1
+    },
+    {
+      "sector": "医疗服务",
+      "score": 83.23,
+      "pct_change": 0.0475,
+      "net_inflow": 14.79,
+      "leader": "百奥赛图",
+      "leader_pct_change": 0.1081,
+      "rank_score": 90.62,
+      "rank": 2
+    },
+    {
+      "sector": "工业金属",
+      "score": 82.62,
+      "pct_change": 0.044500000000000005,
+      "net_inflow": 19.46,
+      "leader": "众源新材",
+      "leader_pct_change": 0.10039999999999999,
+      "rank_score": 89.82,
+      "rank": 3
+    },
+    {
+      "sector": "建筑装饰",
+      "score": 82.7,
+      "pct_change": 0.0436,
+      "net_inflow": 19.56,
+      "leader": "尤安设计",
+      "leader_pct_change": 0.1118,
+      "rank_score": 89.78,
+      "rank": 4
+    },
+    {
+      "sector": "港口航运",
+      "score": 82.72,
+      "pct_change": 0.0412,
+      "net_inflow": 16.98,
+      "leader": "招商南油",
+      "leader_pct_change": 0.1002,
+      "rank_score": 89.34,
+      "rank": 5
+    }
+  ],
+  "leaders": [
+    {
+      "code": "300335",
+      "name": "迪森股份",
+      "sector": "电力",
+      "sector_score": 86.77,
+      "sector_pct_change": 0.0537,
+      "sector_net_inflow": 60.35,
+      "leader_name_raw": "迪森股份",
+      "rank": 1,
+      "rank_score": 97.31
+    },
+    {
+      "code": "688796",
+      "name": "百奥赛图",
+      "sector": "医疗服务",
+      "sector_score": 83.23,
+      "sector_pct_change": 0.0475,
+      "sector_net_inflow": 14.79,
+      "leader_name_raw": "百奥赛图",
+      "rank": 2,
+      "rank_score": 90.62
+    },
+    {
+      "code": "603527",
+      "name": "众源新材",
+      "sector": "工业金属",
+      "sector_score": 82.62,
+      "sector_pct_change": 0.044500000000000005,
+      "sector_net_inflow": 19.46,
+      "leader_name_raw": "众源新材",
+      "rank": 3,
+      "rank_score": 89.82
+    },
+    {
+      "code": "300983",
+      "name": "尤安设计",
+      "sector": "建筑装饰",
+      "sector_score": 82.7,
+      "sector_pct_change": 0.0436,
+      "sector_net_inflow": 19.56,
+      "leader_name_raw": "尤安设计",
+      "rank": 4,
+      "rank_score": 89.78
+    },
+    {
+      "code": "601975",
+      "name": "招商南油",
+      "sector": "港口航运",
+      "sector_score": 82.72,
+      "sector_pct_change": 0.0412,
+      "sector_net_inflow": 16.98,
+      "leader_name_raw": "招商南油",
+      "rank": 5,
+      "rank_score": 89.34
+    }
+  ],
+  "resolver_failures": []
+}

@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "changed_files",
+    "test_results",
+    "evidence"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "blocked",
+        "failed"
+      ],
+      "description": "completed=任务完成且测试通过；blocked=有障碍；failed=执行失败。"
+    },
+    "changed_files": {
+      "type": "array",
+      "description": "实际修改的文件列表（相对于项目根目录）。",
+      "items": {
+        "type": "string"
+      }
+    },
+    "test_results": {
+      "type": "array",
+      "description": "每条 acceptance test 的原始运行结果。Leader 用这个判定 PASS/FAIL。",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "passed",
+          "output"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "output": {
+            "type": "string",
+            "description": "测试的标准输出或错误信息（截取最后 500 字符）。"
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "description": "阻塞或失败时提供诊断信息。正常时为空列表。",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

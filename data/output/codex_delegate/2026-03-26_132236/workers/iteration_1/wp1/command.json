@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/Users/fqyuki/.vscode/extensions/openai.chatgpt-26.323.20928-darwin-arm64/bin/macos-aarch64/codex",
+    "exec",
+    "--skip-git-repo-check",
+    "-C",
+    "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2",
+    "--sandbox",
+    "workspace-write",
+    "--color",
+    "never",
+    "--output-schema",
+    "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_132236/schemas/worker.schema.json",
+    "--output-last-message",
+    "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_132236/workers/iteration_1/wp1/response.json",
+    "你是这个交付循环的 Worker（执行者），负责完成分配给你的任务包。\n\nProject root: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2\nRun directory: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_132236\nIteration: 1\n\n## Leader 制定的大目标\n{\n  \"outcome\": \"用户可以直接生成一份含唯一“明日最优标的”、同口径历史回测摘要和可落盘报告文件的结果。\",\n  \"done_means\": [\n    \"`build_tomorrow_best_pick(load_config(ROOT / \\\"config/default.toml\\\"), as_of=\\\"2026-03-26\\\")` 返回的 `pick.code` 等于用同一 `strategy_style` 调用 `discover_top_ideas(..., limit=1)` 得到的 `ideas[0].code`，且 `pick.name` 非空。\",\n    \"同一 payload 的 `backtest.trade_count >= 20`，`0.0 <= backtest.win_rate <= 1.0`，且 `backtest.trades[:10]` 的每条都包含 `as_of`、`code`、`name`、`selection_score`、`next_day_return`。\",\n    \"执行 `PYTHONPATH=src python3 -m ashare_harness_v2.cli best-stock-report --as-of 2026-03-26` 的退出码为 0，输出可解析为 JSON，且包含 `pick`、`backtest`、`artifacts.markdown`、`artifacts.json`。\",\n    \"命令返回的 JSON 报告文件中存在单个 `pick` 对象且不存在 `picks` 数组；Markdown 报告包含 `pick.name(pick.code)`、`历史回测` 和 `胜率`。\"\n  ],\n  \"risks\": [\n    \"`2026-03-26` 的市场状态当前偏弱，系统可能给出“相对最优但仍需等待触发”的股票，不能为了满足任务把结论硬改成 `buy`。\",\n    \"历史回测必须与“明日最优标的”的排序口径一致，不能继续沿用只按 `trend_score` 选股的老回测，否则报告里的胜率证据会失真。\",\n    \"验收测试应只依赖仓库内已有缓存与本地数据，不要引入实时补数、新闻抓取或网络请求，否则结果不稳定。\"\n  ]\n}\n\n## Leader 分配给你的包\n{\n  \"packet_id\": \"wp1\",\n  \"title\": \"唯一选股与同口径回测\",\n  \"objective\": \"补出一个结构化的“明日最优标的”结果：基于现有候选排序挑出唯一股票，并给出与该排序口径一致的历史次日回测摘要，保证报告里的选股和回测证据说的是同一套逻辑。\",\n  \"scope\": [\n    \"src/ashare_harness_v2/advice_harness/__init__.py\",\n    \"src/ashare_harness_v2/advice_harness/tomorrow_pick.py\",\n    \"src/ashare_harness_v2/evaluation_harness/backtest.py\"\n  ],\n  \"test_file\": \"tests/test_best_stock_pick.py\"\n}\n\n## 你要做的事（按顺序执行）\n\n### 第一步：执行 objective\n- 严格在 scope 范围内改文件\n- 不要动其他 Worker 负责的文件\n- 不要做 scope 以外的改动\n\n### 第二步：运行 acceptance test\n- test_file: tests/test_best_stock_pick.py\n- 运行命令（选合适的）：\n    PYTHONPATH=src python3 -m pytest tests/test_best_stock_pick.py -v\n    PYTHONPATH=src python3 -m unittest discover -s tests -v\n- 把每条测试的 passed/output 填入 test_results\n\n### 第三步：返回原始结果\n- status: completed（全部通过）/ blocked（有障碍）/ failed（执行失败）\n- 不要写主观总结，只列 changed_files + test_results + evidence\n- 返回纯 JSON，符合 schema\n\n## 约束\n- 不要加 markdown fence\n- 只动 scope 里的文件\n- test_results 里每个条目：{\"name\": \"...\", \"passed\": bool, \"output\": \"...\"}\n- output 截取测试运行输出最后 500 字符即可"
+  ],
+  "phase": "worker",
+  "name": "wp1"
+}

@@ -1,0 +1,354 @@
+{
+  "as_of": "2026-03-23",
+  "question": {
+    "raw_query": "宁德时代现在能买吗",
+    "normalized_query": "宁德时代现在能买吗",
+    "question_type": "should_buy",
+    "horizon": "swing",
+    "risk_profile": "balanced",
+    "wants_discovery": false,
+    "symbol_hint": null,
+    "stock_name_hint": "宁德时代",
+    "has_position_hint": null
+  },
+  "security": {
+    "code": "300750",
+    "name": "宁德时代",
+    "category": "watch",
+    "sector": "电池"
+  },
+  "plan": {
+    "use_market": true,
+    "use_sector": true,
+    "use_stock": true,
+    "use_timing": true,
+    "use_discovery": true,
+    "need_announcements": true,
+    "need_supplemental": true,
+    "need_sector_proxy": false
+  },
+  "decision": "watch",
+  "confidence": 0.3915,
+  "summary": "宁德时代 更适合先观察，不建议立刻追买。综合分 54.8，市场分 18.5，覆盖度 98.0。",
+  "scorecard": {
+    "market_score": 18.53,
+    "sector_score": 76.75,
+    "stock_score": 100.0,
+    "timing_score": 52.34,
+    "risk_penalty": 12.0,
+    "missing_data_penalty": 0.0,
+    "coverage_score": 98.0,
+    "total_score": 54.81
+  },
+  "positive_factors": [
+    "20日收益 +12.00%，趋势延续性较强。",
+    "相对强弱 +17.12%，强于基准。",
+    "营收同比 +17.04%。",
+    "利润同比 +42.28%。",
+    "ROE 24.9%。"
+  ],
+  "negative_factors": [
+    "近5日主力资金净流出。",
+    "主力净占比 -2.24%。",
+    "量比 0.72x，量能不足。",
+    "市场环境偏空，新开仓需要明显折价。"
+  ],
+  "missing_information": [],
+  "next_checks": [
+    "先等指数和市场广度修复，再看个股确认。",
+    "关注下一次放量是否能站稳关键价位。"
+  ],
+  "evidence_used": [
+    {
+      "category": "market",
+      "signal": "negative",
+      "strength": 18.53,
+      "summary": "沪深300 5日收益 -5.35%，20日收益 -5.12%。",
+      "source": "decision_bundle.market_view",
+      "verified": true,
+      "freshness": "2026-03-23",
+      "metadata": {
+        "action": "risk_off",
+        "label": "偏空"
+      }
+    },
+    {
+      "category": "technical",
+      "signal": "positive",
+      "strength": 100.0,
+      "summary": "趋势分 100.0，20日相对强弱 +17.12%。",
+      "source": "daily_features",
+      "verified": true,
+      "freshness": "2026-03-23",
+      "metadata": {
+        "code": "300750"
+      }
+    },
+    {
+      "category": "timing",
+      "signal": "negative",
+      "strength": 48.48018875266919,
+      "summary": "距20日高点 -0.92%，5日量比 0.72x。",
+      "source": "daily_features",
+      "verified": true,
+      "freshness": "2026-03-23",
+      "metadata": {
+        "code": "300750"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-10 公告：2026年3月9日投资者关系活动记录表",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-10",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-10/1225002708.PDF"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-10 公告：关于向金融机构申请2026年度综合授信额度的公告",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-10",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-10/1225002248.PDF"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-10 公告：《2025年度董事会工作报告》",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-10",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-10/1225002247.PDF"
+      }
+    },
+    {
+      "category": "fundamental",
+      "signal": "positive",
+      "strength": 65.0,
+      "summary": "营收同比 +17.04%，利润同比 +42.28%，ROE 24.9%。",
+      "source": "supplemental.fundamentals",
+      "verified": true,
+      "freshness": "2026-03-23",
+      "metadata": {
+        "keys": [
+          "bps",
+          "debt_to_asset",
+          "eps",
+          "gross_margin",
+          "net_margin",
+          "notice_date",
+          "operating_cashflow_margin",
+          "operating_cashflow_yoy",
+          "profit_growth_yoy",
+          "report_date",
+          "revenue_growth_yoy",
+          "roe",
+          "roic"
+        ]
+      }
+    },
+    {
+      "category": "valuation",
+      "signal": "neutral",
+      "strength": 55.0,
+      "summary": "PE 25.4x，PB 5.54x，相对行业 0.89x。",
+      "source": "supplemental.valuation",
+      "verified": true,
+      "freshness": "2026-03-23",
+      "metadata": {
+        "keys": [
+          "industry_company_count",
+          "industry_level",
+          "industry_name",
+          "industry_pe",
+          "industry_pe_median",
+          "pb",
+          "pe_ttm",
+          "pe_vs_industry"
+        ]
+      }
+    },
+    {
+      "category": "capital_flow",
+      "signal": "neutral",
+      "strength": 55.0,
+      "summary": "5日主力净流入 -10.53 亿，5日主力净占比 -2.24%。",
+      "source": "supplemental.capital_flow",
+      "verified": true,
+      "freshness": "2026-03-23",
+      "metadata": {
+        "keys": [
+          "close_price",
+          "latest_date",
+          "main_net_flow_1d",
+          "main_net_flow_5d",
+          "main_net_ratio_1d",
+          "main_net_ratio_5d",
+          "pct_change_1d"
+        ]
+      }
+    },
+    {
+      "category": "company",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "所属行业 电气机械和器材制造业，主营 新能源汽车动力电池系统、储能系统的研发、生产和销售，以及锂电池回收利用业务。。",
+      "source": "supplemental.company_info",
+      "verified": true,
+      "freshness": "2026-03-23",
+      "metadata": {
+        "keys": [
+          "business",
+          "business_outline",
+          "business_scope",
+          "code",
+          "company_name",
+          "industry_changed_at",
+          "industry_large",
+          "industry_medium",
+          "industry_name",
+          "industry_root",
+          "industry_small",
+          "industry_standard",
+          "listing_date",
+          "market",
+          "name",
+          "product_types",
+          "products",
+          "sector_match",
+          "sector_match_source",
+          "selected_indexes",
+          "website"
+        ]
+      }
+    }
+  ],
+  "better_candidates": [
+    {
+      "code": "002565",
+      "name": "顺灏股份",
+      "decision": "watch",
+      "total_score": 58.05,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "顺灏股份 更适合先观察，不建议立刻追买。综合分 58.0，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "相对强弱 +13.01%，强于基准。",
+        "利润同比 +20.29%。",
+        "毛利率 27.0%。"
+      ],
+      "risks": [
+        "营收同比 -20.57%。",
+        "ROE 3.6%。",
+        "经营现金流同比 -33.79%。"
+      ],
+      "metadata": {
+        "sector": "包装印刷",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "601985",
+      "name": "中国核电",
+      "decision": "watch",
+      "total_score": 57.56,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "中国核电 更适合先观察，不建议立刻追买。综合分 57.6，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "相对强弱 +12.75%，强于基准。",
+        "毛利率 44.0%。",
+        "距20日高点 -0.76%，接近突破位。"
+      ],
+      "risks": [
+        "利润同比 -10.42%。",
+        "ROE 7.1%。",
+        "经营现金流同比 -15.40%。"
+      ],
+      "metadata": {
+        "sector": "电力",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "002594",
+      "name": "比亚迪",
+      "decision": "watch",
+      "total_score": 56.7,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "比亚迪 更适合先观察，不建议立刻追买。综合分 56.7，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "20日收益 +20.95%，趋势延续性较强。",
+        "相对强弱 +26.07%，强于基准。",
+        "营收同比 +12.75%。"
+      ],
+      "risks": [
+        "经营现金流同比 -76.84%。",
+        "资产负债率 71.4% 偏高。",
+        "市场环境偏空，新开仓需要明显折价。"
+      ],
+      "metadata": {
+        "sector": "汽车整车",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "603026",
+      "name": "石大胜华",
+      "decision": "watch",
+      "total_score": 55.85,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "石大胜华 更适合先观察，不建议立刻追买。综合分 55.9，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "20日收益 +16.73%，趋势延续性较强。",
+        "相对强弱 +21.85%，强于基准。",
+        "营收同比 +11.41%。"
+      ],
+      "risks": [
+        "利润同比 -652.16%。",
+        "ROE -1.5%。",
+        "市场环境偏空，新开仓需要明显折价。"
+      ],
+      "metadata": {
+        "sector": "电池",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "000938",
+      "name": "紫光股份",
+      "decision": "watch",
+      "total_score": 55.76,
+      "coverage_score": 85.0,
+      "market_score": 18.53,
+      "summary": "紫光股份 更适合先观察，不建议立刻追买。综合分 55.8，市场分 18.5，覆盖度 85.0。",
+      "catalysts": [
+        "相对强弱 +11.65%，强于基准。",
+        "营收同比 +31.41%。",
+        "经营现金流同比 +111.35%。"
+      ],
+      "risks": [
+        "利润同比 -11.24%。",
+        "资产负债率 81.6% 偏高。",
+        "市场环境偏空，新开仓需要明显折价。"
+      ],
+      "metadata": {
+        "sector": "IT服务",
+        "sector_proxy": false
+      }
+    }
+  ]
+}

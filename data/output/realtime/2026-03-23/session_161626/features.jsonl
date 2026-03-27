@@ -1,0 +1,20 @@
+{"code": "000001", "name": "上证指数", "timestamp": "2026-03-23T16:14:15", "last_price": 3813.28, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 131.0}
+{"code": "000300", "name": "沪深300", "timestamp": "2026-03-23T16:14:03", "last_price": 4418.0, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 143.0}
+{"code": "000858", "name": "五 粮 液", "timestamp": "2026-03-23T16:14:06", "last_price": 100.23, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 140.0}
+{"code": "300750", "name": "宁德时代", "timestamp": "2026-03-23T16:14:21", "last_price": 401.99, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 125.0}
+{"code": "399006", "name": "创业板指", "timestamp": "2026-03-23T16:14:21", "last_price": 3235.22, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 125.0}
+{"code": "513310", "name": "中韩半导体ETF华泰柏瑞", "timestamp": "2026-03-23T16:14:54", "last_price": 3.663, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 92.0}
+{"code": "588000", "name": "科创50ETF华夏", "timestamp": "2026-03-23T16:14:57", "last_price": 1.329, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 89.0}
+{"code": "600036", "name": "招商银行", "timestamp": "2026-03-23T16:14:17", "last_price": 38.68, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 129.0}
+{"code": "600089", "name": "特变电工", "timestamp": "2026-03-23T16:14:01", "last_price": 28.15, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 145.0}
+{"code": "601699", "name": "潞安环能", "timestamp": "2026-03-23T16:14:21", "last_price": 14.92, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 125.0}
+{"code": "000001", "name": "上证指数", "timestamp": "2026-03-23T16:14:15", "last_price": 3813.28, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 132.0}
+{"code": "000300", "name": "沪深300", "timestamp": "2026-03-23T16:14:03", "last_price": 4418.0, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 144.0}
+{"code": "000858", "name": "五 粮 液", "timestamp": "2026-03-23T16:14:06", "last_price": 100.23, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 141.0}
+{"code": "300750", "name": "宁德时代", "timestamp": "2026-03-23T16:14:21", "last_price": 401.99, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 126.0}
+{"code": "399006", "name": "创业板指", "timestamp": "2026-03-23T16:14:21", "last_price": 3235.22, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 126.0}
+{"code": "513310", "name": "中韩半导体ETF华泰柏瑞", "timestamp": "2026-03-23T16:14:54", "last_price": 3.663, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 93.0}
+{"code": "588000", "name": "科创50ETF华夏", "timestamp": "2026-03-23T16:14:57", "last_price": 1.329, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 90.0}
+{"code": "600036", "name": "招商银行", "timestamp": "2026-03-23T16:14:17", "last_price": 38.68, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 130.0}
+{"code": "600089", "name": "特变电工", "timestamp": "2026-03-23T16:14:01", "last_price": 28.15, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 146.0}
+{"code": "601699", "name": "潞安环能", "timestamp": "2026-03-23T16:14:21", "last_price": 14.92, "return_1step": 0.0, "volume_ratio": 1.0, "relative_strength": 0.0, "freshness_seconds": 126.0}

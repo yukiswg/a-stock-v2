@@ -1,0 +1,30 @@
+{
+  "outcome": "新增的 `_delegate_smoke.py` 和 `test_delegate_smoke.py` 已就绪，且独立运行的 unittest 能稳定验证 `smoke_message()` 返回 `hello from codex delegation`。",
+  "done_means": [
+    "可以通过 `from ashare_harness_v2._delegate_smoke import smoke_message` 成功导入该函数。",
+    "`smoke_message()` 的返回值严格等于 `hello from codex delegation`。",
+    "在项目根目录运行 `python tests/test_delegate_smoke.py` 时，进程退出码为 0 且测试全部通过。"
+  ],
+  "risks": [
+    "项目是 `src` 布局，standalone unittest 需要确保从测试文件可直接定位到 `src` 下的包。",
+    "不要修改现有的 `codex_delegate.py` 或其他模块，避免把这个 smoke 任务扩散到无关代码。"
+  ],
+  "work_packets": [
+    {
+      "packet_id": "wp1",
+      "title": "Smoke 模块与独立测试",
+      "objective": "在指定位置新增一个最小 smoke 模块，并配套一个可以单独运行的 unittest，确保它只验证一个明确返回值，且不依赖其他业务逻辑。",
+      "scope": [
+        "src/ashare_harness_v2/_delegate_smoke.py",
+        "tests/test_delegate_smoke.py"
+      ],
+      "test_file": "tests/test_delegate_smoke.py",
+      "acceptance_checks": [
+        "`ashare_harness_v2._delegate_smoke` 可以被导入，且模块内存在 `smoke_message`。",
+        "`smoke_message()` 返回的字符串与 `hello from codex delegation` 完全一致。",
+        "`tests/test_delegate_smoke.py` 可以在仓库根目录单独运行并通过，不依赖 pytest 自动发现。",
+        "测试文件本身使用 `unittest` 进行断言，而不是只做脚本式打印。"
+      ]
+    }
+  ]
+}

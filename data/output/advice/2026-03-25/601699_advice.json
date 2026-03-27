@@ -1,0 +1,385 @@
+{
+  "as_of": "2026-03-25",
+  "question": {
+    "raw_query": "潞安环能适合加仓吗",
+    "normalized_query": "潞安环能适合加仓吗",
+    "question_type": "add_position",
+    "horizon": "swing",
+    "risk_profile": "balanced",
+    "wants_discovery": false,
+    "strategy_style": "general",
+    "symbol_hint": null,
+    "stock_name_hint": "潞安环能",
+    "has_position_hint": true
+  },
+  "security": {
+    "code": "601699",
+    "name": "潞安环能",
+    "category": "holding",
+    "sector": "能源金属"
+  },
+  "plan": {
+    "use_market": true,
+    "use_sector": true,
+    "use_stock": true,
+    "use_timing": true,
+    "use_discovery": false,
+    "need_announcements": true,
+    "need_supplemental": true,
+    "need_sector_proxy": false
+  },
+  "decision": "trim",
+  "confidence": 0.5697,
+  "summary": "潞安环能 当前策略为“破位减仓”。 综合分 8.8，市场分 37.7，覆盖度 98.0。",
+  "thesis": "潞安环能 的主逻辑是 毛利率 34.1%；近5日主力资金净流入，但 营收同比 -20.82%，所以当前策略是“破位减仓”。",
+  "scorecard": {
+    "market_score": 37.68,
+    "sector_score": 50.78,
+    "stock_score": 0.0,
+    "timing_score": 36.83,
+    "risk_penalty": 18.0,
+    "missing_data_penalty": 0.0,
+    "coverage_score": 98.0,
+    "total_score": 8.85
+  },
+  "positive_factors": [
+    "毛利率 34.1%。",
+    "近5日主力资金净流入。"
+  ],
+  "negative_factors": [
+    "营收同比 -20.82%。",
+    "利润同比 -44.45%。",
+    "ROE 3.3%。",
+    "经营现金流同比 -28.26%。",
+    "量比 0.61x，量能不足。",
+    "市场环境偏谨慎，买入阈值应提高。"
+  ],
+  "counter_evidence": [
+    "营收同比 -20.82%。",
+    "利润同比 -44.45%。",
+    "ROE 3.3%。",
+    "经营现金流同比 -28.26%。",
+    "量比 0.61x，量能不足。",
+    "市场环境偏谨慎，买入阈值应提高。"
+  ],
+  "missing_information": [],
+  "next_checks": [
+    "先等指数和市场广度修复，再看个股确认。",
+    "关注下一次放量是否能站稳关键价位。",
+    "先观察是否在关键支撑或均线附近缩量企稳，再看修复力度。",
+    "单票仓位已经不低，后续只在趋势确认后再考虑微调。",
+    "同主题暴露偏高，先确认其他相关持仓是否需要同步降权。"
+  ],
+  "trigger_conditions": [
+    "若跌破 13.87 且相对强弱继续走弱，立即执行减仓。",
+    "先等指数和市场广度修复，再看个股确认。"
+  ],
+  "invalidation_conditions": [
+    "若 13.87 一带止跌并重新收回 14.55，先降级为观察，不急着继续减仓。"
+  ],
+  "action_plan": {
+    "action": "cut_on_breakdown",
+    "label": "破位减仓",
+    "rationale": "潞安环能 已经进入弱趋势防守阶段，先处理风险，再谈加仓。 当前持仓成本未知，本次只按结构与风险预算判断。",
+    "position_guidance": "先减 1/3 到 1/2，保留观察仓。",
+    "urgency": "high",
+    "urgency_score": 97.0,
+    "levels": {
+      "breakout_price": 15.4,
+      "support_price": 13.87,
+      "pullback_price": 14.55,
+      "retest_price": 14.92,
+      "stop_price": 13.454,
+      "entry_reward_risk": 3.68,
+      "entry_upside_pct": 11.03,
+      "entry_downside_pct": 3.0,
+      "box_position_pct": 0.0
+    },
+    "trigger_conditions": [
+      "若跌破 13.87 且相对强弱继续走弱，立即执行减仓。",
+      "先等指数和市场广度修复，再看个股确认。"
+    ],
+    "invalidation_conditions": [
+      "若 13.87 一带止跌并重新收回 14.55，先降级为观察，不急着继续减仓。"
+    ],
+    "do_not": [
+      "持仓成本未知时，不把摊低成本当成默认动作。",
+      "不要在没有触发条件前提前追单。",
+      "不要把单票仓位一次性打满。"
+    ],
+    "monitoring_focus": [
+      "当前更像 支撑区，重点看价格相对 15.40 / 13.87 的反应。",
+      "毛利率 34.1%。",
+      "营收同比 -20.82%。"
+    ]
+  },
+  "strategy_profile": {
+    "style": "general",
+    "label": "综合决策",
+    "policy_summary": "综合决策视角下，当前建议执行“破位减仓”，同时绑定触发与失效条件。",
+    "regime_overlay": "当前市场偏弱，执行上先看风控与触发条件。",
+    "checklist": [
+      "先看市场状态，再看个股质量与时点。",
+      "动作必须和触发条件绑定，不凭主观感觉执行。",
+      "失效条件触发后，优先回到风险动作。"
+    ],
+    "do_not": [
+      "不要忽略仓位与市场环境约束。",
+      "不要脱离触发条件提前交易。"
+    ],
+    "preferred_actions": [
+      "破位减仓"
+    ]
+  },
+  "position_guidance": "先减 1/3 到 1/2，保留观察仓。",
+  "evidence_used": [
+    {
+      "category": "market",
+      "signal": "negative",
+      "strength": 37.68,
+      "summary": "沪深300 5日收益 -2.67%，20日收益 -4.27%。",
+      "source": "decision_bundle.market_view",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "action": "risk_off",
+        "label": "偏空"
+      }
+    },
+    {
+      "category": "technical",
+      "signal": "negative",
+      "strength": 13.14,
+      "summary": "趋势分 13.1，20日相对强弱 +0.79%。",
+      "source": "daily_features",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "code": "601699"
+      }
+    },
+    {
+      "category": "timing",
+      "signal": "negative",
+      "strength": 28.391549152397175,
+      "summary": "距20日高点 -9.94%，5日量比 0.61x。",
+      "source": "daily_features",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "code": "601699"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-24 公告：潞安环能关于参与探矿权竞买及其结果的公告",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-24/1225024503.PDF"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "negative",
+      "strength": 30.0,
+      "summary": "2026-03-21 公告：潞安环能关于公司董事辞职的公告",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-21",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-21/1225021339.PDF"
+      }
+    },
+    {
+      "category": "announcement",
+      "signal": "neutral",
+      "strength": 50.0,
+      "summary": "2026-03-14 公告：潞安环能2026年2月主要运营数据公告",
+      "source": "cninfo",
+      "verified": true,
+      "freshness": "2026-03-14",
+      "metadata": {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-14/1225007835.PDF"
+      }
+    },
+    {
+      "category": "pdf_insight",
+      "signal": "negative",
+      "strength": 32.0,
+      "summary": "2026-03-24 PDF 深读：潞安环能关于参与探矿权竞买及其结果的公告。提炼结论：关键事项推进存在不确定性，执行上应降低仓位和胜率预期。",
+      "source": "pdf_skill",
+      "verified": true,
+      "freshness": "2026-03-24",
+      "metadata": {
+        "title": "潞安环能关于参与探矿权竞买及其结果的公告",
+        "pdf_path": "data/output/pdf/2026-03-25/601699/d17bf9f3c96d.pdf",
+        "text_path": "data/output/pdf/2026-03-25/601699/d17bf9f3c96d.txt"
+      }
+    },
+    {
+      "category": "pdf_insight",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-21 PDF 深读：潞安环能关于公司董事辞职的公告。提炼结论：本公告信息中性，主要用于更新事实背景，不改变当前交易计划。",
+      "source": "pdf_skill",
+      "verified": true,
+      "freshness": "2026-03-21",
+      "metadata": {
+        "title": "潞安环能关于公司董事辞职的公告",
+        "pdf_path": "data/output/pdf/2026-03-25/601699/5ec3f7fc7fb4.pdf",
+        "text_path": "data/output/pdf/2026-03-25/601699/5ec3f7fc7fb4.txt"
+      }
+    },
+    {
+      "category": "fundamental",
+      "signal": "positive",
+      "strength": 65.0,
+      "summary": "营收同比 -20.82%，利润同比 -44.45%，ROE 3.3%。",
+      "source": "supplemental.fundamentals",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "keys": [
+          "bps",
+          "debt_to_asset",
+          "eps",
+          "gross_margin",
+          "net_margin",
+          "notice_date",
+          "operating_cashflow_margin",
+          "operating_cashflow_yoy",
+          "profit_growth_yoy",
+          "report_date",
+          "revenue_growth_yoy",
+          "roe",
+          "roic"
+        ]
+      }
+    },
+    {
+      "category": "valuation",
+      "signal": "neutral",
+      "strength": 55.0,
+      "summary": "PE 26.7x，PB 0.89x。",
+      "source": "supplemental.valuation",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "keys": [
+          "industry_name",
+          "pb",
+          "pe_ttm"
+        ]
+      }
+    },
+    {
+      "category": "capital_flow",
+      "signal": "neutral",
+      "strength": 55.0,
+      "summary": "5日主力净流入 0.43 亿，5日主力净占比 +1.78%。",
+      "source": "supplemental.capital_flow",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "keys": [
+          "close_price",
+          "latest_date",
+          "main_net_flow_1d",
+          "main_net_flow_5d",
+          "main_net_ratio_1d",
+          "main_net_ratio_5d",
+          "pct_change_1d"
+        ]
+      }
+    },
+    {
+      "category": "company",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "所属行业 煤炭开采和洗选业，主营 原煤开采、煤炭洗选、煤焦冶炼；洁净煤技术的开发与利用；煤层气开发；煤炭的综合利用、地质勘探等。。",
+      "source": "supplemental.company_info",
+      "verified": true,
+      "freshness": "2026-03-25",
+      "metadata": {
+        "keys": [
+          "business",
+          "business_outline",
+          "business_scope",
+          "code",
+          "company_name",
+          "industry_changed_at",
+          "industry_large",
+          "industry_medium",
+          "industry_name",
+          "industry_root",
+          "industry_small",
+          "industry_standard",
+          "listing_date",
+          "market",
+          "name",
+          "product_types",
+          "products",
+          "sector_match",
+          "sector_match_source",
+          "selected_indexes",
+          "website"
+        ]
+      }
+    }
+  ],
+  "better_candidates": [],
+  "position_context": {
+    "is_holding": true,
+    "market_value": 3500.0,
+    "position_weight": 0.35,
+    "sector_weight": 0.35,
+    "pnl_pct": null,
+    "cost_price": null,
+    "last_price": null,
+    "total_equity": 10000.0,
+    "exposure_ratio": 1.0,
+    "effective_sector": "能源金属",
+    "holding_sector": "煤炭",
+    "sector_weight_basis": "煤炭",
+    "position_pricing_complete": false
+  },
+  "pdf_insights": [
+    {
+      "published_at": "2026-03-24",
+      "signal": "negative",
+      "strength": 32.0,
+      "summary": "2026-03-24 PDF 深读：潞安环能关于参与探矿权竞买及其结果的公告。提炼结论：关键事项推进存在不确定性，执行上应降低仓位和胜率预期。",
+      "key_lines": [
+        "四、风险提示 （一）本次竞拍结果还需通过中华人民共和国自然资源部、山西省自然 资源厅以及全国公共资源交易平台（…",
+        "未来公司对该宗煤炭资源办理探转 采手续、矿井规划、投资建设复杂程度高、投建周期较长，投资效益存在不确定 风险"
+      ],
+      "pdf_path": "data/output/pdf/2026-03-25/601699/d17bf9f3c96d.pdf",
+      "text_path": "data/output/pdf/2026-03-25/601699/d17bf9f3c96d.txt",
+      "verified": true,
+      "title": "潞安环能关于参与探矿权竞买及其结果的公告",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-24/1225024503.PDF"
+    },
+    {
+      "published_at": "2026-03-21",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-21 PDF 深读：潞安环能关于公司董事辞职的公告。提炼结论：本公告信息中性，主要用于更新事实背景，不改变当前交易计划。",
+      "key_lines": [],
+      "pdf_path": "data/output/pdf/2026-03-25/601699/5ec3f7fc7fb4.pdf",
+      "text_path": "data/output/pdf/2026-03-25/601699/5ec3f7fc7fb4.txt",
+      "verified": true,
+      "title": "潞安环能关于公司董事辞职的公告",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-21/1225021339.PDF"
+    }
+  ],
+  "artifacts": {
+    "markdown": "data/output/reports/2026-03-25/advice/601699_investment_report.md",
+    "json": "data/output/reports/2026-03-25/advice/601699_investment_report.json",
+    "price_chart": "data/output/reports/2026-03-25/advice/charts/601699_price_chart.png",
+    "momentum_chart": "data/output/reports/2026-03-25/advice/charts/601699_momentum_chart.png"
+  }
+}

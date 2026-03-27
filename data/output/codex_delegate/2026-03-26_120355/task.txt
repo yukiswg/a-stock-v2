@@ -1,0 +1,61 @@
+修改 ashare-phase1-agents-v2 项目，消除追涨杀跌倾向，增加价格预测功能。
+
+## 目标
+
+### A. 反追涨杀跌改造
+
+**文件1: src/ashare_harness_v2/data_harness/market_data.py**
+- 修改 trend_score_from_parts 函数：
+  - 基础分从 50.0 改为 40.0
+  - ret_5 权重从 500 改为 150
+  - 新增：如果 ret_5 > 0.08，score -= (ret_5 - 0.08) * 600
+  - 新增：如果 ret_5 < -0.03 且 high_gap <= -0.08，score += 8.0（回踩候选加分）
+  - ret_20 权重从 250 改为 200，新增：如果 ret_20 > 0.15，score -= (ret_20 - 0.15) * 400
+  - high_gap 权重从 150 改为 120，新增：如果 high_gap < -0.10，score -= 6.0；如果 -0.10 <= high_gap < -0.05，score -= 2.0
+
+**文件2: src/ashare_harness_v2/advice_harness/scoring.py**
+- 修改 compute_timing_score 函数：
+  - ret_5 的 clamp 范围改为 clamp(ret_5, -0.10, 0.06)，超过 0.06 的部分惩罚
+  - 新增：如果 ret_5 > 0.06，score -= (ret_5 - 0.06) * 500，并在 negatives 加'5日涨幅过大进入超买区，均值回归风险大，勿追'
+  - 新增：如果 ret_5 < -0.03 且 high_gap <= -0.08，score += 8.0，并在 positives 加'5日回撤且处于20日低位，均值回归概率偏高（赔率优于追涨）'
+  - high_gap 接近高点的得分从 10 改为 6，并在描述中加注意追高风险
+
+### B. 价格预测功能
+
+**文件3: src/ashare_harness_v2/models.py**
+- 在最后添加 PricePrediction 和 PredictionBundle dataclass，参考决策模块中的现有 dataclass 风格
+
+**文件4: 新建 src/ashare_harness_v2/prediction_harness/__init__.py**
+- 内容：'Prediction harness: statistical price forecasting without ML dependencies.'
+
+**文件5: 新建 src/ashare_harness_v2/prediction_harness/engine.py**
+- 完整的统计预测引擎，包含：
+  1. predict_intraday_close - 基于VWAP偏离和均线偏离预测盘中收盘价
+  2. predict_dayend_close - 基于BB均值回归、历史分布预测收盘价
+  3. predict_nextday_return - 基于历史条件分布预测次日涨跌
+  4. predict_longterm_expectation - 基于线性回归斜率预测10日期望
+  5. build_prediction_bundle - 汇总以上四个预测，返回 PredictionBundle
+- 使用纯统计方法，不依赖任何 ML 或外部模型
+- 导入 clamp 和 pct_change from ashare_harness_v2.utils
+
+**文件6: src/ashare_harness_v2/decision_core.py**
+- 在 SecurityEvaluation dataclass 中添加 prediction_bundle: dict[str, Any] = field(default_factory=dict)
+- 在 evaluate_security 函数末尾，调用 build_prediction_bundle 并将结果注入到返回值
+- 在文件顶部添加 from .prediction_harness.engine import build_prediction_bundle
+
+**文件7: src/ashare_harness_v2/decision_harness/engine.py**
+- 在 serialize_homepage_decision 返回的 dict 中添加 prediction_bundle 字段
+- 在 build_homepage_payload 返回的 dict 中添加 predictions 列表
+- 添加 _build_predictions_list 函数
+- 在 build_holdings_actions 和 build_watchlist 创建 StructuredDecision 时注入 prediction_bundle
+
+**文件8: src/ashare_harness_v2/decision_harness/rendering.py**
+- 在 render_homepage_overview 函数末尾添加价格预测展示区块
+
+## 验证要求
+
+1. 所有文件通过 Python AST 语法检查
+2. 验证 trend_score 反追涨效果：
+   - ret_5=0.12 的结果应该比 ret_5=0.08 的结果更低（追涨惩罚生效）
+   - ret_5=-0.06 且 high_gap=-0.12 的结果应该比基准更高（回踩加分生效）
+3. 验证预测模块输出：build_prediction_bundle() 应该返回包含 intraday/dayend/nextday/longterm 四个字段的 PredictionBundle

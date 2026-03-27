@@ -1,0 +1,79 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "outcome",
+    "done_means",
+    "work_packets",
+    "risks"
+  ],
+  "properties": {
+    "outcome": {
+      "type": "string",
+      "description": "一句话描述最终目标。必须是可观测的结果，不是实现步骤。"
+    },
+    "done_means": {
+      "type": "array",
+      "description": "验收条件列表。每条必须是可判定的（通过/不通过），不能含糊。",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "description": "已知风险和边界条件，供 Worker 参考，不写入 task。",
+      "items": {
+        "type": "string"
+      }
+    },
+    "work_packets": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "description": "每个 packet 由一个 Codex Worker 独立完成。",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "packet_id",
+          "title",
+          "objective",
+          "scope",
+          "test_file"
+        ],
+        "properties": {
+          "packet_id": {
+            "type": "string",
+            "description": "唯一标识，如 wp1, wp2。"
+          },
+          "title": {
+            "type": "string",
+            "description": "简短标题，描述这个包做了什么。"
+          },
+          "objective": {
+            "type": "string",
+            "description": "详细描述 Worker 要做什么。用业务语言，不是技术步骤。"
+          },
+          "scope": {
+            "type": "array",
+            "description": "Worker 可以修改的文件路径列表（可含通配符）。",
+            "items": {
+              "type": "string"
+            }
+          },
+          "test_file": {
+            "type": "string",
+            "description": "Worker 自己写的 acceptance test 文件路径（相对于项目根目录）。必须是可独立运行的 pytest / unittest 文件。运行结果（PASS/FAIL）是 Leader 验收的唯一依据。"
+          },
+          "test_commands": {
+            "type": "array",
+            "description": "运行 test_file 的命令列表。Worker 执行后把结果写入 response。",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

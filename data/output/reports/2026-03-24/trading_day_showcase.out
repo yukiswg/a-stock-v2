@@ -1,0 +1,1694 @@
+{
+  "premarket": {
+    "report_dir": "data/output/reports/2026-03-24",
+    "state_dir": "data/output/state/2026-03-24",
+    "artifacts": {
+      "daily_report": "data/output/reports/2026-03-24/2026-03-24_daily_report.md",
+      "comprehensive_report": "data/output/reports/2026-03-24/2026-03-24_comprehensive_report.md",
+      "action_summary": "data/output/reports/2026-03-24/2026-03-24_action_summary.md",
+      "homepage_overview": "data/output/reports/2026-03-24/2026-03-24_homepage_overview.md",
+      "action_summary_json": "data/output/reports/2026-03-24/2026-03-24_action_summary.json",
+      "homepage_overview_json": "data/output/reports/2026-03-24/2026-03-24_homepage_overview.json",
+      "monitor_plan_json": "data/output/reports/2026-03-24/2026-03-24_monitor_plan.json",
+      "feature_snapshot_json": "data/output/reports/2026-03-24/2026-03-24_features.json",
+      "markdown": "data/output/homepage/2026-03-24_homepage_overview.md",
+      "json": "data/output/homepage/2026-03-24_homepage_overview.json",
+      "latest_json": "data/output/homepage/latest_homepage.json",
+      "html": "data/output/homepage/index.html",
+      "workbook": "data/output/spreadsheet/2026-03-24/2026-03-24_portfolio_candidates.xlsx"
+    },
+    "bundle": {
+      "as_of": "2026-03-24",
+      "market_view": {
+        "object_type": "market",
+        "object_id": "000300",
+        "object_name": "偏空市场",
+        "at": "2026-03-24",
+        "action": "risk_off",
+        "score": 28.41,
+        "probability": 0.2841,
+        "reason": [
+          "沪深300 5日收益 -5.35%，20日收益 -5.12%。",
+          "候选池平均趋势分 34.5。",
+          "强势候选 2 个，明显走弱对象 6 个。",
+          "新闻偏移 +0.00，公告偏移 +0.00。"
+        ],
+        "risk": [
+          "宏观新闻和指数拐点可能快速反转。",
+          "公告标题判断只反映增量信息，不替代正文核验。"
+        ],
+        "sources": [
+          "benchmark_daily_bars",
+          "official_news",
+          "cninfo_announcements"
+        ],
+        "thesis": "防守期下，当前更适合执行“新开仓从严控制”而不是平均分配火力。",
+        "counterpoints": [
+          "宏观新闻和指数拐点可能快速反转。",
+          "公告标题判断只反映增量信息，不替代正文核验。"
+        ],
+        "trigger_conditions": [
+          "新开仓从严控制",
+          "优先处理弱持仓和破位风险"
+        ],
+        "invalidation_conditions": [
+          "若指数与广度快速修复，需上调风险预算。",
+          "若强势股同步失去相对强度，继续收缩进攻动作。"
+        ],
+        "priority_score": 94.2,
+        "metadata": {
+          "label": "偏空",
+          "regime": "防守期",
+          "policy": [
+            "新开仓从严控制",
+            "优先处理弱持仓和破位风险",
+            "只保留少量观察名单"
+          ],
+          "benchmark_code": "000300",
+          "benchmark_ret_5d": -0.053485345366430126,
+          "benchmark_ret_20d": -0.05122081533598977,
+          "breadth_score": 34.513333333333335,
+          "leadership_count": 2,
+          "breakdown_count": 6
+        }
+      },
+      "holdings_actions": [
+        {
+          "object_type": "holding",
+          "object_id": "513310",
+          "object_name": "中韩芯片",
+          "at": "2026-03-24",
+          "action": "cut_on_breakdown",
+          "score": 0.0,
+          "probability": 0.625,
+          "reason": [
+            "中韩芯片 已经进入弱趋势防守阶段，先处理风险，再谈加仓。",
+            "相对强弱 +8.98%，强于基准。"
+          ],
+          "risk": [
+            "若重新站回 4.13 且成交恢复，可转回观察。"
+          ],
+          "sources": [
+            "decision_bundle.market_view",
+            "daily_features",
+            "sector_context"
+          ],
+          "thesis": "中韩芯片 的主逻辑是 相对强弱 +8.98%，强于基准，但 5日收益 -8.84%，短期仍在走弱，所以当前策略是“破位减仓”。",
+          "counterpoints": [
+            "5日收益 -8.84%，短期仍在走弱。",
+            "距20日高点 -13.40%，位置仍偏弱。",
+            "量比 0.78x，量能不足。"
+          ],
+          "trigger_conditions": [
+            "若跌破 3.74 且相对强弱继续走弱，立即执行减仓。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若重新站回 4.13 且成交恢复，可转回观察。"
+          ],
+          "priority_score": 97.0,
+          "metadata": {
+            "sector": "半导体ETF",
+            "market_value": 1500.0,
+            "decision": "trim",
+            "action_plan": {
+              "action": "cut_on_breakdown",
+              "label": "破位减仓",
+              "rationale": "中韩芯片 已经进入弱趋势防守阶段，先处理风险，再谈加仓。",
+              "position_guidance": "先减 1/3 到 1/2，保留观察仓。",
+              "urgency": "high",
+              "urgency_score": 97.0,
+              "levels": {
+                "breakout_price": 4.321,
+                "support_price": 3.742,
+                "pullback_price": 3.973,
+                "retest_price": 4.131
+              },
+              "trigger_conditions": [
+                "若跌破 3.74 且相对强弱继续走弱，立即执行减仓。",
+                "先等指数和市场广度修复，再看个股确认。"
+              ],
+              "invalidation_conditions": [
+                "若重新站回 4.13 且成交恢复，可转回观察。"
+              ],
+              "do_not": [
+                "不要在没有触发条件前提前追单。",
+                "不要把单票仓位一次性打满。",
+                "不要忽略市场状态对个股执行的影响。"
+              ],
+              "monitoring_focus": [
+                "观察价格相对 4.32 / 3.74 的反应。",
+                "相对强弱 +8.98%，强于基准。",
+                "5日收益 -8.84%，短期仍在走弱。"
+              ]
+            },
+            "position_guidance": "先减 1/3 到 1/2，保留观察仓。"
+          }
+        },
+        {
+          "object_type": "holding",
+          "object_id": "601699",
+          "object_name": "潞安环能",
+          "at": "2026-03-24",
+          "action": "hold_no_add",
+          "score": 52.63,
+          "probability": 0.7531,
+          "reason": [
+            "潞安环能 还没有差到必须卖，但仓位条件已经不支持继续加。",
+            "相对强弱 +12.27%，强于基准。"
+          ],
+          "risk": [
+            "若跌破 14.28，转为破位减仓。"
+          ],
+          "sources": [
+            "decision_bundle.market_view",
+            "daily_features",
+            "cninfo",
+            "supplemental.fundamentals",
+            "supplemental.valuation",
+            "supplemental.capital_flow",
+            "supplemental.company_info",
+            "sector_context"
+          ],
+          "thesis": "潞安环能 的主逻辑是 相对强弱 +12.27%，强于基准；毛利率 34.1%，但 营收同比 -20.82%，所以当前策略是“继续持有，不再加仓”。",
+          "counterpoints": [
+            "营收同比 -20.82%。",
+            "利润同比 -44.45%。",
+            "ROE 3.3%。"
+          ],
+          "trigger_conditions": [
+            "先等指数和市场广度修复，再看个股确认。",
+            "单票仓位已经不低，后续只在趋势确认后再考虑微调。"
+          ],
+          "invalidation_conditions": [
+            "若跌破 14.28，转为破位减仓。"
+          ],
+          "priority_score": 61.0,
+          "metadata": {
+            "sector": "能源金属",
+            "market_value": 3500.0,
+            "decision": "hold",
+            "action_plan": {
+              "action": "hold_no_add",
+              "label": "继续持有，不再加仓",
+              "rationale": "潞安环能 还没有差到必须卖，但仓位条件已经不支持继续加。",
+              "position_guidance": "保持当前仓位，等风险敞口下降后再评估。",
+              "urgency": "medium",
+              "urgency_score": 61.0,
+              "levels": {
+                "breakout_price": 15.4,
+                "support_price": 14.28,
+                "pullback_price": 14.556,
+                "retest_price": 14.84
+              },
+              "trigger_conditions": [
+                "先等指数和市场广度修复，再看个股确认。",
+                "单票仓位已经不低，后续只在趋势确认后再考虑微调。"
+              ],
+              "invalidation_conditions": [
+                "若跌破 14.28，转为破位减仓。"
+              ],
+              "do_not": [
+                "不要在没有触发条件前提前追单。",
+                "不要把单票仓位一次性打满。",
+                "不要忽略市场状态对个股执行的影响。"
+              ],
+              "monitoring_focus": [
+                "观察价格相对 15.40 / 14.28 的反应。",
+                "相对强弱 +12.27%，强于基准。",
+                "营收同比 -20.82%。"
+              ]
+            },
+            "position_guidance": "保持当前仓位，等风险敞口下降后再评估。"
+          }
+        },
+        {
+          "object_type": "holding",
+          "object_id": "588000",
+          "object_name": "科创50",
+          "at": "2026-03-24",
+          "action": "hold_no_add",
+          "score": 0.0,
+          "probability": 0.46,
+          "reason": [
+            "科创50 还没有差到必须卖，但仓位条件已经不支持继续加。",
+            "量比 1.34x，量能有确认。"
+          ],
+          "risk": [
+            "若跌破 1.33，转为破位减仓。"
+          ],
+          "sources": [
+            "decision_bundle.market_view",
+            "daily_features",
+            "sector_context"
+          ],
+          "thesis": "科创50 的主逻辑是 量比 1.34x，量能有确认，但 20日收益 -13.82%，中期趋势仍弱，所以当前策略是“继续持有，不再加仓”。",
+          "counterpoints": [
+            "20日收益 -13.82%，中期趋势仍弱。",
+            "相对强弱 -8.70%，弱于基准。",
+            "5日收益 -8.50%，短期仍在走弱。"
+          ],
+          "trigger_conditions": [
+            "先等指数和市场广度修复，再看个股确认。",
+            "先观察是否回到20日高点附近，再评估右侧买点。"
+          ],
+          "invalidation_conditions": [
+            "若跌破 1.33，转为破位减仓。"
+          ],
+          "priority_score": 61.0,
+          "metadata": {
+            "sector": "宽基ETF",
+            "market_value": 5000.0,
+            "decision": "hold",
+            "action_plan": {
+              "action": "hold_no_add",
+              "label": "继续持有，不再加仓",
+              "rationale": "科创50 还没有差到必须卖，但仓位条件已经不支持继续加。",
+              "position_guidance": "保持当前仓位，等风险敞口下降后再评估。",
+              "urgency": "medium",
+              "urgency_score": 61.0,
+              "levels": {
+                "breakout_price": 1.566,
+                "support_price": 1.334,
+                "pullback_price": 1.401,
+                "retest_price": 1.445
+              },
+              "trigger_conditions": [
+                "先等指数和市场广度修复，再看个股确认。",
+                "先观察是否回到20日高点附近，再评估右侧买点。"
+              ],
+              "invalidation_conditions": [
+                "若跌破 1.33，转为破位减仓。"
+              ],
+              "do_not": [
+                "不要在没有触发条件前提前追单。",
+                "不要把单票仓位一次性打满。",
+                "不要忽略市场状态对个股执行的影响。"
+              ],
+              "monitoring_focus": [
+                "观察价格相对 1.57 / 1.33 的反应。",
+                "量比 1.34x，量能有确认。",
+                "20日收益 -13.82%，中期趋势仍弱。"
+              ]
+            },
+            "position_guidance": "保持当前仓位，等风险敞口下降后再评估。"
+          }
+        }
+      ],
+      "watchlist": [
+        {
+          "object_type": "watch",
+          "object_id": "300750",
+          "object_name": "宁德时代",
+          "at": "2026-03-24",
+          "action": "watch_market_turn",
+          "score": 52.51,
+          "probability": 0.3751,
+          "reason": [
+            "宁德时代 自身质量不差，但当前更大的约束来自市场而不是个股。",
+            "20日收益 +12.00%，趋势延续性较强。"
+          ],
+          "risk": [
+            "若相对强弱转负或跌破 376.30，降出重点观察名单。"
+          ],
+          "sources": [
+            "decision_bundle.market_view",
+            "daily_features",
+            "supplemental.fundamentals",
+            "supplemental.valuation",
+            "supplemental.capital_flow",
+            "supplemental.company_info",
+            "sector_context"
+          ],
+          "thesis": "宁德时代 的主逻辑是 20日收益 +12.00%，趋势延续性较强；相对强弱 +17.12%，强于基准，但 近5日主力资金净流出，所以当前策略是“只观察”。",
+          "counterpoints": [
+            "近5日主力资金净流出。",
+            "主力净占比 -2.45%。",
+            "量比 0.72x，量能不足。"
+          ],
+          "trigger_conditions": [
+            "等指数修复后，再看是否放量突破 413.00。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若相对强弱转负或跌破 376.30，降出重点观察名单。"
+          ],
+          "priority_score": 57.0,
+          "metadata": {
+            "category": "watch",
+            "decision": "watch",
+            "sector": "电池",
+            "action_plan": {
+              "action": "watch_market_turn",
+              "label": "只观察",
+              "rationale": "宁德时代 自身质量不差，但当前更大的约束来自市场而不是个股。",
+              "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+              "urgency": "low",
+              "urgency_score": 57.0,
+              "levels": {
+                "breakout_price": 413.0,
+                "support_price": 376.3,
+                "pullback_price": 405.94,
+                "retest_price": 413.0
+              },
+              "trigger_conditions": [
+                "等指数修复后，再看是否放量突破 413.00。",
+                "先等指数和市场广度修复，再看个股确认。"
+              ],
+              "invalidation_conditions": [
+                "若相对强弱转负或跌破 376.30，降出重点观察名单。"
+              ],
+              "do_not": [
+                "不要在没有触发条件前提前追单。",
+                "不要把单票仓位一次性打满。",
+                "不要忽略市场状态对个股执行的影响。"
+              ],
+              "monitoring_focus": [
+                "观察价格相对 413.00 / 376.30 的反应。",
+                "20日收益 +12.00%，趋势延续性较强。",
+                "近5日主力资金净流出。"
+              ]
+            },
+            "position_guidance": "先不出手，把它放在市场修复后的第一梯队。"
+          }
+        },
+        {
+          "object_type": "watch",
+          "object_id": "600036",
+          "object_name": "招商银行",
+          "at": "2026-03-24",
+          "action": "watch_only",
+          "score": 33.51,
+          "probability": 0.2394,
+          "reason": [
+            "招商银行 还没有进入可交易区间，现在更适合跟踪，不适合执行。",
+            "相对强弱 +5.04%，强于基准。"
+          ],
+          "risk": [
+            "若跌破 38.68，从候选名单降级。"
+          ],
+          "sources": [
+            "decision_bundle.market_view",
+            "daily_features",
+            "supplemental.fundamentals",
+            "supplemental.valuation",
+            "supplemental.capital_flow",
+            "supplemental.company_info",
+            "sector_context"
+          ],
+          "thesis": "招商银行 的主逻辑是 相对强弱 +5.04%，强于基准；PE 8.7x，但 经营现金流同比 -38.68%，所以当前策略是“只观察”。",
+          "counterpoints": [
+            "经营现金流同比 -38.68%。",
+            "资产负债率 89.9% 偏高。",
+            "近5日主力资金净流出。"
+          ],
+          "trigger_conditions": [
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若跌破 38.68，从候选名单降级。"
+          ],
+          "priority_score": 44.0,
+          "metadata": {
+            "category": "watch",
+            "decision": "watch",
+            "sector": "银行",
+            "action_plan": {
+              "action": "watch_only",
+              "label": "只观察",
+              "rationale": "招商银行 还没有进入可交易区间，现在更适合跟踪，不适合执行。",
+              "position_guidance": "不分配资金，保留观察位。",
+              "urgency": "low",
+              "urgency_score": 44.0,
+              "levels": {
+                "breakout_price": 40.12,
+                "support_price": 38.68,
+                "pullback_price": 39.648,
+                "retest_price": 40.12
+              },
+              "trigger_conditions": [
+                "先等指数和市场广度修复，再看个股确认。"
+              ],
+              "invalidation_conditions": [
+                "若跌破 38.68，从候选名单降级。"
+              ],
+              "do_not": [
+                "不要在没有触发条件前提前追单。",
+                "不要把单票仓位一次性打满。",
+                "不要忽略市场状态对个股执行的影响。"
+              ],
+              "monitoring_focus": [
+                "观察价格相对 40.12 / 38.68 的反应。",
+                "相对强弱 +5.04%，强于基准。",
+                "经营现金流同比 -38.68%。"
+              ]
+            },
+            "position_guidance": "不分配资金，保留观察位。"
+          }
+        },
+        {
+          "object_type": "watch",
+          "object_id": "000333",
+          "object_name": "美的集团",
+          "at": "2026-03-24",
+          "action": "watch_only",
+          "score": 22.59,
+          "probability": 0.1614,
+          "reason": [
+            "美的集团 还没有进入可交易区间，现在更适合跟踪，不适合执行。",
+            "营收同比 +13.85%。"
+          ],
+          "risk": [
+            "若跌破 73.37，从候选名单降级。"
+          ],
+          "sources": [
+            "decision_bundle.market_view",
+            "daily_features",
+            "supplemental.fundamentals",
+            "supplemental.valuation",
+            "supplemental.capital_flow",
+            "supplemental.company_info",
+            "sector_context"
+          ],
+          "thesis": "美的集团 的主逻辑是 营收同比 +13.85%；利润同比 +19.51%，但 20日收益 -7.19%，中期趋势仍弱，所以当前策略是“只观察”。",
+          "counterpoints": [
+            "20日收益 -7.19%，中期趋势仍弱。",
+            "5日收益 -4.27%，短期仍在走弱。",
+            "市场环境偏空，新开仓需要明显折价。"
+          ],
+          "trigger_conditions": [
+            "先等指数和市场广度修复，再看个股确认。",
+            "先观察是否回到20日高点附近，再评估右侧买点。"
+          ],
+          "invalidation_conditions": [
+            "若跌破 73.37，从候选名单降级。"
+          ],
+          "priority_score": 44.0,
+          "metadata": {
+            "category": "watch",
+            "decision": "watch",
+            "sector": "白色家电",
+            "action_plan": {
+              "action": "watch_only",
+              "label": "只观察",
+              "rationale": "美的集团 还没有进入可交易区间，现在更适合跟踪，不适合执行。",
+              "position_guidance": "不分配资金，保留观察位。",
+              "urgency": "low",
+              "urgency_score": 44.0,
+              "levels": {
+                "breakout_price": 79.7,
+                "support_price": 73.37,
+                "pullback_price": 75.63,
+                "retest_price": 77.06
+              },
+              "trigger_conditions": [
+                "先等指数和市场广度修复，再看个股确认。",
+                "先观察是否回到20日高点附近，再评估右侧买点。"
+              ],
+              "invalidation_conditions": [
+                "若跌破 73.37，从候选名单降级。"
+              ],
+              "do_not": [
+                "不要在没有触发条件前提前追单。",
+                "不要把单票仓位一次性打满。",
+                "不要忽略市场状态对个股执行的影响。"
+              ],
+              "monitoring_focus": [
+                "观察价格相对 79.70 / 73.37 的反应。",
+                "营收同比 +13.85%。",
+                "20日收益 -7.19%，中期趋势仍弱。"
+              ]
+            },
+            "position_guidance": "不分配资金，保留观察位。"
+          }
+        },
+        {
+          "object_type": "watch",
+          "object_id": "601127",
+          "object_name": "赛力斯",
+          "at": "2026-03-24",
+          "action": "watch_only",
+          "score": 15.3,
+          "probability": 0.1093,
+          "reason": [
+            "赛力斯 还没有进入可交易区间，现在更适合跟踪，不适合执行。",
+            "利润同比 +31.56%。"
+          ],
+          "risk": [
+            "若跌破 99.51，从候选名单降级。"
+          ],
+          "sources": [
+            "decision_bundle.market_view",
+            "daily_features",
+            "supplemental.fundamentals",
+            "supplemental.valuation",
+            "supplemental.capital_flow",
+            "supplemental.company_info",
+            "sector_context"
+          ],
+          "thesis": "赛力斯 的主逻辑是 利润同比 +31.56%；ROE 24.1%，但 20日收益 -7.89%，中期趋势仍弱，所以当前策略是“只观察”。",
+          "counterpoints": [
+            "20日收益 -7.89%，中期趋势仍弱。",
+            "资产负债率 76.4% 偏高。",
+            "近5日主力资金净流出。"
+          ],
+          "trigger_conditions": [
+            "先等指数和市场广度修复，再看个股确认。",
+            "先观察是否回到20日高点附近，再评估右侧买点。"
+          ],
+          "invalidation_conditions": [
+            "若跌破 99.51，从候选名单降级。"
+          ],
+          "priority_score": 44.0,
+          "metadata": {
+            "category": "watch",
+            "decision": "watch",
+            "sector": "汽车整车",
+            "action_plan": {
+              "action": "watch_only",
+              "label": "只观察",
+              "rationale": "赛力斯 还没有进入可交易区间，现在更适合跟踪，不适合执行。",
+              "position_guidance": "不分配资金，保留观察位。",
+              "urgency": "low",
+              "urgency_score": 44.0,
+              "levels": {
+                "breakout_price": 109.14,
+                "support_price": 99.51,
+                "pullback_price": 101.126,
+                "retest_price": 102.9
+              },
+              "trigger_conditions": [
+                "先等指数和市场广度修复，再看个股确认。",
+                "先观察是否回到20日高点附近，再评估右侧买点。"
+              ],
+              "invalidation_conditions": [
+                "若跌破 99.51，从候选名单降级。"
+              ],
+              "do_not": [
+                "不要在没有触发条件前提前追单。",
+                "不要把单票仓位一次性打满。",
+                "不要忽略市场状态对个股执行的影响。"
+              ],
+              "monitoring_focus": [
+                "观察价格相对 109.14 / 99.51 的反应。",
+                "利润同比 +31.56%。",
+                "20日收益 -7.89%，中期趋势仍弱。"
+              ]
+            },
+            "position_guidance": "不分配资金，保留观察位。"
+          }
+        }
+      ],
+      "monitor_plan": [
+        {
+          "object_type": "monitor",
+          "object_id": "000300",
+          "object_name": "沪深300",
+          "at": "2026-03-24",
+          "action": "monitor_index",
+          "score": 4.65,
+          "probability": 0.2841,
+          "reason": [
+            "作为风格和系统性风险锚点，跟踪 沪深300。"
+          ],
+          "risk": [
+            "指数转弱会降低个股告警价值。"
+          ],
+          "sources": [
+            "daily_bars"
+          ],
+          "thesis": "",
+          "counterpoints": [],
+          "trigger_conditions": [],
+          "invalidation_conditions": [],
+          "priority_score": 0.0,
+          "metadata": {
+            "category": "benchmark",
+            "thresholds": {
+              "price_jump_threshold_5m": 0.015,
+              "price_drop_threshold_5m": -0.015,
+              "relative_strength_threshold_5m": 0.01
+            }
+          }
+        },
+        {
+          "object_type": "monitor",
+          "object_id": "000001",
+          "object_name": "上证指数",
+          "at": "2026-03-24",
+          "action": "monitor_index",
+          "score": 0.0,
+          "probability": 0.2841,
+          "reason": [
+            "作为风格和系统性风险锚点，跟踪 上证指数。"
+          ],
+          "risk": [
+            "指数转弱会降低个股告警价值。"
+          ],
+          "sources": [
+            "daily_bars"
+          ],
+          "thesis": "",
+          "counterpoints": [],
+          "trigger_conditions": [],
+          "invalidation_conditions": [],
+          "priority_score": 0.0,
+          "metadata": {
+            "category": "benchmark",
+            "thresholds": {
+              "price_jump_threshold_5m": 0.015,
+              "price_drop_threshold_5m": -0.015,
+              "relative_strength_threshold_5m": 0.01
+            }
+          }
+        },
+        {
+          "object_type": "monitor",
+          "object_id": "399006",
+          "object_name": "创业板指",
+          "at": "2026-03-24",
+          "action": "monitor_index",
+          "score": 37.25,
+          "probability": 0.2841,
+          "reason": [
+            "作为风格和系统性风险锚点，跟踪 创业板指。"
+          ],
+          "risk": [
+            "指数转弱会降低个股告警价值。"
+          ],
+          "sources": [
+            "daily_bars"
+          ],
+          "thesis": "",
+          "counterpoints": [],
+          "trigger_conditions": [],
+          "invalidation_conditions": [],
+          "priority_score": 0.0,
+          "metadata": {
+            "category": "benchmark",
+            "thresholds": {
+              "price_jump_threshold_5m": 0.015,
+              "price_drop_threshold_5m": -0.015,
+              "relative_strength_threshold_5m": 0.01
+            }
+          }
+        },
+        {
+          "object_type": "monitor",
+          "object_id": "513310",
+          "object_name": "中韩芯片",
+          "at": "2026-03-24",
+          "action": "monitor_holding",
+          "score": 0.0,
+          "probability": 0.625,
+          "reason": [
+            "持仓动作 `cut_on_breakdown`，盘中需要验证是否符合预期。",
+            "中韩芯片 已经进入弱趋势防守阶段，先处理风险，再谈加仓。"
+          ],
+          "risk": [
+            "若重新站回 4.13 且成交恢复，可转回观察。"
+          ],
+          "sources": [
+            "decision_bundle.market_view",
+            "daily_features",
+            "sector_context"
+          ],
+          "thesis": "",
+          "counterpoints": [],
+          "trigger_conditions": [],
+          "invalidation_conditions": [],
+          "priority_score": 0.0,
+          "metadata": {
+            "category": "holding",
+            "parent_action": "cut_on_breakdown",
+            "thresholds": {
+              "price_jump_threshold_5m": 0.02,
+              "price_drop_threshold_5m": -0.02,
+              "relative_strength_threshold_5m": 0.012
+            }
+          }
+        },
+        {
+          "object_type": "monitor",
+          "object_id": "601699",
+          "object_name": "潞安环能",
+          "at": "2026-03-24",
+          "action": "monitor_holding",
+          "score": 52.63,
+          "probability": 0.7531,
+          "reason": [
+            "持仓动作 `hold_no_add`，盘中需要验证是否符合预期。",
+            "潞安环能 还没有差到必须卖，但仓位条件已经不支持继续加。"
+          ],
+          "risk": [
+            "若跌破 14.28，转为破位减仓。"
+          ],
+          "sources": [
+            "decision_bundle.market_view",
+            "daily_features",
+            "cninfo",
+            "supplemental.fundamentals",
+            "supplemental.valuation",
+            "supplemental.capital_flow",
+            "supplemental.company_info",
+            "sector_context"
+          ],
+          "thesis": "",
+          "counterpoints": [],
+          "trigger_conditions": [],
+          "invalidation_conditions": [],
+          "priority_score": 0.0,
+          "metadata": {
+            "category": "holding",
+            "parent_action": "hold_no_add",
+            "thresholds": {
+              "price_jump_threshold_5m": 0.02,
+              "price_drop_threshold_5m": -0.02,
+              "relative_strength_threshold_5m": 0.012
+            }
+          }
+        },
+        {
+          "object_type": "monitor",
+          "object_id": "588000",
+          "object_name": "科创50",
+          "at": "2026-03-24",
+          "action": "monitor_holding",
+          "score": 0.0,
+          "probability": 0.46,
+          "reason": [
+            "持仓动作 `hold_no_add`，盘中需要验证是否符合预期。",
+            "科创50 还没有差到必须卖，但仓位条件已经不支持继续加。"
+          ],
+          "risk": [
+            "若跌破 1.33，转为破位减仓。"
+          ],
+          "sources": [
+            "decision_bundle.market_view",
+            "daily_features",
+            "sector_context"
+          ],
+          "thesis": "",
+          "counterpoints": [],
+          "trigger_conditions": [],
+          "invalidation_conditions": [],
+          "priority_score": 0.0,
+          "metadata": {
+            "category": "holding",
+            "parent_action": "hold_no_add",
+            "thresholds": {
+              "price_jump_threshold_5m": 0.02,
+              "price_drop_threshold_5m": -0.02,
+              "relative_strength_threshold_5m": 0.012
+            }
+          }
+        },
+        {
+          "object_type": "monitor",
+          "object_id": "300750",
+          "object_name": "宁德时代",
+          "at": "2026-03-24",
+          "action": "monitor_watch",
+          "score": 52.51,
+          "probability": 0.3751,
+          "reason": [
+            "观察动作 `watch_market_turn`，盘中只在出现确认信号时提醒。",
+            "宁德时代 自身质量不差，但当前更大的约束来自市场而不是个股。"
+          ],
+          "risk": [
+            "若相对强弱转负或跌破 376.30，降出重点观察名单。"
+          ],
+          "sources": [
+            "decision_bundle.market_view",
+            "daily_features",
+            "supplemental.fundamentals",
+            "supplemental.valuation",
+            "supplemental.capital_flow",
+            "supplemental.company_info",
+            "sector_context"
+          ],
+          "thesis": "",
+          "counterpoints": [],
+          "trigger_conditions": [],
+          "invalidation_conditions": [],
+          "priority_score": 0.0,
+          "metadata": {
+            "category": "watch",
+            "parent_action": "watch_market_turn",
+            "thresholds": {
+              "price_jump_threshold_5m": 0.018,
+              "price_drop_threshold_5m": -0.015,
+              "relative_strength_threshold_5m": 0.014
+            }
+          }
+        },
+        {
+          "object_type": "monitor",
+          "object_id": "600036",
+          "object_name": "招商银行",
+          "at": "2026-03-24",
+          "action": "monitor_watch",
+          "score": 33.51,
+          "probability": 0.2394,
+          "reason": [
+            "观察动作 `watch_only`，盘中只在出现确认信号时提醒。",
+            "招商银行 还没有进入可交易区间，现在更适合跟踪，不适合执行。"
+          ],
+          "risk": [
+            "若跌破 38.68，从候选名单降级。"
+          ],
+          "sources": [
+            "decision_bundle.market_view",
+            "daily_features",
+            "supplemental.fundamentals",
+            "supplemental.valuation",
+            "supplemental.capital_flow",
+            "supplemental.company_info",
+            "sector_context"
+          ],
+          "thesis": "",
+          "counterpoints": [],
+          "trigger_conditions": [],
+          "invalidation_conditions": [],
+          "priority_score": 0.0,
+          "metadata": {
+            "category": "watch",
+            "parent_action": "watch_only",
+            "thresholds": {
+              "price_jump_threshold_5m": 0.018,
+              "price_drop_threshold_5m": -0.015,
+              "relative_strength_threshold_5m": 0.014
+            }
+          }
+        },
+        {
+          "object_type": "monitor",
+          "object_id": "000333",
+          "object_name": "美的集团",
+          "at": "2026-03-24",
+          "action": "monitor_watch",
+          "score": 22.59,
+          "probability": 0.1614,
+          "reason": [
+            "观察动作 `watch_only`，盘中只在出现确认信号时提醒。",
+            "美的集团 还没有进入可交易区间，现在更适合跟踪，不适合执行。"
+          ],
+          "risk": [
+            "若跌破 73.37，从候选名单降级。"
+          ],
+          "sources": [
+            "decision_bundle.market_view",
+            "daily_features",
+            "supplemental.fundamentals",
+            "supplemental.valuation",
+            "supplemental.capital_flow",
+            "supplemental.company_info",
+            "sector_context"
+          ],
+          "thesis": "",
+          "counterpoints": [],
+          "trigger_conditions": [],
+          "invalidation_conditions": [],
+          "priority_score": 0.0,
+          "metadata": {
+            "category": "watch",
+            "parent_action": "watch_only",
+            "thresholds": {
+              "price_jump_threshold_5m": 0.018,
+              "price_drop_threshold_5m": -0.015,
+              "relative_strength_threshold_5m": 0.014
+            }
+          }
+        },
+        {
+          "object_type": "monitor",
+          "object_id": "601127",
+          "object_name": "赛力斯",
+          "at": "2026-03-24",
+          "action": "monitor_watch",
+          "score": 15.3,
+          "probability": 0.1093,
+          "reason": [
+            "观察动作 `watch_only`，盘中只在出现确认信号时提醒。",
+            "赛力斯 还没有进入可交易区间，现在更适合跟踪，不适合执行。"
+          ],
+          "risk": [
+            "若跌破 99.51，从候选名单降级。"
+          ],
+          "sources": [
+            "decision_bundle.market_view",
+            "daily_features",
+            "supplemental.fundamentals",
+            "supplemental.valuation",
+            "supplemental.capital_flow",
+            "supplemental.company_info",
+            "sector_context"
+          ],
+          "thesis": "",
+          "counterpoints": [],
+          "trigger_conditions": [],
+          "invalidation_conditions": [],
+          "priority_score": 0.0,
+          "metadata": {
+            "category": "watch",
+            "parent_action": "watch_only",
+            "thresholds": {
+              "price_jump_threshold_5m": 0.018,
+              "price_drop_threshold_5m": -0.015,
+              "relative_strength_threshold_5m": 0.014
+            }
+          }
+        }
+      ],
+      "final_action_summary": "防守期，今天先处理：先处理 中韩芯片 的破位减仓；确认 潞安环能 是否具备继续持有，不再加仓条件。",
+      "homepage_overview": {
+        "as_of": "2026-03-24",
+        "today_action": "防守期，今天先处理：先处理 中韩芯片 的破位减仓；确认 潞安环能 是否具备继续持有，不再加仓条件。",
+        "market_state": {
+          "label": "偏空",
+          "regime": "防守期",
+          "score": 28.41,
+          "probability": 0.2841,
+          "summary": "防守期下，当前更适合执行“新开仓从严控制”而不是平均分配火力。",
+          "policy": [
+            "新开仓从严控制",
+            "优先处理弱持仓和破位风险",
+            "只保留少量观察名单"
+          ]
+        },
+        "market_label": "偏空",
+        "market_probability": 0.2841,
+        "current_prices": [
+          {
+            "code": "513310",
+            "name": "中韩芯片",
+            "last_price": "3.742",
+            "ret_day": "-5.81%",
+            "timestamp": "2026-03-23 close",
+            "freshness": "eod"
+          },
+          {
+            "code": "601699",
+            "name": "潞安环能",
+            "last_price": "14.84",
+            "ret_day": "+1.37%",
+            "timestamp": "2026-03-23 close",
+            "freshness": "eod"
+          },
+          {
+            "code": "588000",
+            "name": "科创50",
+            "last_price": "1.334",
+            "ret_day": "-3.89%",
+            "timestamp": "2026-03-23 close",
+            "freshness": "eod"
+          },
+          {
+            "code": "300750",
+            "name": "宁德时代",
+            "last_price": "409.18",
+            "ret_day": "-0.92%",
+            "timestamp": "2026-03-23 close",
+            "freshness": "eod"
+          },
+          {
+            "code": "600036",
+            "name": "招商银行",
+            "last_price": "38.68",
+            "ret_day": "-2.69%",
+            "timestamp": "2026-03-23 close",
+            "freshness": "eod"
+          }
+        ],
+        "latest_alerts": [],
+        "priority_actions": [
+          {
+            "bucket": "holding_risk",
+            "headline": "先处理 中韩芯片 的破位减仓",
+            "code": "513310",
+            "name": "中韩芯片",
+            "action": "cut_on_breakdown",
+            "action_label": "破位减仓",
+            "priority_score": 105.0,
+            "score": 0.0,
+            "reason": "中韩芯片 已经进入弱趋势防守阶段，先处理风险，再谈加仓。",
+            "thesis": "中韩芯片 的主逻辑是 相对强弱 +8.98%，强于基准，但 5日收益 -8.84%，短期仍在走弱，所以当前策略是“破位减仓”。",
+            "trigger": "若跌破 3.74 且相对强弱继续走弱，立即执行减仓。",
+            "invalidation": "若重新站回 4.13 且成交恢复，可转回观察。",
+            "position_guidance": "先减 1/3 到 1/2，保留观察仓。",
+            "levels": {
+              "breakout_price": 4.321,
+              "support_price": 3.742,
+              "pullback_price": 3.973,
+              "retest_price": 4.131
+            }
+          },
+          {
+            "bucket": "holding_follow_up",
+            "headline": "确认 潞安环能 是否具备继续持有，不再加仓条件",
+            "code": "601699",
+            "name": "潞安环能",
+            "action": "hold_no_add",
+            "action_label": "继续持有，不再加仓",
+            "priority_score": 61.0,
+            "score": 52.63,
+            "reason": "潞安环能 还没有差到必须卖，但仓位条件已经不支持继续加。",
+            "thesis": "潞安环能 的主逻辑是 相对强弱 +12.27%，强于基准；毛利率 34.1%，但 营收同比 -20.82%，所以当前策略是“继续持有，不再加仓”。",
+            "trigger": "先等指数和市场广度修复，再看个股确认。",
+            "invalidation": "若跌破 14.28，转为破位减仓。",
+            "position_guidance": "保持当前仓位，等风险敞口下降后再评估。",
+            "levels": {
+              "breakout_price": 15.4,
+              "support_price": 14.28,
+              "pullback_price": 14.556,
+              "retest_price": 14.84
+            }
+          },
+          {
+            "bucket": "holding_follow_up",
+            "headline": "确认 科创50 是否具备继续持有，不再加仓条件",
+            "code": "588000",
+            "name": "科创50",
+            "action": "hold_no_add",
+            "action_label": "继续持有，不再加仓",
+            "priority_score": 61.0,
+            "score": 0.0,
+            "reason": "科创50 还没有差到必须卖，但仓位条件已经不支持继续加。",
+            "thesis": "科创50 的主逻辑是 量比 1.34x，量能有确认，但 20日收益 -13.82%，中期趋势仍弱，所以当前策略是“继续持有，不再加仓”。",
+            "trigger": "先等指数和市场广度修复，再看个股确认。",
+            "invalidation": "若跌破 1.33，转为破位减仓。",
+            "position_guidance": "保持当前仓位，等风险敞口下降后再评估。",
+            "levels": {
+              "breakout_price": 1.566,
+              "support_price": 1.334,
+              "pullback_price": 1.401,
+              "retest_price": 1.445
+            }
+          }
+        ],
+        "holdings_risks": [
+          {
+            "code": "513310",
+            "name": "中韩芯片",
+            "action": "cut_on_breakdown",
+            "action_label": "破位减仓",
+            "score": 0.0,
+            "priority_score": 97.0,
+            "reason": "中韩芯片 已经进入弱趋势防守阶段，先处理风险，再谈加仓。",
+            "thesis": "中韩芯片 的主逻辑是 相对强弱 +8.98%，强于基准，但 5日收益 -8.84%，短期仍在走弱，所以当前策略是“破位减仓”。",
+            "trigger": "若跌破 3.74 且相对强弱继续走弱，立即执行减仓。",
+            "invalidation": "若重新站回 4.13 且成交恢复，可转回观察。",
+            "position_guidance": "先减 1/3 到 1/2，保留观察仓。",
+            "levels": {
+              "breakout_price": 4.321,
+              "support_price": 3.742,
+              "pullback_price": 3.973,
+              "retest_price": 4.131
+            }
+          }
+        ],
+        "watch_opportunities": [],
+        "holdings_actions": [
+          {
+            "code": "513310",
+            "name": "中韩芯片",
+            "action": "cut_on_breakdown",
+            "action_label": "破位减仓",
+            "score": 0.0,
+            "priority_score": 97.0,
+            "reason": "中韩芯片 已经进入弱趋势防守阶段，先处理风险，再谈加仓。",
+            "thesis": "中韩芯片 的主逻辑是 相对强弱 +8.98%，强于基准，但 5日收益 -8.84%，短期仍在走弱，所以当前策略是“破位减仓”。",
+            "trigger": "若跌破 3.74 且相对强弱继续走弱，立即执行减仓。",
+            "invalidation": "若重新站回 4.13 且成交恢复，可转回观察。",
+            "position_guidance": "先减 1/3 到 1/2，保留观察仓。",
+            "levels": {
+              "breakout_price": 4.321,
+              "support_price": 3.742,
+              "pullback_price": 3.973,
+              "retest_price": 4.131
+            }
+          },
+          {
+            "code": "601699",
+            "name": "潞安环能",
+            "action": "hold_no_add",
+            "action_label": "继续持有，不再加仓",
+            "score": 52.63,
+            "priority_score": 61.0,
+            "reason": "潞安环能 还没有差到必须卖，但仓位条件已经不支持继续加。",
+            "thesis": "潞安环能 的主逻辑是 相对强弱 +12.27%，强于基准；毛利率 34.1%，但 营收同比 -20.82%，所以当前策略是“继续持有，不再加仓”。",
+            "trigger": "先等指数和市场广度修复，再看个股确认。",
+            "invalidation": "若跌破 14.28，转为破位减仓。",
+            "position_guidance": "保持当前仓位，等风险敞口下降后再评估。",
+            "levels": {
+              "breakout_price": 15.4,
+              "support_price": 14.28,
+              "pullback_price": 14.556,
+              "retest_price": 14.84
+            }
+          },
+          {
+            "code": "588000",
+            "name": "科创50",
+            "action": "hold_no_add",
+            "action_label": "继续持有，不再加仓",
+            "score": 0.0,
+            "priority_score": 61.0,
+            "reason": "科创50 还没有差到必须卖，但仓位条件已经不支持继续加。",
+            "thesis": "科创50 的主逻辑是 量比 1.34x，量能有确认，但 20日收益 -13.82%，中期趋势仍弱，所以当前策略是“继续持有，不再加仓”。",
+            "trigger": "先等指数和市场广度修复，再看个股确认。",
+            "invalidation": "若跌破 1.33，转为破位减仓。",
+            "position_guidance": "保持当前仓位，等风险敞口下降后再评估。",
+            "levels": {
+              "breakout_price": 1.566,
+              "support_price": 1.334,
+              "pullback_price": 1.401,
+              "retest_price": 1.445
+            }
+          }
+        ],
+        "watchlist": [
+          {
+            "code": "300750",
+            "name": "宁德时代",
+            "action": "watch_market_turn",
+            "action_label": "只观察",
+            "score": 52.51,
+            "priority_score": 57.0,
+            "reason": "宁德时代 自身质量不差，但当前更大的约束来自市场而不是个股。",
+            "thesis": "宁德时代 的主逻辑是 20日收益 +12.00%，趋势延续性较强；相对强弱 +17.12%，强于基准，但 近5日主力资金净流出，所以当前策略是“只观察”。",
+            "trigger": "等指数修复后，再看是否放量突破 413.00。",
+            "invalidation": "若相对强弱转负或跌破 376.30，降出重点观察名单。",
+            "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+            "levels": {
+              "breakout_price": 413.0,
+              "support_price": 376.3,
+              "pullback_price": 405.94,
+              "retest_price": 413.0
+            }
+          },
+          {
+            "code": "600036",
+            "name": "招商银行",
+            "action": "watch_only",
+            "action_label": "只观察",
+            "score": 33.51,
+            "priority_score": 44.0,
+            "reason": "招商银行 还没有进入可交易区间，现在更适合跟踪，不适合执行。",
+            "thesis": "招商银行 的主逻辑是 相对强弱 +5.04%，强于基准；PE 8.7x，但 经营现金流同比 -38.68%，所以当前策略是“只观察”。",
+            "trigger": "先等指数和市场广度修复，再看个股确认。",
+            "invalidation": "若跌破 38.68，从候选名单降级。",
+            "position_guidance": "不分配资金，保留观察位。",
+            "levels": {
+              "breakout_price": 40.12,
+              "support_price": 38.68,
+              "pullback_price": 39.648,
+              "retest_price": 40.12
+            }
+          },
+          {
+            "code": "000333",
+            "name": "美的集团",
+            "action": "watch_only",
+            "action_label": "只观察",
+            "score": 22.59,
+            "priority_score": 44.0,
+            "reason": "美的集团 还没有进入可交易区间，现在更适合跟踪，不适合执行。",
+            "thesis": "美的集团 的主逻辑是 营收同比 +13.85%；利润同比 +19.51%，但 20日收益 -7.19%，中期趋势仍弱，所以当前策略是“只观察”。",
+            "trigger": "先等指数和市场广度修复，再看个股确认。",
+            "invalidation": "若跌破 73.37，从候选名单降级。",
+            "position_guidance": "不分配资金，保留观察位。",
+            "levels": {
+              "breakout_price": 79.7,
+              "support_price": 73.37,
+              "pullback_price": 75.63,
+              "retest_price": 77.06
+            }
+          },
+          {
+            "code": "601127",
+            "name": "赛力斯",
+            "action": "watch_only",
+            "action_label": "只观察",
+            "score": 15.3,
+            "priority_score": 44.0,
+            "reason": "赛力斯 还没有进入可交易区间，现在更适合跟踪，不适合执行。",
+            "thesis": "赛力斯 的主逻辑是 利润同比 +31.56%；ROE 24.1%，但 20日收益 -7.89%，中期趋势仍弱，所以当前策略是“只观察”。",
+            "trigger": "先等指数和市场广度修复，再看个股确认。",
+            "invalidation": "若跌破 99.51，从候选名单降级。",
+            "position_guidance": "不分配资金，保留观察位。",
+            "levels": {
+              "breakout_price": 109.14,
+              "support_price": 99.51,
+              "pullback_price": 101.126,
+              "retest_price": 102.9
+            }
+          }
+        ]
+      },
+      "llm_summary": {
+        "market_summary": "偏空环境下，优先执行既有仓位和观察名单，不扩大动作空间。",
+        "primary_focus": "先看 潞安环能 是否出现量价确认。",
+        "risk_flags": [
+          "新闻和公告只做增量信号，不替代正文核验。",
+          "盘中若指数转弱，单票告警价值需要折价。"
+        ],
+        "confidence_note": "当前为 harness 回退摘要，结构化字段仍可用于首页和复盘。",
+        "_meta": {
+          "provider": "fallback",
+          "model": "rules",
+          "validated": true,
+          "error": null
+        }
+      }
+    },
+    "discovery": {
+      "as_of": "2026-03-24",
+      "idea_count": 73,
+      "ideas": [
+        {
+          "code": "600256",
+          "name": "广汇能源",
+          "decision": "watch",
+          "trade_action": "等回踩",
+          "total_score": 46.16,
+          "coverage_score": 85.0,
+          "market_score": 28.41,
+          "summary": "广汇能源 当前策略为“等回踩”。 综合分 46.2，市场分 28.4，覆盖度 85.0。",
+          "thesis": "广汇能源 的主逻辑是 20日收益 +29.20%，趋势延续性较强；相对强弱 +34.32%，强于基准，但 营收同比 -14.63%，所以当前策略是“等回踩”。",
+          "catalysts": [
+            "20日收益 +29.20%，趋势延续性较强。",
+            "相对强弱 +34.32%，强于基准。"
+          ],
+          "risks": [
+            "营收同比 -14.63%。",
+            "利润同比 -49.03%。",
+            "ROE 3.8%。"
+          ],
+          "trigger_conditions": [
+            "回踩 7.14 一带且量能不失真时，再考虑出手。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若直接跌破 6.69，取消计划。"
+          ],
+          "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+          "priority_score": 60.0,
+          "action_plan": {
+            "action": "wait_for_pullback",
+            "label": "等回踩",
+            "rationale": "广汇能源 方向还在，但更优赔率不在当前位置。",
+            "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+            "urgency": "medium",
+            "urgency_score": 60.0,
+            "levels": {
+              "breakout_price": 7.63,
+              "support_price": 6.69,
+              "pullback_price": 7.142,
+              "retest_price": 7.51
+            },
+            "trigger_conditions": [
+              "回踩 7.14 一带且量能不失真时，再考虑出手。",
+              "先等指数和市场广度修复，再看个股确认。"
+            ],
+            "invalidation_conditions": [
+              "若直接跌破 6.69，取消计划。"
+            ],
+            "do_not": [
+              "不要在没有触发条件前提前追单。",
+              "不要把单票仓位一次性打满。",
+              "不要忽略市场状态对个股执行的影响。"
+            ],
+            "monitoring_focus": [
+              "观察价格相对 7.63 / 6.69 的反应。",
+              "20日收益 +29.20%，趋势延续性较强。",
+              "营收同比 -14.63%。"
+            ]
+          },
+          "metadata": {
+            "sector": "能源金属",
+            "sector_proxy": false
+          }
+        },
+        {
+          "code": "300191",
+          "name": "潜能恒信",
+          "decision": "watch",
+          "trade_action": "等回踩",
+          "total_score": 35.66,
+          "coverage_score": 80.0,
+          "market_score": 28.41,
+          "summary": "潜能恒信 当前策略为“等回踩”。 综合分 35.7，市场分 28.4，覆盖度 80.0。",
+          "thesis": "潜能恒信 的主逻辑是 20日收益 +33.15%，趋势延续性较强；相对强弱 +38.27%，强于基准，但 ROE -2.0%，所以当前策略是“等回踩”。",
+          "catalysts": [
+            "20日收益 +33.15%，趋势延续性较强。",
+            "相对强弱 +38.27%，强于基准。",
+            "营收同比 +18.26%。"
+          ],
+          "risks": [
+            "ROE -2.0%。",
+            "资产负债率 71.1% 偏高。",
+            "近5日主力资金净流出。"
+          ],
+          "trigger_conditions": [
+            "回踩 42.01 一带且量能不失真时，再考虑出手。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若直接跌破 40.28，取消计划。"
+          ],
+          "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+          "priority_score": 60.0,
+          "action_plan": {
+            "action": "wait_for_pullback",
+            "label": "等回踩",
+            "rationale": "潜能恒信 方向还在，但更优赔率不在当前位置。",
+            "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+            "urgency": "medium",
+            "urgency_score": 60.0,
+            "levels": {
+              "breakout_price": 53.08,
+              "support_price": 40.28,
+              "pullback_price": 42.006,
+              "retest_price": 44.22
+            },
+            "trigger_conditions": [
+              "回踩 42.01 一带且量能不失真时，再考虑出手。",
+              "先等指数和市场广度修复，再看个股确认。"
+            ],
+            "invalidation_conditions": [
+              "若直接跌破 40.28，取消计划。"
+            ],
+            "do_not": [
+              "不要在没有触发条件前提前追单。",
+              "不要把单票仓位一次性打满。",
+              "不要忽略市场状态对个股执行的影响。"
+            ],
+            "monitoring_focus": [
+              "观察价格相对 53.08 / 40.28 的反应。",
+              "20日收益 +33.15%，趋势延续性较强。",
+              "ROE -2.0%。"
+            ]
+          },
+          "metadata": {
+            "sector": "油气开采及服务",
+            "sector_proxy": false
+          }
+        },
+        {
+          "code": "601985",
+          "name": "中国核电",
+          "decision": "watch",
+          "trade_action": "只观察",
+          "total_score": 59.57,
+          "coverage_score": 85.0,
+          "market_score": 28.41,
+          "summary": "中国核电 当前策略为“只观察”。 综合分 59.6，市场分 28.4，覆盖度 85.0。",
+          "thesis": "中国核电 的主逻辑是 相对强弱 +12.75%，强于基准；毛利率 44.0%，但 利润同比 -10.42%，所以当前策略是“只观察”。",
+          "catalysts": [
+            "相对强弱 +12.75%，强于基准。",
+            "毛利率 44.0%。",
+            "距20日高点 -0.76%，接近突破位。"
+          ],
+          "risks": [
+            "利润同比 -10.42%。",
+            "ROE 7.1%。",
+            "经营现金流同比 -15.40%。"
+          ],
+          "trigger_conditions": [
+            "等指数修复后，再看是否放量突破 9.24。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若相对强弱转负或跌破 8.85，降出重点观察名单。"
+          ],
+          "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+          "priority_score": 57.0,
+          "action_plan": {
+            "action": "watch_market_turn",
+            "label": "只观察",
+            "rationale": "中国核电 自身质量不差，但当前更大的约束来自市场而不是个股。",
+            "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+            "urgency": "low",
+            "urgency_score": 57.0,
+            "levels": {
+              "breakout_price": 9.24,
+              "support_price": 8.85,
+              "pullback_price": 8.938,
+              "retest_price": 9.17
+            },
+            "trigger_conditions": [
+              "等指数修复后，再看是否放量突破 9.24。",
+              "先等指数和市场广度修复，再看个股确认。"
+            ],
+            "invalidation_conditions": [
+              "若相对强弱转负或跌破 8.85，降出重点观察名单。"
+            ],
+            "do_not": [
+              "不要在没有触发条件前提前追单。",
+              "不要把单票仓位一次性打满。",
+              "不要忽略市场状态对个股执行的影响。"
+            ],
+            "monitoring_focus": [
+              "观察价格相对 9.24 / 8.85 的反应。",
+              "相对强弱 +12.75%，强于基准。",
+              "利润同比 -10.42%。"
+            ]
+          },
+          "metadata": {
+            "sector": "电力",
+            "sector_proxy": false
+          }
+        },
+        {
+          "code": "002565",
+          "name": "顺灏股份",
+          "decision": "watch",
+          "trade_action": "只观察",
+          "total_score": 59.4,
+          "coverage_score": 85.0,
+          "market_score": 28.41,
+          "summary": "顺灏股份 当前策略为“只观察”。 综合分 59.4，市场分 28.4，覆盖度 85.0。",
+          "thesis": "顺灏股份 的主逻辑是 相对强弱 +13.01%，强于基准；利润同比 +20.29%，但 营收同比 -20.57%，所以当前策略是“只观察”。",
+          "catalysts": [
+            "相对强弱 +13.01%，强于基准。",
+            "利润同比 +20.29%。",
+            "毛利率 27.0%。"
+          ],
+          "risks": [
+            "营收同比 -20.57%。",
+            "ROE 3.6%。",
+            "经营现金流同比 -33.79%。"
+          ],
+          "trigger_conditions": [
+            "等指数修复后，再看是否放量突破 16.97。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若相对强弱转负或跌破 13.19，降出重点观察名单。"
+          ],
+          "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+          "priority_score": 57.0,
+          "action_plan": {
+            "action": "watch_market_turn",
+            "label": "只观察",
+            "rationale": "顺灏股份 自身质量不差，但当前更大的约束来自市场而不是个股。",
+            "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+            "urgency": "low",
+            "urgency_score": 57.0,
+            "levels": {
+              "breakout_price": 16.97,
+              "support_price": 13.19,
+              "pullback_price": 14.902,
+              "retest_price": 16.97
+            },
+            "trigger_conditions": [
+              "等指数修复后，再看是否放量突破 16.97。",
+              "先等指数和市场广度修复，再看个股确认。"
+            ],
+            "invalidation_conditions": [
+              "若相对强弱转负或跌破 13.19，降出重点观察名单。"
+            ],
+            "do_not": [
+              "不要在没有触发条件前提前追单。",
+              "不要把单票仓位一次性打满。",
+              "不要忽略市场状态对个股执行的影响。"
+            ],
+            "monitoring_focus": [
+              "观察价格相对 16.97 / 13.19 的反应。",
+              "相对强弱 +13.01%，强于基准。",
+              "营收同比 -20.57%。"
+            ]
+          },
+          "metadata": {
+            "sector": "包装印刷",
+            "sector_proxy": false
+          }
+        },
+        {
+          "code": "300207",
+          "name": "欣旺达",
+          "decision": "watch",
+          "trade_action": "只观察",
+          "total_score": 57.99,
+          "coverage_score": 85.0,
+          "market_score": 28.41,
+          "summary": "欣旺达 当前策略为“只观察”。 综合分 58.0，市场分 28.4，覆盖度 85.0。",
+          "thesis": "欣旺达 的主逻辑是 20日收益 +9.73%，趋势延续性较强；相对强弱 +14.86%，强于基准，但 ROE 5.8%，所以当前策略是“只观察”。",
+          "catalysts": [
+            "20日收益 +9.73%，趋势延续性较强。",
+            "相对强弱 +14.86%，强于基准。",
+            "营收同比 +13.73%。"
+          ],
+          "risks": [
+            "ROE 5.8%。",
+            "市场环境偏空，新开仓需要明显折价。"
+          ],
+          "trigger_conditions": [
+            "等指数修复后，再看是否放量突破 28.07。",
+            "先等指数和市场广度修复，再看个股确认。"
+          ],
+          "invalidation_conditions": [
+            "若相对强弱转负或跌破 25.46，降出重点观察名单。"
+          ],
+          "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+          "priority_score": 57.0,
+          "action_plan": {
+            "action": "watch_market_turn",
+            "label": "只观察",
+            "rationale": "欣旺达 自身质量不差，但当前更大的约束来自市场而不是个股。",
+            "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+            "urgency": "low",
+            "urgency_score": 57.0,
+            "levels": {
+              "breakout_price": 28.07,
+              "support_price": 25.46,
+              "pullback_price": 26.894,
+              "retest_price": 28.07
+            },
+            "trigger_conditions": [
+              "等指数修复后，再看是否放量突破 28.07。",
+              "先等指数和市场广度修复，再看个股确认。"
+            ],
+            "invalidation_conditions": [
+              "若相对强弱转负或跌破 25.46，降出重点观察名单。"
+            ],
+            "do_not": [
+              "不要在没有触发条件前提前追单。",
+              "不要把单票仓位一次性打满。",
+              "不要忽略市场状态对个股执行的影响。"
+            ],
+            "monitoring_focus": [
+              "观察价格相对 28.07 / 25.46 的反应。",
+              "20日收益 +9.73%，趋势延续性较强。",
+              "ROE 5.8%。"
+            ]
+          },
+          "metadata": {
+            "sector": "电池",
+            "sector_proxy": false
+          }
+        }
+      ],
+      "market_view": {
+        "object_type": "market",
+        "object_id": "000300",
+        "object_name": "偏空市场",
+        "at": "2026-03-24",
+        "action": "risk_off",
+        "score": 28.41,
+        "probability": 0.2841,
+        "reason": [
+          "沪深300 5日收益 -5.35%，20日收益 -5.12%。",
+          "候选池平均趋势分 34.5。",
+          "强势候选 2 个，明显走弱对象 6 个。",
+          "新闻偏移 +0.00，公告偏移 +0.00。"
+        ],
+        "risk": [
+          "宏观新闻和指数拐点可能快速反转。",
+          "公告标题判断只反映增量信息，不替代正文核验。"
+        ],
+        "sources": [
+          "benchmark_daily_bars",
+          "official_news",
+          "cninfo_announcements"
+        ],
+        "thesis": "防守期下，当前更适合执行“新开仓从严控制”而不是平均分配火力。",
+        "counterpoints": [
+          "宏观新闻和指数拐点可能快速反转。",
+          "公告标题判断只反映增量信息，不替代正文核验。"
+        ],
+        "trigger_conditions": [
+          "新开仓从严控制",
+          "优先处理弱持仓和破位风险"
+        ],
+        "invalidation_conditions": [
+          "若指数与广度快速修复，需上调风险预算。",
+          "若强势股同步失去相对强度，继续收缩进攻动作。"
+        ],
+        "priority_score": 94.2,
+        "metadata": {
+          "label": "偏空",
+          "regime": "防守期",
+          "policy": [
+            "新开仓从严控制",
+            "优先处理弱持仓和破位风险",
+            "只保留少量观察名单"
+          ],
+          "benchmark_code": "000300",
+          "benchmark_ret_5d": -0.053485345366430126,
+          "benchmark_ret_20d": -0.05122081533598977,
+          "breadth_score": 34.513333333333335,
+          "leadership_count": 2,
+          "breakdown_count": 6
+        }
+      },
+      "artifacts": {
+        "workbook": "data/output/spreadsheet/2026-03-24/2026-03-24_portfolio_candidates.xlsx"
+      }
+    }
+  },
+  "intraday": {
+    "session_dir": "data/output/realtime/2026-03-24/session_180459",
+    "session_summary": {
+      "session_id": "session_180459",
+      "as_of": "2026-03-24",
+      "monitor_plan_path": "data/output/reports/2026-03-24/2026-03-24_monitor_plan.json",
+      "source_kind": "synthetic",
+      "quotes_path": "data/output/realtime/2026-03-24/session_180459/quotes.jsonl",
+      "features_path": "data/output/realtime/2026-03-24/session_180459/features.jsonl",
+      "alerts_path": "data/output/realtime/2026-03-24/session_180459/alerts.jsonl",
+      "alert_count": 20,
+      "iterations_executed": 6,
+      "latest_quote_timestamp": "2026-03-24T18:05:49",
+      "latest_fetched_at": "2026-03-24T18:05:49",
+      "max_freshness_seconds": 0.0,
+      "stale_quote_count": 0
+    },
+    "quotes_path": "data/output/realtime/2026-03-24/session_180459/quotes.jsonl",
+    "features_path": "data/output/realtime/2026-03-24/session_180459/features.jsonl",
+    "alerts_path": "data/output/realtime/2026-03-24/session_180459/alerts.jsonl",
+    "homepage_assets": {
+      "markdown": "data/output/homepage/2026-03-24_homepage_overview.md",
+      "json": "data/output/homepage/2026-03-24_homepage_overview.json",
+      "latest_json": "data/output/homepage/latest_homepage.json",
+      "html": "data/output/homepage/index.html"
+    }
+  },
+  "postclose": {
+    "session_dir": "data/output/realtime/2026-03-24/session_180459",
+    "intraday_review": {
+      "markdown": "data/output/realtime/2026-03-24/session_180459/2026-03-24_intraday_review.md",
+      "json": "data/output/realtime/2026-03-24/session_180459/2026-03-24_intraday_review.json"
+    },
+    "prediction_evaluation": {
+      "markdown": "data/output/evaluations/2026-03-24/2026-03-24_prediction_evaluation.md",
+      "json": "data/output/evaluations/2026-03-24/2026-03-24_prediction_evaluation.json"
+    },
+    "backtest_report": {
+      "markdown": "data/output/backtests/2026-03-24/2026-03-24_backtest_report.md",
+      "json": "data/output/backtests/2026-03-24/2026-03-24_backtest_report.json"
+    },
+    "headline": "今日盘中告警有效性一般，需结合具体规则继续分层。"
+  }
+}

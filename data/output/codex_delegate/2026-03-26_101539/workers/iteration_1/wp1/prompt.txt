@@ -1,0 +1,73 @@
+You are one Codex implementation worker inside a Claude-managed delivery loop.
+
+Project root: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+Run directory: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_101539
+Iteration: 1
+Business task: Audit README.md and STARTUP_README.md for consistency. Only edit files if you find a concrete inconsistency. Keep changes minimal. Return pass only if the docs are aligned.
+
+Global plan:
+{
+  "outcome": "Audit README.md and STARTUP_README.md for factual consistency against each other and the current repo entrypoints; make no edit unless a concrete mismatch is confirmed, and only pass if the two docs remain aligned after the check.",
+  "done_means": [
+    "README.md and STARTUP_README.md have been compared for overlapping claims about user entrypoints, commands, APIs, and current-build features.",
+    "Any overlapping doc claim that is changed is verified against the actual repo implementation or script presence before editing.",
+    "If a concrete inconsistency is found, the fix is minimal and limited to the stale doc text in README.md and/or STARTUP_README.md.",
+    "If no concrete inconsistency is found, no files are edited and the result clearly states that the docs are aligned.",
+    "Non-goal: expanding either document for completeness beyond resolving a proven inconsistency."
+  ],
+  "review_checks": [
+    "Read README.md and STARTUP_README.md side by side and enumerate overlapping claims only.",
+    "Verify mentioned scripts and CLI/API names against src/ashare_harness_v2/cli.py, scripts/, and any directly relevant implementation files.",
+    "If edits were made, inspect git diff for README.md and STARTUP_README.md to confirm the patch is minimal and limited to the inconsistency.",
+    "Reviewer pass condition: either no diff with a justified alignment note, or a minimal diff that resolves a concrete mismatch without introducing new claims."
+  ],
+  "risks": [
+    "README.md is intentionally a high-level summary while STARTUP_README.md is an operator guide; missing detail alone is not an inconsistency.",
+    "Date-stamped examples in STARTUP_README.md may look stale but are not automatically inconsistent unless they contradict README.md or current commands/APIs.",
+    "Docs may reference shell scripts while implementation also exposes CLI subcommands; that is acceptable if both paths are valid."
+  ],
+  "all_packets": [
+    "wp1"
+  ]
+}
+
+Your assigned packet:
+{
+  "packet_id": "wp1",
+  "title": "Audit And Minimal Doc Fix",
+  "objective": "Compare the two docs on shared claims, verify those claims against the repo, and apply the smallest possible doc correction only if a concrete inconsistency is proven.",
+  "scope": [
+    "Audit overlapping claims in README.md and STARTUP_README.md.",
+    "Verify command, script, and API references against scripts/ and src/ashare_harness_v2/cli.py.",
+    "Edit only README.md and/or STARTUP_README.md if needed.",
+    "Do not broaden or rewrite either document."
+  ],
+  "files": [
+    "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/README.md",
+    "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/STARTUP_README.md",
+    "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/cli.py",
+    "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/scripts"
+  ],
+  "commands": [
+    "sed -n '1,220p' README.md",
+    "sed -n '1,260p' STARTUP_README.md",
+    "rg -n \"ask-stock|discover-ideas|delegate-codex|serve_api|serve_dashboard|run_trading_day|run_realtime_session|run_post_close|GET /api/(status|homepage|advice|discovery)\" -S README.md STARTUP_README.md src scripts",
+    "git diff -- README.md STARTUP_README.md"
+  ],
+  "deliverables": [
+    "A short pass/fail audit note listing any concrete inconsistency found, or explicitly stating no inconsistency was found.",
+    "If needed, a minimal patch touching only README.md and/or STARTUP_README.md.",
+    "Verification evidence tying each changed claim to an existing script, CLI command, or API implementation."
+  ]
+}
+
+Execution rules:
+- Stay inside your assigned scope.
+- Do not take ownership of other packets.
+- Make the smallest coherent code change that satisfies the packet.
+- Run the most relevant scoped checks you can.
+- If blocked, say so explicitly with evidence.
+- Return valid JSON only matching the schema.
+- Do not include markdown fences.
+
+You are not the final reviewer. Do not claim the whole task is done.

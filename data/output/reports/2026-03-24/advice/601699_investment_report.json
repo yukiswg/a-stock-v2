@@ -1,0 +1,478 @@
+{
+  "as_of": "2026-03-24",
+  "evaluation": {
+    "code": "601699",
+    "name": "潞安环能",
+    "decision": "hold",
+    "summary": "潞安环能 当前策略为“继续持有，不再加仓”。 综合分 44.7，市场分 28.4，覆盖度 98.0。",
+    "thesis": "潞安环能 的主逻辑是 相对强弱 +12.27%，强于基准。毛利率 34.1%。，但 营收同比 -20.82%。，所以当前策略是“继续持有，不再加仓”。",
+    "scorecard": {
+      "market_score": 28.41,
+      "sector_score": 86.48,
+      "stock_score": 86.98,
+      "timing_score": 62.09,
+      "risk_penalty": 24.0,
+      "missing_data_penalty": 0.0,
+      "coverage_score": 98.0,
+      "total_score": 44.67
+    },
+    "positive_factors": [
+      "相对强弱 +12.27%，强于基准。",
+      "毛利率 34.1%。",
+      "近5日主力资金净流入。",
+      "量比 1.60x，量能有确认。"
+    ],
+    "negative_factors": [
+      "营收同比 -20.82%。",
+      "利润同比 -44.45%。",
+      "ROE 3.3%。",
+      "经营现金流同比 -28.26%。",
+      "市场环境偏空，新开仓需要明显折价。",
+      "近期公告中存在风险关键词。"
+    ],
+    "counter_evidence": [
+      "营收同比 -20.82%。",
+      "利润同比 -44.45%。",
+      "ROE 3.3%。",
+      "经营现金流同比 -28.26%。",
+      "市场环境偏空，新开仓需要明显折价。",
+      "近期公告中存在风险关键词。"
+    ],
+    "missing_information": [],
+    "next_checks": [
+      "先等指数和市场广度修复，再看个股确认。",
+      "单票仓位已经不低，后续只在趋势确认后再考虑微调。"
+    ],
+    "trigger_conditions": [
+      "先等指数和市场广度修复，再看个股确认。",
+      "单票仓位已经不低，后续只在趋势确认后再考虑微调。"
+    ],
+    "invalidation_conditions": [
+      "若跌破 14.28，转为破位减仓。"
+    ],
+    "action_plan": {
+      "action": "hold_no_add",
+      "label": "继续持有，不再加仓",
+      "rationale": "潞安环能 还没有差到必须卖，但仓位条件已经不支持继续加。",
+      "position_guidance": "保持当前仓位，等风险敞口下降后再评估。",
+      "urgency": "medium",
+      "urgency_score": 61.0,
+      "trigger_conditions": [
+        "先等指数和市场广度修复，再看个股确认。",
+        "单票仓位已经不低，后续只在趋势确认后再考虑微调。"
+      ],
+      "invalidation_conditions": [
+        "若跌破 14.28，转为破位减仓。"
+      ],
+      "do_not": [
+        "不要在没有触发条件前提前追单。",
+        "不要把单票仓位一次性打满。",
+        "不要忽略市场状态对个股执行的影响。"
+      ],
+      "monitoring_focus": [
+        "观察价格相对 15.40 / 14.28 的反应。",
+        "相对强弱 +12.27%，强于基准。",
+        "营收同比 -20.82%。"
+      ]
+    },
+    "sector": "能源金属",
+    "position_context": {
+      "is_holding": true,
+      "market_value": 3500.0,
+      "position_weight": 0.35,
+      "sector_weight": 0.0,
+      "pnl_pct": null,
+      "cost_price": null,
+      "last_price": null,
+      "total_equity": 10000.0,
+      "exposure_ratio": 1.0,
+      "effective_sector": "能源金属"
+    }
+  },
+  "market_view": {
+    "object_type": "market",
+    "object_id": "000300",
+    "object_name": "偏空市场",
+    "at": "2026-03-24",
+    "action": "risk_off",
+    "score": 28.41,
+    "probability": 0.2841,
+    "reason": [
+      "沪深300 5日收益 -5.35%，20日收益 -5.12%。",
+      "候选池平均趋势分 34.5。",
+      "强势候选 2 个，明显走弱对象 6 个。",
+      "新闻偏移 +0.00，公告偏移 +0.00。"
+    ],
+    "risk": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "sources": [
+      "benchmark_daily_bars",
+      "official_news",
+      "cninfo_announcements"
+    ],
+    "thesis": "防守期下，当前更适合执行“新开仓从严控制”而不是平均分配火力。",
+    "counterpoints": [
+      "宏观新闻和指数拐点可能快速反转。",
+      "公告标题判断只反映增量信息，不替代正文核验。"
+    ],
+    "trigger_conditions": [
+      "新开仓从严控制",
+      "优先处理弱持仓和破位风险"
+    ],
+    "invalidation_conditions": [
+      "若指数与广度快速修复，需上调风险预算。",
+      "若强势股同步失去相对强度，继续收缩进攻动作。"
+    ],
+    "priority_score": 94.2,
+    "metadata": {
+      "label": "偏空",
+      "regime": "防守期",
+      "policy": [
+        "新开仓从严控制",
+        "优先处理弱持仓和破位风险",
+        "只保留少量观察名单"
+      ],
+      "benchmark_code": "000300",
+      "benchmark_ret_5d": -0.053485345366430126,
+      "benchmark_ret_20d": -0.05122081533598977,
+      "breadth_score": 34.513333333333335,
+      "leadership_count": 2,
+      "breakdown_count": 6
+    }
+  },
+  "better_candidates": [
+    {
+      "code": "600256",
+      "name": "广汇能源",
+      "decision": "watch",
+      "trade_action": "等回踩",
+      "total_score": 46.16,
+      "coverage_score": 85.0,
+      "market_score": 28.41,
+      "summary": "广汇能源 当前策略为“等回踩”。 综合分 46.2，市场分 28.4，覆盖度 85.0。",
+      "thesis": "广汇能源 的主逻辑是 20日收益 +29.20%，趋势延续性较强。相对强弱 +34.32%，强于基准。，但 营收同比 -14.63%。，所以当前策略是“等回踩”。",
+      "catalysts": [
+        "20日收益 +29.20%，趋势延续性较强。",
+        "相对强弱 +34.32%，强于基准。"
+      ],
+      "risks": [
+        "营收同比 -14.63%。",
+        "利润同比 -49.03%。",
+        "ROE 3.8%。"
+      ],
+      "trigger_conditions": [
+        "回踩 7.14 一带且量能不失真时，再考虑出手。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若直接跌破 6.69，取消计划。"
+      ],
+      "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+      "priority_score": 60.0,
+      "action_plan": {
+        "action": "wait_for_pullback",
+        "label": "等回踩",
+        "rationale": "广汇能源 方向还在，但更优赔率不在当前位置。",
+        "position_guidance": "等待更舒服的回踩位，再决定是否试仓。",
+        "urgency": "medium",
+        "urgency_score": 60.0,
+        "trigger_conditions": [
+          "回踩 7.14 一带且量能不失真时，再考虑出手。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若直接跌破 6.69，取消计划。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 7.63 / 6.69 的反应。",
+          "20日收益 +29.20%，趋势延续性较强。",
+          "营收同比 -14.63%。"
+        ]
+      },
+      "metadata": {
+        "sector": "能源金属",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "601985",
+      "name": "中国核电",
+      "decision": "watch",
+      "trade_action": "只观察",
+      "total_score": 59.57,
+      "coverage_score": 85.0,
+      "market_score": 28.41,
+      "summary": "中国核电 当前策略为“只观察”。 综合分 59.6，市场分 28.4，覆盖度 85.0。",
+      "thesis": "中国核电 的主逻辑是 相对强弱 +12.75%，强于基准。毛利率 44.0%。，但 利润同比 -10.42%。，所以当前策略是“只观察”。",
+      "catalysts": [
+        "相对强弱 +12.75%，强于基准。",
+        "毛利率 44.0%。",
+        "距20日高点 -0.76%，接近突破位。"
+      ],
+      "risks": [
+        "利润同比 -10.42%。",
+        "ROE 7.1%。",
+        "经营现金流同比 -15.40%。"
+      ],
+      "trigger_conditions": [
+        "等指数修复后，再看是否放量突破 9.24。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若相对强弱转负或跌破 8.85，降出重点观察名单。"
+      ],
+      "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+      "priority_score": 57.0,
+      "action_plan": {
+        "action": "watch_market_turn",
+        "label": "只观察",
+        "rationale": "中国核电 自身质量不差，但当前更大的约束来自市场而不是个股。",
+        "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+        "urgency": "low",
+        "urgency_score": 57.0,
+        "trigger_conditions": [
+          "等指数修复后，再看是否放量突破 9.24。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若相对强弱转负或跌破 8.85，降出重点观察名单。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 9.24 / 8.85 的反应。",
+          "相对强弱 +12.75%，强于基准。",
+          "利润同比 -10.42%。"
+        ]
+      },
+      "metadata": {
+        "sector": "电力",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "002565",
+      "name": "顺灏股份",
+      "decision": "watch",
+      "trade_action": "只观察",
+      "total_score": 59.4,
+      "coverage_score": 85.0,
+      "market_score": 28.41,
+      "summary": "顺灏股份 当前策略为“只观察”。 综合分 59.4，市场分 28.4，覆盖度 85.0。",
+      "thesis": "顺灏股份 的主逻辑是 相对强弱 +13.01%，强于基准。利润同比 +20.29%。，但 营收同比 -20.57%。，所以当前策略是“只观察”。",
+      "catalysts": [
+        "相对强弱 +13.01%，强于基准。",
+        "利润同比 +20.29%。",
+        "毛利率 27.0%。"
+      ],
+      "risks": [
+        "营收同比 -20.57%。",
+        "ROE 3.6%。",
+        "经营现金流同比 -33.79%。"
+      ],
+      "trigger_conditions": [
+        "等指数修复后，再看是否放量突破 16.97。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若相对强弱转负或跌破 13.19，降出重点观察名单。"
+      ],
+      "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+      "priority_score": 57.0,
+      "action_plan": {
+        "action": "watch_market_turn",
+        "label": "只观察",
+        "rationale": "顺灏股份 自身质量不差，但当前更大的约束来自市场而不是个股。",
+        "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+        "urgency": "low",
+        "urgency_score": 57.0,
+        "trigger_conditions": [
+          "等指数修复后，再看是否放量突破 16.97。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若相对强弱转负或跌破 13.19，降出重点观察名单。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 16.97 / 13.19 的反应。",
+          "相对强弱 +13.01%，强于基准。",
+          "营收同比 -20.57%。"
+        ]
+      },
+      "metadata": {
+        "sector": "包装印刷",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "300207",
+      "name": "欣旺达",
+      "decision": "watch",
+      "trade_action": "只观察",
+      "total_score": 57.99,
+      "coverage_score": 85.0,
+      "market_score": 28.41,
+      "summary": "欣旺达 当前策略为“只观察”。 综合分 58.0，市场分 28.4，覆盖度 85.0。",
+      "thesis": "欣旺达 的主逻辑是 20日收益 +9.73%，趋势延续性较强。相对强弱 +14.86%，强于基准。，但 ROE 5.8%。，所以当前策略是“只观察”。",
+      "catalysts": [
+        "20日收益 +9.73%，趋势延续性较强。",
+        "相对强弱 +14.86%，强于基准。",
+        "营收同比 +13.73%。"
+      ],
+      "risks": [
+        "ROE 5.8%。",
+        "市场环境偏空，新开仓需要明显折价。"
+      ],
+      "trigger_conditions": [
+        "等指数修复后，再看是否放量突破 28.07。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若相对强弱转负或跌破 25.46，降出重点观察名单。"
+      ],
+      "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+      "priority_score": 57.0,
+      "action_plan": {
+        "action": "watch_market_turn",
+        "label": "只观察",
+        "rationale": "欣旺达 自身质量不差，但当前更大的约束来自市场而不是个股。",
+        "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+        "urgency": "low",
+        "urgency_score": 57.0,
+        "trigger_conditions": [
+          "等指数修复后，再看是否放量突破 28.07。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若相对强弱转负或跌破 25.46，降出重点观察名单。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 28.07 / 25.46 的反应。",
+          "20日收益 +9.73%，趋势延续性较强。",
+          "ROE 5.8%。"
+        ]
+      },
+      "metadata": {
+        "sector": "电池",
+        "sector_proxy": false
+      }
+    },
+    {
+      "code": "000938",
+      "name": "紫光股份",
+      "decision": "watch",
+      "trade_action": "只观察",
+      "total_score": 57.91,
+      "coverage_score": 85.0,
+      "market_score": 28.41,
+      "summary": "紫光股份 当前策略为“只观察”。 综合分 57.9，市场分 28.4，覆盖度 85.0。",
+      "thesis": "紫光股份 的主逻辑是 相对强弱 +11.65%，强于基准。营收同比 +31.41%。，但 利润同比 -11.24%。，所以当前策略是“只观察”。",
+      "catalysts": [
+        "相对强弱 +11.65%，强于基准。",
+        "营收同比 +31.41%。",
+        "经营现金流同比 +111.35%。"
+      ],
+      "risks": [
+        "利润同比 -11.24%。",
+        "资产负债率 81.6% 偏高。",
+        "PE 54.5x。"
+      ],
+      "trigger_conditions": [
+        "等指数修复后，再看是否放量突破 26.77。",
+        "先等指数和市场广度修复，再看个股确认。"
+      ],
+      "invalidation_conditions": [
+        "若相对强弱转负或跌破 24.13，降出重点观察名单。"
+      ],
+      "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+      "priority_score": 57.0,
+      "action_plan": {
+        "action": "watch_market_turn",
+        "label": "只观察",
+        "rationale": "紫光股份 自身质量不差，但当前更大的约束来自市场而不是个股。",
+        "position_guidance": "先不出手，把它放在市场修复后的第一梯队。",
+        "urgency": "low",
+        "urgency_score": 57.0,
+        "trigger_conditions": [
+          "等指数修复后，再看是否放量突破 26.77。",
+          "先等指数和市场广度修复，再看个股确认。"
+        ],
+        "invalidation_conditions": [
+          "若相对强弱转负或跌破 24.13，降出重点观察名单。"
+        ],
+        "do_not": [
+          "不要在没有触发条件前提前追单。",
+          "不要把单票仓位一次性打满。",
+          "不要忽略市场状态对个股执行的影响。"
+        ],
+        "monitoring_focus": [
+          "观察价格相对 26.77 / 24.13 的反应。",
+          "相对强弱 +11.65%，强于基准。",
+          "利润同比 -11.24%。"
+        ]
+      },
+      "metadata": {
+        "sector": "IT服务",
+        "sector_proxy": false
+      }
+    }
+  ],
+  "pdf_payload": {
+    "as_of": "2026-03-24",
+    "code": "601699",
+    "insights": [
+      {
+        "published_at": "2026-03-24",
+        "signal": "negative",
+        "strength": 32.0,
+        "summary": "2026-03-24 PDF 深读：潞安环能关于参与探矿权竞买及其结果的公告。提炼结论：关键事项推进存在不确定性，执行上应降低仓位和胜率预期。",
+        "key_lines": [
+          "四、风险提示 （一）本次竞拍结果还需通过中华人民共和国自然资源部、山西省自然 资源厅以及全国公共资源交易平台（…",
+          "未来公司对该宗煤炭资源办理探转 采手续、矿井规划、投资建设复杂程度高、投建周期较长，投资效益存在不确定 风险",
+          "公司将持续跟进后续进展，并及时履行相关信息披露义务，敬请广大投资者 理性投资，注意投资风险"
+        ],
+        "pdf_path": "data/output/pdf/2026-03-24/601699/d17bf9f3c96d.pdf",
+        "text_path": "data/output/pdf/2026-03-24/601699/d17bf9f3c96d.txt",
+        "verified": true,
+        "title": "潞安环能关于参与探矿权竞买及其结果的公告",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-24/1225024503.PDF"
+      },
+      {
+        "published_at": "2026-03-21",
+        "signal": "neutral",
+        "strength": 52.0,
+        "summary": "2026-03-21 PDF 深读：潞安环能关于公司董事辞职的公告。提炼结论：本公告信息中性，主要用于更新事实背景，不改变当前交易计划。",
+        "key_lines": [],
+        "pdf_path": "data/output/pdf/2026-03-24/601699/5ec3f7fc7fb4.pdf",
+        "text_path": "data/output/pdf/2026-03-24/601699/5ec3f7fc7fb4.txt",
+        "verified": true,
+        "title": "潞安环能关于公司董事辞职的公告",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-21/1225021339.PDF"
+      }
+    ]
+  },
+  "charts": {
+    "price_chart": "data/output/reports/2026-03-24/advice/charts/601699_price_chart.png",
+    "momentum_chart": "data/output/reports/2026-03-24/advice/charts/601699_momentum_chart.png"
+  }
+}

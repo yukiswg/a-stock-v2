@@ -1,0 +1,837 @@
+OpenAI Codex v0.117.0-alpha.10 (research preview)
+--------
+workdir: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 019d288b-d970-7512-b103-c38dbeabb617
+--------
+user
+你是这个交付循环的 Leader（组织者），不是执行者。
+
+你的 Boss（用户）给了你这个任务：
+
+---
+在报告中输出一支你认为明天受益最好的股票，尽可能保证准确率，最好能过去回测一下。
+---
+
+## 你的职责（只有以下三件事）
+
+1. **定义验收条件（done_means）**
+   - 每条必须是可判定的（测得出 PASS/FAIL），不是含糊的方向描述
+   - 用结果语言，不写实现步骤
+   - 例如："trend_score_from_parts(ret_5=0.12) 的得分 < trend_score_from_parts(ret_5=0.08)"
+   - 例如："build_prediction_bundle() 返回的 PredictionBundle 包含 intraday/dayend/nextday/longterm 四个字段"
+
+2. **拆成 2 个以内的工作包（work_packets）**
+   - 每个包 = 一个 Codex Worker 的独立任务
+   - scope 写明 Worker 可以改哪些文件
+   - 同一文件原则上不跨包，防止冲突
+
+3. **给每个包写 acceptance test（test_file）**
+   - test_file 是一个 pytest / unittest 文件的路径，Worker 执行后会运行它
+   - 测试必须覆盖 done_means 中的验收条件
+   - 文件内容由你完整写出（不是让 Worker 写）
+   - 测试文件放在 tests/ 目录下，用有意义的命名
+   - 不要写 mock 测试；写真正能验证行为的测试
+
+## 约束
+
+- 输出必须是纯 JSON，符合提供的 schema
+- 不要加 markdown fence
+- 不要写代码实现，只写计划
+- outcome 用一句话描述最终目标（可观测结果）
+- risks 可选，写给 Worker 参考的边界条件，不写入 Boss 的 task
+
+## 项目上下文
+
+Project root: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+Worker 会在 sandbox=workspace-write 模式下执行，可以创建和修改文件。
+Worker 返回的 test_results 是 Leader 验收的唯一依据。
+
+请先快速浏览项目结构（README.md 等），再产出计划。
+mcp: notion starting
+mcp: notion ready
+mcp startup: ready: notion
+exec
+/bin/zsh -lc "pwd && rg --files -g 'README.md' -g 'pyproject.toml' -g 'requirements*.txt' -g 'setup.py' -g 'pytest.ini' -g 'tox.ini' -g 'src/**' -g 'tests/**' -g '*.py' | sed 's#"'^#./#'"' | head -n 300" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+zsh:1: command not found: rg
+exec
+/bin/zsh -lc "find . -maxdepth 3 \\( -name README.md -o -name pyproject.toml -o -name 'requirements*.txt' -o -name setup.py -o -name pytest.ini -o -name tox.ini \\) | sort" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+./README.md
+./pyproject.toml
+exec
+/bin/zsh -lc "find . -maxdepth 4 -name '*.py' | sort | head -n 400" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+./.venv/bin/dumppdf.py
+./.venv/bin/pdf2txt.py
+./.venv/bin/runxlrd.py
+./scripts/fetch_akshare_supplemental.py
+./src/ashare_harness_v2/__init__.py
+./src/ashare_harness_v2/advice_harness/__init__.py
+./src/ashare_harness_v2/advice_harness/engine.py
+./src/ashare_harness_v2/advice_harness/evidence.py
+./src/ashare_harness_v2/advice_harness/planner.py
+./src/ashare_harness_v2/advice_harness/query_parser.py
+./src/ashare_harness_v2/advice_harness/schemas.py
+./src/ashare_harness_v2/advice_harness/scoring.py
+./src/ashare_harness_v2/agent_layer/__init__.py
+./src/ashare_harness_v2/agent_layer/engine.py
+./src/ashare_harness_v2/cli.py
+./src/ashare_harness_v2/codex_delegate.py
+./src/ashare_harness_v2/config.py
+./src/ashare_harness_v2/data_harness/__init__.py
+./src/ashare_harness_v2/data_harness/holdings.py
+./src/ashare_harness_v2/data_harness/market_data.py
+exec
+/bin/zsh -lc "sed -n '1,220p' pyproject.toml" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "sed -n '1,240p' README.md" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ashare-phase1-agents-v2"
+version = "0.2.0"
+description = "Harness-first A-share research, monitoring, replay, and evaluation system."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Codex" }
+]
+dependencies = []
+
+[project.scripts]
+ashare-v2 = "ashare_harness_v2.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+ succeeded in 0ms:
+# A-share Harness V2
+
+`v2` is a harness-first A-share research, monitoring, replay, and evaluation system.
+
+Core principles:
+
+- data reliability first
+- structured decisions only
+- replay and evaluation before polish
+- one clear user entry
+
+New in the current build:
+
+- `ask-stock`: answer whether a stock is buyable with evidence, coverage score, and better alternatives
+- `discover-ideas`: scan the tracked and cached universe to surface top candidates
+- live supplemental bridge: auto-enrichs top ideas and queried stocks with financials, valuation context, capital flow, company profile, and industry heat
+- `GET /api/advice`: API entry for the advice harness
+- `GET /api/discovery`: API entry for candidate discovery
+
+Primary user guide lives in `STARTUP_README.md`.
+exec
+/bin/zsh -lc "sed -n '1,260p' STARTUP_README.md" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "find . -maxdepth 2 -name 'STARTUP_README.md' -o -name '*.md' | sort" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+# STARTUP README
+
+## 你每天先看什么
+
+先看这个首页：
+
+- `data/output/homepage/2026-03-23_homepage_overview.md`
+- 或启动 dashboard 打开 `http://127.0.0.1:8765`
+
+首页只看四块：
+
+- 今天怎么做
+- 当前最新价格
+- 最新告警
+- 持仓动作
+
+## 一键入口
+
+最少命令：
+
+ succeeded in 0ms:
+./CLAUDE.md
+./README.md
+./STARTUP_README.md
+./agent_notes_supplement_2026-03-25.md
+exec
+/bin/zsh -lc "sed -n '1,260p' src/ashare_harness_v2/skill_harness/trading_reports.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any
+
+import matplotlib
+
+matplotlib.use("Agg")
+
+import matplotlib.pyplot as plt
+
+from ..decision_harness.display import build_analysis_snapshot, canonical_action_label
+from ..utils import ensure_dir, write_json, write_text
+
+
+def build_investment_report(
+    config: dict[str, Any],
+    *,
+    as_of: str,
+    evaluation: dict[str, Any],
+exec
+/bin/zsh -lc "grep -Rni \"report\\|backtest\\|discover-ideas\\|best\\|next day\\|tomorrow\\|明天\\|受益\" src tests | head -n 250" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "sed -n '1,260p' src/ashare_harness_v2/evaluation_harness/backtest.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any
+
+from ..config import UniverseItem
+from ..data_harness.market_data import compute_series_features, fetch_daily_series
+from ..models import InstrumentFeatures
+from ..utils import average, median, write_json
+
+
+def backtest_watchlist_strategy(
+    *,
+    universe: list[UniverseItem],
+    cache_dir: str | Path,
+    benchmark_code: str = "000300",
+    begin: str | None = None,
+    end: str | None = None,
+) -> dict[str, Any]:
+    benchmark = fetch_daily_series(code=benchmark_code, name="沪深300", cache_dir=cache_dir, begin="20240101", end="20500101")
+ succeeded in 65ms:
+Binary file src/ashare_harness_v2/prediction_harness/__pycache__/engine.cpython-311.pyc matches
+src/ashare_harness_v2/prediction_harness/engine.py:18:   win-rate from historical backtests, scaled by recent signal quality.
+src/ashare_harness_v2/prediction_harness/engine.py:301:    Probability distribution of tomorrow's return given:
+src/ashare_harness_v2/prediction_harness/engine.py:302:    - Today's return bucket (large up → next day mean-reverts, large down → next day bounces)
+src/ashare_harness_v2/prediction_harness/engine.py:327:        ret_tomorrow = pct_change(bars[i + 2].close_price, bars[i + 1].close_price) or 0.0
+src/ashare_harness_v2/prediction_harness/engine.py:328:        hist_next.append((ret_today, ret_tomorrow))
+src/ashare_harness_v2/prediction_harness/engine.py:360:    # Range-position adjustment: near 20d high → next day win-rate drops
+src/ashare_harness_v2/prediction_harness/engine.py:408:    - Base-rate win-rate from historical backtests
+src/ashare_harness_v2/runtime_harness/realtime.py:237:    report_root = Path(monitor_plan_path).parent
+src/ashare_harness_v2/runtime_harness/realtime.py:238:    homepage_path = report_root / f"{as_of}_homepage_overview.json"
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/orchestrator.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/orchestrator.cpython-313.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/realtime.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/realtime.cpython-313.pyc matches
+src/ashare_harness_v2/runtime_harness/orchestrator.py:16:from ..decision_harness.rendering import render_action_summary, render_daily_report
+src/ashare_harness_v2/runtime_harness/orchestrator.py:17:from ..evaluation_harness.backtest import backtest_watchlist_strategy, write_backtest_report
+src/ashare_harness_v2/runtime_harness/orchestrator.py:128:    report_root = ensure_dir(Path(project["report_dir"]) / as_of)
+src/ashare_harness_v2/runtime_harness/orchestrator.py:131:        output_dir=report_root,
+src/ashare_harness_v2/runtime_harness/orchestrator.py:162:    shutil.copy2(homepage_assets["markdown"], report_root / homepage_assets["markdown"].name)
+src/ashare_harness_v2/runtime_harness/orchestrator.py:163:    shutil.copy2(homepage_assets["json"], report_root / homepage_assets["json"].name)
+exec
+/bin/zsh -lc "sed -n '1,320p' tests/test_decision_bundle.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "sed -n '1,260p' src/ashare_harness_v2/decision_harness/rendering.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+import sys
+import types
+from pathlib import Path
+import unittest
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+if "pdfplumber" not in sys.modules:
+    pdfplumber_stub = types.ModuleType("pdfplumber")
+    pdfplumber_stub.open = lambda *args, **kwargs: None
+    sys.modules["pdfplumber"] = pdfplumber_stub
+if "pypdf" not in sys.modules:
+    pypdf_stub = types.ModuleType("pypdf")
+    pypdf_stub.PdfReader = object
+    sys.modules["pypdf"] = pypdf_stub
+
+ succeeded in 0ms:
+from __future__ import annotations
+
+from ..models import AnnouncementItem, DailyDecisionBundle, HoldingsSnapshot, InstrumentFeatures, NewsItem
+
+
+def render_daily_report(
+    *,
+    bundle: DailyDecisionBundle,
+    holdings: HoldingsSnapshot,
+    news_items: list[NewsItem],
+    announcements: list[AnnouncementItem],
+) -> str:
+    market_state = bundle.homepage_overview.get("market_state") or {}
+    dynamic = bundle.homepage_overview.get("dynamic_universe") or {}
+    market_probability = float(market_state.get("probability") or bundle.market_view.probability or 0.0)
+    market_score = market_state.get("score") or f"{bundle.market_view.score:.1f}"
+    lines = [
+        f"# Daily Report - {bundle.as_of}",
+        "",
+        "## Market State",
+exec
+/bin/zsh -lc "sed -n '1,260p' tests/test_prediction_eval.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+import unittest
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from ashare_harness_v2.evaluation_harness.daily import evaluate_prediction_history
+
+
+class PredictionEvalTests(unittest.TestCase):
+    def test_prediction_history_reads_saved_states(self) -> None:
+        result = evaluate_prediction_history(state_dir=ROOT / "data/output/state", cache_dir=ROOT / "data/cache/daily_bars")
+        self.assertGreaterEqual(result["market_count"], 1)
+        self.assertGreaterEqual(result["watch_count"], 1)
+        self.assertIn("basis_breakdown", result)
+exec
+/bin/zsh -lc "sed -n '1,260p' src/ashare_harness_v2/prediction_harness/engine.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "sed -n '1,320p' src/ashare_harness_v2/advice_harness/engine.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+"""
+Statistical price prediction engine — no ML, no external API required.
+
+Methods used
+------------
+1. Volume-Profile Intraday  — Uses today's intraday volume bars to infer where
+   "smart money" accumulated. The VWAP of above-average bars is treated as the
+   likely fair-value anchor; closing price relative to VWAP historically biases
+   the next-hour direction.
+2. Mean-Reversion Intraday  — Within-day regression toward the session open or
+   the 5-day moving average, scaled by current deviation and volatility.
+3. Day-End Ensemble          — Combines: (a) historical close/open ratio distribution,
+   (b) BollBand reversion, (c) VWAP anchor, (d) drift toward 5dma.
+4. Next-Day Probability       — Historical next-day return distribution conditioned
+   on: (a) today's return bucket, (b) today's range size, (c) current position
+   within the 20d range.
+5. Long-Term Expectation      — Linear regression slope over N days × base-rate
+   win-rate from historical backtests, scaled by recent signal quality.
+"""
+
+ succeeded in 0ms:
+from __future__ import annotations
+
+from dataclasses import replace
+from pathlib import Path
+from typing import Any
+
+from ..decision_core import (
+    SecurityEvaluation,
+    build_strategy_profile,
+    build_summary,
+    build_thesis,
+    candidate_selection_score,
+    candidate_style_fit,
+    evaluate_security,
+)
+from ..skill_harness import analyze_announcement_pdfs, build_investment_report, build_portfolio_candidate_workbook
+from ..utils import ensure_dir, load_json, normalize_whitespace, write_json
+from .evidence import (
+    build_advice_snapshot,
+    ensure_security_announcements,
+exec
+/bin/zsh -lc "sed -n '1,260p' src/ashare_harness_v2/decision_core.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+from dataclasses import dataclass, field, replace
+from typing import Any
+
+from .advice_harness.evidence import (
+    AdviceSnapshot,
+    build_announcement_evidence,
+    build_market_evidence,
+    build_sector_evidence,
+    build_supplemental_evidence,
+    build_technical_evidence,
+    ensure_security_announcements,
+    ensure_security_feature,
+    infer_sector_context,
+    maybe_enrich_snapshot_with_live_supplemental,
+)
+from .advice_harness.scoring import (
+    combine_scores,
+    compute_coverage_score,
+exec
+/bin/zsh -lc "sed -n '1,260p' src/ashare_harness_v2/cli.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "sed -n '700,860p' src/ashare_harness_v2/decision_harness/engine.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+
+from .codex_delegate import delegate_codex
+from .utils import today_stamp
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Harness-first A-share research, monitoring, and replay system.")
+    parser.add_argument("--config", default="config/default.toml", help="Path to TOML config.")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    run_all = subparsers.add_parser("run-trading-day", help="One entry to run premarket, realtime, and postclose pipelines.")
+    add_common_daily_args(run_all)
+    run_all.add_argument("--skip-realtime", action="store_true", help="Do not run realtime stage.")
+    run_all.add_argument("--skip-postclose", action="store_true", help="Do not run postclose stage.")
+
+ succeeded in 0ms:
+            alternative = overall_leader
+            min_gap = 10.0
+        else:
+            alternative = sector_leaders.get(sector) if sector and sector_leaders.get(sector) is not item else overall_leader
+            min_gap = 12.0
+        if alternative is None or alternative is item:
+            continue
+        gap = float((alternative.metadata or {}).get("selection_score") or alternative.priority_score) - float(
+            (item.metadata or {}).get("selection_score") or item.priority_score
+        )
+        if gap < min_gap:
+            continue
+        promote_better_alternative(item=item, alternative=alternative, gap=gap)
+
+
+def promote_better_alternative(*, item: StructuredDecision, alternative: StructuredDecision, gap: float) -> None:
+    action_plan = dict(item.metadata.get("action_plan") or {})
+    alternative_label = action_label(alternative)
+    action_plan["action"] = "switch_to_better_alternative"
+    action_plan["label"] = "替代标的"
+exec
+/bin/zsh -lc "find data -maxdepth 4 | sed -n '1,220p'" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+data
+data/cache
+data/cache/daily_bars
+data/cache/daily_bars/1_605169.json
+data/cache/daily_bars/1_600111.json
+data/cache/daily_bars/0_000617.json
+data/cache/daily_bars/0_002807.json
+data/cache/daily_bars/1_601868.json
+data/cache/daily_bars/0_300750.json
+data/cache/daily_bars/0_300394.json
+data/cache/daily_bars/1_601872.json
+data/cache/daily_bars/1_600330.json
+data/cache/daily_bars/0_301419.json
+data/cache/daily_bars/0_300418.json
+data/cache/daily_bars/1_600188.json
+data/cache/daily_bars/1_603527.json
+data/cache/daily_bars/1_601127.json
+data/cache/daily_bars/1_603993.json
+data/cache/daily_bars/0_300383.json
+data/cache/daily_bars/1_603881.json
+exec
+/bin/zsh -lc "find data/output/reports -maxdepth 3 | sed -n '1,200p'" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+data/output/reports
+data/output/reports/.DS_Store
+data/output/reports/2026-03-12
+data/output/reports/2026-03-12/2026-03-12_features.json
+data/output/reports/2026-03-12/2026-03-12_comprehensive_report.md
+data/output/reports/2026-03-12/2026-03-12_homepage_overview.md
+data/output/reports/2026-03-12/2026-03-12_daily_report.md
+data/output/reports/2026-03-12/2026-03-12_monitor_plan.json
+data/output/reports/2026-03-12/2026-03-12_homepage_overview.json
+data/output/reports/2026-03-12/2026-03-12_action_summary.json
+data/output/reports/2026-03-12/2026-03-12_action_summary.md
+data/output/reports/2026-03-24
+data/output/reports/2026-03-24/2026-03-24_homepage_overview.md
+data/output/reports/2026-03-24/2026-03-24_action_summary.json
+data/output/reports/2026-03-24/2026-03-24_comprehensive_report.md
+data/output/reports/2026-03-24/trading_day_showcase.out
+data/output/reports/2026-03-24/advice
+data/output/reports/2026-03-24/advice/300750_investment_report.md
+data/output/reports/2026-03-24/advice/601699_investment_report.md
+data/output/reports/2026-03-24/advice/002050_investment_report.md
+exec
+/bin/zsh -lc "find data/output -maxdepth 4 \\( -name '*discovery*.json' -o -name '*advice*.json' -o -name '*daily_report.md' -o -name '*comprehensive_report.md' \\) | sort | sed -n '1,200p'" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+data/output/advice/2026-03-23/000547_advice.json
+data/output/advice/2026-03-23/300750_advice.json
+data/output/advice/2026-03-23/513310_advice.json
+data/output/advice/2026-03-23/600256_advice.json
+data/output/advice/2026-03-23/discovery.json
+data/output/advice/2026-03-24/002050_advice.json
+data/output/advice/2026-03-24/002418_advice.json
+data/output/advice/2026-03-24/300750_advice.json
+data/output/advice/2026-03-24/513310_advice.json
+data/output/advice/2026-03-24/600256_advice.json
+data/output/advice/2026-03-24/601699_advice.json
+data/output/advice/2026-03-24/discovery.json
+data/output/advice/2026-03-25/002050_advice.json
+data/output/advice/2026-03-25/300750_advice.json
+data/output/advice/2026-03-25/601699_advice.json
+data/output/advice/2026-03-25/discovery.json
+data/output/advice/2026-03-26/discovery.json
+data/output/reports/2026-03-12/2026-03-12_comprehensive_report.md
+data/output/reports/2026-03-12/2026-03-12_daily_report.md
+data/output/reports/2026-03-17/2026-03-17_comprehensive_report.md
+exec
+/bin/zsh -lc "sed -n '1,260p' data/output/advice/2026-03-26/discovery.json" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "sed -n '1,260p' data/output/reports/2026-03-26/2026-03-26_daily_report.md" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+{
+  "as_of": "2026-03-26",
+  "idea_count": 21,
+  "ideas": [
+    {
+      "code": "600125",
+      "name": "铁龙物流",
+      "decision": "watch",
+      "trade_action": "只观察",
+      "total_score": 57.58,
+      "coverage_score": 85.0,
+      "market_score": 30.8,
+      "summary": "铁龙物流 当前策略为“只观察”。 综合分 57.6，市场分 30.8，覆盖度 85.0。",
+      "thesis": "铁龙物流 的主逻辑是 20日收益 +9.08%，趋势延续性较强；相对强弱 +13.34%，强于基准，但 营收同比 -15.22%，所以当前策略是“只观察”。",
+      "catalysts": [
+        "20日收益 +9.08%，趋势延续性较强。",
+        "相对强弱 +13.34%，强于基准。",
+        "利润同比 +38.57%。"
+      ],
+      "risks": [
+ succeeded in 0ms:
+# Daily Report - 2026-03-26
+
+## Market State
+- 状态: `盘中偏弱` | 概率 `35%` | 分数 `34.8`
+- 结论: 盘中暂未推翻盘前结论。指数均值 -0.15% 重点标的均值 +5.17%。重点跟踪标的整体转强。
+- 盘中变化: 重点跟踪标的整体转强。
+
+## Top Priorities
+- 先处理 潞安环能 的破位减仓 | `先别加仓，跌破再减一点` | 行动紧急度 `盘前优先` | 排序原因 `按基础优先级执行` | 潞安环能先做风险处理，不把反弹当默认剧本。 | 现在看 `按基础优先级执行` | 触发 `只有跌破 13.87，才执行减一点。` | 失效 `如果重新回到 14.55 上方，就先别继续减。` | 仓位 `先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 35.0%；同主题合计约 35.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数`
+- 先处理 中韩芯片 的破位减仓 | `先别加仓，跌破再减一点` | 行动紧急度 `盘前优先` | 排序原因 `按基础优先级执行` | 中韩芯片先做风险处理，不把反弹当默认剧本。 | 现在看 `按基础优先级执行` | 触发 `只有跌破 3.663，才执行减一点。` | 失效 `如果重新回到 3.817 上方，就先别继续减。` | 仓位 `先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 15.0%；同主题合计约 15.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数`
+- 先处理 科创50 的破位减仓 | `先别加仓，跌破再减一点` | 行动紧急度 `盘前优先` | 排序原因 `按基础优先级执行` | 科创50先做风险处理，不把反弹当默认剧本。 | 现在看 `按基础优先级执行` | 触发 `只有跌破 1.329，才执行减一点。` | 失效 `如果重新回到 1.376 上方，就先别继续减。` | 仓位 `先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 50.0%；同主题合计约 50.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数`
+
+## Portfolio Risk Notes
+- 潞安环能(601699) | `先别加仓，跌破再减一点` | 潞安环能先做风险处理，不把反弹当默认剧本。 | 触发 `只有跌破 13.87，才执行减一点。` | 失效 `如果重新回到 14.55 上方，就先别继续减。` | 仓位 `先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 35.0%；同主题合计约 35.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数`
+- 中韩芯片(513310) | `先别加仓，跌破再减一点` | 中韩芯片先做风险处理，不把反弹当默认剧本。 | 触发 `只有跌破 3.663，才执行减一点。` | 失效 `如果重新回到 3.817 上方，就先别继续减。` | 仓位 `先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 15.0%；同主题合计约 15.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数`
+- 科创50(588000) | `先别加仓，跌破再减一点` | 科创50先做风险处理，不把反弹当默认剧本。 | 触发 `只有跌破 1.329，才执行减一点。` | 失效 `如果重新回到 1.376 上方，就先别继续减。` | 仓位 `先减 1/3 到 1/2，保留观察仓。 由于持仓数量或成本字段缺失，本次不下具体手数。；当前单票约占仓位 50.0%；同主题合计约 50.0%；成本价或最新价缺失，只给比例级建议；数量或可卖数量缺失，不下具体手数`
+
+## Watch Opportunities
+> **本列表已过滤纯动量股**：优先低估值、质量可靠、近期涨幅非主要入选依据。
+- 铁龙物流(600125) | `先等市场回暖` | 铁龙物流当前以观察为主，暂时没有必须立刻执行的理由。 | 触发 `现在先观察，不主动加仓。` | 失效 `若相对强弱转负或跌破 6.18，降出重点观察名单。` | 仓位 `先不出手，把它放在市场修复后的第一梯队。`
+exec
+/bin/zsh -lc "sed -n '1,220p' data/output/backtests/2026-03-24/2026-03-24_backtest_report.json" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+{
+  "trade_count": 300,
+  "win_rate": 0.4533,
+  "average_return": 0.0008,
+  "median_return": -0.0014,
+  "cumulative_return": 0.1408,
+  "max_drawdown": -0.2881,
+  "trades": [
+    {
+      "next_trade_date": "2024-12-23",
+      "next_day_return": -0.012206572769952961,
+      "as_of": "2024-12-20",
+      "code": "588000",
+      "name": "科创50ETF",
+      "trend_score": 85.98
+    },
+    {
+      "next_trade_date": "2024-12-24",
+      "next_day_return": 0.024620086594787205,
+      "as_of": "2024-12-23",
+exec
+/bin/zsh -lc "sed -n '1,260p' src/ashare_harness_v2/config.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+import csv
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
+
+try:
+    import tomllib
+except ModuleNotFoundError:  # pragma: no cover - fallback for Python < 3.11
+    import tomli as tomllib
+
+
+@dataclass(slots=True)
+class UniverseItem:
+    code: str
+    name: str
+    category: str
+
+
+exec
+/bin/zsh -lc "find config -maxdepth 2 -type f | sort | sed -n '1,120p' && printf '\\n---\\n' && sed -n '1,260p' config/default.toml && printf '\\n---\\n' && sed -n '1,220p' config/universe.csv" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+config/default.toml
+config/universe.csv
+
+---
+[project]
+name = "A-share Harness V2"
+timezone = "Asia/Shanghai"
+report_dir = "data/output/reports"
+state_dir = "data/output/state"
+realtime_dir = "data/output/realtime"
+evaluation_dir = "data/output/evaluations"
+backtest_dir = "data/output/backtests"
+runtime_dir = "data/output/runtime"
+homepage_dir = "data/output/homepage"
+advice_dir = "data/output/advice"
+pdf_dir = "data/output/pdf"
+spreadsheet_dir = "data/output/spreadsheet"
+daily_bar_cache_dir = "data/cache/daily_bars"
+holdings_file = "data/input/holdings/default_holdings.csv"
+universe_file = "config/universe.csv"
+exec
+/bin/zsh -lc "find data/output/state -maxdepth 2 -type f | sort | sed -n '1,200p'" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+data/output/state/2026-03-12/agent_context.json
+data/output/state/2026-03-12/agent_output.json
+data/output/state/2026-03-12/announcements.json
+data/output/state/2026-03-12/decision_bundle.json
+data/output/state/2026-03-12/features.json
+data/output/state/2026-03-12/holdings_snapshot.json
+data/output/state/2026-03-12/news.json
+data/output/state/2026-03-12/series_snapshots.json
+data/output/state/2026-03-17/agent_context.json
+data/output/state/2026-03-17/agent_output.json
+data/output/state/2026-03-17/announcements.json
+data/output/state/2026-03-17/decision_bundle.json
+data/output/state/2026-03-17/features.json
+data/output/state/2026-03-17/holdings_snapshot.json
+data/output/state/2026-03-17/news.json
+data/output/state/2026-03-17/series_snapshots.json
+data/output/state/2026-03-19/agent_context.json
+data/output/state/2026-03-19/agent_output.json
+data/output/state/2026-03-19/announcements.json
+data/output/state/2026-03-19/decision_bundle.json
+exec
+/bin/zsh -lc "sed -n '1,280p' tests/test_advice_api.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "sed -n '1,320p' tests/test_advice_harness.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+import json
+import sys
+import tempfile
+import threading
+from http.server import ThreadingHTTPServer
+from pathlib import Path
+from urllib.parse import quote
+from urllib.request import urlopen
+import unittest
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from ashare_harness_v2.config import load_config
+from ashare_harness_v2.runtime_harness.web import make_handler
+from ashare_harness_v2.utils import write_json
+ succeeded in 0ms:
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+import unittest
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from ashare_harness_v2.advice_harness import answer_user_query, discover_top_ideas
+from ashare_harness_v2.advice_harness.query_parser import parse_user_query
+from ashare_harness_v2.config import load_config
+
+
+class AdviceHarnessTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.config = load_config(ROOT / "config/default.toml")
+exec
+/bin/zsh -lc "grep -Rni \"write_daily_outputs\\|discover_top_ideas\\|render_daily_report\\|homepage_overview\\|backtest_watchlist_strategy\" src/ashare_harness_v2/runtime_harness src/ashare_harness_v2/decision_harness src/ashare_harness_v2/advice_harness | sed -n '1,220p'" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+src/ashare_harness_v2/runtime_harness/web.py:9:from ..advice_harness import answer_user_query, discover_top_ideas
+src/ashare_harness_v2/runtime_harness/web.py:82:                payload = discover_top_ideas(config, as_of=as_of, limit=limit, write_output=False)
+src/ashare_harness_v2/runtime_harness/realtime.py:238:    homepage_path = report_root / f"{as_of}_homepage_overview.json"
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/orchestrator.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/homepage.cpython-313.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/homepage.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/web.cpython-313.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/orchestrator.cpython-313.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/realtime.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/realtime.cpython-313.pyc matches
+src/ashare_harness_v2/runtime_harness/orchestrator.py:7:from ..advice_harness import discover_top_ideas
+src/ashare_harness_v2/runtime_harness/orchestrator.py:15:from ..decision_harness.engine import build_decision_bundle, write_daily_outputs
+src/ashare_harness_v2/runtime_harness/orchestrator.py:16:from ..decision_harness.rendering import render_action_summary, render_daily_report
+src/ashare_harness_v2/runtime_harness/orchestrator.py:17:from ..evaluation_harness.backtest import backtest_watchlist_strategy, write_backtest_report
+src/ashare_harness_v2/runtime_harness/orchestrator.py:117:    bundle.homepage_overview["dynamic_universe"] = {
+src/ashare_harness_v2/runtime_harness/orchestrator.py:123:        bundle.homepage_overview = update_homepage_with_live_quotes(
+src/ashare_harness_v2/runtime_harness/orchestrator.py:124:            bundle.homepage_overview,
+src/ashare_harness_v2/runtime_harness/orchestrator.py:129:    runtime.log("write_daily_outputs_start")
+src/ashare_harness_v2/runtime_harness/orchestrator.py:130:    artifacts = write_daily_outputs(
+src/ashare_harness_v2/runtime_harness/orchestrator.py:138:    runtime.log("write_daily_outputs_done", artifact_count=len(artifacts))
+exec
+/bin/zsh -lc "sed -n '220,420p' src/ashare_harness_v2/decision_harness/engine.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "sed -n '1,220p' src/ashare_harness_v2/decision_harness/engine.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+        action, reasons, risks = holding_action_from_evaluation(evaluation)
+        rows.append(
+            StructuredDecision(
+                object_type="holding",
+                object_id=position.code,
+                object_name=position.name,
+                at=as_of,
+                action=action,
+                score=round(evaluation.scorecard.total_score, 2),
+                probability=evaluation.confidence,
+                reason=reasons,
+                risk=risks,
+                thesis=evaluation.thesis,
+                counterpoints=evaluation.counter_evidence[:3],
+                trigger_conditions=evaluation.trigger_conditions[:3],
+                invalidation_conditions=evaluation.invalidation_conditions[:3],
+                priority_score=evaluation.action_plan.urgency_score,
+                sources=_sources_from_evaluation(evaluation),
+                metadata={
+                    "sector": evaluation.sector or position.sector,
+ succeeded in 0ms:
+from __future__ import annotations
+
+from dataclasses import asdict
+from pathlib import Path
+from typing import Any
+
+from ..advice_harness.evidence import AdviceSnapshot
+from ..config import UniverseItem
+from ..decision_core import (
+    candidate_selection_score,
+    candidate_style_fit,
+    evaluate_security,
+    holding_action_from_evaluation,
+    infer_market_strategy_style,
+    watch_action_from_evaluation,
+)
+from ..models import (
+    AnnouncementItem,
+    DailyDecisionBundle,
+    DailySeriesSnapshot,
+exec
+/bin/zsh -lc "grep -n \"def build_homepage_payload\\|def serialize_homepage_decision\" -n src/ashare_harness_v2/decision_harness/engine.py && sed -n '500,700p' src/ashare_harness_v2/decision_harness/engine.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+487:def build_homepage_payload(
+612:def serialize_homepage_decision(item: StructuredDecision) -> dict[str, Any]:
+        ordered_codes.append((str(item["code"]), str(item["name"])))
+    for item in holdings_actions[:3]:
+        ordered_codes.append((item.object_id, item.object_name))
+    for item in watchlist[:2]:
+        ordered_codes.append((item.object_id, item.object_name))
+    seen: set[str] = set()
+    for code, name in ordered_codes:
+        if code in seen:
+            continue
+        seen.add(code)
+        feature = feature_map.get(code)
+        if feature is None:
+            continue
+        current_prices.append(
+            {
+                "code": code,
+                "name": name,
+                "last_price": f"{feature.last_close:.3f}".rstrip("0").rstrip("."),
+exec
+/bin/zsh -lc "sed -n '1,220p' src/ashare_harness_v2/runtime_harness/orchestrator.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+import shutil
+from pathlib import Path
+from typing import Any
+
+from ..advice_harness import discover_top_ideas
+from ..agent_layer.engine import build_agent_context, run_structured_agent
+from ..config import UniverseItem, load_universe
+from ..data_harness.holdings import hydrate_holdings_snapshot_with_prices, load_holdings_snapshot
+from ..data_harness.market_data import fetch_daily_series
+from ..data_harness.news import collect_news, fetch_holdings_announcements
+from ..data_harness.supplemental import ensure_sector_metrics_payload, ensure_supplemental_payload, filter_supplemental_codes
+from ..decision_core import infer_market_strategy_style
+from ..decision_harness.engine import build_decision_bundle, write_daily_outputs
+from ..decision_harness.rendering import render_action_summary, render_daily_report
+from ..evaluation_harness.backtest import backtest_watchlist_strategy, write_backtest_report
+from ..evaluation_harness.daily import evaluate_prediction_history, write_prediction_evaluation
+from ..evaluation_harness.intraday import build_intraday_review, write_intraday_review
+from ..models import AnnouncementItem, DailyBar, DailyDecisionBundle, DailySeriesSnapshot, HoldingPosition, HoldingsSnapshot, NewsItem, StructuredDecision
+exec
+/bin/zsh -lc "sed -n '1,320p' src/ashare_harness_v2/models.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+from dataclasses import asdict, dataclass, field
+from typing import Any
+
+
+@dataclass(slots=True)
+class HoldingPosition:
+    code: str
+    name: str
+    quantity: float
+    available_quantity: float
+    market_value: float
+    cost_price: float | None = None
+    last_price: float | None = None
+    pnl_amount: float | None = None
+    pnl_pct: float | None = None
+    sector: str | None = None
+
+    def to_dict(self) -> dict[str, Any]:
+exec
+/bin/zsh -lc "grep -n \"def load_json\\|def write_json\\|def ensure_dir\\|def today_stamp\" -n src/ashare_harness_v2/utils.py && sed -n '1,220p' src/ashare_harness_v2/utils.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+24:def ensure_dir(path: str | Path) -> Path:
+51:def write_json(path: str | Path, payload: Any) -> Path:
+67:def load_json(path: str | Path, default: Any = None) -> Any:
+74:def load_jsonl(path: str | Path) -> list[dict[str, Any]]:
+89:def today_stamp() -> str:
+from __future__ import annotations
+
+import json
+import os
+import random
+import time
+import urllib.parse
+import urllib.request
+from dataclasses import asdict, is_dataclass
+from datetime import date, datetime, timezone
+from pathlib import Path
+from typing import Any
+
+
+DEFAULT_HEADERS = {
+2026-03-26T05:14:37.297888Z ERROR codex_core::tools::router: error=exec_command failed for `/bin/zsh -lc "python3 - <<'PY'
+import sys
+from pathlib import Path
+ROOT = Path('.').resolve()
+SRC = ROOT / 'src'
+sys.path.insert(0, str(SRC))
+from ashare_harness_v2.config import load_config, load_universe
+from ashare_harness_v2.data_harness.holdings import load_holdings_snapshot
+from ashare_harness_v2.data_harness.market_data import fetch_daily_series
+from ashare_harness_v2.decision_harness.engine import build_decision_bundle
+from ashare_harness_v2.models import NewsItem, AnnouncementItem
+from ashare_harness_v2.utils import load_json
+config = load_config(ROOT/'config/default.toml')
+as_of = '2026-03-26'
+holdings = load_holdings_snapshot(ROOT/'data/input/holdings/default_holdings.csv', as_of=as_of)
+universe = load_universe(ROOT/'config/universe.csv')
+required = {item.code: item.name for item in universe}
+for p in holdings.positions:
+    required[p.code] = p.name
+series_map = {code: fetch_daily_series(code=code, name=name, cache_dir=ROOT/'data/cache/daily_bars', end=as_of) for code, name in required.items()}
+state_root = ROOT/'data/output/state'/as_of
+supplemental = {key: (load_json(state_root/f'{key}.json', default={}) or {}) for key in ('fundamentals','valuation','capital_flow','company_info')}
+sector_map = load_json(state_root/'sector_map.json', default={}) or {}
+sector_metrics = load_json(state_root/'sector_metrics.json', default={}) or {}
+news = [NewsItem(**row) for row in (load_json(state_root/'news.json', default=[]) or [])]
+ann = [AnnouncementItem(**row) for row in (load_json(state_root/'announcements.json', default=[]) or [])]
+bundle, feature_map = build_decision_bundle(as_of=as_of, holdings=holdings, universe=universe, series_map=series_map, news_items=news, announcements=ann, llm_summary={}, config=config, supplemental=supplemental, sector_map=sector_map, sector_metrics=sector_metrics)
+print(bundle.as_of, len(bundle.watchlist), bundle.watchlist[0].object_id if bundle.watchlist else None)
+print(bundle.homepage_overview.keys())
+PY"`: CreateProcess { message: "Codex(Sandbox(Denied { output: ExecToolCallOutput { exit_code: 1, stdout: StreamOutput { text: \"\", truncated_after_lines: None }, stderr: StreamOutput { text: \"zsh:1: can't create temp file for here document: operation not permitted\\n\", truncated_after_lines: None }, aggregated_output: StreamOutput { text: \"zsh:1: can't create temp file for here document: operation not permitted\\n\", truncated_after_lines: None }, duration: 0ns, timed_out: false }, network_policy_decision: None }))" }
+Plan update
+项目结构和现有日报/发现候选/回测链路已确认。接下来只输出 Leader 计划：一个工作包做“明日最佳标的”的历史打分与回测选择器，另一个工作包把该单一标的写进日报/首页输出，并用真实缓存数据做验收。
+  ✓ Review report, discovery, and backtest code paths
+  ✓ Define measurable acceptance criteria for tomorrow-best-pick feature
+  ✓ Package work into at most two non-overlapping worker packets with acceptance tests
+codex
+{"outcome":"生成的日报/首页报告会输出唯一一支“明日最佳标的”，并附带基于历史样本的次日回测证据。","done_means":["`combine_nextday_edge(selection_score=70.0, nextday_return=0.012, win_rate=0.58, trade_count=40)` 的返回值大于 `combine_nextday_edge(selection_score=70.0, nextday_return=0.012, win_rate=0.52, trade_count=40)`。","`combine_nextday_edge(selection_score=70.0, nextday_return=0.012, win_rate=0.58, trade_count=40)` 的返回值大于 `combine_nextday_edge(selection_score=70.0, nextday_return=0.012, win_rate=0.58, trade_count=8)`。","`select_nextday_best_pick(config, as_of=\"2026-03-26\", holdings_file=...)` 返回非空 dict，且其 `code` 等于 `rank_nextday_candidates(config, as_of=\"2026-03-26\", limit=5, holdings_file=...)[0][\"code\"]`。","上述 `select_nextday_best_pick(...)` 返回结果满足：`code` 不在当前持仓代码集合内，且不属于 `{\"000300\",\"510300\",\"000001\",\"399006\"}`；`backtest.trade_count >= 20`；`backtest.sample_end < \"2026-03-26\"`；并且 `backtest.trades` 中每条记录都满足 `row[\"as_of\"] < \"2026-03-26\"` 且 `row[\"code\"] == result[\"code\"]`。","`build_decision_bundle(..., as_of=\"2026-03-26\", config=config, supplemental=..., sector_map=..., sector_metrics=...)` 返回的 `bundle.homepage_overview` 包含 `tomorrow_best_pick` 字段，且该字段至少包含非空的 `code`、`name`、`tomorrow_score`、`backtest`。","`write_daily_outputs(...)` 写出的 `daily_report` 与 `homepage_overview` 文件都包含标题 `## 明日最佳标的`；各自该 section 内都包含且仅包含一条 `name(code)` 股票标识，并同时出现 `历史胜率`、`平均次日收益`、`样本数` 三个标签。"],"risks":["验收必须只依赖本地缓存的 `data/cache/daily_bars` 和已落盘的 `data/output/state/2026-03-26/*`，不要在测试里触发实时新闻、公告抓取、AkShare 补数或实时行情。","必须避免未来函数：回测样本结束日期必须严格早于 `as_of`，不能把 `2026-03-26` 之后的 bar 用进任何打分或样本统计。","当前 `run_premarket` 里写日报发生在 `discover_top_ideas` 之前；如果需要 runtime 接线，必须在 `write_daily_outputs(...)` 之前把 `tomorrow_best_pick` 放进 bundle/homepage payload。"],"work_packets":[{"packet_id":"wp1","title":"明日最佳标的选择与报告落地","objective":"基于现有缓存日线和已保存状态，为盘前报告选出唯一一支“明日最佳标的”，给出可复核的历史次日回测证据，并把这支股票稳定写入日报与首页输出。","scope":["src/ashare_harness_v2/evaluation_harness/*.py","src/ashare_harness_v2/decision_harness/*.py","src/ashare_harness_v2/runtime_harness/orchestrator.py","tests/test_tomorrow_best_pick_report.py"],"test_file":"tests/test_tomorrow_best_pick_report.py"}]}
+tokens used
+105,628

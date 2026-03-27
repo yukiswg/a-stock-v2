@@ -1,0 +1,314 @@
+[
+  {
+    "packet_id": "wp1",
+    "title": "候选回测选股器",
+    "result": {
+      "status": "blocked",
+      "changed_files": [
+        "src/ashare_harness_v2/advice_harness/tomorrow_pick.py",
+        "src/ashare_harness_v2/evaluation_harness/backtest.py"
+      ],
+      "test_results": [
+        {
+          "name": "PYTHONPATH=src python3 -m unittest discover -s tests -v",
+          "passed": false,
+          "output": "2026/自学内容/代码类/ashare-phase1-agents-v2/tests/test_supplemental_bridge.py\", line 18, in <module>\n    SCRIPT_SPEC.loader.exec_module(SUPPLEMENTAL_SCRIPT)\n  File \"/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/scripts/fetch_akshare_supplemental.py\", line 11, in <module>\n    import akshare as ak\nModuleNotFoundError: No module named 'akshare'\n\n\n----------------------------------------------------------------------\nRan 45 tests in 2.530s\n\nFAILED (errors=3)"
+        },
+        {
+          "name": "smoke_check_build_tomorrow_best_pick_2026_03_26",
+          "passed": true,
+          "output": "smoke_ok 002192 3 8\n"
+        }
+      ],
+      "evidence": [
+        "`tests/test_tomorrow_best_pick.py` does not exist in the local workspace (`exists False`), so the assigned acceptance file could not be run directly.",
+        "`unittest discover` is blocked by unrelated environment issues outside this packet's scope: `PermissionError: [Errno 1] Operation not permitted` when binding a local test HTTP server, `urllib.error.URLError` from announcement fetching without network, and `ModuleNotFoundError: No module named 'akshare'`.",
+        "Local smoke assertions against `build_tomorrow_best_pick(load_config(\"config/default.toml\"), as_of=\"2026-03-26\")` passed: `candidate_rankings` length 8, required ranking fields present, sorted by `composite_score`, `best_stock.code == candidate_rankings[0].code`, and selected backtest has `trade_count == 3` with non-empty `trades`."
+      ]
+    },
+    "artifact": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_142707/workers/iteration_1/wp1/response.json",
+    "stdout": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_142707/workers/iteration_1/wp1/stdout.log",
+    "stderr": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_142707/workers/iteration_1/wp1/stderr.log",
+    "session_id": null
+  },
+  {
+    "packet_id": "wp2",
+    "title": "最优标的报告展示",
+    "result": {
+      "status": "blocked",
+      "changed_files": [
+        "src/ashare_harness_v2/decision_harness/rendering.py",
+        "src/ashare_harness_v2/skill_harness/trading_reports.py"
+      ],
+      "test_results": [
+        {
+          "name": "test_api_exposes_advice_and_discovery (test_advice_api.AdviceApiTests.test_api_exposes_advice_and_discovery)",
+          "passed": false,
+          "output": "test_api_exposes_advice_and_discovery (test_advice_api.AdviceApiTests.test_api_exposes_advice_and_discovery) ... ERROR\nPermissionError: [Errno 1] Operation not permitted"
+        },
+        {
+          "name": "test_add_position_colloquial_query_resolves_security (test_advice_harness.AdviceHarnessTests.test_add_position_colloquial_query_resolves_security)",
+          "passed": true,
+          "output": "test_add_position_colloquial_query_resolves_security (test_advice_harness.AdviceHarnessTests.test_add_position_colloquial_query_resolves_security) ... ok"
+        },
+        {
+          "name": "test_add_position_query_returns_position_context (test_advice_harness.AdviceHarnessTests.test_add_position_query_returns_position_context)",
+          "passed": true,
+          "output": "test_add_position_query_returns_position_context (test_advice_harness.AdviceHarnessTests.test_add_position_query_returns_position_context) ... ok"
+        },
+        {
+          "name": "test_answer_user_query_returns_structured_decision (test_advice_harness.AdviceHarnessTests.test_answer_user_query_returns_structured_decision)",
+          "passed": false,
+          "output": "test_answer_user_query_returns_structured_decision (test_advice_harness.AdviceHarnessTests.test_answer_user_query_returns_structured_decision) ... ERROR\nurllib.error.URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+        },
+        {
+          "name": "test_discover_top_ideas_respects_strategy_style (test_advice_harness.AdviceHarnessTests.test_discover_top_ideas_respects_strategy_style)",
+          "passed": true,
+          "output": "test_discover_top_ideas_respects_strategy_style (test_advice_harness.AdviceHarnessTests.test_discover_top_ideas_respects_strategy_style) ... ok"
+        },
+        {
+          "name": "test_discover_top_ideas_returns_candidates (test_advice_harness.AdviceHarnessTests.test_discover_top_ideas_returns_candidates)",
+          "passed": true,
+          "output": "test_discover_top_ideas_returns_candidates (test_advice_harness.AdviceHarnessTests.test_discover_top_ideas_returns_candidates) ... ok"
+        },
+        {
+          "name": "test_holding_query_without_explicit_add_still_uses_position_mode (test_advice_harness.AdviceHarnessTests.test_holding_query_without_explicit_add_still_uses_position_mode)",
+          "passed": true,
+          "output": "test_holding_query_without_explicit_add_still_uses_position_mode (test_advice_harness.AdviceHarnessTests.test_holding_query_without_explicit_add_still_uses_position_mode) ... ok"
+        },
+        {
+          "name": "test_query_parser_detects_strategy_style (test_advice_harness.AdviceHarnessTests.test_query_parser_detects_strategy_style)",
+          "passed": true,
+          "output": "test_query_parser_detects_strategy_style (test_advice_harness.AdviceHarnessTests.test_query_parser_detects_strategy_style) ... ok"
+        },
+        {
+          "name": "test_query_parser_extracts_code (test_advice_harness.AdviceHarnessTests.test_query_parser_extracts_code)",
+          "passed": true,
+          "output": "test_query_parser_extracts_code (test_advice_harness.AdviceHarnessTests.test_query_parser_extracts_code) ... ok"
+        },
+        {
+          "name": "test_query_parser_extracts_name_and_horizon (test_advice_harness.AdviceHarnessTests.test_query_parser_extracts_name_and_horizon)",
+          "passed": true,
+          "output": "test_query_parser_extracts_name_and_horizon (test_advice_harness.AdviceHarnessTests.test_query_parser_extracts_name_and_horizon) ... ok"
+        },
+        {
+          "name": "test_query_parser_handles_colloquial_add_position_sentence (test_advice_harness.AdviceHarnessTests.test_query_parser_handles_colloquial_add_position_sentence)",
+          "passed": true,
+          "output": "test_query_parser_handles_colloquial_add_position_sentence (test_advice_harness.AdviceHarnessTests.test_query_parser_handles_colloquial_add_position_sentence) ... ok"
+        },
+        {
+          "name": "test_query_parser_supports_plain_name_and_add_position (test_advice_harness.AdviceHarnessTests.test_query_parser_supports_plain_name_and_add_position)",
+          "passed": true,
+          "output": "test_query_parser_supports_plain_name_and_add_position (test_advice_harness.AdviceHarnessTests.test_query_parser_supports_plain_name_and_add_position) ... ok"
+        },
+        {
+          "name": "test_query_parser_trims_colloquial_suffix (test_advice_harness.AdviceHarnessTests.test_query_parser_trims_colloquial_suffix)",
+          "passed": true,
+          "output": "test_query_parser_trims_colloquial_suffix (test_advice_harness.AdviceHarnessTests.test_query_parser_trims_colloquial_suffix) ... ok"
+        },
+        {
+          "name": "test_style_based_query_returns_strategy_profile (test_advice_harness.AdviceHarnessTests.test_style_based_query_returns_strategy_profile)",
+          "passed": true,
+          "output": "test_style_based_query_returns_strategy_profile (test_advice_harness.AdviceHarnessTests.test_style_based_query_returns_strategy_profile) ... ok"
+        },
+        {
+          "name": "test_action_summary_prefers_live_priorities (test_decision_bundle.DecisionBundleTests.test_action_summary_prefers_live_priorities)",
+          "passed": true,
+          "output": "test_action_summary_prefers_live_priorities (test_decision_bundle.DecisionBundleTests.test_action_summary_prefers_live_priorities) ... ok"
+        },
+        {
+          "name": "test_action_summary_watch_section_prefers_alternative_hint (test_decision_bundle.DecisionBundleTests.test_action_summary_watch_section_prefers_alternative_hint)",
+          "passed": true,
+          "output": "test_action_summary_watch_section_prefers_alternative_hint (test_decision_bundle.DecisionBundleTests.test_action_summary_watch_section_prefers_alternative_hint) ... ok"
+        },
+        {
+          "name": "test_daily_report_prefers_realtime_market_state_probability (test_decision_bundle.DecisionBundleTests.test_daily_report_prefers_realtime_market_state_probability)",
+          "passed": true,
+          "output": "test_daily_report_prefers_realtime_market_state_probability (test_decision_bundle.DecisionBundleTests.test_daily_report_prefers_realtime_market_state_probability) ... ok"
+        },
+        {
+          "name": "test_daily_report_shows_action_family_and_position_completeness (test_decision_bundle.DecisionBundleTests.test_daily_report_shows_action_family_and_position_completeness)",
+          "passed": true,
+          "output": "test_daily_report_shows_action_family_and_position_completeness (test_decision_bundle.DecisionBundleTests.test_daily_report_shows_action_family_and_position_completeness) ... ok"
+        },
+        {
+          "name": "test_decision_bundle_has_structured_sections (test_decision_bundle.DecisionBundleTests.test_decision_bundle_has_structured_sections)",
+          "passed": true,
+          "output": "test_decision_bundle_has_structured_sections (test_decision_bundle.DecisionBundleTests.test_decision_bundle_has_structured_sections) ... ok"
+        },
+        {
+          "name": "test_homepage_payload_and_rendering_expose_predictions (test_decision_bundle.DecisionBundleTests.test_homepage_payload_and_rendering_expose_predictions)",
+          "passed": true,
+          "output": "test_homepage_payload_and_rendering_expose_predictions (test_decision_bundle.DecisionBundleTests.test_homepage_payload_and_rendering_expose_predictions) ... ok"
+        },
+        {
+          "name": "test_watchlist_can_downgrade_to_better_alternative (test_decision_bundle.DecisionBundleTests.test_watchlist_can_downgrade_to_better_alternative)",
+          "passed": true,
+          "output": "test_watchlist_can_downgrade_to_better_alternative (test_decision_bundle.DecisionBundleTests.test_watchlist_can_downgrade_to_better_alternative) ... ok"
+        },
+        {
+          "name": "test_add_position_trim_uses_near_support_recheck_and_cost_warning (test_decision_core.DecisionCoreTests.test_add_position_trim_uses_near_support_recheck_and_cost_warning)",
+          "passed": true,
+          "output": "test_add_position_trim_uses_near_support_recheck_and_cost_warning (test_decision_core.DecisionCoreTests.test_add_position_trim_uses_near_support_recheck_and_cost_warning) ... ok"
+        },
+        {
+          "name": "test_build_position_context_falls_back_to_holding_sector_weight (test_decision_core.DecisionCoreTests.test_build_position_context_falls_back_to_holding_sector_weight)",
+          "passed": true,
+          "output": "test_build_position_context_falls_back_to_holding_sector_weight (test_decision_core.DecisionCoreTests.test_build_position_context_falls_back_to_holding_sector_weight) ... ok"
+        },
+        {
+          "name": "test_evaluate_security_exposes_prediction_bundle (test_decision_core.DecisionCoreTests.test_evaluate_security_exposes_prediction_bundle)",
+          "passed": true,
+          "output": "test_evaluate_security_exposes_prediction_bundle (test_decision_core.DecisionCoreTests.test_evaluate_security_exposes_prediction_bundle) ... ok"
+        },
+        {
+          "name": "test_support_zone_buy_uses_support_confirmation_not_breakout_chase (test_decision_core.DecisionCoreTests.test_support_zone_buy_uses_support_confirmation_not_breakout_chase)",
+          "passed": true,
+          "output": "test_support_zone_buy_uses_support_confirmation_not_breakout_chase (test_decision_core.DecisionCoreTests.test_support_zone_buy_uses_support_confirmation_not_breakout_chase) ... ok"
+        },
+        {
+          "name": "test_sector_skill_falls_back_to_static_watch_when_dynamic_empty (test_dynamic_universe_skill.DynamicUniverseSkillTests.test_sector_skill_falls_back_to_static_watch_when_dynamic_empty)",
+          "passed": true,
+          "output": "test_sector_skill_falls_back_to_static_watch_when_dynamic_empty (test_dynamic_universe_skill.DynamicUniverseSkillTests.test_sector_skill_falls_back_to_static_watch_when_dynamic_empty) ... ok"
+        },
+        {
+          "name": "test_sector_skill_selects_top_sectors_and_leaders (test_dynamic_universe_skill.DynamicUniverseSkillTests.test_sector_skill_selects_top_sectors_and_leaders)",
+          "passed": true,
+          "output": "test_sector_skill_selects_top_sectors_and_leaders (test_dynamic_universe_skill.DynamicUniverseSkillTests.test_sector_skill_selects_top_sectors_and_leaders) ... ok"
+        },
+        {
+          "name": "test_hydrate_holdings_snapshot_with_series_prices (test_holdings.HoldingsTests.test_hydrate_holdings_snapshot_with_series_prices)",
+          "passed": true,
+          "output": "test_hydrate_holdings_snapshot_with_series_prices (test_holdings.HoldingsTests.test_hydrate_holdings_snapshot_with_series_prices) ... ok"
+        },
+        {
+          "name": "test_load_default_holdings_snapshot (test_holdings.HoldingsTests.test_load_default_holdings_snapshot)",
+          "passed": true,
+          "output": "test_load_default_holdings_snapshot (test_holdings.HoldingsTests.test_load_default_holdings_snapshot) ... ok"
+        },
+        {
+          "name": "test_live_quote_refresh_does_not_compound_market_probability (test_homepage_runtime.HomepageRuntimeTests.test_live_quote_refresh_does_not_compound_market_probability)",
+          "passed": true,
+          "output": "test_live_quote_refresh_does_not_compound_market_probability (test_homepage_runtime.HomepageRuntimeTests.test_live_quote_refresh_does_not_compound_market_probability) ... ok"
+        },
+        {
+          "name": "test_premarket_live_quotes_refresh_market_state (test_homepage_runtime.HomepageRuntimeTests.test_premarket_live_quotes_refresh_market_state)",
+          "passed": true,
+          "output": "test_premarket_live_quotes_refresh_market_state (test_homepage_runtime.HomepageRuntimeTests.test_premarket_live_quotes_refresh_market_state) ... ok"
+        },
+        {
+          "name": "test_premarket_live_quotes_replace_reference_close (test_homepage_runtime.HomepageRuntimeTests.test_premarket_live_quotes_replace_reference_close)",
+          "passed": true,
+          "output": "test_premarket_live_quotes_replace_reference_close (test_homepage_runtime.HomepageRuntimeTests.test_premarket_live_quotes_replace_reference_close) ... ok"
+        },
+        {
+          "name": "test_rendering_marks_reference_close_prices_as_non_realtime (test_homepage_runtime.HomepageRuntimeTests.test_rendering_marks_reference_close_prices_as_non_realtime)",
+          "passed": true,
+          "output": "test_rendering_marks_reference_close_prices_as_non_realtime (test_homepage_runtime.HomepageRuntimeTests.test_rendering_marks_reference_close_prices_as_non_realtime) ... ok"
+        },
+        {
+          "name": "test_rendering_prefers_display_fields (test_homepage_runtime.HomepageRuntimeTests.test_rendering_prefers_display_fields)",
+          "passed": true,
+          "output": "test_rendering_prefers_display_fields (test_homepage_runtime.HomepageRuntimeTests.test_rendering_prefers_display_fields) ... ok"
+        },
+        {
+          "name": "test_session_priority_prefers_execution_urgency (test_homepage_runtime.HomepageRuntimeTests.test_session_priority_prefers_execution_urgency)",
+          "passed": true,
+          "output": "test_session_priority_prefers_execution_urgency (test_homepage_runtime.HomepageRuntimeTests.test_session_priority_prefers_execution_urgency) ... ok"
+        },
+        {
+          "name": "test_session_updates_reprioritize_actions (test_homepage_runtime.HomepageRuntimeTests.test_session_updates_reprioritize_actions)",
+          "passed": true,
+          "output": "test_session_updates_reprioritize_actions (test_homepage_runtime.HomepageRuntimeTests.test_session_updates_reprioritize_actions) ... ok"
+        },
+        {
+          "name": "test_cached_series_can_be_loaded_for_historical_date (test_market_data.MarketDataTests.test_cached_series_can_be_loaded_for_historical_date)",
+          "passed": true,
+          "output": "test_cached_series_can_be_loaded_for_historical_date (test_market_data.MarketDataTests.test_cached_series_can_be_loaded_for_historical_date) ... ok"
+        },
+        {
+          "name": "test_compute_timing_score_flags_chasing_and_pullbacks (test_market_data.MarketDataTests.test_compute_timing_score_flags_chasing_and_pullbacks)",
+          "passed": true,
+          "output": "test_compute_timing_score_flags_chasing_and_pullbacks (test_market_data.MarketDataTests.test_compute_timing_score_flags_chasing_and_pullbacks) ... ok"
+        },
+        {
+          "name": "test_index_code_maps_to_correct_secid (test_market_data.MarketDataTests.test_index_code_maps_to_correct_secid)",
+          "passed": true,
+          "output": "test_index_code_maps_to_correct_secid (test_market_data.MarketDataTests.test_index_code_maps_to_correct_secid) ... ok"
+        },
+        {
+          "name": "test_prefer_cached_series_rejects_stale_daily_bar_for_current_day (test_market_data.MarketDataTests.test_prefer_cached_series_rejects_stale_daily_bar_for_current_day)",
+          "passed": true,
+          "output": "test_prefer_cached_series_rejects_stale_daily_bar_for_current_day (test_market_data.MarketDataTests.test_prefer_cached_series_rejects_stale_daily_bar_for_current_day) ... ok"
+        },
+        {
+          "name": "test_trend_score_penalizes_chasing_after_eight_percent (test_market_data.MarketDataTests.test_trend_score_penalizes_chasing_after_eight_percent)",
+          "passed": true,
+          "output": "test_trend_score_penalizes_chasing_after_eight_percent (test_market_data.MarketDataTests.test_trend_score_penalizes_chasing_after_eight_percent) ... ok"
+        },
+        {
+          "name": "test_trend_score_rewards_pullback_vs_neutral_baseline (test_market_data.MarketDataTests.test_trend_score_rewards_pullback_vs_neutral_baseline)",
+          "passed": true,
+          "output": "test_trend_score_rewards_pullback_vs_neutral_baseline (test_market_data.MarketDataTests.test_trend_score_rewards_pullback_vs_neutral_baseline) ... ok"
+        },
+        {
+          "name": "test_prediction_history_reads_saved_states (test_prediction_eval.PredictionEvalTests.test_prediction_history_reads_saved_states)",
+          "passed": true,
+          "output": "test_prediction_history_reads_saved_states (test_prediction_eval.PredictionEvalTests.test_prediction_history_reads_saved_states) ... ok"
+        },
+        {
+          "name": "test_synthetic_realtime_generates_alerts_and_review (test_realtime_and_review.RealtimeAndReviewTests.test_synthetic_realtime_generates_alerts_and_review)",
+          "passed": true,
+          "output": "test_synthetic_realtime_generates_alerts_and_review (test_realtime_and_review.RealtimeAndReviewTests.test_synthetic_realtime_generates_alerts_and_review) ... ok"
+        },
+        {
+          "name": "test_supplemental_bridge (unittest.loader._FailedTest.test_supplemental_bridge)",
+          "passed": false,
+          "output": "test_supplemental_bridge (unittest.loader._FailedTest.test_supplemental_bridge) ... ERROR\nModuleNotFoundError: No module named 'akshare'"
+        }
+      ],
+      "evidence": [
+        "指定验收文件 `tests/test_best_stock_reporting.py` 在当前工作区不存在，且 `PYTHONPATH=src python3 -m pytest tests/test_best_stock_reporting.py -v` 失败：`No module named pytest`。",
+        "执行 `PYTHONPATH=src python3 -m unittest discover -s tests -v`：45 项中 42 项通过，3 项失败均为环境障碍而非本次 scope 改动：本地端口绑定被 sandbox 拒绝、外部网络/DNS 不可用、环境缺少 `akshare`。",
+        "与本次改动直接相关的现有渲染测试已单独通过：`tests.test_decision_bundle.DecisionBundleTests.test_daily_report_prefers_realtime_market_state_probability`、`tests.test_homepage_runtime.HomepageRuntimeTests.test_rendering_prefers_display_fields`、`tests.test_homepage_runtime.HomepageRuntimeTests.test_rendering_marks_reference_close_prices_as_non_realtime`。",
+        "手工 smoke check 通过：`render_best_stock_report(...)` 输出同时包含 `## 明日最优标的`、`## 候选对比`、`## 历史回测`，并包含 `铁龙物流(600125)`。"
+      ]
+    },
+    "artifact": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_142707/workers/iteration_1/wp2/response.json",
+    "stdout": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_142707/workers/iteration_1/wp2/stdout.log",
+    "stderr": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_142707/workers/iteration_1/wp2/stderr.log",
+    "session_id": null
+  },
+  {
+    "packet_id": "wp3",
+    "title": "运行产物接线",
+    "result": {
+      "status": "blocked",
+      "changed_files": [
+        "src/ashare_harness_v2/runtime_harness/orchestrator.py"
+      ],
+      "test_results": [
+        {
+          "name": "PYTHONPATH=src python3 -m pytest tests/test_best_stock_runtime_outputs.py -v",
+          "passed": false,
+          "output": "/Users/fqyuki/.pyenv/versions/3.11.0/bin/python3: No module named pytest"
+        },
+        {
+          "name": "PYTHONPATH=src python3 -m unittest discover -s tests -v",
+          "passed": false,
+          "output": "2026/自学内容/代码类/ashare-phase1-agents-v2/tests/test_supplemental_bridge.py\", line 18, in <module>\n    SCRIPT_SPEC.loader.exec_module(SUPPLEMENTAL_SCRIPT)\n  File \"/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/scripts/fetch_akshare_supplemental.py\", line 11, in <module>\n    import akshare as ak\nModuleNotFoundError: No module named 'akshare'\n\n\n----------------------------------------------------------------------\nRan 45 tests in 2.110s\n\nFAILED (errors=3)"
+        }
+      ],
+      "evidence": [
+        "Smoke check passed: replay_daily(load_config('config/default.toml'), as_of='2026-03-26') produced artifacts ['best_stock_report_json', 'best_stock_report_markdown'], and homepage_code == report_code == 600125.",
+        "Acceptance target tests/test_best_stock_runtime_outputs.py is not present in the workspace.",
+        "The environment does not have pytest installed.",
+        "unittest discover is blocked by issues outside this scope: local socket bind PermissionError, external name resolution failure during announcement fetch, and missing dependency 'akshare'."
+      ]
+    },
+    "artifact": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_142707/workers/iteration_1/wp3/response.json",
+    "stdout": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_142707/workers/iteration_1/wp3/stdout.log",
+    "stderr": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_142707/workers/iteration_1/wp3/stderr.log",
+    "session_id": null
+  }
+]

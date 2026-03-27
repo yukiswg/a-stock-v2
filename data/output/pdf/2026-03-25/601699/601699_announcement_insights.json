@@ -1,0 +1,33 @@
+{
+  "as_of": "2026-03-25",
+  "code": "601699",
+  "insights": [
+    {
+      "published_at": "2026-03-24",
+      "signal": "negative",
+      "strength": 32.0,
+      "summary": "2026-03-24 PDF 深读：潞安环能关于参与探矿权竞买及其结果的公告。提炼结论：关键事项推进存在不确定性，执行上应降低仓位和胜率预期。",
+      "key_lines": [
+        "四、风险提示 （一）本次竞拍结果还需通过中华人民共和国自然资源部、山西省自然 资源厅以及全国公共资源交易平台（…",
+        "未来公司对该宗煤炭资源办理探转 采手续、矿井规划、投资建设复杂程度高、投建周期较长，投资效益存在不确定 风险"
+      ],
+      "pdf_path": "data/output/pdf/2026-03-25/601699/d17bf9f3c96d.pdf",
+      "text_path": "data/output/pdf/2026-03-25/601699/d17bf9f3c96d.txt",
+      "verified": true,
+      "title": "潞安环能关于参与探矿权竞买及其结果的公告",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-24/1225024503.PDF"
+    },
+    {
+      "published_at": "2026-03-21",
+      "signal": "neutral",
+      "strength": 52.0,
+      "summary": "2026-03-21 PDF 深读：潞安环能关于公司董事辞职的公告。提炼结论：本公告信息中性，主要用于更新事实背景，不改变当前交易计划。",
+      "key_lines": [],
+      "pdf_path": "data/output/pdf/2026-03-25/601699/5ec3f7fc7fb4.pdf",
+      "text_path": "data/output/pdf/2026-03-25/601699/5ec3f7fc7fb4.txt",
+      "verified": true,
+      "title": "潞安环能关于公司董事辞职的公告",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-21/1225021339.PDF"
+    }
+  ]
+}

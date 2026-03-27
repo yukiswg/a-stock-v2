@@ -1,0 +1,7 @@
+{
+  "task": "Audit README.md and STARTUP_README.md for consistency. Only edit files if you find a concrete inconsistency. Keep changes minimal. Return pass only if the docs are aligned.",
+  "project_root": "/Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2",
+  "workers_requested": 1,
+  "max_iterations": 0,
+  "created_at": "2026-03-26T10:17:55"
+}

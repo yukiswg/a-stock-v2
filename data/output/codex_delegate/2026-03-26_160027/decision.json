@@ -1,0 +1,11 @@
+{
+  "status": "all_pass",
+  "pass": true,
+  "reason": "所有 Worker 全部 test passed",
+  "done_means": [
+    "可以通过 `from ashare_harness_v2._delegate_smoke import smoke_message` 成功导入该函数。",
+    "`smoke_message()` 的返回值严格等于 `hello from codex delegation`。",
+    "在项目根目录运行 `python tests/test_delegate_smoke.py` 时，进程退出码为 0 且测试全部通过。"
+  ],
+  "leader_retry_task": null
+}

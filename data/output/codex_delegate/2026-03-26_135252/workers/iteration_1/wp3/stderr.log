@@ -1,0 +1,1252 @@
+OpenAI Codex v0.117.0-alpha.10 (research preview)
+--------
+workdir: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/fqyuki/.codex/memories]
+reasoning effort: high
+reasoning summaries: none
+session id: 019d28bf-6655-7633-a95e-f2989c3e2cd3
+--------
+user
+你是这个交付循环的 Worker（执行者），负责完成分配给你的任务包。
+
+Project root: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2
+Run directory: /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/data/output/codex_delegate/2026-03-26_135252
+Iteration: 1
+
+## Leader 制定的大目标
+{
+  "outcome": "生成一份可落盘的“明日最优标的”报告：只给出 1 支股票，并同时附带同口径历史次日回测摘要，且该结论可被日报/首页直接展示。",
+  "done_means": [
+    "调用 replay_daily(config=临时输出目录配置, as_of=\"2026-03-25\") 后，返回结果中的 decision_bundle.homepage_overview.best_stock 存在且包含非空的 code、name、strategy_style、selection_score。",
+    "在同一配置与日期下，decision_bundle.homepage_overview.best_stock.code 必须等于 discover_top_ideas(config, as_of=\"2026-03-25\", limit=1, strategy_style=best_stock.strategy_style, write_output=False)[\"ideas\"][0][\"code\"]。",
+    "decision_bundle.homepage_overview.best_stock.backtest 满足 trade_count >= 1、len(trades) == trade_count，且每条 trade 都包含非空 code、name、trade_action 以及数值型 next_day_return。",
+    "调用 build_best_stock_report(临时配置, as_of=\"2026-03-25\", payload=样例负载) 后，会在 <report_dir>/2026-03-25/best_stock/ 下生成 markdown/json 两个文件；json 中 pick.code == \"300750\" 且 backtest.trade_count == 2；render_daily_report(...) 与 render_homepage_overview(...) 在收到 best_stock 负载后都包含标题“## 明日最优标的”、字符串“测试股份(300750)”以及回测摘要中的交易数和胜率。"
+  ],
+  "risks": [
+    "历史状态快照和日线缓存并不是每个日期都完整，验收测试应固定使用仓库里已有状态的 2026-03-25。",
+    "best stock 不能重新发明一套排序逻辑；必须复用 discover_top_ideas 的第一名，否则会出现两个互相冲突的“最优标的”。",
+    "报告层可能因为 matplotlib/PDF 可选依赖的环境问题误伤测试；测试文件里应先把 MPLCONFIGDIR 指到临时目录，并沿用仓库现有的 pdfplumber/pypdf 兜底写法。"
+  ]
+}
+
+## Leader 分配给你的包
+{
+  "packet_id": "wp3",
+  "title": "日报与首页展示",
+  "objective": "让日报和首页在拿到 best_stock 摘要时，直接展示该标的、交易结论与回测统计，而不是要求用户再去翻 json。",
+  "scope": [
+    "src/ashare_harness_v2/decision_harness/rendering.py"
+  ],
+  "test_file": "tests/test_best_stock_report_rendering.py"
+}
+
+## 你要做的事（按顺序执行）
+
+### 第一步：执行 objective
+- 严格在 scope 范围内改文件
+- 不要动其他 Worker 负责的文件
+- 不要做 scope 以外的改动
+
+### 第二步：运行 acceptance test
+- test_file: tests/test_best_stock_report_rendering.py
+- 运行命令（选合适的）：
+    PYTHONPATH=src python3 -m pytest tests/test_best_stock_report_rendering.py -v
+    PYTHONPATH=src python3 -m unittest discover -s tests -v
+- 把每条测试的 passed/output 填入 test_results
+
+### 第三步：返回原始结果
+- status: completed（全部通过）/ blocked（有障碍）/ failed（执行失败）
+- 不要写主观总结，只列 changed_files + test_results + evidence
+- 返回纯 JSON，符合 schema
+
+## 约束
+- 不要加 markdown fence
+- 只动 scope 里的文件
+- test_results 里每个条目：{"name": "...", "passed": bool, "output": "..."}
+- output 截取测试运行输出最后 500 字符即可
+mcp: notion starting
+mcp: notion ready
+mcp startup: ready: notion
+exec
+/bin/zsh -lc "sed -n '1,260p' tests/test_best_stock_report_rendering.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "sed -n '1,260p' src/ashare_harness_v2/decision_harness/rendering.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 exited 1 in 0ms:
+sed: tests/test_best_stock_report_rendering.py: No such file or directory
+ succeeded in 0ms:
+from __future__ import annotations
+
+from ..models import AnnouncementItem, DailyDecisionBundle, HoldingsSnapshot, InstrumentFeatures, NewsItem
+
+
+def render_daily_report(
+    *,
+    bundle: DailyDecisionBundle,
+    holdings: HoldingsSnapshot,
+    news_items: list[NewsItem],
+    announcements: list[AnnouncementItem],
+) -> str:
+    market_state = bundle.homepage_overview.get("market_state") or {}
+    dynamic = bundle.homepage_overview.get("dynamic_universe") or {}
+    market_probability = float(market_state.get("probability") or bundle.market_view.probability or 0.0)
+    market_score = market_state.get("score") or f"{bundle.market_view.score:.1f}"
+    lines = [
+        f"# Daily Report - {bundle.as_of}",
+        "",
+        "## Market State",
+exec
+/bin/zsh -lc "sed -n '261,520p' src/ashare_harness_v2/decision_harness/rendering.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+                f"现在看 `{item.get('current_status') or item.get('priority_note') or '继续观察'}` | "
+                f"触发 `{item.get('display_trigger') or item.get('trigger') or '继续等待'}` | "
+                f"失效 `{item.get('display_invalidation') or item.get('invalidation') or '待复核'}` | 仓位 `{item.get('analysis_position') or item.get('position_guidance') or '先观察，不抢跑'}`"
+            )
+    else:
+        lines.append("- 当前没有接近触发的观察机会。")
+    lines.extend(["", "## 动态优先级说明（板块 -> 龙头）"])
+    top_sectors = dynamic.get("top_sectors") or []
+    if top_sectors:
+        for item in top_sectors[:5]:
+            lines.append(
+                f"- Top{item.get('rank')} `{item.get('sector')}` | 强度 `{item.get('score')}` | "
+                f"涨跌 `{format_pct(item.get('pct_change'))}` | 龙头 `{item.get('leader') or '无'}`"
+            )
+    else:
+        lines.append("- 当前未获取到实时板块轮动数据，候选池回退到静态与缓存模式。")
+    lines.extend(["", "## 最新告警"])
+    alerts = overview.get("latest_alerts", [])
+    if alerts:
+        for item in alerts:
+exec
+/bin/zsh -lc "rg --files tests | rg 'best_stock|rendering'" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 exited 127 in 0ms:
+zsh:1: command not found: rg
+zsh:1: command not found: rg
+exec
+/bin/zsh -lc 'find tests -maxdepth 1 -type f | sort' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+tests/test_advice_api.py
+tests/test_advice_harness.py
+tests/test_decision_bundle.py
+tests/test_decision_core.py
+tests/test_dynamic_universe_skill.py
+tests/test_holdings.py
+tests/test_homepage_runtime.py
+tests/test_market_data.py
+tests/test_prediction_eval.py
+tests/test_realtime_and_review.py
+tests/test_supplemental_bridge.py
+exec
+/bin/zsh -lc "grep -R \"明日最优标的\\|best_stock\" -n tests 2>/dev/null" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 exited 1 in 0ms:
+
+exec
+/bin/zsh -lc 'grep -R "homepage_overview" -n src/ashare_harness_v2 | head -n 40' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+src/ashare_harness_v2/runtime_harness/realtime.py:238:    homepage_path = report_root / f"{as_of}_homepage_overview.json"
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/orchestrator.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/homepage.cpython-313.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/homepage.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/orchestrator.cpython-313.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/realtime.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/runtime_harness/__pycache__/realtime.cpython-313.pyc matches
+src/ashare_harness_v2/runtime_harness/orchestrator.py:117:    bundle.homepage_overview["dynamic_universe"] = {
+src/ashare_harness_v2/runtime_harness/orchestrator.py:123:        bundle.homepage_overview = update_homepage_with_live_quotes(
+src/ashare_harness_v2/runtime_harness/orchestrator.py:124:            bundle.homepage_overview,
+src/ashare_harness_v2/runtime_harness/orchestrator.py:146:    write_json(state_root / "homepage_overview.json", bundle.homepage_overview)
+src/ashare_harness_v2/runtime_harness/orchestrator.py:159:    homepage_overview = update_homepage_with_session(bundle.homepage_overview, session_dir=None)
+src/ashare_harness_v2/runtime_harness/orchestrator.py:161:    homepage_assets = write_homepage_assets(overview=homepage_overview, homepage_dir=project["homepage_dir"], as_of=as_of)
+src/ashare_harness_v2/runtime_harness/orchestrator.py:227:    homepage_json = load_json(report_root / f"{as_of}_homepage_overview.json", default={}) or load_json(Path(project["homepage_dir"]) / "latest_homepage.json", default={}) or {}
+src/ashare_harness_v2/runtime_harness/orchestrator.py:228:    homepage_overview = update_homepage_with_session(homepage_json, session_dir=result["session_dir"])
+src/ashare_harness_v2/runtime_harness/orchestrator.py:234:        homepage_overview=homepage_overview,
+src/ashare_harness_v2/runtime_harness/orchestrator.py:236:    homepage_assets = write_homepage_assets(overview=homepage_overview, homepage_dir=project["homepage_dir"], as_of=as_of)
+src/ashare_harness_v2/runtime_harness/orchestrator.py:308:        bundle.homepage_overview["dynamic_universe"] = {
+src/ashare_harness_v2/runtime_harness/orchestrator.py:313:    saved_homepage = load_json(state_root / "homepage_overview.json", default={}) or {}
+src/ashare_harness_v2/runtime_harness/orchestrator.py:315:        bundle.homepage_overview = {**bundle.homepage_overview, **saved_homepage}
+exec
+/bin/zsh -lc 'grep -R "best_stock" -n src tests 2>/dev/null' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+Binary file src/ashare_harness_v2/__pycache__/cli.cpython-311.pyc matches
+src/ashare_harness_v2/skill_harness/trading_reports.py:234:def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+src/ashare_harness_v2/skill_harness/trading_reports.py:237:    root = ensure_dir(Path(config["project"]["report_dir"]) / as_of / "best_stock")
+src/ashare_harness_v2/skill_harness/trading_reports.py:238:    markdown_path = root / f"{code}_best_stock_report.md"
+src/ashare_harness_v2/skill_harness/trading_reports.py:239:    json_path = root / f"{code}_best_stock_report.json"
+src/ashare_harness_v2/skill_harness/trading_reports.py:247:    write_text(markdown_path, render_best_stock_report(report_payload))
+src/ashare_harness_v2/skill_harness/trading_reports.py:252:def render_best_stock_report(payload: dict[str, Any]) -> str:
+src/ashare_harness_v2/skill_harness/__init__.py:4:from .trading_reports import build_best_stock_report, build_investment_report, render_best_stock_report
+src/ashare_harness_v2/skill_harness/__init__.py:10:    "build_best_stock_report",
+src/ashare_harness_v2/skill_harness/__init__.py:12:    "render_best_stock_report",
+Binary file src/ashare_harness_v2/skill_harness/__pycache__/trading_reports.cpython-311.pyc matches
+Binary file src/ashare_harness_v2/skill_harness/__pycache__/__init__.cpython-311.pyc matches
+src/ashare_harness_v2/cli.py:68:    best_stock = subparsers.add_parser("best-stock-report", help="Generate the single best-stock report for the next session.")
+src/ashare_harness_v2/cli.py:69:    best_stock.add_argument("--as-of", default=None, help="Trading date. Default is today.")
+src/ashare_harness_v2/cli.py:70:    best_stock.add_argument("--strategy-style", default="general", help="Selection style passed to best-pick discovery.")
+src/ashare_harness_v2/cli.py:71:    best_stock.add_argument("--holdings", default=None, help="Optional holdings CSV path.")
+src/ashare_harness_v2/cli.py:72:    best_stock.add_argument("--cash", type=float, default=0.0)
+src/ashare_harness_v2/cli.py:243:        from .skill_harness import build_best_stock_report
+src/ashare_harness_v2/cli.py:245:        build_tomorrow_best_pick = resolve_best_stock_builder()
+src/ashare_harness_v2/cli.py:254:        artifacts = build_best_stock_report(config, as_of=as_of, payload=result)
+exec
+/bin/zsh -lc "sed -n '220,340p' src/ashare_harness_v2/skill_harness/trading_reports.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "sed -n '1,240p' src/ashare_harness_v2/runtime_harness/homepage.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+    path = chart_dir / f"{code}_momentum_chart.png"
+    fig, axes = plt.subplots(2, 1, figsize=(10, 5), sharex=True, gridspec_kw={"height_ratios": [2, 1]})
+    axes[0].bar(dates, pct, color=["#2E8B57" if value >= 0 else "#C00000" for value in pct])
+    axes[0].set_title(f"{code} Daily Change")
+    axes[0].set_ylabel("%")
+    axes[1].plot(dates, volume, color="#1F4E78", linewidth=1.5)
+    axes[1].set_ylabel("Vol (mn)")
+    axes[1].tick_params(axis="x", rotation=45)
+    fig.tight_layout()
+    fig.savefig(path, dpi=180)
+    plt.close(fig)
+    return str(path)
+
+
+def build_best_stock_report(config: dict[str, Any], *, as_of: str, payload: dict[str, Any]) -> dict[str, str]:
+    pick = dict(payload.get("pick") or {})
+    code = str(pick.get("code") or "unknown")
+    root = ensure_dir(Path(config["project"]["report_dir"]) / as_of / "best_stock")
+    markdown_path = root / f"{code}_best_stock_report.md"
+    json_path = root / f"{code}_best_stock_report.json"
+ succeeded in 0ms:
+from __future__ import annotations
+
+import re
+from pathlib import Path
+from typing import Any
+
+from ..data_harness.realtime import LiveQuoteSource
+from ..decision_harness.display import enrich_display_fields
+from ..decision_harness.rendering import render_homepage_overview
+from ..models import QuoteSnapshot
+from ..utils import average, clamp, ensure_dir, load_jsonl, write_json, write_text
+
+
+def update_homepage_with_session(
+    base_overview: dict[str, Any],
+    *,
+    session_dir: str | Path | None,
+    benchmark_codes: list[str] | None = None,
+) -> dict[str, Any]:
+    overview = dict(base_overview)
+file update
+M /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+@@ -23,4 +23,5 @@
+         "",
+-        "## Top Priorities",
+     ]
++    lines.extend(render_best_stock_section(bundle.homepage_overview, heading="## 明日最优标的"))
++    lines.extend(["", "## Top Priorities"])
+     change_log = list(market_state.get("realtime_change_log") or [])
+@@ -202,4 +203,5 @@
+         "",
+-        "## 最该优先处理的 3 件事",
+     ]
++    lines.extend(render_best_stock_section(overview, heading="## 明日最优标的"))
++    lines.extend(["", "## 最该优先处理的 3 件事"])
+     if change_log:
+@@ -339,2 +341,73 @@
+ 
++def render_best_stock_section(payload: dict[str, object], *, heading: str) -> list[str]:
++    best_stock = _normalize_best_stock_payload(payload)
++    lines = ["", heading]
++    if not best_stock:
++        lines.append("- 当前没有可展示的最优标的。")
++        return lines
++
++    pick = best_stock["pick"]
++    backtest = best_stock["backtest"]
++    code = str(pick.get("code") or "unknown")
++    name = str(pick.get("name") or code)
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    strategy_style = str(best_stock.get("strategy_style") or pick.get("strategy_style") or "general")
++    selection_score = _coerce_float(pick.get("selection_score"), best_stock.get("selection_score"))
++    lines.append(
++        f"- {name}({code}) | `{trade_action}` | 风格 `{strategy_style}` | 选择分 `{selection_score:.2f}`"
++    )
++    lines.append(
++        f"- 摘要: {pick.get('summary') or pick.get('thesis') or pick.get('reason') or '暂无摘要。'}"
++    )
++    lines.append(
++        f"- 回测摘要: 交易数 `{int(_coerce_float(backtest.get('trade_count'))):d}` | "
++        f"胜率 `{_coerce_float(backtest.get('win_rate')):.2%}` | "
++        f"平均收益 `{_coerce_float(backtest.get('average_return')):+.2%}`"
++    )
++    trades = list(backtest.get("trades") or [])
++    if trades:
++        latest = trades[0]
++        lines.append(
++            f"- 最近样本: {latest.get('name') or latest.get('code') or '未知'}"
++            f"({latest.get('code') or 'unknown'}) | "
++            f"`{latest.get('trade_action') or latest.get('decision') or '待确认'}` | "
++            f"次日 `{_coerce_float(latest.get('next_day_return')):+.2%}`"
++        )
++    return lines
++
++
++def _normalize_best_stock_payload(payload: dict[str, object]) -> dict[str, object]:
++    candidate = payload.get("best_stock")
++    if not isinstance(candidate, dict):
++        return {}
++    if isinstance(candidate.get("pick"), dict):
++        pick = dict(candidate.get("pick") or {})
++        backtest = dict(candidate.get("backtest") or {})
++        return {
++            "pick": pick,
++            "backtest": backtest,
++            "strategy_style": candidate.get("strategy_style") or pick.get("strategy_style"),
++            "selection_score": candidate.get("selection_score") or pick.get("selection_score"),
++        }
++    pick = dict(candidate)
++    backtest = dict(pick.get("backtest") or {})
++    return {
++        "pick": pick,
++        "backtest": backtest,
++        "strategy_style": pick.get("strategy_style"),
++        "selection_score": pick.get("selection_score"),
++    }
++
++
++def _coerce_float(*values: object) -> float:
++    for value in values:
++        if value in (None, ""):
++            continue
++        try:
++            return float(value)
++        except (TypeError, ValueError):
++            continue
++    return 0.0
++
++
+ def build_live_action_summary(bundle: DailyDecisionBundle) -> str:
+apply_patch(auto_approved=true) exited 0 in 62ms:
+Success. Updated the following files:
+M /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+index a49f32631f08b010479f3aae06793b699aeba835..d25b69500d44a0fe933c0ab0652abfd6f8c474c7
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+@@ -21,8 +21,9 @@
+         f"- 状态: `{market_state.get('regime') or bundle.market_view.metadata.get('label')}` | 概率 `{market_probability:.0%}` | 分数 `{market_score}`",
+         f"- 结论: {market_state.get('summary') or bundle.market_view.thesis}",
+         "",
+-        "## Top Priorities",
+     ]
++    lines.extend(render_best_stock_section(bundle.homepage_overview, heading="## 明日最优标的"))
++    lines.extend(["", "## Top Priorities"])
+     change_log = list(market_state.get("realtime_change_log") or [])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:2])}")
+@@ -200,8 +201,9 @@
+         f"- `{market_state.get('regime') or overview.get('market_label') or '暂无'}` | 概率 `{((market_state.get('probability') or 0.0) * 100):.0f}%` | 分数 `{market_state.get('score') or '无'}`",
+         f"- {market_state.get('summary') or overview.get('today_action') or '暂无'}",
+         "",
+-        "## 最该优先处理的 3 件事",
+     ]
++    lines.extend(render_best_stock_section(overview, heading="## 明日最优标的"))
++    lines.extend(["", "## 最该优先处理的 3 件事"])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:3])}")
+     priorities = overview.get("priority_actions", [])
+@@ -337,6 +339,77 @@
+     return "无" if value is None else f"{value:+.2%}"
+ 
+ 
++def render_best_stock_section(payload: dict[str, object], *, heading: str) -> list[str]:
++    best_stock = _normalize_best_stock_payload(payload)
++    lines = ["", heading]
++    if not best_stock:
++        lines.append("- 当前没有可展示的最优标的。")
++        return lines
++
++    pick = best_stock["pick"]
++    backtest = best_stock["backtest"]
++    code = str(pick.get("code") or "unknown")
++    name = str(pick.get("name") or code)
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    strategy_style = str(best_stock.get("strategy_style") or pick.get("strategy_style") or "general")
++    selection_score = _coerce_float(pick.get("selection_score"), best_stock.get("selection_score"))
++    lines.append(
++        f"- {name}({code}) | `{trade_action}` | 风格 `{strategy_style}` | 选择分 `{selection_score:.2f}`"
++    )
++    lines.append(
++        f"- 摘要: {pick.get('summary') or pick.get('thesis') or pick.get('reason') or '暂无摘要。'}"
++    )
++    lines.append(
++        f"- 回测摘要: 交易数 `{int(_coerce_float(backtest.get('trade_count'))):d}` | "
++        f"胜率 `{_coerce_float(backtest.get('win_rate')):.2%}` | "
++        f"平均收益 `{_coerce_float(backtest.get('average_return')):+.2%}`"
++    )
++    trades = list(backtest.get("trades") or [])
++    if trades:
++        latest = trades[0]
++        lines.append(
++            f"- 最近样本: {latest.get('name') or latest.get('code') or '未知'}"
++            f"({latest.get('code') or 'unknown'}) | "
++            f"`{latest.get('trade_action') or latest.get('decision') or '待确认'}` | "
++            f"次日 `{_coerce_float(latest.get('next_day_return')):+.2%}`"
++        )
++    return lines
++
++
++def _normalize_best_stock_payload(payload: dict[str, object]) -> dict[str, object]:
++    candidate = payload.get("best_stock")
++    if not isinstance(candidate, dict):
++        return {}
++    if isinstance(candidate.get("pick"), dict):
++        pick = dict(candidate.get("pick") or {})
++        backtest = dict(candidate.get("backtest") or {})
++        return {
++            "pick": pick,
++            "backtest": backtest,
++            "strategy_style": candidate.get("strategy_style") or pick.get("strategy_style"),
++            "selection_score": candidate.get("selection_score") or pick.get("selection_score"),
++        }
++    pick = dict(candidate)
++    backtest = dict(pick.get("backtest") or {})
++    return {
++        "pick": pick,
++        "backtest": backtest,
++        "strategy_style": pick.get("strategy_style"),
++        "selection_score": pick.get("selection_score"),
++    }
++
++
++def _coerce_float(*values: object) -> float:
++    for value in values:
++        if value in (None, ""):
++            continue
++        try:
++            return float(value)
++        except (TypeError, ValueError):
++            continue
++    return 0.0
++
++
+ def build_live_action_summary(bundle: DailyDecisionBundle) -> str:
+     market_state = bundle.homepage_overview.get("market_state") or {}
+     regime = str(market_state.get("regime") or bundle.market_view.metadata.get("regime") or bundle.market_view.action)
+
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+index a49f32631f08b010479f3aae06793b699aeba835..d25b69500d44a0fe933c0ab0652abfd6f8c474c7
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+@@ -21,8 +21,9 @@
+         f"- 状态: `{market_state.get('regime') or bundle.market_view.metadata.get('label')}` | 概率 `{market_probability:.0%}` | 分数 `{market_score}`",
+         f"- 结论: {market_state.get('summary') or bundle.market_view.thesis}",
+         "",
+-        "## Top Priorities",
+     ]
++    lines.extend(render_best_stock_section(bundle.homepage_overview, heading="## 明日最优标的"))
++    lines.extend(["", "## Top Priorities"])
+     change_log = list(market_state.get("realtime_change_log") or [])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:2])}")
+@@ -200,8 +201,9 @@
+         f"- `{market_state.get('regime') or overview.get('market_label') or '暂无'}` | 概率 `{((market_state.get('probability') or 0.0) * 100):.0f}%` | 分数 `{market_state.get('score') or '无'}`",
+         f"- {market_state.get('summary') or overview.get('today_action') or '暂无'}",
+         "",
+-        "## 最该优先处理的 3 件事",
+     ]
++    lines.extend(render_best_stock_section(overview, heading="## 明日最优标的"))
++    lines.extend(["", "## 最该优先处理的 3 件事"])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:3])}")
+     priorities = overview.get("priority_actions", [])
+@@ -337,6 +339,77 @@
+     return "无" if value is None else f"{value:+.2%}"
+ 
+ 
++def render_best_stock_section(payload: dict[str, object], *, heading: str) -> list[str]:
++    best_stock = _normalize_best_stock_payload(payload)
++    lines = ["", heading]
++    if not best_stock:
++        lines.append("- 当前没有可展示的最优标的。")
++        return lines
++
++    pick = best_stock["pick"]
++    backtest = best_stock["backtest"]
++    code = str(pick.get("code") or "unknown")
++    name = str(pick.get("name") or code)
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    strategy_style = str(best_stock.get("strategy_style") or pick.get("strategy_style") or "general")
++    selection_score = _coerce_float(pick.get("selection_score"), best_stock.get("selection_score"))
++    lines.append(
++        f"- {name}({code}) | `{trade_action}` | 风格 `{strategy_style}` | 选择分 `{selection_score:.2f}`"
++    )
++    lines.append(
++        f"- 摘要: {pick.get('summary') or pick.get('thesis') or pick.get('reason') or '暂无摘要。'}"
++    )
++    lines.append(
++        f"- 回测摘要: 交易数 `{int(_coerce_float(backtest.get('trade_count'))):d}` | "
++        f"胜率 `{_coerce_float(backtest.get('win_rate')):.2%}` | "
++        f"平均收益 `{_coerce_float(backtest.get('average_return')):+.2%}`"
++    )
++    trades = list(backtest.get("trades") or [])
++    if trades:
++        latest = trades[0]
++        lines.append(
++            f"- 最近样本: {latest.get('name') or latest.get('code') or '未知'}"
++            f"({latest.get('code') or 'unknown'}) | "
++            f"`{latest.get('trade_action') or latest.get('decision') or '待确认'}` | "
++            f"次日 `{_coerce_float(latest.get('next_day_return')):+.2%}`"
++        )
++    return lines
++
++
++def _normalize_best_stock_payload(payload: dict[str, object]) -> dict[str, object]:
++    candidate = payload.get("best_stock")
++    if not isinstance(candidate, dict):
++        return {}
++    if isinstance(candidate.get("pick"), dict):
++        pick = dict(candidate.get("pick") or {})
++        backtest = dict(candidate.get("backtest") or {})
++        return {
++            "pick": pick,
++            "backtest": backtest,
++            "strategy_style": candidate.get("strategy_style") or pick.get("strategy_style"),
++            "selection_score": candidate.get("selection_score") or pick.get("selection_score"),
++        }
++    pick = dict(candidate)
++    backtest = dict(pick.get("backtest") or {})
++    return {
++        "pick": pick,
++        "backtest": backtest,
++        "strategy_style": pick.get("strategy_style"),
++        "selection_score": pick.get("selection_score"),
++    }
++
++
++def _coerce_float(*values: object) -> float:
++    for value in values:
++        if value in (None, ""):
++            continue
++        try:
++            return float(value)
++        except (TypeError, ValueError):
++            continue
++    return 0.0
++
++
+ def build_live_action_summary(bundle: DailyDecisionBundle) -> str:
+     market_state = bundle.homepage_overview.get("market_state") or {}
+     regime = str(market_state.get("regime") or bundle.market_view.metadata.get("regime") or bundle.market_view.action)
+
+exec
+/bin/zsh -lc "sed -n '220,420p' src/ashare_harness_v2/decision_harness/rendering.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2exec
+/bin/zsh -lc "sed -n '1,220p' src/ashare_harness_v2/decision_harness/rendering.py" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+from __future__ import annotations
+
+from ..models import AnnouncementItem, DailyDecisionBundle, HoldingsSnapshot, InstrumentFeatures, NewsItem
+
+
+def render_daily_report(
+    *,
+    bundle: DailyDecisionBundle,
+    holdings: HoldingsSnapshot,
+    news_items: list[NewsItem],
+    announcements: list[AnnouncementItem],
+) -> str:
+    market_state = bundle.homepage_overview.get("market_state") or {}
+    dynamic = bundle.homepage_overview.get("dynamic_universe") or {}
+    market_probability = float(market_state.get("probability") or bundle.market_view.probability or 0.0)
+    market_score = market_state.get("score") or f"{bundle.market_view.score:.1f}"
+    lines = [
+        f"# Daily Report - {bundle.as_of}",
+        "",
+        "## Market State",
+ succeeded in 0ms:
+                f"仓位 `{item.get('analysis_position') or item.get('position_guidance') or '按纪律控制仓位'}`"
+            )
+    else:
+        lines.append("- 当前没有明确优先动作。")
+    price_title = str(overview.get("price_section_title") or "当前最新价格")
+    price_note = str(overview.get("price_note") or "").strip()
+    lines.extend(["", f"## {price_title}"])
+    if price_note:
+        lines.append(f"- {price_note}")
+    prices = overview.get("current_prices", [])
+    if prices:
+        for item in prices:
+            lines.append(
+                f"- {item['name']}({item['code']}) | 最新价 `{item['last_price']}` | 日内 `{item['ret_day']}` | "
+                f"成交 `{item['timestamp']}` | 延迟 `{item['freshness']}`"
+            )
+    else:
+        lines.append("- 当前没有可用价格。")
+    lines.extend(["", "## 持仓风险项"])
+    risks = overview.get("holdings_risks", [])
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+index a49f32631f08b010479f3aae06793b699aeba835..d25b69500d44a0fe933c0ab0652abfd6f8c474c7
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+@@ -21,8 +21,9 @@
+         f"- 状态: `{market_state.get('regime') or bundle.market_view.metadata.get('label')}` | 概率 `{market_probability:.0%}` | 分数 `{market_score}`",
+         f"- 结论: {market_state.get('summary') or bundle.market_view.thesis}",
+         "",
+-        "## Top Priorities",
+     ]
++    lines.extend(render_best_stock_section(bundle.homepage_overview, heading="## 明日最优标的"))
++    lines.extend(["", "## Top Priorities"])
+     change_log = list(market_state.get("realtime_change_log") or [])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:2])}")
+@@ -200,8 +201,9 @@
+         f"- `{market_state.get('regime') or overview.get('market_label') or '暂无'}` | 概率 `{((market_state.get('probability') or 0.0) * 100):.0f}%` | 分数 `{market_state.get('score') or '无'}`",
+         f"- {market_state.get('summary') or overview.get('today_action') or '暂无'}",
+         "",
+-        "## 最该优先处理的 3 件事",
+     ]
++    lines.extend(render_best_stock_section(overview, heading="## 明日最优标的"))
++    lines.extend(["", "## 最该优先处理的 3 件事"])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:3])}")
+     priorities = overview.get("priority_actions", [])
+@@ -337,6 +339,77 @@
+     return "无" if value is None else f"{value:+.2%}"
+ 
+ 
++def render_best_stock_section(payload: dict[str, object], *, heading: str) -> list[str]:
++    best_stock = _normalize_best_stock_payload(payload)
++    lines = ["", heading]
++    if not best_stock:
++        lines.append("- 当前没有可展示的最优标的。")
++        return lines
++
++    pick = best_stock["pick"]
++    backtest = best_stock["backtest"]
++    code = str(pick.get("code") or "unknown")
++    name = str(pick.get("name") or code)
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    strategy_style = str(best_stock.get("strategy_style") or pick.get("strategy_style") or "general")
++    selection_score = _coerce_float(pick.get("selection_score"), best_stock.get("selection_score"))
++    lines.append(
++        f"- {name}({code}) | `{trade_action}` | 风格 `{strategy_style}` | 选择分 `{selection_score:.2f}`"
++    )
++    lines.append(
++        f"- 摘要: {pick.get('summary') or pick.get('thesis') or pick.get('reason') or '暂无摘要。'}"
++    )
++    lines.append(
++        f"- 回测摘要: 交易数 `{int(_coerce_float(backtest.get('trade_count'))):d}` | "
++        f"胜率 `{_coerce_float(backtest.get('win_rate')):.2%}` | "
++        f"平均收益 `{_coerce_float(backtest.get('average_return')):+.2%}`"
++    )
++    trades = list(backtest.get("trades") or [])
++    if trades:
++        latest = trades[0]
++        lines.append(
++            f"- 最近样本: {latest.get('name') or latest.get('code') or '未知'}"
++            f"({latest.get('code') or 'unknown'}) | "
++            f"`{latest.get('trade_action') or latest.get('decision') or '待确认'}` | "
++            f"次日 `{_coerce_float(latest.get('next_day_return')):+.2%}`"
++        )
++    return lines
++
++
++def _normalize_best_stock_payload(payload: dict[str, object]) -> dict[str, object]:
++    candidate = payload.get("best_stock")
++    if not isinstance(candidate, dict):
++        return {}
++    if isinstance(candidate.get("pick"), dict):
++        pick = dict(candidate.get("pick") or {})
++        backtest = dict(candidate.get("backtest") or {})
++        return {
++            "pick": pick,
++            "backtest": backtest,
++            "strategy_style": candidate.get("strategy_style") or pick.get("strategy_style"),
++            "selection_score": candidate.get("selection_score") or pick.get("selection_score"),
++        }
++    pick = dict(candidate)
++    backtest = dict(pick.get("backtest") or {})
++    return {
++        "pick": pick,
++        "backtest": backtest,
++        "strategy_style": pick.get("strategy_style"),
++        "selection_score": pick.get("selection_score"),
++    }
++
++
++def _coerce_float(*values: object) -> float:
++    for value in values:
++        if value in (None, ""):
++            continue
++        try:
++            return float(value)
++        except (TypeError, ValueError):
++            continue
++    return 0.0
++
++
+ def build_live_action_summary(bundle: DailyDecisionBundle) -> str:
+     market_state = bundle.homepage_overview.get("market_state") or {}
+     regime = str(market_state.get("regime") or bundle.market_view.metadata.get("regime") or bundle.market_view.action)
+
+file update
+M /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+@@ -356,3 +356,3 @@
+     lines.append(
+-        f"- {name}({code}) | `{trade_action}` | 风格 `{strategy_style}` | 选择分 `{selection_score:.2f}`"
++        f"- {name}({code}) | 交易结论 `{trade_action}` | 风格 `{strategy_style}` | 选择分 `{selection_score:.2f}`"
+     )
+apply_patch(auto_approved=true) exited 0 in 31ms:
+Success. Updated the following files:
+M /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+index a49f32631f08b010479f3aae06793b699aeba835..2ab77da30d1fe98774344141689f91af43da23f6
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+@@ -21,8 +21,9 @@
+         f"- 状态: `{market_state.get('regime') or bundle.market_view.metadata.get('label')}` | 概率 `{market_probability:.0%}` | 分数 `{market_score}`",
+         f"- 结论: {market_state.get('summary') or bundle.market_view.thesis}",
+         "",
+-        "## Top Priorities",
+     ]
++    lines.extend(render_best_stock_section(bundle.homepage_overview, heading="## 明日最优标的"))
++    lines.extend(["", "## Top Priorities"])
+     change_log = list(market_state.get("realtime_change_log") or [])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:2])}")
+@@ -200,8 +201,9 @@
+         f"- `{market_state.get('regime') or overview.get('market_label') or '暂无'}` | 概率 `{((market_state.get('probability') or 0.0) * 100):.0f}%` | 分数 `{market_state.get('score') or '无'}`",
+         f"- {market_state.get('summary') or overview.get('today_action') or '暂无'}",
+         "",
+-        "## 最该优先处理的 3 件事",
+     ]
++    lines.extend(render_best_stock_section(overview, heading="## 明日最优标的"))
++    lines.extend(["", "## 最该优先处理的 3 件事"])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:3])}")
+     priorities = overview.get("priority_actions", [])
+@@ -337,6 +339,77 @@
+     return "无" if value is None else f"{value:+.2%}"
+ 
+ 
++def render_best_stock_section(payload: dict[str, object], *, heading: str) -> list[str]:
++    best_stock = _normalize_best_stock_payload(payload)
++    lines = ["", heading]
++    if not best_stock:
++        lines.append("- 当前没有可展示的最优标的。")
++        return lines
++
++    pick = best_stock["pick"]
++    backtest = best_stock["backtest"]
++    code = str(pick.get("code") or "unknown")
++    name = str(pick.get("name") or code)
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    strategy_style = str(best_stock.get("strategy_style") or pick.get("strategy_style") or "general")
++    selection_score = _coerce_float(pick.get("selection_score"), best_stock.get("selection_score"))
++    lines.append(
++        f"- {name}({code}) | 交易结论 `{trade_action}` | 风格 `{strategy_style}` | 选择分 `{selection_score:.2f}`"
++    )
++    lines.append(
++        f"- 摘要: {pick.get('summary') or pick.get('thesis') or pick.get('reason') or '暂无摘要。'}"
++    )
++    lines.append(
++        f"- 回测摘要: 交易数 `{int(_coerce_float(backtest.get('trade_count'))):d}` | "
++        f"胜率 `{_coerce_float(backtest.get('win_rate')):.2%}` | "
++        f"平均收益 `{_coerce_float(backtest.get('average_return')):+.2%}`"
++    )
++    trades = list(backtest.get("trades") or [])
++    if trades:
++        latest = trades[0]
++        lines.append(
++            f"- 最近样本: {latest.get('name') or latest.get('code') or '未知'}"
++            f"({latest.get('code') or 'unknown'}) | "
++            f"`{latest.get('trade_action') or latest.get('decision') or '待确认'}` | "
++            f"次日 `{_coerce_float(latest.get('next_day_return')):+.2%}`"
++        )
++    return lines
++
++
++def _normalize_best_stock_payload(payload: dict[str, object]) -> dict[str, object]:
++    candidate = payload.get("best_stock")
++    if not isinstance(candidate, dict):
++        return {}
++    if isinstance(candidate.get("pick"), dict):
++        pick = dict(candidate.get("pick") or {})
++        backtest = dict(candidate.get("backtest") or {})
++        return {
++            "pick": pick,
++            "backtest": backtest,
++            "strategy_style": candidate.get("strategy_style") or pick.get("strategy_style"),
++            "selection_score": candidate.get("selection_score") or pick.get("selection_score"),
++        }
++    pick = dict(candidate)
++    backtest = dict(pick.get("backtest") or {})
++    return {
++        "pick": pick,
++        "backtest": backtest,
++        "strategy_style": pick.get("strategy_style"),
++        "selection_score": pick.get("selection_score"),
++    }
++
++
++def _coerce_float(*values: object) -> float:
++    for value in values:
++        if value in (None, ""):
++            continue
++        try:
++            return float(value)
++        except (TypeError, ValueError):
++            continue
++    return 0.0
++
++
+ def build_live_action_summary(bundle: DailyDecisionBundle) -> str:
+     market_state = bundle.homepage_overview.get("market_state") or {}
+     regime = str(market_state.get("regime") or bundle.market_view.metadata.get("regime") or bundle.market_view.action)
+
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+index a49f32631f08b010479f3aae06793b699aeba835..2ab77da30d1fe98774344141689f91af43da23f6
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+@@ -21,8 +21,9 @@
+         f"- 状态: `{market_state.get('regime') or bundle.market_view.metadata.get('label')}` | 概率 `{market_probability:.0%}` | 分数 `{market_score}`",
+         f"- 结论: {market_state.get('summary') or bundle.market_view.thesis}",
+         "",
+-        "## Top Priorities",
+     ]
++    lines.extend(render_best_stock_section(bundle.homepage_overview, heading="## 明日最优标的"))
++    lines.extend(["", "## Top Priorities"])
+     change_log = list(market_state.get("realtime_change_log") or [])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:2])}")
+@@ -200,8 +201,9 @@
+         f"- `{market_state.get('regime') or overview.get('market_label') or '暂无'}` | 概率 `{((market_state.get('probability') or 0.0) * 100):.0f}%` | 分数 `{market_state.get('score') or '无'}`",
+         f"- {market_state.get('summary') or overview.get('today_action') or '暂无'}",
+         "",
+-        "## 最该优先处理的 3 件事",
+     ]
++    lines.extend(render_best_stock_section(overview, heading="## 明日最优标的"))
++    lines.extend(["", "## 最该优先处理的 3 件事"])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:3])}")
+     priorities = overview.get("priority_actions", [])
+@@ -337,6 +339,77 @@
+     return "无" if value is None else f"{value:+.2%}"
+ 
+ 
++def render_best_stock_section(payload: dict[str, object], *, heading: str) -> list[str]:
++    best_stock = _normalize_best_stock_payload(payload)
++    lines = ["", heading]
++    if not best_stock:
++        lines.append("- 当前没有可展示的最优标的。")
++        return lines
++
++    pick = best_stock["pick"]
++    backtest = best_stock["backtest"]
++    code = str(pick.get("code") or "unknown")
++    name = str(pick.get("name") or code)
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    strategy_style = str(best_stock.get("strategy_style") or pick.get("strategy_style") or "general")
++    selection_score = _coerce_float(pick.get("selection_score"), best_stock.get("selection_score"))
++    lines.append(
++        f"- {name}({code}) | 交易结论 `{trade_action}` | 风格 `{strategy_style}` | 选择分 `{selection_score:.2f}`"
++    )
++    lines.append(
++        f"- 摘要: {pick.get('summary') or pick.get('thesis') or pick.get('reason') or '暂无摘要。'}"
++    )
++    lines.append(
++        f"- 回测摘要: 交易数 `{int(_coerce_float(backtest.get('trade_count'))):d}` | "
++        f"胜率 `{_coerce_float(backtest.get('win_rate')):.2%}` | "
++        f"平均收益 `{_coerce_float(backtest.get('average_return')):+.2%}`"
++    )
++    trades = list(backtest.get("trades") or [])
++    if trades:
++        latest = trades[0]
++        lines.append(
++            f"- 最近样本: {latest.get('name') or latest.get('code') or '未知'}"
++            f"({latest.get('code') or 'unknown'}) | "
++            f"`{latest.get('trade_action') or latest.get('decision') or '待确认'}` | "
++            f"次日 `{_coerce_float(latest.get('next_day_return')):+.2%}`"
++        )
++    return lines
++
++
++def _normalize_best_stock_payload(payload: dict[str, object]) -> dict[str, object]:
++    candidate = payload.get("best_stock")
++    if not isinstance(candidate, dict):
++        return {}
++    if isinstance(candidate.get("pick"), dict):
++        pick = dict(candidate.get("pick") or {})
++        backtest = dict(candidate.get("backtest") or {})
++        return {
++            "pick": pick,
++            "backtest": backtest,
++            "strategy_style": candidate.get("strategy_style") or pick.get("strategy_style"),
++            "selection_score": candidate.get("selection_score") or pick.get("selection_score"),
++        }
++    pick = dict(candidate)
++    backtest = dict(pick.get("backtest") or {})
++    return {
++        "pick": pick,
++        "backtest": backtest,
++        "strategy_style": pick.get("strategy_style"),
++        "selection_score": pick.get("selection_score"),
++    }
++
++
++def _coerce_float(*values: object) -> float:
++    for value in values:
++        if value in (None, ""):
++            continue
++        try:
++            return float(value)
++        except (TypeError, ValueError):
++            continue
++    return 0.0
++
++
+ def build_live_action_summary(bundle: DailyDecisionBundle) -> str:
+     market_state = bundle.homepage_overview.get("market_state") or {}
+     regime = str(market_state.get("regime") or bundle.market_view.metadata.get("regime") or bundle.market_view.action)
+
+exec
+/bin/zsh -lc 'PYTHONPATH=src python3 -m pytest tests/test_best_stock_report_rendering.py -v' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 exited 1 in 0ms:
+/Users/fqyuki/.pyenv/versions/3.11.0/bin/python3: No module named pytest
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+index a49f32631f08b010479f3aae06793b699aeba835..2ab77da30d1fe98774344141689f91af43da23f6
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+@@ -21,8 +21,9 @@
+         f"- 状态: `{market_state.get('regime') or bundle.market_view.metadata.get('label')}` | 概率 `{market_probability:.0%}` | 分数 `{market_score}`",
+         f"- 结论: {market_state.get('summary') or bundle.market_view.thesis}",
+         "",
+-        "## Top Priorities",
+     ]
++    lines.extend(render_best_stock_section(bundle.homepage_overview, heading="## 明日最优标的"))
++    lines.extend(["", "## Top Priorities"])
+     change_log = list(market_state.get("realtime_change_log") or [])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:2])}")
+@@ -200,8 +201,9 @@
+         f"- `{market_state.get('regime') or overview.get('market_label') or '暂无'}` | 概率 `{((market_state.get('probability') or 0.0) * 100):.0f}%` | 分数 `{market_state.get('score') or '无'}`",
+         f"- {market_state.get('summary') or overview.get('today_action') or '暂无'}",
+         "",
+-        "## 最该优先处理的 3 件事",
+     ]
++    lines.extend(render_best_stock_section(overview, heading="## 明日最优标的"))
++    lines.extend(["", "## 最该优先处理的 3 件事"])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:3])}")
+     priorities = overview.get("priority_actions", [])
+@@ -337,6 +339,77 @@
+     return "无" if value is None else f"{value:+.2%}"
+ 
+ 
++def render_best_stock_section(payload: dict[str, object], *, heading: str) -> list[str]:
++    best_stock = _normalize_best_stock_payload(payload)
++    lines = ["", heading]
++    if not best_stock:
++        lines.append("- 当前没有可展示的最优标的。")
++        return lines
++
++    pick = best_stock["pick"]
++    backtest = best_stock["backtest"]
++    code = str(pick.get("code") or "unknown")
++    name = str(pick.get("name") or code)
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    strategy_style = str(best_stock.get("strategy_style") or pick.get("strategy_style") or "general")
++    selection_score = _coerce_float(pick.get("selection_score"), best_stock.get("selection_score"))
++    lines.append(
++        f"- {name}({code}) | 交易结论 `{trade_action}` | 风格 `{strategy_style}` | 选择分 `{selection_score:.2f}`"
++    )
++    lines.append(
++        f"- 摘要: {pick.get('summary') or pick.get('thesis') or pick.get('reason') or '暂无摘要。'}"
++    )
++    lines.append(
++        f"- 回测摘要: 交易数 `{int(_coerce_float(backtest.get('trade_count'))):d}` | "
++        f"胜率 `{_coerce_float(backtest.get('win_rate')):.2%}` | "
++        f"平均收益 `{_coerce_float(backtest.get('average_return')):+.2%}`"
++    )
++    trades = list(backtest.get("trades") or [])
++    if trades:
++        latest = trades[0]
++        lines.append(
++            f"- 最近样本: {latest.get('name') or latest.get('code') or '未知'}"
++            f"({latest.get('code') or 'unknown'}) | "
++            f"`{latest.get('trade_action') or latest.get('decision') or '待确认'}` | "
++            f"次日 `{_coerce_float(latest.get('next_day_return')):+.2%}`"
++        )
++    return lines
++
++
++def _normalize_best_stock_payload(payload: dict[str, object]) -> dict[str, object]:
++    candidate = payload.get("best_stock")
++    if not isinstance(candidate, dict):
++        return {}
++    if isinstance(candidate.get("pick"), dict):
++        pick = dict(candidate.get("pick") or {})
++        backtest = dict(candidate.get("backtest") or {})
++        return {
++            "pick": pick,
++            "backtest": backtest,
++            "strategy_style": candidate.get("strategy_style") or pick.get("strategy_style"),
++            "selection_score": candidate.get("selection_score") or pick.get("selection_score"),
++        }
++    pick = dict(candidate)
++    backtest = dict(pick.get("backtest") or {})
++    return {
++        "pick": pick,
++        "backtest": backtest,
++        "strategy_style": pick.get("strategy_style"),
++        "selection_score": pick.get("selection_score"),
++    }
++
++
++def _coerce_float(*values: object) -> float:
++    for value in values:
++        if value in (None, ""):
++            continue
++        try:
++            return float(value)
++        except (TypeError, ValueError):
++            continue
++    return 0.0
++
++
+ def build_live_action_summary(bundle: DailyDecisionBundle) -> str:
+     market_state = bundle.homepage_overview.get("market_state") or {}
+     regime = str(market_state.get("regime") or bundle.market_view.metadata.get("regime") or bundle.market_view.action)
+
+exec
+/bin/zsh -lc "find tests -name 'test_best_stock_report_rendering.py'" in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 succeeded in 0ms:
+
+exec
+/bin/zsh -lc 'PYTHONPATH=src python3 -m unittest tests.test_best_stock_report_rendering -v' in /Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2 exited 1 in 0ms:
+test_best_stock_report_rendering (unittest.loader._FailedTest.test_best_stock_report_rendering) ... ERROR
+
+======================================================================
+ERROR: test_best_stock_report_rendering (unittest.loader._FailedTest.test_best_stock_report_rendering)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_best_stock_report_rendering
+Traceback (most recent call last):
+  File "/Users/fqyuki/.pyenv/versions/3.11.0/lib/python3.11/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'tests.test_best_stock_report_rendering'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+index a49f32631f08b010479f3aae06793b699aeba835..2ab77da30d1fe98774344141689f91af43da23f6
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+@@ -21,8 +21,9 @@
+         f"- 状态: `{market_state.get('regime') or bundle.market_view.metadata.get('label')}` | 概率 `{market_probability:.0%}` | 分数 `{market_score}`",
+         f"- 结论: {market_state.get('summary') or bundle.market_view.thesis}",
+         "",
+-        "## Top Priorities",
+     ]
++    lines.extend(render_best_stock_section(bundle.homepage_overview, heading="## 明日最优标的"))
++    lines.extend(["", "## Top Priorities"])
+     change_log = list(market_state.get("realtime_change_log") or [])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:2])}")
+@@ -200,8 +201,9 @@
+         f"- `{market_state.get('regime') or overview.get('market_label') or '暂无'}` | 概率 `{((market_state.get('probability') or 0.0) * 100):.0f}%` | 分数 `{market_state.get('score') or '无'}`",
+         f"- {market_state.get('summary') or overview.get('today_action') or '暂无'}",
+         "",
+-        "## 最该优先处理的 3 件事",
+     ]
++    lines.extend(render_best_stock_section(overview, heading="## 明日最优标的"))
++    lines.extend(["", "## 最该优先处理的 3 件事"])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:3])}")
+     priorities = overview.get("priority_actions", [])
+@@ -337,6 +339,77 @@
+     return "无" if value is None else f"{value:+.2%}"
+ 
+ 
++def render_best_stock_section(payload: dict[str, object], *, heading: str) -> list[str]:
++    best_stock = _normalize_best_stock_payload(payload)
++    lines = ["", heading]
++    if not best_stock:
++        lines.append("- 当前没有可展示的最优标的。")
++        return lines
++
++    pick = best_stock["pick"]
++    backtest = best_stock["backtest"]
++    code = str(pick.get("code") or "unknown")
++    name = str(pick.get("name") or code)
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    strategy_style = str(best_stock.get("strategy_style") or pick.get("strategy_style") or "general")
++    selection_score = _coerce_float(pick.get("selection_score"), best_stock.get("selection_score"))
++    lines.append(
++        f"- {name}({code}) | 交易结论 `{trade_action}` | 风格 `{strategy_style}` | 选择分 `{selection_score:.2f}`"
++    )
++    lines.append(
++        f"- 摘要: {pick.get('summary') or pick.get('thesis') or pick.get('reason') or '暂无摘要。'}"
++    )
++    lines.append(
++        f"- 回测摘要: 交易数 `{int(_coerce_float(backtest.get('trade_count'))):d}` | "
++        f"胜率 `{_coerce_float(backtest.get('win_rate')):.2%}` | "
++        f"平均收益 `{_coerce_float(backtest.get('average_return')):+.2%}`"
++    )
++    trades = list(backtest.get("trades") or [])
++    if trades:
++        latest = trades[0]
++        lines.append(
++            f"- 最近样本: {latest.get('name') or latest.get('code') or '未知'}"
++            f"({latest.get('code') or 'unknown'}) | "
++            f"`{latest.get('trade_action') or latest.get('decision') or '待确认'}` | "
++            f"次日 `{_coerce_float(latest.get('next_day_return')):+.2%}`"
++        )
++    return lines
++
++
++def _normalize_best_stock_payload(payload: dict[str, object]) -> dict[str, object]:
++    candidate = payload.get("best_stock")
++    if not isinstance(candidate, dict):
++        return {}
++    if isinstance(candidate.get("pick"), dict):
++        pick = dict(candidate.get("pick") or {})
++        backtest = dict(candidate.get("backtest") or {})
++        return {
++            "pick": pick,
++            "backtest": backtest,
++            "strategy_style": candidate.get("strategy_style") or pick.get("strategy_style"),
++            "selection_score": candidate.get("selection_score") or pick.get("selection_score"),
++        }
++    pick = dict(candidate)
++    backtest = dict(pick.get("backtest") or {})
++    return {
++        "pick": pick,
++        "backtest": backtest,
++        "strategy_style": pick.get("strategy_style"),
++        "selection_score": pick.get("selection_score"),
++    }
++
++
++def _coerce_float(*values: object) -> float:
++    for value in values:
++        if value in (None, ""):
++            continue
++        try:
++            return float(value)
++        except (TypeError, ValueError):
++            continue
++    return 0.0
++
++
+ def build_live_action_summary(bundle: DailyDecisionBundle) -> str:
+     market_state = bundle.homepage_overview.get("market_state") or {}
+     regime = str(market_state.get("regime") or bundle.market_view.metadata.get("regime") or bundle.market_view.action)
+
+codex
+{"status":"blocked","changed_files":["src/ashare_harness_v2/decision_harness/rendering.py"],"test_results":[{"name":"PYTHONPATH=src python3 -m pytest tests/test_best_stock_report_rendering.py -v","passed":false,"output":"/Users/fqyuki/.pyenv/versions/3.11.0/bin/python3: No module named pytest"},{"name":"PYTHONPATH=src python3 -m unittest tests.test_best_stock_report_rendering -v","passed":false,"output":"====================================\nERROR: test_best_stock_report_rendering (unittest.loader._FailedTest.test_best_stock_report_rendering)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_best_stock_report_rendering\nTraceback (most recent call last):\n  File \"/Users/fqyuki/.pyenv/versions/3.11.0/lib/python3.11/unittest/loader.py\", line 154, in loadTestsFromName\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nModuleNotFoundError: No module named 'tests.test_best_stock_report_rendering'\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)"}],"evidence":["tests/test_best_stock_report_rendering.py does not exist in the workspace.","The environment does not have pytest installed (`python3 -m pytest` failed with `No module named pytest`)."]}
+file update:
+diff --git a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+index a49f32631f08b010479f3aae06793b699aeba835..2ab77da30d1fe98774344141689f91af43da23f6
+--- a//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
++++ b//Users/fqyuki/Documents/kd_2026/自学内容/代码类/ashare-phase1-agents-v2/src/ashare_harness_v2/decision_harness/rendering.py
+@@ -21,8 +21,9 @@
+         f"- 状态: `{market_state.get('regime') or bundle.market_view.metadata.get('label')}` | 概率 `{market_probability:.0%}` | 分数 `{market_score}`",
+         f"- 结论: {market_state.get('summary') or bundle.market_view.thesis}",
+         "",
+-        "## Top Priorities",
+     ]
++    lines.extend(render_best_stock_section(bundle.homepage_overview, heading="## 明日最优标的"))
++    lines.extend(["", "## Top Priorities"])
+     change_log = list(market_state.get("realtime_change_log") or [])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:2])}")
+@@ -200,8 +201,9 @@
+         f"- `{market_state.get('regime') or overview.get('market_label') or '暂无'}` | 概率 `{((market_state.get('probability') or 0.0) * 100):.0f}%` | 分数 `{market_state.get('score') or '无'}`",
+         f"- {market_state.get('summary') or overview.get('today_action') or '暂无'}",
+         "",
+-        "## 最该优先处理的 3 件事",
+     ]
++    lines.extend(render_best_stock_section(overview, heading="## 明日最优标的"))
++    lines.extend(["", "## 最该优先处理的 3 件事"])
+     if change_log:
+         lines.insert(5, f"- 盘中变化: {' '.join(change_log[:3])}")
+     priorities = overview.get("priority_actions", [])
+@@ -337,6 +339,77 @@
+     return "无" if value is None else f"{value:+.2%}"
+ 
+ 
++def render_best_stock_section(payload: dict[str, object], *, heading: str) -> list[str]:
++    best_stock = _normalize_best_stock_payload(payload)
++    lines = ["", heading]
++    if not best_stock:
++        lines.append("- 当前没有可展示的最优标的。")
++        return lines
++
++    pick = best_stock["pick"]
++    backtest = best_stock["backtest"]
++    code = str(pick.get("code") or "unknown")
++    name = str(pick.get("name") or code)
++    trade_action = str(pick.get("trade_action") or pick.get("decision") or "待确认")
++    strategy_style = str(best_stock.get("strategy_style") or pick.get("strategy_style") or "general")
++    selection_score = _coerce_float(pick.get("selection_score"), best_stock.get("selection_score"))
++    lines.append(
++        f"- {name}({code}) | 交易结论 `{trade_action}` | 风格 `{strategy_style}` | 选择分 `{selection_score:.2f}`"
++    )
++    lines.append(
++        f"- 摘要: {pick.get('summary') or pick.get('thesis') or pick.get('reason') or '暂无摘要。'}"
++    )
++    lines.append(
++        f"- 回测摘要: 交易数 `{int(_coerce_float(backtest.get('trade_count'))):d}` | "
++        f"胜率 `{_coerce_float(backtest.get('win_rate')):.2%}` | "
++        f"平均收益 `{_coerce_float(backtest.get('average_return')):+.2%}`"
++    )
++    trades = list(backtest.get("trades") or [])
++    if trades:
++        latest = trades[0]
++        lines.append(
++            f"- 最近样本: {latest.get('name') or latest.get('code') or '未知'}"
++            f"({latest.get('code') or 'unknown'}) | "
++            f"`{latest.get('trade_action') or latest.get('decision') or '待确认'}` | "
++            f"次日 `{_coerce_float(latest.get('next_day_return')):+.2%}`"
++        )
++    return lines
++
++
++def _normalize_best_stock_payload(payload: dict[str, object]) -> dict[str, object]:
++    candidate = payload.get("best_stock")
++    if not isinstance(candidate, dict):
++        return {}
++    if isinstance(candidate.get("pick"), dict):
++        pick = dict(candidate.get("pick") or {})
++        backtest = dict(candidate.get("backtest") or {})
++        return {
++            "pick": pick,
++            "backtest": backtest,
++            "strategy_style": candidate.get("strategy_style") or pick.get("strategy_style"),
++            "selection_score": candidate.get("selection_score") or pick.get("selection_score"),
++        }
++    pick = dict(candidate)
++    backtest = dict(pick.get("backtest") or {})
++    return {
++        "pick": pick,
++        "backtest": backtest,
++        "strategy_style": pick.get("strategy_style"),
++        "selection_score": pick.get("selection_score"),
++    }
++
++
++def _coerce_float(*values: object) -> float:
++    for value in values:
++        if value in (None, ""):
++            continue
++        try:
++            return float(value)
++        except (TypeError, ValueError):
++            continue
++    return 0.0
++
++
+ def build_live_action_summary(bundle: DailyDecisionBundle) -> str:
+     market_state = bundle.homepage_overview.get("market_state") or {}
+     regime = str(market_state.get("regime") or bundle.market_view.metadata.get("regime") or bundle.market_view.action)
+
+tokens used
+63,078
+2026-03-26T06:08:54.368528Z ERROR rmcp::transport::streamable_http_client: fail to delete session: Client error: HTTP status client error (401 Unauthorized) for url (https://mcp.notion.com/mcp) session_id="25839ddbc2d32b190ff1433ae2b86640001f13d42055355449f59445e5c36576"

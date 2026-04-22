@@ -1,0 +1,47 @@
+[project]
+output_dir = "data/output/watchdog"
+inbox_dir = "data/input/inbox"
+
+[truth]
+# seeking-truth gate 阈值
+candidate_threshold = 2    # score >= 2 进候选池
+key_recommend_threshold = 3  # score >= 3 重点推荐
+lookback_days_announcements = 7
+lookback_days_shareholder = 30
+lookback_days_dragon_tiger = 7
+lookback_days_earnings = 90
+lookback_days_research = 14
+
+# 5 个源的性能开关（某些源代价大或 akshare 上游不稳，默认关闭）
+enable_announcements = true
+enable_shareholder_changes = true
+enable_dragon_tiger = true
+enable_earnings_forecast = true
+# stock_jgdy_detail_em 按日扫全市场 + akshare 上游节假日 TypeError，默认关闭
+enable_institutional_research = false
+
+[hotspots]
+lookback_hours = 24
+# 是否启用每个源（坏一个不影响别的）
+enable_cls_telegraph = true
+enable_eastmoney_news = true
+enable_industry_boards = true
+enable_zt_pool = true
+enable_dragon_tiger = true
+enable_research_rating = true
+enable_inbox = true
+
+[vix]
+# 红灯阈值
+rsi_overbought = 70
+rsi_oversold = 30
+vix_panic = 25
+vix_calm = 20
+momentum_window = 5
+momentum_strong = 0.03
+momentum_weak = -0.03
+
+[schedule]
+# scheduled-tasks MCP cron 表达式（Phase 3 后面用）
+daily_cron = "30 9 * * 1-5"
+timezone = "Asia/Shanghai"

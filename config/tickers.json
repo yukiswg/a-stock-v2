@@ -1,0 +1,30 @@
+{
+  "tickers_tech": {
+    "688256.SS": "寒武纪",
+    "588000.SS": "科创50ETF",
+    "513310.SS": "中韩半导体ETF",
+    "512480.SS": "半导体ETF"
+  },
+  "tickers_defense": {
+    "515220.SS": "煤炭ETF",
+    "601857.SS": "中国石油",
+    "601088.SS": "中国神华"
+  },
+  "universe": {
+    "holdings": [
+      {"code": "601699", "name": "潞安环能", "exchange": "SH"},
+      {"code": "513310", "name": "中韩半导体ETF", "exchange": "SH"},
+      {"code": "588000", "name": "科创50ETF", "exchange": "SH"}
+    ],
+    "watch": [
+      {"code": "688256", "name": "寒武纪", "exchange": "SH"},
+      {"code": "002371", "name": "北方华创", "exchange": "SZ"},
+      {"code": "300750", "name": "宁德时代", "exchange": "SZ"}
+    ],
+    "benchmarks": [
+      {"code": "000300", "name": "沪深300", "exchange": "SH"},
+      {"code": "000905", "name": "中证500", "exchange": "SH"}
+    ]
+  },
+  "xiaohongshu_authors": ["财躺平", "派大星屁屁"]
+}
